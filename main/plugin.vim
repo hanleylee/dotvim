@@ -59,6 +59,8 @@ Plug 'skywind3000/asyncrun.vim' " 异步执行
 Plug 'skywind3000/vim-preview'
 Plug 'skywind3000/vim-quickui'
 Plug 'tpope/vim-fugitive'       " git 插件
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 Plug 'jiazhoulvke/jianfan'      " 简繁转换 Tcn, Scn
 Plug 'simnalamburt/vim-mundo'   " 显示修改历史
 Plug 'tpope/vim-projectionist'        " 在头文件与本文件之间跳转
@@ -71,8 +73,8 @@ Plug 'nathangrigg/vim-beancount'
 Plug 'machakann/vim-Verdin'     " vim 语法补全
 " Plug 'gisphm/vim-gitignore'
 " Plug 'benknoble/gitignore-vim'
-Plug 'tpope/vim-git'
-Plug 'fszymanski/fzf-gitignore'
+" Plug 'tpope/vim-git'
+" Plug 'fszymanski/fzf-gitignore'
 
 "============== UNUSED ================
 " Plug 'bfrg/vim-cpp-modern'

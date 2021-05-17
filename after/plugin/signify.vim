@@ -2,7 +2,7 @@
 let g:signify_realtime = 0
 let g:signify_vcs_list = [ 'git', 'hg' ]
 let g:signify_update_on_bufenter = 1
-let g:signify_skip_filetype = { 'vim': 1, 'c': 1 }
+let g:signify_skip_filetype = { '***': 1 }
 let g:signify_skip_filename = { '/home/user/.vimrc': 1 }
 let g:signify_skip_filename_pattern = [ 'foo.*bar', 'tmp' ]
 let g:signify_vcs_cmds = {

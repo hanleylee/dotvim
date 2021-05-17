@@ -11,7 +11,7 @@
 " set viminfo='50000,~/.viminfo
 " set viminfo=%,\"100,'10,/50,:100,h,f0,n~/.viminfo
 set nocompatible "关闭 vi 兼容模式, 必选
-set viminfo='1000,f1,<500,:1000,@1000,/1000,%1000,h,n~/.viminfo "设置 viminfo, 必须放在 nocompatible 之后
+set viminfo='1000,f1,<500,:1000,@1000,/1000,h,n~/.viminfo "设置 viminfo, 必须放在 nocompatible 之后
 filetype plugin indent on "开启插件功能,必选
 " set shell=bash\ -i
 set shell=bash
@@ -25,7 +25,7 @@ set undofile
 set undodir=$HOME/.cache/vim/undo
 set backupdir=$HOME/.cache/vim/backup "backup 文件存放位置
 set directory=$HOME/.cache/vim/swp "swp 文件存放位置
-set tags=./.tags;.tags
+set tags=./.tags;,./tags;,.tags,tags
 set path+=$HOME/.config/header/** "头文件搜索目录, 非 $PATH
 let $PATH=$HOMEBREW_PREFIX.'/opt/llvm/bin:'.$PATH
 set signcolumn=yes

@@ -49,7 +49,7 @@ Plug 'itchyny/lightline.vim'         " 显示底部导航栏
 Plug 'Yggdroot/indentLine'           " 显示缩进线
 Plug 'andymass/vim-matchup'          " 高亮括号
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug '~/HL/00_Repo/vim-cursor-shape'
+" Plug '~/HL/00_Repo/vim-cursor-shape'
 
 "============== Function ==============
 Plug 'liuchengxu/vista.vim'

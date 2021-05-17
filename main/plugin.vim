@@ -49,7 +49,7 @@ Plug 'itchyny/lightline.vim'         " 显示底部导航栏
 Plug 'Yggdroot/indentLine'           " 显示缩进线
 Plug 'andymass/vim-matchup'          " 高亮括号
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug '~/HL/00_Repo/vim-cursor-shape'
+Plug 'jszakmeister/vim-togglecursor' "改变 cursor 形状
 
 "============== Function ==============
 Plug 'liuchengxu/vista.vim'
@@ -71,12 +71,13 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'nathangrigg/vim-beancount'
 Plug 'machakann/vim-Verdin'     " vim 语法补全
+
+"============== UNUSED ================
+" Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'
 " Plug 'benknoble/gitignore-vim'
 " Plug 'tpope/vim-git'
 " Plug 'fszymanski/fzf-gitignore'
-
-"============== UNUSED ================
 " Plug 'bfrg/vim-cpp-modern'
 " Plug 'sjl/vitality.vim' "光标形状改变
 " Plug 'elzr/vim-json'

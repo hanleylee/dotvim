@@ -14,7 +14,7 @@ set nocompatible "关闭 vi 兼容模式, 必选
 set viminfo='1000,f1,<500,:1000,@1000,/1000,h,n~/.viminfo "设置 viminfo, 必须放在 nocompatible 之后
 filetype plugin indent on "开启插件功能,必选
 " set shell=bash\ -i
-set shell=bash
+set shell=zsh
 set modifiable "设置文件可被修改
 set history=10000 "历史命令最大记录数
 set splitbelow "设置新的垂直分割窗口在下侧

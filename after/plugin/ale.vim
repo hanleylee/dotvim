@@ -45,6 +45,7 @@ let g:ale_fixers = {
             \}
 let g:ale_c_clangd_executable = $HOMEBREW_PREFIX.'/opt/llvm/bin/clangd'
 let g:ale_cpp_clangd_executable = $HOMEBREW_PREFIX.'/opt/llvm/bin/clangd'
+let g:ale_cpp_clangd_options = '-std=c++17'
 " let g:ale_cpp_clangd_options = '' "不能使用 $CFLAGS, 这个是 clangd 的命令选项
 " let g:ale_c_gcc_options = '-Wall -O2 -std=c99 -I/usr/local/Cellar/glib/2.66.7/include/glib-2.0'
 " let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'

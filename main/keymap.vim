@@ -31,6 +31,7 @@ nnoremap <Leader>fc  :Commits<CR>
 nnoremap <Leader>fm  :FM<CR>
 nnoremap <Leader>sn  :UltiSnipsEdit<CR>
 nnoremap <Leader>af  :Autoformat<CR>
+nnoremap <Leader>gs  :Git<CR>
 
 " nnoremap [s                            i<space><esc>l
 " nnoremap ]s                            a<space><esc>h

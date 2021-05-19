@@ -79,7 +79,7 @@ set noshowmode "隐藏vim 的默认提示当前状态信息, eg. 在状态栏下
 set t_Co=256 "Vim 能显示的颜色数
 set shortmess-=S "显示当前搜索的结果数量及当前位置
 set nofoldenable
-" set relativenumber
+set relativenumber
 set completeopt=menu,longest,popup " popup:展示补全列表的侧边窗口
 set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口的样式
 set cursorline "突出光标所在行, 开启后速度变慢

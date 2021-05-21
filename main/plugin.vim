@@ -73,6 +73,7 @@ Plug 'nathangrigg/vim-beancount'
 Plug 'machakann/vim-Verdin'     " vim 语法补全
 
 "============== UNUSED ================
+" Plug 'MFreidank/AnkiVim'
 " Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'
 " Plug 'benknoble/gitignore-vim'

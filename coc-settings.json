@@ -1,0 +1,88 @@
+{
+    "coc.source.file.ignoreHidden": false,
+    "snippets.ultisnips.directories": [
+        "Ultisnips",
+        "~/.config/snippets"
+    ],
+    "markdownlint.config": {
+        "default": true,
+        "line-length": false
+    },
+    "markdownlint.onOpen": true,
+    "markdownlint.onSave": true,
+    "markdownlint.onChange": true,
+    "languageserver": {
+        "lua": {
+            "command": "lua-lsp",
+            "filetypes": [
+                "lua"
+            ]
+        },
+        "efm": {
+            "command": "efm-langserver",
+            "args": [],
+            "filetypes": [
+                "vim",
+                "eruby",
+                "markdown"
+            ]
+        },
+        "sql": {
+            "command": "sql-language-server",
+            "args": [
+                "up",
+                "--method",
+                "stdio"
+            ],
+            "filetypes": [
+                "sql",
+                "mysql"
+            ]
+        },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": [
+                "--lsp"
+            ],
+            "rootPatterns": [
+                "*.cabal",
+                "stack.yaml",
+                "cabal.project",
+                "package.yaml",
+                "hie.yaml"
+            ],
+            "filetypes": [
+                "haskell",
+                "lhaskell"
+            ]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": [
+                "dockerfile"
+            ],
+            "args": [
+                "--stdio"
+            ]
+        },
+        "clojure-lsp": {
+            "command": "bash",
+            "args": [
+                "-c",
+                "clojure-lsp"
+            ],
+            "filetypes": [
+                "clojure"
+            ],
+            "rootPatterns": [
+                "project.clj"
+            ],
+            "additionalSchemes": [
+                "jar",
+                "zipfile"
+            ],
+            "trace.server": "verbose",
+            "initializationOptions": {}
+        }
+    }
+}

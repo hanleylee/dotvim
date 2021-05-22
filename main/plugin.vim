@@ -15,26 +15,18 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-apathy'
 
 " ============= Edit ===========
-Plug 'ycm-core/YouCompleteMe'                       " 补全插件
-Plug 'SirVer/ultisnips'                             " 自定义某些片段
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'                         " 匹配括号
 Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
 Plug 'skywind3000/gutentags_plus'                   " 提供
-Plug 'Shougo/echodoc.vim'
 Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
-Plug 'dense-analysis/ale'                           " 提示语法错误
 Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-Plug 'bronson/vim-visual-star-search'
+Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
 Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
 Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
 Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-syntax'
-Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
-Plug 'sgur/vim-textobj-parameter'
 Plug 'tpope/vim-commentary'                         " 快速注释, gcc
 Plug 'tpope/vim-repeat'                             " 支持重复
 Plug 'tpope/vim-surround'                           " 包围符号
@@ -43,7 +35,6 @@ Plug 'tpope/vim-unimpaired'
 " ============= Appearance ============
 Plug 'joshdick/onedark.vim'
 Plug 'ap/vim-css-color'              " 显示 css 颜色
-Plug 'machakann/vim-highlightedyank' " 使 yank 的文档半透明高亮
 Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
 Plug 'itchyny/lightline.vim'         " 显示底部导航栏
 Plug 'Yggdroot/indentLine'           " 显示缩进线
@@ -59,25 +50,33 @@ Plug 'skywind3000/asyncrun.vim' " 异步执行
 Plug 'skywind3000/vim-preview'
 Plug 'skywind3000/vim-quickui'
 Plug 'tpope/vim-fugitive'       " git 插件
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb'        " browse code on github
+Plug 'junegunn/gv.vim'          " browse git log
 Plug 'jiazhoulvke/jianfan'      " 简繁转换 Tcn, Scn
 Plug 'simnalamburt/vim-mundo'   " 显示修改历史
-Plug 'tpope/vim-projectionist'        " 在头文件与本文件之间跳转
 Plug 'AndrewRadev/inline_edit.vim' "可以在 markdown 内编写代码片段
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 "============== Language ==============
 Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'nathangrigg/vim-beancount'
-Plug 'machakann/vim-Verdin'     " vim 语法补全
+Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
 
 "============== UNUSED ================
+" Plug 'ycm-core/YouCompleteMe'        " 补全插件
+" Plug 'SirVer/ultisnips'                             " 自定义某些片段
+" Plug 'machakann/vim-highlightedyank' " 使 yank 的文档半透明高亮
+" Plug 'machakann/vim-Verdin'     " vim 语法补全
+" Plug 'dense-analysis/ale'                           " 提示语法错误
+" Plug 'Shougo/echodoc.vim'
+
+" Plug 'keith/swift.vim'
 " Plug 'MFreidank/AnkiVim'
 " Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'
 " Plug 'benknoble/gitignore-vim'
 " Plug 'tpope/vim-git'
+" Plug 'tpope/vim-projectionist'        " 在头文件与本文件之间跳转
 " Plug 'fszymanski/fzf-gitignore'
 " Plug 'bfrg/vim-cpp-modern'
 " Plug 'sjl/vitality.vim' "光标形状改变
@@ -111,5 +110,10 @@ Plug 'machakann/vim-Verdin'     " vim 语法补全
 " Plug 'Yggdroot/LeaderF'                " 快速搜索文件
 " Plug 'preservim/nerdcommenter'         " 快速注释某行
 " Plug 'mhinz/vim-startify'              " 首页显示
+" Plug 'kana/vim-textobj-user'
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-syntax'
+" Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+" Plug 'sgur/vim-textobj-parameter'
 
 call plug#end()

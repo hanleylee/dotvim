@@ -16,6 +16,7 @@ let g:formatdef_hl_autopep8 = '"autopep8 - --global-config ~/.config/autopep8/py
 let g:formatters_c = ['hl_c']
 let g:formatters_cpp = ['hl_c']
 let g:formatters_json = ['hl_jq']
+let g:formatters_jsonc = ['hl_jq']
 let g:formatters_js = ['hl_js']
 let g:formatters_yaml = ['hl_yq']
 let g:formatters_sh = ['hl_shfmt']

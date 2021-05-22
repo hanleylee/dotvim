@@ -7,3 +7,4 @@ let g:vim_markdown_conceal_code_blocks = 0 " 对代码不取消隐藏符号
 let g:vim_markdown_strikethrough = 1 " 加删除线
 let g:vim_markdown_conceal = 1
 let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_toc_autofit = 1

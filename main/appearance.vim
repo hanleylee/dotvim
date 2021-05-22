@@ -4,7 +4,7 @@ colorscheme onedark
 set background=dark "设置背" seoul256 (dark):
 " 外观插件会对外观进行设置, 如果在外观插件之前进行设置就会被覆写, 因此要放在配置文件末尾.
 hi CursorLine    cterm=NONE      ctermbg=black ctermfg=NONE  guibg=black   guifg=NONE
-hi CursorColumn  cterm=NONE      ctermbg=black ctermfg=NONE  guibg=black   guifg=NONE
+hi CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
 hi Cursor        cterm=NONE      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
 hi PmenuSel      cterm=NONE      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black
 hi Pmenu         cterm=NONE      ctermbg=238   ctermfg=white guibg=#444444 guifg=white

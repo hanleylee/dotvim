@@ -8,7 +8,7 @@ let g:lightline = {
             \   'active': {
             \       'left': [['mode', 'paste'],
             \                ['gitbranch', 'readonly', 'filename', 'modified'],
-            \                ['linter', 'buffers', 'gutentags'] ],
+            \                ['buffers', 'cocstatus', 'gutentags'] ],
             \       'right': [['lineinfo'],
             \                 ['percent'],
             \                 ['fileformat', 'fileencoding', 'filetype']]
@@ -69,11 +69,12 @@ let g:lightline = {
             \       'mode': 'LightlineMode',
             \       'gitbranch': 'LightlineFugitive',
             \       'readonly': 'LightlineReadonly',
-            \       'linter': 'LinterStatus',
             \       'buffers': 'BuffersCount',
-            \       'gutentags': 'gutentags#statusline'
+            \       'gutentags': 'gutentags#statusline',
+            \       'cocstatus': 'coc#status'
             \   },
             \ }
+           " \       'linter': 'LinterStatus',
 
 function! LightlineMode()
     return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
@@ -92,12 +93,12 @@ function! LightlineFugitive()
     return ''
 endfunction
 
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '' : printf('%d  %d ', all_non_errors, all_errors)
-endfunction
+" function! LinterStatus() abort
+"     let l:counts = ale#statusline#Count(bufnr(''))
+"     let l:all_errors = l:counts.error + l:counts.style_error
+"     let l:all_non_errors = l:counts.total - l:all_errors
+"     return l:counts.total == 0 ? '' : printf('%d  %d ', all_non_errors, all_errors)
+" endfunction
 
 function! LightlineReadonly()
     return &readonly ? '' : ''

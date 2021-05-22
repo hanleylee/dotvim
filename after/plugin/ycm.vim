@@ -5,7 +5,7 @@ let g:ycm_seed_identifiers_with_syntax=1 "是否开启语义补全
 let g:ycm_key_invoke_completion = '<C-z>' "语义补全触发方式
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,vim,lua,javascript,swift': ['re!\w{2}'],
+            \ 'cs,vim,lua,javascript,swift,bash,zsh,sh': ['re!\w{2}'],
             \ }
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>'] "设置用于向上选择补全列表中的选项的快捷键, 默认爲 shift + tab, 和方向上键
@@ -61,3 +61,4 @@ let g:ycm_filepath_blacklist = {'html' : 1, 'jsx' : 1,'xml' : 1,} "对特定文�
 let g:ycm_disable_signature_help = 1 "移除函数定义的提示, 使用 echodoc 进行替代
 let g:ycm_auto_hover='' "or `CursorHold`
 let g:ycm_clangd_args = ['-cross-file-rename'] 
+

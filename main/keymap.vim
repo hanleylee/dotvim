@@ -13,8 +13,7 @@ nnoremap <C-F>       :Files<CR>
 nnoremap <C-H>       :History<CR>
 nnoremap <C-B>       :Buffers<CR>
 nnoremap <C-S>       :SignifyDiff<CR>
-" go to reference
-" rename func or param
+
 noremap <Leader><space> :call QuickMenu()<cr>
 nnoremap <Leader>fa  :Ag<CR>
 nnoremap <Leader>fl  :Lines<CR>
@@ -28,13 +27,13 @@ nnoremap <Leader>sn  :UltiSnipsEdit<CR>
 nnoremap <Leader>af  :Autoformat<CR>
 nnoremap <Leader>gs  :Git<CR>
 
-" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <silent><Leader>D :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')

@@ -71,10 +71,9 @@ let g:lightline = {
             \       'readonly': 'LightlineReadonly',
             \       'buffers': 'BuffersCount',
             \       'gutentags': 'gutentags#statusline',
-            \       'cocstatus': 'coc#status'
+            \       'cocstatus': 'CocDiagnosticStatus1'
             \   },
             \ }
-           " \       'linter': 'LinterStatus',
 
 function! LightlineMode()
     return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
@@ -93,12 +92,25 @@ function! LightlineFugitive()
     return ''
 endfunction
 
-" function! LinterStatus() abort
+" function! AleLinterStatus() abort
 "     let l:counts = ale#statusline#Count(bufnr(''))
 "     let l:all_errors = l:counts.error + l:counts.style_error
 "     let l:all_non_errors = l:counts.total - l:all_errors
 "     return l:counts.total == 0 ? '' : printf('%d  %d ', all_non_errors, all_errors)
 " endfunction
+
+function! CocDiagnosticStatus1() abort
+    let info = get(b:, 'coc_diagnostic_info', {})
+    let msgs = []
+    if get(info, 'error', 0)
+        call add(msgs, '' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+        call add(msgs, ' ' . info['warning'])
+    endif
+    let statusStr = len(msgs) == 0 ? ' ' : join(msgs, ' ')
+    return statusStr . get(g:, 'coc_status', '')
+endfunction
 
 function! LightlineReadonly()
     return &readonly ? '' : ''

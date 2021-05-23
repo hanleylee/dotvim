@@ -5,8 +5,8 @@ nnoremap <silent><F2>        :Run<CR>
 nnoremap <F3>        :call quickui#tools#preview_tag('')<cr>
 nnoremap <F4>        :Vista!!<CR>
 nnoremap <F10>       :call asyncrun#quickfix_toggle(6)<CR>
-nmap <Space>          <Plug>(easymotion-bd-w)
-vmap <Space>          <Plug>(easymotion-bd-w)
+nmap <Leader><Space>          <Plug>(easymotion-bd-w)
+vmap <Leader><Space>          <Plug>(easymotion-bd-w)
 nmap <Leader>en       <Plug>(coc-diagnostic-next)<CR>
 nmap <Leader>ep       <Plug>(coc-diagnostic-prev)<CR>
 nnoremap <C-F>       :Files<CR>
@@ -14,7 +14,7 @@ nnoremap <C-H>       :History<CR>
 nnoremap <C-B>       :Buffers<CR>
 nnoremap <C-S>       :SignifyDiff<CR>
 
-noremap <Leader><space> :call QuickMenu()<cr>
+nnoremap <Leader>qm   :call QuickMenu()<cr>
 nnoremap <Leader>fa  :Ag<CR>
 nnoremap <Leader>fl  :Lines<CR>
 nnoremap <Leader>fb  :BCommits<CR>
@@ -65,14 +65,15 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-nnoremap <silent><nowait> <Leader>cod  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <Leader>coe  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <Leader>coc  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <Leader>coo  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <Leader>cos  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <Leader>con  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <Leader>cop  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <Leader>cor  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <Space>cd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <Space>ce  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <Space>cc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <Space>co  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <Space>cs  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <Space>cn  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
 
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 

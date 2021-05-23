@@ -29,6 +29,7 @@ set tags=./.tags;,./tags;,.tags,tags
 set path+=$HOME/.config/header/** "头文件搜索目录, 非 $PATH
 let $PATH=$HOMEBREW_PREFIX.'/opt/llvm/bin:'.$PATH
 set signcolumn=yes
+" set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
 set mouse+=a "保证行号不被复制
@@ -70,6 +71,7 @@ set number "显示行号
 set wildmenu "输入部分命令按下 tab 键可以弹出符合的命令列表
 set wildmode=full
 set showcmd "右下角显示正在操作的命令
+" set cmdheight=2
 set list "设置显示行尾, 换行, 制表符等隐藏字符
 set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ "自定义换行, 制表符等显示格式
 set laststatus=2 "必须设置, 否则 lightline 不能正确显示

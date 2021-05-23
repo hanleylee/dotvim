@@ -1,8 +1,10 @@
 {
+    "coc.source.word.enable": false,
     "coc.source.file.ignoreHidden": false,
+    "coc.source.file.ignorePatterns": [],
     "snippets.ultisnips.directories": [
         "Ultisnips",
-        "~/.config/snippets"
+        "~/.local/snippets"
     ],
     "markdownlint.config": {
         "default": true,

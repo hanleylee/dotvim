@@ -3,16 +3,18 @@ colorscheme onedark
 " colorscheme gruvbox
 set background=dark "设置背" seoul256 (dark):
 " 外观插件会对外观进行设置, 如果在外观插件之前进行设置就会被覆写, 因此要放在配置文件末尾.
-hi CursorLine    cterm=NONE      ctermbg=black ctermfg=NONE  guibg=black   guifg=NONE
+hi CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=NONE   guifg=NONE gui=bold
 hi CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
-hi Cursor        cterm=NONE      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
-hi PmenuSel      cterm=NONE      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black
-hi Pmenu         cterm=NONE      ctermbg=238   ctermfg=white guibg=#444444 guifg=white
+hi Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
+hi PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
+hi Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold
 " hi Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey 
 hi MatchParen    cterm=italic    ctermbg=black ctermfg=178   guibg=#d7af00 guifg=black gui=italic
 hi MatchWord     cterm=underline ctermbg=238                 guibg=#444444             gui=underline
 hi MatchParenCur cterm=underline                                                       gui=underline
 hi MatchWordCur  cterm=underline                                                       gui=underline
+
+hi NoteMarker    cterm=bold      ctermbg=208 ctermfg=black guibg=#ff8700    guifg=black  gui=bold 
 
 " change cursor shape in different modes
 " refer to https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes

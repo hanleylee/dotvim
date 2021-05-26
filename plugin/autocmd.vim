@@ -26,13 +26,16 @@ augroup END
 
 augroup CocAutoGroup
     autocmd!
-    " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
     autocmd CursorHold * silent call CocActionAsync('highlight')
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 augroup end
 
+augroup HLHighlightKeyword
+    autocmd!
+    autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
+augroup end
 
 " vim 进入时的判断
 func! Enter()

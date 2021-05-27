@@ -28,7 +28,6 @@ set directory=$HOME/.cache/vim/swp "swp 文件存放位置
 set tags=./.tags;,./tags;,.tags,tags
 set path+=$HOME/.config/header/** "头文件搜索目录, 非 $PATH
 let $PATH=$HOMEBREW_PREFIX.'/opt/llvm/bin:'.$PATH
-set signcolumn=yes
 " set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
@@ -87,6 +86,9 @@ set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口�
 set cursorline "突出光标所在行, 开启后速度变慢
 set scrolloff=1 "设置光标距离最顶(底)部的距离不小于 1 行(一旦小于 1 行即触发位于下方的 scrolljump)
 set scrolljump=5 "光标移动到底部时自动向下翻动 5 行
+set signcolumn=yes
+set textwidth=150
+set formatoptions-=croql
 
 " set cursorcolumn "突出光标所在列, 开启后速度变慢
 " set linespace=16 "设置行间距

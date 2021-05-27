@@ -8,7 +8,7 @@ let g:lightline = {
             \   'active': {
             \       'left': [['mode', 'paste'],
             \                ['gitbranch', 'readonly', 'filename', 'modified'],
-            \                ['buffers', 'cocstatus', 'gutentags'] ],
+            \                ['buffers', 'cocstatus', 'gutentags', 'diffcount'] ],
             \       'right': [['lineinfo'],
             \                 ['percent'],
             \                 ['fileformat', 'fileencoding', 'filetype']]
@@ -71,7 +71,8 @@ let g:lightline = {
             \       'readonly': 'LightlineReadonly',
             \       'buffers': 'BuffersCount',
             \       'gutentags': 'gutentags#statusline',
-            \       'cocstatus': 'CocDiagnosticStatus1'
+            \       'cocstatus': 'CocDiagnosticStatus1',
+            \       'diffcount': 'DiffCount'
             \   },
             \ }
 

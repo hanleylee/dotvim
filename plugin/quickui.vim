@@ -1,7 +1,7 @@
 let g:quickui_border_style = 1
 let g:quickui_preview_w = 100
 let g:quickui_preview_h = 40
-let g:quickui_color_scheme = 'gruvbox'
+" let g:quickui_color_scheme = 'gruvbox'
 " enable to display tips in the cmdline
 let g:quickui_show_tip = 1
 

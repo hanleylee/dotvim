@@ -3,13 +3,17 @@
     "coc.source.word.filetypes": ["markdown"],
     "coc.source.file.ignoreHidden": false,
     "coc.source.file.ignorePatterns": [],
+    "coc.source.emoji.filetypes": ["markdown"],
+    "coc.source.emoji.shortcut": "Emoji",
     "snippets.ultisnips.directories": [
         "Ultisnips",
         "~/.local/snippets"
     ],
     "markdownlint.config": {
         "default": true,
-        "line-length": false
+        "line-length": false,
+        "commands-show-output": false,
+        "code-block-style": false
     },
     "markdownlint.onOpen": true,
     "markdownlint.onSave": true,
@@ -26,8 +30,8 @@
             "args": [],
             "filetypes": [
                 "vim",
-                "eruby",
-                "markdown"
+                "eruby"
+                /* "markdown" */
             ]
         },
         "sql": {

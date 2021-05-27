@@ -14,7 +14,7 @@ nnoremap <C-H>       :History<CR>
 nnoremap <C-B>       :Buffers<CR>
 nnoremap <C-S>       :SignifyDiff<CR>
 
-nnoremap <Leader>qm   :call QuickMenu()<cr>
+nnoremap <Leader>qm  :call QuickMenu()<cr>
 nnoremap <Leader>fa  :Ag<CR>
 nnoremap <Leader>fl  :Lines<CR>
 nnoremap <Leader>fb  :BCommits<CR>
@@ -26,6 +26,8 @@ nnoremap <Leader>fm  :FM<CR>
 nnoremap <Leader>sn  :UltiSnipsEdit<CR>
 nnoremap <Leader>af  :Autoformat<CR>
 nnoremap <Leader>gs  :Git<CR>
+nnoremap gdl :diffget LO<CR>
+nnoremap gdr :diffget RE<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

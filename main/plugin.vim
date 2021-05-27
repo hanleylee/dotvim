@@ -27,6 +27,7 @@ Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 
 Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
 Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
+Plug 'kshenoy/vim-signature'                        " signature 插件
 Plug 'tpope/vim-commentary'                         " 快速注释, gcc
 Plug 'tpope/vim-repeat'                             " 支持重复
 Plug 'tpope/vim-surround'                           " 包围符号

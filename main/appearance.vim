@@ -10,7 +10,7 @@ hi Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg
 " hi PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
 " hi Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold
 " hi Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey 
-hi Todo          cterm=NONE      ctermbg=208 ctermfg=black guibg=#ff8700    guifg=black  gui=bold 
+hi Todo                          ctermbg=208 ctermfg=black guibg=#ff8700    guifg=black  gui=bold
 hi MatchParen    cterm=italic    ctermbg=black ctermfg=178   guibg=#d7af00 guifg=black gui=italic
 
 " MARK: Plugin group

@@ -84,8 +84,8 @@ set relativenumber
 set completeopt=menu,longest,popup " popup:展示补全列表的侧边窗口
 set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口的样式
 set cursorline "突出光标所在行, 开启后速度变慢
-set scrolloff=1 "设置光标距离最顶(底)部的距离不小于 1 行(一旦小于 1 行即触发位于下方的 scrolljump)
-set scrolljump=5 "光标移动到底部时自动向下翻动 5 行
+" set scrolloff=1 "设置光标距离最顶(底)部的距离不小于 1 行(一旦小于 1 行即触发位于下方的 scrolljump)
+" set scrolljump=5 "光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150
 set formatoptions-=croql

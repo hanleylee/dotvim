@@ -9,7 +9,20 @@ call plug#begin('$HOME/.vim/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight')
 
-if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse, include: basic highlight, basic edit
+if s:vim_weight >= 0 || has('gui_running') " MARK: level v0, only for fast browse
+    " ============= Edit ===========
+    Plug 'kshenoy/vim-signature'                        " signature 插件
+    Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
+
+    " ============= Appearance ============
+    Plug 'joshdick/onedark.vim'
+    Plug 'itchyny/lightline.vim'         " 显示底部导航栏
+    Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'Yggdroot/indentLine'           " 显示缩进线
+    Plug 'andymass/vim-matchup'          " 高亮括号
+endif
+
+if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse & basic edit
     " ============= File Management =============
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
@@ -18,21 +31,14 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse, include: ba
 
     " ============= Edit ===========
     Plug 'jiangmiao/auto-pairs'                         " 匹配括号
-    Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
-    Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-unimpaired'
 
     " ============= Appearance ============
-    Plug 'joshdick/onedark.vim'
-    Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'ap/vim-css-color'              " 显示 css 颜色
     Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
-    Plug 'Yggdroot/indentLine'           " 显示缩进线
-    Plug 'andymass/vim-matchup'          " 高亮括号
-    Plug 'octol/vim-cpp-enhanced-highlight'
 
     " ============== Function ==============
     Plug 'tpope/vim-fugitive'       " git 插件
@@ -48,7 +54,7 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse, include: ba
     Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
 endif
 
-if s:vim_weight  >= 2 || has('gui_running') " MARK: level v2, premium edit feature
+if s:vim_weight  >= 2 || has('gui_running') " MARK: level v2, browse & premium edit
     " ============= Edit ===========
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
@@ -70,7 +76,7 @@ if s:vim_weight  >= 2 || has('gui_running') " MARK: level v2, premium edit featu
     Plug 'skywind3000/vim-quickui'
 endif
 
-    if s:vim_weight >= 3 || has('gui_running') "MARK: level3, heaviest, add completion
+if s:vim_weight >= 3 || has('gui_running') "MARK: level3, heaviest, add completion
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'

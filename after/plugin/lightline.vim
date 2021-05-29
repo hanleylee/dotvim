@@ -1,4 +1,7 @@
-"*********************   lightline   *****************************************
+if !PlugLoaded('lightline.vim')
+    finish
+endif
+
             " \ 'tabline_separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
             " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 let g:lightline = {

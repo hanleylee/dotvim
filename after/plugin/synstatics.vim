@@ -1,4 +1,7 @@
-"*****************   Syntastic   ***************************
+if !PlugLoaded('synstatics')
+    finish
+endif
+
 "let g:syntastic_error_symbol='>>'
 "let g:syntastic_warning_symbol='>'
 "let g:syntastic_check_on_open=0

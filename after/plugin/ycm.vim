@@ -1,4 +1,7 @@
-"********************   YouCompleteMe   ***************************
+if !PlugLoaded('YouCompleteMe')
+    finish
+endif
+
 let g:ycm_global_ycm_extra_conf = '~/.config/ycm/.ycm_extra_conf.py' " 默认配置文件路径
 let g:ycm_confirm_extra_conf=0 "打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_seed_identifiers_with_syntax=1 "是否开启语义补全
@@ -61,4 +64,3 @@ let g:ycm_filepath_blacklist = {'html' : 1, 'jsx' : 1,'xml' : 1,} "对特定文�
 let g:ycm_disable_signature_help = 1 "移除函数定义的提示, 使用 echodoc 进行替代
 let g:ycm_auto_hover='' "or `CursorHold`
 let g:ycm_clangd_args = ['-cross-file-rename'] 
-

@@ -1,36 +1,42 @@
 "███████████████████████  autocmd  ██████████████████████████
-augroup TogglePreview
+augroup Enter
     autocmd!
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g'\"" | endif "自动跳转到上次退出的位置
     au VimEnter * call Enter()
 augroup END
 
-augroup PreviewInQuickFix
-    autocmd!
-    au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
-    au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
-    au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
-    au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
-    au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
-    " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
-    " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
-    " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>
-    " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
-augroup END
+if PlugLoaded('vim-quickui')
+    augroup QuickUIPreview
+        autocmd!
+        au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+        au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
+        au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
+        au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
+        au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
+        " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+        " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+        " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>
+        " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
+    augroup END
+endif
 
-augroup MyGutentagsStatusLineRefresher
-    autocmd!
-    autocmd User GutentagsUpdating call lightline#update()
-    autocmd User GutentagsUpdated call lightline#update()
-augroup END
+if PlugLoaded('vim-gutentags')
+    augroup MyGutentagsStatusLineRefresher
+        autocmd!
+        autocmd User GutentagsUpdating call lightline#update()
+        autocmd User GutentagsUpdated call lightline#update()
+    augroup END
+endif
 
-augroup CocAutoGroup
-    autocmd!
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-    autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-augroup end
+if PlugLoaded('coc.nvim')
+    augroup CocAutoGroup
+        autocmd!
+        autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+    augroup end
+endif
 
 augroup HLHighlightKeyword
     autocmd!
@@ -39,15 +45,6 @@ augroup HLHighlightKeyword
     " 这里要使用 matchadd 方法进行自定义词语的高亮, 因为它的优先级较高, 不会被 cursorLine 的背景色覆盖
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
 augroup end
-
-" vim 进入时的判断
-func! Enter()
-    if argc() == 0 && !has('gui_running')
-        exec 'silent Explore'
-    elseif argc() == 0 && has('gui_running')
-        exec 'cd ~/HL/00_Repo/00_HKMS' | exec 'silent Explore'
-    endif
-endfunc
 
 " 保存时自动格式化指定文件类型代码
 " au BufWrite * :Autoformat

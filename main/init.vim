@@ -106,14 +106,17 @@ set formatoptions-=croql
 "=======================   Function   ============================
 exec 'source '.expand('$VIMCONFIG/main/function.vim')
 
-"=======================   Keymap   ============================
-call Source('$VIMCONFIG/main/keymap.vim')
-
 "=======================   Plugin   ============================
 call Source('$VIMCONFIG/main/plugin.vim')
+
+"=======================   Keymap   ============================
+call Source('$VIMCONFIG/main/keymap.vim')
 
 "=======================   Command   ============================
 call Source('$VIMCONFIG/main/command.vim')
 
 "=======================   Appearance   ============================
 call Source('$VIMCONFIG/main/appearance.vim')
+
+"=======================   Auto   ============================
+call Source('$VIMCONFIG/main/autocmd.vim')

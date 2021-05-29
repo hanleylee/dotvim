@@ -1,3 +1,7 @@
+if !PlugLoaded('vim-indent-guides')
+    finish
+endif
+
 " "*****************   nathanaelkane/vim-indent-guides   ****************
 " let g:indent_guides_enable_on_vim_startup = 1 "是否在启动时自动运行
 " let g:indent_guides_guide_size = 1 "设置缩进线宽度, 1 个字符

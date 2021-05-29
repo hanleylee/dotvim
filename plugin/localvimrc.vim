@@ -1,4 +1,7 @@
-"*****************   localvimrc   ****************************
+if !PlugLoaded('vim-localvimrc')
+    finish
+endif
+
 let g:localvimrc_name=[".lvimrc"]
 let g:localvimrc_enable=1
 let g:localvimrc_ask=1

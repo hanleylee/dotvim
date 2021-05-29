@@ -1,4 +1,7 @@
-"*****************   Limelight   ***************************
+if !PlugLoaded('limelight.vim')
+    finish
+endif
+
 "let g:limelight_default_coefficient = 0.5 "设置隐藏区域的黑暗度, 值越大越暗
 "let g:limelight_paragraph_span = 2 "设置暗光的跨度, 暗光所能照亮的范围
 "let g:limelight_priority = -1 "暗光优先级, 防止搜索的高亮效果被覆盖

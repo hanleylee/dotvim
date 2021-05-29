@@ -1,4 +1,7 @@
-"********************   vim-signify   ***************************
+if !PlugLoaded('vim-signify')
+    finish
+endif
+
 let g:signify_realtime = 0
 let g:signify_vcs_list = [ 'git', 'hg' ]
 let g:signify_update_on_bufenter = 1

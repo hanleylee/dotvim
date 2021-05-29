@@ -1,4 +1,7 @@
-""*****************   vimwiki   ****************************
+if !PlugLoaded('vimwiki')
+    finish
+endif
+
 "let g:vimwiki_global_ext = 0
 "let g:vimwiki_list = [
 "  \{'path': '~/HL/00_Repo/00_HKMS',

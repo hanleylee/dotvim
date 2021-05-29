@@ -1,3 +1,7 @@
+if !PlugLoaded('CompleteParameter.vim')
+    finish
+endif
+
 let g:complete_parameter_log_level = 5
 let g:complete_parameter_use_ultisnips_mapping = 0
 let g:complete_parameter_echo_signature = 1

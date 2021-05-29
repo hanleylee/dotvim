@@ -1,4 +1,7 @@
-"*********************   LeaderF   ************************
+if !PlugLoaded('LeaderF')
+    finish
+endif
+
 ""去ff翻目录所以如果需要搜索的话就是用 Alfred 搜索, Leaderf
 ""仅作为打开历史jj记录文件工具
 "let g:Lf_UseCache = 1 "使用缓存

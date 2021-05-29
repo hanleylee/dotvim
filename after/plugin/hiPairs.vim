@@ -1,4 +1,7 @@
-"*****************   Yggdroot/hiPairs   *******************
+if !PlugLoaded('hiPairs')
+    finish
+endif
+
 " 匹配符号样式设置
 let g:hiPairs_hl_matchPair = { 'term'    : 'underline,bold',
             \                  'cterm'   : 'bold',

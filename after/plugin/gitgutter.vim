@@ -1,4 +1,7 @@
-"****************   airblade/vim-gitgutter   *****************
+if !PlugLoaded('vim-gitgutter')
+    finish
+endif
+
 "let g:gitgutter_max_signs = 500  " default value
 "let g:gitgutter_enabled = 0 "To turn off vim-gitgutter by default
 "let g:gitgutter_signs = 0 "To turn off signs by default

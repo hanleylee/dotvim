@@ -1,4 +1,7 @@
-"*****************   mhinz/vim-startify   *****************
+if !PlugLoaded('vim-startify')
+    finish
+endif
+
 "" 设置书签
 "let g:startify_bookmarks = [
 "            \ '~/.vimrc',

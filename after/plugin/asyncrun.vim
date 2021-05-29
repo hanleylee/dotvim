@@ -1,3 +1,7 @@
+if !PlugLoaded('asyncrun.vim')
+    finish
+endif
+
 "*****************   AsyncRun   *************************************
 let g:asyncrun_rootmarks = [
             \ '.svn', 

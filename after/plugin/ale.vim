@@ -1,3 +1,7 @@
+if !PlugLoaded('ale')
+    finish
+endif
+
 let g:ale_enabled = 1
 let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_fixers = {

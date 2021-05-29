@@ -1,4 +1,7 @@
-"********************   plasticboy/vim-markdown   ***************************
+if !PlugLoaded('vim-markdown')
+    finish
+endif
+
 let g:vim_markdown_folding_disabled = 1 "关闭折叠功能(太耗费性能)
 let g:vim_markdown_folding_level = 3 "文件打开时显示的目录总级别
 let g:vim_markdown_auto_insert_bullets = 1 "换行时自动插入项目符号

@@ -1,4 +1,7 @@
-"****************   preservim/nerdcommenter   *******************
+if !PlugLoaded('nerdcommenter')
+    finish
+endif
+
 " let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left instead of following code indentation
 " let g:NERDAltDelims_c = 1 " 必须设置, 否则下面的自定义不会起作用
 " let g:NERDAltDelims_swift = 1 " 必须设置, 否则下面的自定义不会起作用

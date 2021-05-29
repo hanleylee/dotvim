@@ -1,4 +1,7 @@
-"********************   Markdown-Preview.nvim   *************************
+if !PlugLoaded('markdown-preview.nvim')
+    finish
+endif
+
 let g:mkdp_auto_start = 0 "打开文件后自动弹出, 0 为否
 let g:mkdp_auto_close = 1 "关闭文件后自动关闭预览窗口, 1 为是
 let g:mkdp_refresh_slow = 0 "慢速预览, 修改后退出 insert 模式后方会刷新视图, 1 为是

@@ -9,15 +9,6 @@
         "Ultisnips",
         "~/.local/snippets"
     ],
-    /* "markdownlint.config": { */
-    /*     "default": true, */
-    /*     "line-length": false, */
-    /*     "commands-show-output": false, */
-    /*     "code-block-style": false, */
-    /*     "MD007": { */
-    /*         "indent": 4 */
-    /*     } */
-    /* }, */
     "markdownlint.onOpen": true,
     "markdownlint.onSave": true,
     "markdownlint.onChange": true,

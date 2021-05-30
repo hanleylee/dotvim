@@ -1,4 +1,4 @@
-if !PlugLoaded('vim-xkbswitch')
+if !PlugLoaded('xkbswitch')
     finish
 endif
 

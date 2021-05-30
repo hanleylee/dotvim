@@ -1,4 +1,4 @@
-if !PlugLoaded('IndentLine')
+if !PlugLoaded('indentLine')
     finish
 endif
 

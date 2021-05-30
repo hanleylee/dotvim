@@ -45,11 +45,6 @@ func! EscapeJSON()
     %s/\n//g
 endfunc
 
-" source file, avoid long expression
-func! Source(filename)
-    exec 'source '.expand(a:filename)
-endfunction
-
 " open frontmost vim path in mac finder
 func! OFD()
     execute "![ -f \"%:p\" ] && open -R \"%:p\" || open \"%:p:h\""

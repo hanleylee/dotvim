@@ -7,7 +7,7 @@
 
 call plug#begin('$HOME/.vim/plugged')
 
-let s:vim_weight = get(g:, 'vim_weight')
+let s:vim_weight = get(g:, 'vim_weight', '1') "默认值给1, 当使用 vim 直接进入时就是
 
 if s:vim_weight >= 0 || has('gui_running') " MARK: level v0, only for fast browse
     " ============= Edit ===========

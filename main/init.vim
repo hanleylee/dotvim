@@ -5,6 +5,8 @@
 "1. 一定要了解此项能实现什么功能再配置
 "2. 没有必要的插件能不装就不装, 尽量用 Vim 原生功能
 
+exec 'source '.expand('$VIMCONFIG/main/preinit.vim')
+
 "███████████████████████   Vim 系统特性   ██████████████████████████
 
 "=======================   Main   ==================================
@@ -16,18 +18,29 @@ filetype plugin indent on "开启插件功能,必选
 " set shell=bash\ -i
 set shell=zsh
 set modifiable "设置文件可被修改
-set history=10000 "历史命令最大记录数
+set tags=./.tags;,./tags;,.tags,tags
 set splitbelow "设置新的垂直分割窗口在下侧
 set splitright "设置新的垂直分割窗口在右侧
+set history=10000 "历史命令最大记录数
 set backup "backup 当前文件
 set writebackup "自动删除旧 backup 文件
 set undofile
+
+call GuardExistDirectory(expand('$HOME/.cache/vim/undo'))
 set undodir=$HOME/.cache/vim/undo
+call GuardExistDirectory(expand('$HOME/.cache/vim/backup'))
 set backupdir=$HOME/.cache/vim/backup "backup 文件存放位置
-set directory=$HOME/.cache/vim/swp "swp 文件存放位置
-set tags=./.tags;,./tags;,.tags,tags
-set path+=$HOME/.config/header/** "头文件搜索目录, 非 $PATH
-let $PATH=$HOMEBREW_PREFIX.'/opt/llvm/bin:'.$PATH
+call GuardExistDirectory(expand('$HOME/.cache/vim/swp'))
+set directory=$HOME/.cache/vim/swp
+
+if isdirectory(expand('$HOME/.local/share/header'))
+    set path+=$HOME/.local/share/header/** "头文件搜索目录, 非 $PATH
+endif
+
+let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
+if isdirectory(s:llvm_path)
+    let $PATH=s:llvm_path.':'.$PATH
+endif
 " set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
@@ -74,7 +87,12 @@ set showcmd "右下角显示正在操作的命令
 set list "设置显示行尾, 换行, 制表符等隐藏字符
 set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ "自定义换行, 制表符等显示格式
 set laststatus=2 "必须设置, 否则 lightline 不能正确显示
-set runtimepath+=$HOMEBREW_PREFIX/opt/fzf "设置 fzf 路径
+
+let s:fzf_path = expand('$HOMEBREW_PREFIX/opt/fzf')
+if isdirectory(s:fzf_path)
+    set runtimepath+=fzf_path "设置 fzf 路径
+endif
+
 set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode "隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 "Vim 能显示的颜色数
@@ -104,7 +122,7 @@ set formatoptions-=croql
 
 "███████████████████████   Source Load File   ██████████████████████████
 "=======================   Function   ============================
-exec 'source '.expand('$VIMCONFIG/main/function.vim')
+call Source('$VIMCONFIG/main/function.vim')
 
 "=======================   Plugin   ============================
 call Source('$VIMCONFIG/main/plugin.vim')

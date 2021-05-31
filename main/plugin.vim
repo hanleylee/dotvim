@@ -7,9 +7,12 @@
 
 call plug#begin('$HOME/.vim/plugged')
 
-let s:vim_weight = get(g:, 'vim_weight', '1') "默认值给1, 当使用 vim 直接进入时就是
+let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = vim1 )
 
-if s:vim_weight >= 0 || has('gui_running') " MARK: level v0, only for fast browse
+if s:vim_weight >= 0 " MARK: level v0, load nothing, only basic vim original configuration
+endif
+
+if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast browse
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
@@ -22,7 +25,7 @@ if s:vim_weight >= 0 || has('gui_running') " MARK: level v0, only for fast brows
     Plug 'andymass/vim-matchup'          " 高亮括号
 endif
 
-if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse & basic edit
+if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
     " ============= File Management =============
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
@@ -54,7 +57,7 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, browse & basic edit
     Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
 endif
 
-if s:vim_weight  >= 2 || has('gui_running') " MARK: level v2, browse & premium edit
+if s:vim_weight  >= 3 || has('gui_running') " MARK: level v3, browse & premium edit
     " ============= Edit ===========
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
@@ -76,7 +79,7 @@ if s:vim_weight  >= 2 || has('gui_running') " MARK: level v2, browse & premium e
     Plug 'skywind3000/vim-quickui'
 endif
 
-if s:vim_weight >= 3 || has('gui_running') "MARK: level3, heaviest, add completion
+if s:vim_weight >= 4 || has('gui_running') "MARK: level4, heaviest, add completion on previous feature
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'

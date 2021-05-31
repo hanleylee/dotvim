@@ -16,6 +16,8 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast brows
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
+    Plug 'tpope/vim-vinegar'
+    Plug 'tpope/vim-unimpaired'
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
@@ -23,6 +25,12 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast brows
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
+    Plug 'ap/vim-css-color'              " 显示 css 颜色
+
+    "============== Language ==============
+    Plug 'plasticboy/vim-markdown'
+    Plug 'nathangrigg/vim-beancount'
+    Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
 endif
 
 if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
@@ -30,17 +38,14 @@ if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
-    Plug 'tpope/vim-vinegar'
 
     " ============= Edit ===========
     Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
-    Plug 'tpope/vim-unimpaired'
 
     " ============= Appearance ============
-    Plug 'ap/vim-css-color'              " 显示 css 颜色
     Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
 
     " ============== Function ==============
@@ -51,10 +56,6 @@ if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
 
-    "============== Language ==============
-    Plug 'plasticboy/vim-markdown'
-    Plug 'nathangrigg/vim-beancount'
-    Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
 endif
 
 if s:vim_weight  >= 3 || has('gui_running') " MARK: level v3, browse & premium edit

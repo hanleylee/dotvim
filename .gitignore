@@ -19,4 +19,3 @@ tags
 [._]*.un~
 .DS_Store
 /plugged/
-/autoload/

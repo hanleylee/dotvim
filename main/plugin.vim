@@ -18,6 +18,7 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast brows
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
     Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-unimpaired'
+    Plug 'ojroques/vim-oscyank'
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'

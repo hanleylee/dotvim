@@ -7,6 +7,10 @@ nnoremap gdr                 :diffget RE<CR>
 nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 
+if PlugLoaded('vim-oscyank')
+    vnoremap <leader>oy :OSCYank<CR>
+endif
+
 if PlugLoaded('asyncrun.vim')
     nnoremap <F10>               :call asyncrun#quickfix_toggle(6)<CR>
 endif

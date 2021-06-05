@@ -2,7 +2,8 @@ if !PlugLoaded('asyncrun.vim')
     finish
 endif
 
-"*****************   AsyncRun   *************************************
+nnoremap <F10>               :call asyncrun#quickfix_toggle(6)<CR>
+
 let g:asyncrun_rootmarks = [
             \ '.svn', 
             \ '.git', 

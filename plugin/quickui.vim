@@ -2,6 +2,22 @@ if !PlugLoaded('vim-quickui')
     finish
 endif
 
+augroup QuickUIPreview
+    autocmd!
+    au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+    au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
+    au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
+    au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
+    au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
+    " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+    " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+    " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>
+    " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
+augroup END
+
+nnoremap <F3>                :call quickui#tools#preview_tag('')<cr>
+nnoremap <Leader>qm          :call QuickMenu()<cr>
+
 let g:quickui_border_style = 1
 let g:quickui_preview_w = 100
 let g:quickui_preview_h = 40
@@ -9,6 +25,11 @@ let g:quickui_preview_h = 40
 " enable to display tips in the cmdline
 let g:quickui_show_tip = 1
 
+hi! QuickBG ctermfg=0 ctermbg=7 guifg=black guibg=gray
+hi! QuickSel cterm=bold ctermfg=0 ctermbg=2 gui=bold guibg=brown guifg=gray
+hi! QuickKey term=bold ctermfg=9 gui=bold guifg=#f92772
+hi! QuickOff ctermfg=59 guifg=#75715e
+hi! QuickHelp ctermfg=247 guifg=#959173
 
 " let content = [
 "             \ ["&Help Keyword\t\\ch", 'echo 100' ],

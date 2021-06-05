@@ -2,6 +2,9 @@ if !PlugLoaded('ale')
     finish
 endif
 
+" nmap <Leader>en       <Plug>(ale_next)
+" nmap <Leader>ep       <Plug>(ale_previous)
+
 let g:ale_enabled = 1
 let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_fixers = {

@@ -1,3 +1,8 @@
+" 是否加载了 plug
+function! PlugLoaded(name)
+   return has_key(g:plugs, a:name)
+endfunction
+
 " vim 进入时的判断
 func! Enter()
     if argc() == 0 && !has('gui_running')
@@ -96,6 +101,3 @@ function! DiffCount()
     return diffCount == 0 ? '' : n_hunks . '/' . len(g:diff_hunks)
 endfunction
 
-function! PlugLoaded(name)
-   return has_key(g:plugs, a:name)
-endfunction

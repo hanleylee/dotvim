@@ -33,8 +33,8 @@ set backupdir=$HOME/.cache/vim/backup "backup 文件存放位置
 call GuardExistDirectory(expand('$HOME/.cache/vim/swp'))
 set directory=$HOME/.cache/vim/swp
 
-if isdirectory(expand('$HOME/.local/share/header'))
-    set path+=$HOME/.local/share/header/** "头文件搜索目录, 非 $PATH
+if isdirectory(expand('$XDG_DATA_HOME/share/header'))
+    set path+=$XDG_DATA_HOME/share/header/** "头文件搜索目录, 非 $PATH
 endif
 
 let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
@@ -87,11 +87,6 @@ set showcmd "右下角显示正在操作的命令
 set list "设置显示行尾, 换行, 制表符等隐藏字符
 set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ "自定义换行, 制表符等显示格式
 set laststatus=2 "必须设置, 否则 lightline 不能正确显示
-
-let s:fzf_path = expand('$HOMEBREW_PREFIX/opt/fzf')
-if isdirectory(s:fzf_path)
-    set runtimepath+=fzf_path "设置 fzf 路径
-endif
 
 set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode "隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息

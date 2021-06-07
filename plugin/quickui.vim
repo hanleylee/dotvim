@@ -15,7 +15,7 @@ augroup QuickUIPreview
     " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
 augroup END
 
-nnoremap <F3>                :call quickui#tools#preview_tag('')<cr>
+nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
 nnoremap <Leader>qm          :call QuickMenu()<cr>
 
 let g:quickui_border_style = 1

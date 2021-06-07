@@ -32,6 +32,7 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast brows
     Plug 'plasticboy/vim-markdown'
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
+    Plug 'szw/vim-maximizer'
 endif
 
 if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
@@ -81,12 +82,13 @@ if s:vim_weight  >= 3 || has('gui_running') " MARK: level v3, browse & premium e
     Plug 'skywind3000/vim-quickui'
 endif
 
-if s:vim_weight >= 4 || has('gui_running') "MARK: level4, heaviest, add completion on previous feature
+if s:vim_weight >= 4 || has('gui_running') "MARK: level4, heaviest, add completion & debugger on previous feature
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
+    Plug 'puremourning/vimspector'
 endif
 
 call plug#end()

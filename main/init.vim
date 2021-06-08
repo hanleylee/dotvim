@@ -116,11 +116,12 @@ set formatoptions-=croql
 " set foldlevel=2
 
 "███████████████████████   Source Load File   ██████████████████████████
-"=======================   Function   ============================
-call Source('$VIMCONFIG/main/function.vim')
 
 "=======================   Plugin   ============================
 call Source('$VIMCONFIG/main/plugin.vim')
+
+"=======================   Function   ============================
+call Source('$VIMCONFIG/main/function.vim')
 
 "=======================   Keymap   ============================
 call Source('$VIMCONFIG/main/keymap.vim')

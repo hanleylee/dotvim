@@ -2,11 +2,6 @@ if !PlugLoaded('YouCompleteMe')
     finish
 endif
 
-" nnoremap <F1>        :YcmCompleter GoTo<CR>
-" nmap <Leader>D        <Plug>(YCMHover)
-" nnoremap <leader>jr  :YcmCompleter GoToReferences<CR>
-" nnoremap <Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
-
 let g:ycm_global_ycm_extra_conf = '~/.config/ycm/.ycm_extra_conf.py' " 默认配置文件路径
 let g:ycm_confirm_extra_conf=0 "打开vim时不再询问是否加载ycm_extra_conf.py配置
 let g:ycm_seed_identifiers_with_syntax=1 "是否开启语义补全

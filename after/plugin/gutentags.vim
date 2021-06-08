@@ -2,12 +2,6 @@ if !PlugLoaded('vim-gutentags')
     finish
 endif
 
-augroup MyGutentagsStatusLineRefresher
-    autocmd!
-    autocmd User GutentagsUpdating call lightline#update()
-    autocmd User GutentagsUpdated call lightline#update()
-augroup END
-
 " gutentags 搜索工程目录的标志, 当前文件路径向上递归直到碰到这些文件/目录名
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_add_default_project_roots = 0

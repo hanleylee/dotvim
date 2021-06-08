@@ -13,6 +13,39 @@ augroup HLHighlightKeyword
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
 augroup end
 
+if PlugLoaded('vim-quickui')
+    augroup QuickUIPreview
+        autocmd!
+        au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+        au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
+        au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
+        au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
+        au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
+        " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+        " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+        " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>
+        " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
+    augroup END
+endif
+
+if PlugLoaded('coc.nvim')
+    augroup CocAutoGroup
+        autocmd!
+        autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+    augroup end
+endif
+
+if PlugLoaded('vim-gutentags')
+    augroup MyGutentagsStatusLineRefresher
+        autocmd!
+        autocmd User GutentagsUpdating call lightline#update()
+        autocmd User GutentagsUpdated call lightline#update()
+    augroup END
+endif
+
 " 保存时自动格式化指定文件类型代码
 " au BufWrite * :Autoformat
 " autocmd BufWrite *.sql,*.c,*.py,*.java,*.js :Autoformat "设置发生保存事件时执行格式化

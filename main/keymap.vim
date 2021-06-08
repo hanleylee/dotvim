@@ -12,10 +12,10 @@ if PlugLoaded('vimspector')
     nmap <leader>dcb <Plug>VimspectorToggleConditionalBreakpoint
     nmap <leader>dd :call vimspector#Launch()<CR>
     nmap <leader>dx :call vimspector#Reset()<CR>
-    nmap <leader>dcl :call vimspector#ClearBreakpoints()<CR>
+    nmap <leader>dX :call vimspector#ClearBreakpoints()<CR>
     nmap <leader>d_ <Plug>VimspectorRestart
     nnoremap <leader>d<space> <Plug>VimspectorContinue
-    nmap <leader>dcn <Plug>VimspectorContinue
+    nmap <leader>dn <Plug>VimspectorContinue
     nmap <leader>dp <Plug>VimspectorPause
     nmap <leader>ds <Plug>VimspectorStop
     nmap <Leader>di <Plug>VimspectorBalloonEval
@@ -35,7 +35,7 @@ endif
 
 
 if PlugLoaded('vim-quickui')
-    nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
+    nnoremap <F3>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <Leader>qm          :call QuickMenu()<cr>
 endif
 

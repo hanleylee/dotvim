@@ -98,6 +98,16 @@ if PlugLoaded('coc.nvim')
     nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
     nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
     nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
+
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+        else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+        endif
+    endfunction
 endif
 
 if PlugLoaded('vim-easymotion')

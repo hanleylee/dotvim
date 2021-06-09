@@ -1,4 +1,4 @@
-augroup ObjcDetect
-    au!
-    au BufNewFile,BufRead *.m setf objc
-augroup END
+" augroup ObjcDetect
+"     au!
+"     au BufNewFile,BufRead *.m setf objc
+" augroup END

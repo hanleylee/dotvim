@@ -12,7 +12,8 @@ let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直
 if s:vim_weight >= 0 " MARK: level v0, load nothing, only basic vim original configuration
 endif
 
-if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast browse
+" MARK: level v1, only for fast browse
+if s:vim_weight >= 1 || has('gui_running')
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
@@ -33,9 +34,11 @@ if s:vim_weight >= 1 || has('gui_running') " MARK: level v1, only for fast brows
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
     Plug 'szw/vim-maximizer'
+    Plug '$VIMCONFIG/HanleyLee/vim-alternate'
 endif
 
-if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
+" MARK: level v2, browse & basic edit
+if s:vim_weight >= 2 || has('gui_running')
     " ============= File Management =============
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
@@ -60,7 +63,8 @@ if s:vim_weight >= 2 || has('gui_running') " MARK: level v2, browse & basic edit
 
 endif
 
-if s:vim_weight  >= 3 || has('gui_running') " MARK: level v3, browse & premium edit
+" MARK: level v3, browse & premium edit
+if s:vim_weight  >= 3 || has('gui_running')
     " ============= Edit ===========
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
@@ -82,13 +86,15 @@ if s:vim_weight  >= 3 || has('gui_running') " MARK: level v3, browse & premium e
     Plug 'skywind3000/vim-quickui'
 endif
 
-if s:vim_weight >= 4 || has('gui_running') "MARK: level4, heaviest, add completion & debugger on previous feature
+" MARK: level4, heaviest, add completion & debugger on previous feature
+if s:vim_weight >= 4 || has('gui_running')
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'puremourning/vimspector'
+    Plug 'tpope/vim-scriptease'
 endif
 
 call plug#end()

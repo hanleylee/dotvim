@@ -5,9 +5,9 @@ if &filetype ==? 'c'
     AsyncRun! gcc `pkg-config --cflags --libs glib-2.0` -Wall -O2 "$(VIM_FILEPATH)" -o "$HOME/.cache/build/c/$(VIM_FILENOEXT)" && "$HOME/.cache/build/c/$(VIM_FILENOEXT)"
 elseif &filetype ==? 'cpp'
     " exec 'AsyncRun! g++ -stdc++11 % -o %<; time ./%<'
-    AsyncRun! clang++ -Wall -std=c++11 "$(VIM_FILEPATH)" -o "$HOME/.cache/build/cpp/$(VIM_FILENOEXT)" && "$HOME/.cache/build/cpp/$(VIM_FILENOEXT)"
+    AsyncRun! clang++ -Wall -std=c++11 "$(VIM_FILEPATH)" -o "$XDG_CACHE_HOME/build/cpp/$(VIM_FILENOEXT)" && "$XDG_CACHE_HOME/build/cpp/$(VIM_FILENOEXT)"
 elseif &filetype ==? 'objc'
-    AsyncRun! clang -framework Foundation "$(VIM_FILEPATH)" -o "$HOME/.cache/build/objc/$(VIM_FILENOEXT)" && "$HOME/.cache/build/objc/$(VIM_FILENOEXT)"
+    AsyncRun! clang -framework Foundation "$(VIM_FILEPATH)" -o "$XDG_CACHE_HOME/build/objc/$(VIM_FILENOEXT)" && "$XDG_CACHE_HOME/build/objc/$(VIM_FILENOEXT)"
 elseif &filetype ==? 'java'
     AsyncRun! javac %; time java %<
 elseif &filetype ==? 'sh'

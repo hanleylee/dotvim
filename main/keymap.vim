@@ -6,6 +6,7 @@ nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
 nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
+nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
 
 if PlugLoaded('vimspector')
     nmap <leader>db <Plug>VimspectorToggleBreakpoint
@@ -30,7 +31,7 @@ if PlugLoaded('vimspector')
 endif
 
 if PlugLoaded('vim-maximizer')
-    nnoremap <leader>mm :MaximizerToggle!<CR>
+    nnoremap <F1> :MaximizerToggle!<CR>
 endif
 
 

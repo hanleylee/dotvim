@@ -1,0 +1,5 @@
+[submodule "vim-alternate"]
+	path = HanleyLee/vim-alternate
+	url = git@github.com:HanleyLee/vim-alternate.git
+	branch = main
+	update = rebase

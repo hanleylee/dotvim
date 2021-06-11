@@ -45,15 +45,16 @@
     // diagnostic
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
-    "diagnostic.warningSign":         "»",
-    "diagnostic.errorSign":           "×",
+    "diagnostic.warningSign":         "⚠",
+    "diagnostic.errorSign":           ">>",
     "diagnostic.enable":              true,
     "diagnostic.highlightOffset":     9999999,
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     "diagnostic-languageserver.filetypes": {
         "markdown": [ "write-good", "markdownlint" ],
-        "sh":       "shellcheck"
+        "sh":       "shellcheck",
+        "zsh":       "shellcheck"
     },
 
     "languageserver": {

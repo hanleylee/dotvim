@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 " 是否加载了 plug
 function! PlugLoaded(name)
     return has_key(g:plugs, a:name)

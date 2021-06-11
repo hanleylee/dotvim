@@ -1,9 +1,7 @@
-"" ============================================================================
-"" File:        vim-cursor-shape.vim
-"" Description: Make cursor shape flexible bwtween different modes in any termial
-"" Maintainer:  Hanley Lee <hanley.lei@gmail.com>
-"" License:     Apache 2.0
-"" ============================================================================
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
 
 "if has('gui_running') || exist('loaded_cursor_shape')
 "    finish

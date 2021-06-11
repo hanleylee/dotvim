@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 " source file, avoid long expression
 func! Source(filename)
     exec 'source '.expand(a:filename)

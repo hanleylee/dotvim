@@ -1,9 +1,10 @@
-"Author: Hanley Lee
-"Website: https://www.hanleylee.com
-"GitHub: https://github.com/HanleyLee
-"Vim 配置原则:
-"1. 一定要了解此项能实现什么功能再配置
-"2. 没有必要的插件能不装就不装, 尽量用 Vim 原生功能
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+" Vim 配置原则:
+" 1. 一定要了解此项能实现什么功能再配置
+" 2. 没有必要的插件能不装就不装, 尽量用 Vim 原生功能
 
 exec 'source '.expand('$VIMCONFIG/main/preinit.vim')
 
@@ -33,14 +34,6 @@ set backupdir=$HOME/.cache/vim/backup "backup 文件存放位置
 call GuardExistDirectory(expand('$HOME/.cache/vim/swp'))
 set directory=$HOME/.cache/vim/swp
 
-if isdirectory(expand('$XDG_DATA_HOME/share/header'))
-    set path+=$XDG_DATA_HOME/share/header/** "头文件搜索目录, 非 $PATH
-endif
-
-let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
-if isdirectory(s:llvm_path)
-    let $PATH=s:llvm_path.':'.$PATH
-endif
 " set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
@@ -49,6 +42,26 @@ set visualbell "错误时不发出声音, 只显示在屏幕上
 set ttimeout        "time out for key codes
 set ttimeoutlen=10  "wait up to 20ms after Esc for special key(default 1s)
 set switchbuf+=usetab,newtab
+
+"=======================   File   =======================
+set fileformat=unix "保存文件的格式为 unix
+set fileformats=unix,mac,dos
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set encoding=utf-8 "UTF-8 支持
+scriptencoding utf-8
+set termencoding=utf-8
+set fileencoding=utf-8 "编码方式为 utf-8
+set updatetime=100
+" set autochdir "自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
+" set autowriteall "类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
+if isdirectory(expand('$XDG_DATA_HOME/share/header'))
+    set path+=$XDG_DATA_HOME/share/header/** "头文件搜索目录, 非 $PATH
+endif
+
+" let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
+" if isdirectory(s:llvm_path)
+"     let $PATH=s:llvm_path.':'.$PATH
+" endif
 
 "=======================   Search   =============================
 set hlsearch "搜索结果高亮
@@ -65,16 +78,6 @@ set smarttab
 set shiftwidth=4 "设置缩进的字符数, 与 tabstop 不同, 这个是系统进行自动缩进时会使用的值
 set tabstop=4 "按下一次 tab 键缩进的距离, 不代表空格或制表符
 set expandtab "缩进使用空格代表, 如果要使用制表符可以改为 noexpandtab, 设置后旧文件仍然采用之前的 tab 格式, 可以使用`%retab!`强制转换为新tab 格式
-
-"=======================   File   =======================
-set fileformat=unix "保存文件的格式为 unix
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set encoding=utf-8 "UTF-8 支持
-set termencoding=utf-8
-set fileencoding=utf-8 "编码方式为 utf-8
-set updatetime=100
-" set autochdir "自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
-" set autowriteall "类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
 
 "=======================   Appearance   ============================
 syntax on "设置语法高亮

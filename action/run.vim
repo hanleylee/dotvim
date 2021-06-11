@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 silent w
 if &filetype ==? 'c'
     "exec 'AsyncRun gcc % -o build/%< && ./build/%<' "花了一晚上研究出来的可用方案

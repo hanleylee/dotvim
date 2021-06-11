@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 "███████████████████████   KeyMapping   ██████████████████████████
 nnoremap <Backspace>         :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
@@ -99,6 +104,7 @@ if PlugLoaded('coc.nvim')
     nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
     nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
     nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
+    nnoremap <silent><nowait> <Space>cl  :<C-u>CocList LeetcodeProblems<cr>
 
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)

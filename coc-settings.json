@@ -1,17 +1,61 @@
 {
+    "coc.source.file.priority": 90,
+    "coc.source.emoji.priority": 3,
+    "coc.source.around.priority": 1,
+    "coc.source.buffer.priority": 1,
+    "coc.source.around.firstMatch": false,
+    "coc.source.buffer.firstMatch": false,
     "coc.source.word.enable": true,
     "coc.source.word.filetypes": ["markdown"],
     "coc.source.file.ignoreHidden": false,
     "coc.source.file.ignorePatterns": [],
     "coc.source.emoji.filetypes": ["markdown"],
     "coc.source.emoji.shortcut": "Emoji",
+
+    "coc.preferences.rootPatterns": [
+        ".root",
+        ".svn",
+        ".git",
+        ".hg",
+        ".project",
+        "Makefile",
+        "CMakeLists.txt"
+    ],
+
+    "tabnine.priority": 100,
+
+    "snippets.priority": 90,
     "snippets.ultisnips.directories": [
         "Ultisnips",
         "~/.local/snippets"
     ],
+
+    // coc-yank
+    "yank.priority": 10,
+    "yank.highlight.enable": true,
+    "yank.highlight.duration": 200,
+    "yank.limit": 20,
+    "yank.list.maxsize": 100,
+    "yank.enableCompletion": true,
+
     "markdownlint.onOpen": true,
     "markdownlint.onSave": true,
     "markdownlint.onChange": true,
+
+    // diagnostic
+    "diagnostic.infoSign":            "ღ",
+    "diagnostic.hintSign":            "ஐ",
+    "diagnostic.warningSign":         "»",
+    "diagnostic.errorSign":           "×",
+    "diagnostic.enable":              true,
+    "diagnostic.highlightOffset":     9999999,
+    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.separateRelatedInformationAsDiagnostics": true,
+    "diagnostic-languageserver.filetypes": {
+        "markdown": [ "write-good", "markdownlint" ],
+        "sh":       "shellcheck"
+    },
+
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

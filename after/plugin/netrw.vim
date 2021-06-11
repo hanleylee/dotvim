@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 "*****************   netrw   ****************************
 let g:netrw_hide = 0 "设置默认隐藏
 let g:netrw_liststyle = 0 " tree 模式显示风格

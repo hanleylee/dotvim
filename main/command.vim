@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 command! FormatCN silent! call Source('$VIMCONFIG/action/format_cn.vim')
 command! FormatObjectMapper silent! Source('$VIMCONFIG/action/format_objectmapper.vim')
 command! MergeMD silent! Source('$VIMCONFIG/action/merge_md.vim')

@@ -1,4 +1,9 @@
-let b:beancount_root = "$HOME/HL/00_Repo/18_Accounting/main.bean"
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
+let b:beancount_root = '$HOME/HL/00_Repo/18_Accounting/main.bean'
 let g:beancount_separator_col = 50
 " let g:beancount_account_completion = 'default'
 let g:beancount_account_completion = 'default'

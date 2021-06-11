@@ -1,3 +1,8 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 "███████████████████████   插件   ██████████████████████████
 "vim-plug 插件管理工具使用命令
 " :PlugInstall    -  安装插件
@@ -9,7 +14,8 @@ call plug#begin('$HOME/.vim/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = vim1 )
 
-if s:vim_weight >= 0 " MARK: level v0, load nothing, only basic vim original configuration
+" MARK: level v0, load nothing, only basic vim original configuration
+if s:vim_weight >= 0
 endif
 
 " MARK: level v1, only for fast browse

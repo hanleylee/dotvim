@@ -1,6 +1,12 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/HanleyLee
+" License:  MIT License
+
 if !PlugLoaded('vimwiki')
     finish
 endif
+
 
 "let g:vimwiki_global_ext = 0
 "let g:vimwiki_list = [

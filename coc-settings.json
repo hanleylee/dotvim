@@ -1,17 +1,42 @@
 {
-    "coc.source.file.priority": 90,
-    "coc.source.emoji.priority": 3,
-    "coc.source.around.priority": 1,
-    "coc.source.buffer.priority": 1,
-    "coc.source.around.firstMatch": false,
-    "coc.source.buffer.firstMatch": false,
-    "coc.source.word.enable": true,
-    "coc.source.word.filetypes": ["markdown"],
+    // source-file
+    "coc.source.file.priority": 100,
     "coc.source.file.ignoreHidden": false,
     "coc.source.file.ignorePatterns": [],
-    "coc.source.emoji.filetypes": ["markdown"],
-    "coc.source.emoji.shortcut": "Emoji",
+    "coc.source.file.shortcut": "FILE",
 
+    // sources-10k words
+    "coc.source.word.priority":20,
+    "coc.source.word.enable": true,
+    "coc.source.word.filetypes": ["markdown"],
+    "coc.source.word.shortcut": "10K",
+
+    // source-emoji
+    "coc.source.emoji.priority": 10,
+    "coc.source.emoji.filetypes": ["markdown"],
+    "coc.source.emoji.shortcut": "EMOJ",
+
+    "coc.source.around.priority": 50,
+    "coc.source.around.firstMatch": false,
+    "coc.source.around.shortcut": "AR",
+
+    "coc.source.buffer.priority": 30,
+    "coc.source.buffer.firstMatch": false,
+    "coc.source.buffer.shortcut": "BF",
+
+    "coc.source.dictionary.priority": 20,
+    "coc.source.dictionary.shortcut": "DIC",
+
+    "coc.source.tag.priority": 40,
+    "coc.source.tag.shortcut": "TAG",
+
+    "coc.source.syntax.priority": 60,
+    "coc.source.syntax.shortcut": "SYN",
+
+    "coc.source.omni.priority":20,
+    "coc.source.omni.shortcut": "OMNI",
+
+    "coc.preferences.useQuickfixForLocations": true,
     "coc.preferences.rootPatterns": [
         ".root",
         ".svn",
@@ -22,16 +47,19 @@
         "CMakeLists.txt"
     ],
 
-    "tabnine.priority": 100,
+    // coc-tabnine
+    "tabnine.priority": 70,
+    "tabnine.shortcut": "TN",
 
-    "snippets.priority": 90,
+    // coc-snippets
+    "snippets.priority": 80,
     "snippets.ultisnips.directories": [
         "Ultisnips",
         "~/.local/snippets"
     ],
 
     // coc-yank
-    "yank.priority": 10,
+    "yank.priority": 20,
     "yank.highlight.enable": true,
     "yank.highlight.duration": 200,
     "yank.limit": 20,
@@ -43,6 +71,7 @@
     "markdownlint.onChange": true,
 
     // diagnostic
+    "diagnostic.signPriority": 100,
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
     "diagnostic.warningSign":         "⚠",
@@ -52,11 +81,26 @@
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     "diagnostic-languageserver.filetypes": {
+        "vim": "vint",
         "markdown": [ "write-good", "markdownlint" ],
         "sh":       "shellcheck",
         "zsh":       "shellcheck"
     },
 
+    // coc-gitignore
+    "gitignore.enable": true,
+    "gitignore.templates.patch": {},
+    "gitignore.templates.replace": {},
+
+    // coc-highlight
+    "highlight.disableLanguages": [],
+
+    "suggest.languageSourcePriority": 90,
+    "suggest.removeDuplicateItems": true,
+    "suggest.autoTrigger": "always",
+    "suggest.detailField": "preview",
+    "suggest.floatEnable": true,
+    "suggest.snippetsSupport": true,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

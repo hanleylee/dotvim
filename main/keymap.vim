@@ -65,13 +65,13 @@ if PlugLoaded('asyncrun.vim')
 endif
 
 if PlugLoaded('coc.nvim')
-    nmap <Leader>en       <Plug>(coc-diagnostic-next)<CR>
-    nmap <Leader>ep       <Plug>(coc-diagnostic-prev)<CR>
+    nmap <Leader>en      <Plug>(coc-diagnostic-next)<CR>
+    nmap <Leader>ep      <Plug>(coc-diagnostic-prev)<CR>
     nmap <silent>gd      <Plug>(coc-definition)
     nmap <silent>gy      <Plug>(coc-type-definition)
     nmap <silent>gi      <Plug>(coc-implementation)
     nmap <silent>gr      <Plug>(coc-references)
-    nmap <leader>rn       <Plug>(coc-rename)
+    nmap <leader>rn      <Plug>(coc-rename)
     nnoremap <silent><Leader>D :call <SID>show_documentation()<CR>
 
     xmap <leader>f  <Plug>(coc-format-selected)
@@ -100,11 +100,10 @@ if PlugLoaded('coc.nvim')
     nnoremap <silent><nowait> <Space>cc  :<C-u>CocList commands<cr>
     nnoremap <silent><nowait> <Space>co  :<C-u>CocList outline<cr>
     nnoremap <silent><nowait> <Space>cs  :<C-u>CocList -I symbols<cr>
+    nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
+    nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
     nnoremap <silent><nowait> <Space>cn  :<C-u>CocNext<CR>
     nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
-    nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
-    nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
-    nnoremap <silent><nowait> <Space>cl  :<C-u>CocList LeetcodeProblems<cr>
 
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)

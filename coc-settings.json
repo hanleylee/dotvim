@@ -14,7 +14,7 @@
     // source-emoji
     "coc.source.emoji.priority": 10,
     "coc.source.emoji.filetypes": ["markdown"],
-    "coc.source.emoji.shortcut": "EMOJ",
+    "coc.source.emoji.shortcut": "EMOJI",
 
     "coc.source.around.priority": 50,
     "coc.source.around.firstMatch": false,

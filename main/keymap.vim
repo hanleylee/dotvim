@@ -13,6 +13,16 @@ nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
 
+" Emac like map in insert mode & command line mode
+imap <C-E>                   <END>
+cmap <C-E>                   <END>
+imap <C-A>                   <HOME>
+cmap <C-A>                   <HOME>
+imap <C-F>                   <RIGHT>
+cmap <C-F>                   <RIGHT>
+imap <C-B>                   <LEFT>
+cmap <C-B>                   <LEFT>
+
 if PlugLoaded('vimspector')
     nmap <leader>db <Plug>VimspectorToggleBreakpoint
     nmap <leader>dcb <Plug>VimspectorToggleConditionalBreakpoint
@@ -36,12 +46,12 @@ if PlugLoaded('vimspector')
 endif
 
 if PlugLoaded('vim-maximizer')
-    nnoremap <F1> :MaximizerToggle!<CR>
+    nnoremap <F3> :MaximizerToggle!<CR>
 endif
 
 
 if PlugLoaded('vim-quickui')
-    nnoremap <F3>                :call quickui#tools#preview_tag('')<cr>
+    nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <Leader>qm          :call QuickMenu()<cr>
 endif
 
@@ -65,23 +75,23 @@ if PlugLoaded('asyncrun.vim')
 endif
 
 if PlugLoaded('coc.nvim')
-    nmap <Leader>en      <Plug>(coc-diagnostic-next)<CR>
-    nmap <Leader>ep      <Plug>(coc-diagnostic-prev)<CR>
+    nmap <Space>en      <Plug>(coc-diagnostic-next)<CR>
+    nmap <Space>ep      <Plug>(coc-diagnostic-prev)<CR>
     nmap <silent>gd      <Plug>(coc-definition)
     nmap <silent>gy      <Plug>(coc-type-definition)
     nmap <silent>gi      <Plug>(coc-implementation)
     nmap <silent>gr      <Plug>(coc-references)
-    nmap <leader>rn      <Plug>(coc-rename)
+    nmap <Space>rn      <Plug>(coc-rename)
     nnoremap <silent><Leader>D :call <SID>show_documentation()<CR>
 
-    xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+    xmap <Space>f  <Plug>(coc-format-selected)
+    nmap <Space>f  <Plug>(coc-format-selected)
 
-    xmap <leader>a  <Plug>(coc-codeaction-selected)
-    nmap <leader>a  <Plug>(coc-codeaction-selected)
+    xmap <Space>a  <Plug>(coc-codeaction-selected)
+    nmap <Space>a  <Plug>(coc-codeaction-selected)
 
-    nmap <leader>ac  <Plug>(coc-codeaction)
-    nmap <leader>qf  <Plug>(coc-fix-current)
+    nmap <Space>ac  <Plug>(coc-codeaction)
+    nmap <Space>fx  <Plug>(coc-fix-current)
 
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)

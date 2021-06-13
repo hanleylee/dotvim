@@ -18,6 +18,11 @@ augroup HLHighlightKeyword
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
 augroup end
 
+augroup NetrwMapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+augroup END
+
 if PlugLoaded('vim-quickui')
     augroup QuickUIPreview
         autocmd!

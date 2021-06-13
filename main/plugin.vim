@@ -12,16 +12,20 @@
 
 call plug#begin('$HOME/.vim/plugged')
 
-let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = vim1 )
+let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 
-" MARK: level v0, load nothing, only basic vim original configuration
+" MARK: level v0, load 0 plugin, only basic vim original configuration
 if s:vim_weight >= 0
 endif
 
 " MARK: level v1, only for fast browse
 if s:vim_weight >= 1 || has('gui_running')
+    " ============= File Management =============
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
+    Plug 'junegunn/fzf.vim'                             " 模糊搜索
+    Plug 'airblade/vim-rooter'
+
     " ============= Edit ===========
-    Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
     Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-unimpaired'
@@ -29,35 +33,12 @@ if s:vim_weight >= 1 || has('gui_running')
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
+    " Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
     Plug 'ap/vim-css-color'              " 显示 css 颜色
-
-    "============== Language ==============
-    Plug 'plasticboy/vim-markdown'
-    Plug 'nathangrigg/vim-beancount'
-    Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
-    Plug 'szw/vim-maximizer'
-    Plug '$VIMCONFIG/HanleyLee/vim-alternate'
-endif
-
-" MARK: level v2, browse & basic edit
-if s:vim_weight >= 2 || has('gui_running')
-    " ============= File Management =============
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
-    Plug 'junegunn/fzf.vim'                             " 模糊搜索
-    Plug 'airblade/vim-rooter'
-
-    " ============= Edit ===========
-    Plug 'jiangmiao/auto-pairs'                         " 匹配括号
-    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
-    Plug 'tpope/vim-repeat'                             " 支持重复
-    Plug 'tpope/vim-surround'                           " 包围符号
-
-    " ============= Appearance ============
-    Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
 
     " ============== Function ==============
     Plug 'tpope/vim-fugitive'       " git 插件
@@ -67,11 +48,22 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
 
+    "============== Language ==============
+    Plug 'plasticboy/vim-markdown'
+    Plug 'nathangrigg/vim-beancount'
+    Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
+    Plug 'szw/vim-maximizer'
+    Plug '$VIMCONFIG/HanleyLee/vim-alternate'
 endif
 
-" MARK: level v3, browse & premium edit
-if s:vim_weight  >= 3 || has('gui_running')
+" MARK: level v2, edit
+if s:vim_weight >= 2 || has('gui_running')
     " ============= Edit ===========
+    Plug 'kshenoy/vim-signature'                        " signature 插件
+    Plug 'jiangmiao/auto-pairs'                         " 匹配括号
+    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
+    Plug 'tpope/vim-repeat'                             " 支持重复
+    Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
@@ -80,6 +72,7 @@ if s:vim_weight  >= 3 || has('gui_running')
     Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 
     " ============= Appearance ============
+    Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
     Plug 'jszakmeister/vim-togglecursor' "改变 cursor 形状
 
     " ============== Function ==============
@@ -90,10 +83,11 @@ if s:vim_weight  >= 3 || has('gui_running')
     Plug 'Chiel92/vim-autoformat'   " 自动格式化文档
     Plug 'skywind3000/asyncrun.vim' " 异步执行
     Plug 'skywind3000/vim-quickui'
+
 endif
 
 " MARK: level4, heaviest, add completion & debugger on previous feature
-if s:vim_weight >= 4 || has('gui_running')
+if s:vim_weight >= 3 || has('gui_running')
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'
@@ -131,7 +125,6 @@ call plug#end()
 " Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
 " Plug 'justinmk/vim-dirvish'
 " Plug 'skywind3000/vim-terminal-help'
-" Plug 'morhetz/gruvbox'
 " Plug 'yianwillis/vimcdoc'
 " Plug 'elzr/vim-json'
 " Plug 'majutsushi/tagbar'        " 显示文档的层级

@@ -53,6 +53,7 @@
 
     // coc-snippets
     "snippets.priority": 80,
+    "snippets.shortcut": "SN",
     "snippets.ultisnips.directories": [
         "Ultisnips",
         "~/.local/snippets"

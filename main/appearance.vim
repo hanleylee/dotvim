@@ -8,6 +8,10 @@ if PlugLoaded('onedark.vim')
     colorscheme onedark
 endif
 
+if PlugLoaded('gruvbox')
+    colorscheme gruvbox
+endif
+
 " colorscheme gruvbox
 set background=dark "设置背" seoul256 (dark):
 

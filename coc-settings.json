@@ -53,11 +53,14 @@
 
     // coc-snippets
     "snippets.priority": 80,
-    "snippets.shortcut": "SN",
+    "snippets.shortcut": "SNIP",
     "snippets.ultisnips.directories": [
         "Ultisnips",
         "~/.local/snippets"
     ],
+
+    "json.enable": true,
+    "json.schemaDownload.enable": true,
 
     // coc-yank
     "yank.priority": 20,
@@ -83,7 +86,7 @@
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     "diagnostic-languageserver.filetypes": {
         "vim": "vint",
-        "markdown": [ "write-good", "markdownlint" ],
+        "markdown": ["write-good", "markdownlint"],
         "sh":       "shellcheck",
         "zsh":       "shellcheck"
     },

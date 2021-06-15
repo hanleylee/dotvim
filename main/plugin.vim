@@ -82,11 +82,11 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'qpkorr/vim-renamer'       " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
     Plug 'Chiel92/vim-autoformat'   " 自动格式化文档
     Plug 'skywind3000/asyncrun.vim' " 异步执行
+    Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-
 endif
 
-" MARK: level4, heaviest, add completion & debugger on previous feature
+" MARK: level3, heaviest, add completion & debugger on previous feature
 if s:vim_weight >= 3 || has('gui_running')
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

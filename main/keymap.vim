@@ -6,7 +6,6 @@
 "███████████████████████   KeyMapping   ██████████████████████████
 nnoremap <Backspace>         :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
-nnoremap <silent><F2>        :Run<CR>
 nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
 nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
@@ -46,7 +45,7 @@ if PlugLoaded('vimspector')
 endif
 
 if PlugLoaded('vim-maximizer')
-    nnoremap <F3> :MaximizerToggle!<CR>
+    nnoremap <F12> :MaximizerToggle!<CR>
 endif
 
 
@@ -71,16 +70,23 @@ if PlugLoaded('fzf.vim')
 endif
 
 if PlugLoaded('asyncrun.vim')
-    nnoremap <F10>               :call asyncrun#quickfix_toggle(6)<CR>
+    nnoremap <F10>       :call asyncrun#quickfix_toggle(6)<CR>
+endif
+
+if PlugLoaded('asynctasks.vim')
+    nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
+    nnoremap <silent><F3> :AsyncTask! project-build-run<CR>
+    nnoremap <silent><F4> :AsyncTask! project-build <CR>
+    nnoremap <silent><F5> :AsyncTask! project-run<CR>
 endif
 
 if PlugLoaded('coc.nvim')
     nmap <Space>en      <Plug>(coc-diagnostic-next)<CR>
     nmap <Space>ep      <Plug>(coc-diagnostic-prev)<CR>
-    nmap <silent>gd      <Plug>(coc-definition)
-    nmap <silent>gy      <Plug>(coc-type-definition)
-    nmap <silent>gi      <Plug>(coc-implementation)
-    nmap <silent>gr      <Plug>(coc-references)
+    nmap <silent>gd     <Plug>(coc-definition)
+    nmap <silent>gy     <Plug>(coc-type-definition)
+    nmap <silent>gi     <Plug>(coc-implementation)
+    nmap <silent>gr     <Plug>(coc-references)
     nmap <Space>rn      <Plug>(coc-rename)
     nnoremap <silent><Leader>D :call <SID>show_documentation()<CR>
 

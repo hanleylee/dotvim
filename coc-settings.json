@@ -56,7 +56,7 @@
     "snippets.shortcut": "SNIP",
     "snippets.ultisnips.directories": [
         "Ultisnips",
-        "~/.local/snippets"
+        "~/.local/share/snippets"
     ],
 
     "json.enable": true,
@@ -105,6 +105,8 @@
     "suggest.detailField": "preview",
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

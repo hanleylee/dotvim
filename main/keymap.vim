@@ -11,6 +11,9 @@ nnoremap gdr                 :diffget RE<CR>
 nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
+inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <silent><expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+" inoremap <silent><expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 " Emac like map in insert mode & command line mode
 imap <C-E>                   <END>
@@ -121,6 +124,22 @@ if PlugLoaded('coc.nvim')
     nnoremap <silent><nowait> <Space>cn  :<C-u>CocNext<CR>
     nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
 
+    " Make <CR> auto-select the first completion item and notify coc.nvim to
+    " format on enter, <cr> could be remapped by other vim plugin
+    " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+    "             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+    " inoremap <silent><expr> <TAB>
+    "   \ pumvisible() ? "\<C-n>" :
+    "   \ <SID>check_back_space() ? "\<TAB>" :
+    "   \ coc#refresh()
+    " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    " function! s:check_back_space() abort
+    "     let col = col('.') - 1
+    "     return !col || getline('.')[col - 1]  =~# '\s'
+    " endfunction
+
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)
             execute 'h '.expand('<cword>')
@@ -130,6 +149,7 @@ if PlugLoaded('coc.nvim')
             execute '!' . &keywordprg . " " . expand('<cword>')
         endif
     endfunction
+
 endif
 
 if PlugLoaded('vim-easymotion')

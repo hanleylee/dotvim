@@ -61,6 +61,8 @@
 
     "json.enable": true,
     "json.schemaDownload.enable": true,
+    "json.format.enable": true,
+    "json.maxItemsComputed": 5000,
 
     // coc-yank
     "yank.priority": 20,

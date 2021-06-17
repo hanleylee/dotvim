@@ -15,7 +15,7 @@ command! EscapeJSON silent! call EscapeJSON()
 
 if PlugLoaded('fzf.vim')
     command! -bang Fzm call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
-    command! -nargs=* -complete=file AgAll :call AgAll(<q-args>)
+    command! -nargs=* -complete=file AgAll :call fzf#ag_all(<q-args>)
     command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
 endif
 

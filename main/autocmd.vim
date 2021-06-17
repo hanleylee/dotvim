@@ -20,7 +20,12 @@ augroup end
 
 augroup NetrwMapping
     autocmd!
-    autocmd filetype netrw call NetrwMapping()
+    autocmd filetype netrw call netrw#map()
+augroup END
+
+augroup ObjcMapping
+    autocmd!
+    autocmd filetype objc call objc#map()
 augroup END
 
 if PlugLoaded('vim-quickui')

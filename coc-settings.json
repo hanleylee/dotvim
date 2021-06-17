@@ -99,6 +99,23 @@
     // coc-highlight
     "highlight.disableLanguages": [],
 
+    // coc-vimlsp
+    "vimlsp.debug": false,
+    "vimlsp.diagnostic.enable": true,
+    "vimlsp.suggest.fromVimruntime": true,
+    "vimlsp.suggest.fromRuntimepath": false,
+    "vimlsp.indexes.gap": 100,
+    "vimlsp.indexes.count": 1,
+    "vimlsp.indexes.runtimepath": true,
+    "vimlsp.indexes.projectRootPatterns": [
+        ".git",
+        "autoload",
+        "plugin"
+    ],
+    "vimlsp.filetypes": [
+        "vim"
+    ],
+
     "suggest.languageSourcePriority": 90,
     "suggest.removeDuplicateItems": true,
     "suggest.autoTrigger": "always",
@@ -124,8 +141,8 @@
             "command": "efm-langserver",
             "args": [],
             "filetypes": [
-                "vim",
                 "eruby"
+                /* "vim", */
                 /* "markdown" */
             ]
         },

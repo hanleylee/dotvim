@@ -6,11 +6,11 @@
 "███████████████████████   KeyMapping   ██████████████████████████
 nnoremap <Backspace>         :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
+nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
 nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
 nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
 inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 " inoremap <silent><expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
@@ -55,7 +55,7 @@ endif
 
 if PlugLoaded('vim-quickui')
     nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
-    nnoremap <Leader>qm          :call QuickMenu()<cr>
+    nnoremap <Leader>qm          :call quickui#quick_menu()<cr>
 endif
 
 if PlugLoaded('fzf.vim')
@@ -71,6 +71,11 @@ if PlugLoaded('fzf.vim')
     nnoremap <Leader>tg  :Tags<CR>
     nnoremap <Leader>fc  :Commits<CR>
     nnoremap <Leader>fm  :FM<CR>
+    nmap <C-x><C-m>      <plug>(fzf-maps-n)
+    xmap <C-x><C-m>      <plug>(fzf-maps-x)
+    omap <C-x><C-m>      <plug>(fzf-maps-o)
+    imap <C-x><C-m>      <plug>(fzf-maps-i)
+
 endif
 
 if PlugLoaded('asyncrun.vim')
@@ -92,7 +97,7 @@ if PlugLoaded('coc.nvim')
     nmap <silent>gi     <Plug>(coc-implementation)
     nmap <silent>gr     <Plug>(coc-references)
     nmap <Space>rn      <Plug>(coc-rename)
-    nnoremap <silent><Leader>D :call <SID>show_documentation()<CR>
+    nnoremap <silent><Leader>D :call coc#show_documentation()<CR>
 
     xmap <Space>f  <Plug>(coc-format-selected)
     nmap <Space>f  <Plug>(coc-format-selected)
@@ -136,21 +141,6 @@ if PlugLoaded('coc.nvim')
     "   \ coc#refresh()
     " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-    " function! s:check_back_space() abort
-    "     let col = col('.') - 1
-    "     return !col || getline('.')[col - 1]  =~# '\s'
-    " endfunction
-
-    function! s:show_documentation()
-        if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        elseif (coc#rpc#ready())
-            call CocActionAsync('doHover')
-        else
-            execute '!' . &keywordprg . " " . expand('<cword>')
-        endif
-    endfunction
-
 endif
 
 if PlugLoaded('vim-easymotion')
@@ -169,11 +159,16 @@ endif
 if PlugLoaded('vista')
     nnoremap <F4>                :Vista!!<CR>
 endif
-" nnoremap <F1>        :YcmCompleter GoTo<CR>
-" nmap <Leader>D        <Plug>(YCMHover)
-" nnoremap <leader>jr  :YcmCompleter GoToReferences<CR>
-" nnoremap <Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
 
-" nmap <Leader>en       <Plug>(ale_next)
-" nmap <Leader>ep       <Plug>(ale_previous)
+if PlugLoaded('YouCompleteMe')
+    nnoremap <F1>        :YcmCompleter GoTo<CR>
+    nmap <Leader>D        <Plug>(YCMHover)
+    nnoremap <leader>jr  :YcmCompleter GoToReferences<CR>
+    nnoremap <Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
+endif
+
+if PlugLoaded('ale')
+    nmap <Leader>en       <Plug>(ale_next)
+    nmap <Leader>ep       <Plug>(ale_previous)
+endif
 

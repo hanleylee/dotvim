@@ -90,13 +90,13 @@ if PlugLoaded('asynctasks.vim')
 endif
 
 if PlugLoaded('coc.nvim')
+    nmap <Space>rn      <Plug>(coc-rename)
     nmap <Space>en      <Plug>(coc-diagnostic-next)<CR>
     nmap <Space>ep      <Plug>(coc-diagnostic-prev)<CR>
     nmap <silent>gd     <Plug>(coc-definition)
     nmap <silent>gy     <Plug>(coc-type-definition)
     nmap <silent>gi     <Plug>(coc-implementation)
     nmap <silent>gr     <Plug>(coc-references)
-    nmap <Space>rn      <Plug>(coc-rename)
     nnoremap <silent><Leader>D :call coc#show_documentation()<CR>
 
     xmap <Space>f  <Plug>(coc-format-selected)

@@ -10,6 +10,7 @@ function! hl#format_CN()
     %substitute /：/: /ge
     %substitute /？/? /ge
     %substitute /；/; /ge
+    %substitute /“\|”/"/ge
     %substitute /、/, /ge
     %substitute /（/(/ge
     %substitute /）/)/ge

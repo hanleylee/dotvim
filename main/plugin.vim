@@ -122,7 +122,7 @@ call plug#end()
 " Plug 'ianding1/leetcode.vim'
 " Plug 'tenfyzhong/CompleteParameter.vim'
 " Plug 'hotoo/pangu.vim'
-" Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 " Plug 'justinmk/vim-dirvish'
 " Plug 'skywind3000/vim-terminal-help'
 " Plug 'yianwillis/vimcdoc'

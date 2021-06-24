@@ -64,9 +64,9 @@ endif
 " endif
 
 "=======================   Search   =============================
-set hlsearch "搜索结果高亮
-set incsearch "搜索时输入内容时立刻进行搜索
-set ignorecase "查找时忽略大小写
+set hlsearch " highlight all matching phrases, equal to 'hls'
+set incsearch " show partial matches for a search phrase, equal to 'is'
+set ignorecase " ignore upper/lower case when searching, equal to 'ic'
 set smartcase "搜索时只有输入大写字母时才会强制符合大小写, 需要与 ignorecase 一同设置才能正常工作
 set showmatch "匹配括号
 

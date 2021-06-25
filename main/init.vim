@@ -22,6 +22,8 @@ set modifiable "设置文件可被修改
 set tags=./.tags;,./tags;,.tags,tags
 set splitbelow "设置新的垂直分割窗口在下侧
 set splitright "设置新的垂直分割窗口在右侧
+set modeline
+set modelines=5
 set history=10000 "历史命令最大记录数
 set backup "backup 当前文件
 set writebackup "自动删除旧 backup 文件

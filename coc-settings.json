@@ -124,8 +124,8 @@
     "suggest.detailField": "preview",
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
-    /* "suggest.noselect": false, */
-    /* "suggest.enablePreselect": true, */
+    "suggest.noselect": false,
+    "suggest.enablePreselect": true,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

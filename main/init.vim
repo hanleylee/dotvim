@@ -111,6 +111,7 @@ set cursorline "突出光标所在行, 开启后速度变慢
 " set scrolljump=5 "光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150
+set colorcolumn=+1
 set formatoptions-=croql
 let filetype_m='objc'
 " let filetype_mm='objc'

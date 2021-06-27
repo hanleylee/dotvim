@@ -4,6 +4,7 @@
 " License:  MIT License
 
 setlocal conceallevel=2
+" setlocal textwidth=0
 
 noremap j   gj
 noremap k   gk

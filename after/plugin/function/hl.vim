@@ -19,6 +19,7 @@ function! hl#format_CN()
     %substitute /」/** /g
     %substitute /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g " 为 `content` 添加左右两侧空格
     %substitute /\s\+\([!;,.:?]\)/\1/g " 清除标点前的空格
+    %substitute /^ `/`/g " 清除行首的空格
     %substitute/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g " 汉字在前, 英文/数字在后, 中间添加空格
     %substitute/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g " 汉字在后, 英文/数字在前, 中间添加空格
     %substitute /\s\+\n/\r/g " 清除尾部空格

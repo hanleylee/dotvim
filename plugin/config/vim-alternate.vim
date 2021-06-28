@@ -8,7 +8,8 @@ if !PlugLoaded('vim-alternate')
 endif
 
 let g:extraAlternativeExtensionsDic = {
-            \ 'm': 'h',
-            \ 'h': 'm'
+            \ 'm': 'h'
             \ } 
-let g:overrideAlternativeExtensionsDic = {}
+let g:overrideAlternativeExtensionsDic = {
+            \ 'h': 'm,c,cpp,cxx,cc,CC'
+            \ }

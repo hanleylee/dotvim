@@ -95,6 +95,7 @@ if s:vim_weight >= 3 || has('gui_running')
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'puremourning/vimspector'
     Plug 'tpope/vim-scriptease'
+    Plug 'sillybun/vim-repl'
 endif
 
 call plug#end()

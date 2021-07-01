@@ -51,6 +51,11 @@ if PlugLoaded('coc.nvim')
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     augroup end
+
+    augroup CocDisabled
+        autocmd!
+        " autocmd FileType markdown let b:coc_suggest_disable = 1
+    augroup end
 endif
 
 if PlugLoaded('vim-gutentags')

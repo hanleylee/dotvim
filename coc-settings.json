@@ -1,4 +1,14 @@
 {
+    "suggest.languageSourcePriority": 90,
+    "suggest.removeDuplicateItems": true,
+    "suggest.autoTrigger": "always",
+    "suggest.detailField": "preview",
+    "suggest.floatEnable": true,
+    "suggest.snippetsSupport": true,
+
+    /* "suggest.noselect": false, */
+    /* "suggest.enablePreselect": true, */
+
     // source-file
     "coc.source.file.priority": 100,
     "coc.source.file.ignoreHidden": false,
@@ -118,14 +128,6 @@
         "vim"
     ],
 
-    "suggest.languageSourcePriority": 90,
-    "suggest.removeDuplicateItems": true,
-    "suggest.autoTrigger": "always",
-    "suggest.detailField": "preview",
-    "suggest.floatEnable": true,
-    "suggest.snippetsSupport": true,
-    "suggest.noselect": false,
-    "suggest.enablePreselect": true,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

@@ -6,7 +6,7 @@
 setlocal conceallevel=2
 " setlocal textwidth=0
 
-noremap j   gj
-noremap k   gk
-noremap gj  j
-noremap gk  k
+noremap <buffer> j   gj
+noremap <buffer> k   gk
+noremap <buffer> gj  j
+noremap <buffer> gk  k

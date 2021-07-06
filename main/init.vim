@@ -53,7 +53,7 @@ set encoding=utf-8 "UTF-8 支持
 scriptencoding utf-8
 set termencoding=utf-8
 set fileencoding=utf-8 "编码方式为 utf-8
-set updatetime=100
+set updatetime=4000 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡)
 " set autochdir "自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall "类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
 if isdirectory(expand('$XDG_DATA_HOME/share/header'))

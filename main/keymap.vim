@@ -9,18 +9,20 @@ nnoremap <C-g>               :call EchoPath()<CR>
 nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
 nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
-nmap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
+nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
+nnoremap <leader>ge :set operatorfunc=hl#GrepOperator<cr>g@
+vnoremap <leader>ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 
 " Emac like map in insert mode & command line mode
-imap <C-E>                   <END>
-cmap <C-E>                   <END>
-imap <C-A>                   <HOME>
-cmap <C-A>                   <HOME>
-imap <C-F>                   <RIGHT>
-cmap <C-F>                   <RIGHT>
-imap <C-B>                   <LEFT>
-cmap <C-B>                   <LEFT>
+inoremap <C-E>                   <END>
+cnoremap <C-E>                   <END>
+inoremap <C-A>                   <HOME>
+cnoremap <C-A>                   <HOME>
+inoremap <C-F>                   <RIGHT>
+cnoremap <C-F>                   <RIGHT>
+inoremap <C-B>                   <LEFT>
+cnoremap <C-B>                   <LEFT>
 
 if PlugLoaded('vimspector')
     nmap <leader>db <Plug>VimspectorToggleBreakpoint

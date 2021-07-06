@@ -51,9 +51,10 @@ if s:vim_weight >= 1 || has('gui_running')
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
     Plug 'nathangrigg/vim-beancount'
-    Plug 'neoclide/jsonc.vim' "设置 jsonc 格式, 可以添加注释
+    Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'szw/vim-maximizer'
     Plug '$VIMCONFIG/HanleyLee/vim-alternate'
+    " Plug '$VIMCONFIG/HanleyLee/potion'
 endif
 
 " MARK: level v2, edit

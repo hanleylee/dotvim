@@ -26,8 +26,9 @@ set modeline
 set modelines=5
 set history=10000 "历史命令最大记录数
 set backup "backup 当前文件
-set writebackup "自动删除旧 backup 文件
+set writebackup "在保存时自动写入 backup
 set undofile
+set backupcopy=auto
 
 call GuardExistDirectory(expand('$HOME/.cache/vim/undo'))
 set undodir=$HOME/.cache/vim/undo

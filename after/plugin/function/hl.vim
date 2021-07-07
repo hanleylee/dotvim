@@ -51,3 +51,8 @@ function! hl#GrepOperator(type)
     copen
     let @@ = saved_unnamed_register
 endfunction
+
+function! hl#AsyncTask(cmd)
+    w
+    execute "AsyncTask! " . a:cmd
+endfunction

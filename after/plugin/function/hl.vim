@@ -52,7 +52,6 @@ function! hl#GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
-function! hl#AsyncTask(cmd)
-    w
-    execute "AsyncTask! " . a:cmd
+function! hl#AsyncTask(mode)
+    w | execute "AsyncTask! " . a:mode
 endfunction

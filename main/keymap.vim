@@ -81,6 +81,7 @@ if PlugLoaded('asyncrun.vim')
 endif
 
 if PlugLoaded('asynctasks.vim')
+    " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
     nnoremap <silent><F3> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F4> :call hl#AsyncTask('project-build')<CR>

@@ -66,6 +66,8 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'kana/vim-textobj-entire'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法

@@ -5,6 +5,7 @@
 
 command! FormatCN silent! call hl#format_CN()
 command! FormatObjectMapper silent! call hl#format_objectmapper()
+command! -range FormatSurgeRule '<,'> call hl#format_surge_rule()
 command! MergeMD silent! call hl#merge_md()
 command! CDF silent call CDF()
 command! OFD silent call OFD()

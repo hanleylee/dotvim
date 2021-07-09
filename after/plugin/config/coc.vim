@@ -3,6 +3,8 @@
 " GitHub: https://github.com/HanleyLee
 " License:  MIT License
 
+" Configuration file located at ~/.vim/coc-settings.json
+
 if !PlugLoaded('coc.nvim')
     finish
 endif

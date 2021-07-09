@@ -5,7 +5,7 @@ endif
             " \ 'tabline_separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
             " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 let g:lightline = {
-            \   'colorscheme': 'onedark',
+            \   'colorscheme': g:colors_name,
             \   'subseparator': { 'left': '|', 'right': '|' },
             \   'tabline_subseparator': { 'left': '|', 'right': '|' },
             \   'active': {

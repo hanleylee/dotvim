@@ -3,6 +3,8 @@
 " GitHub: https://github.com/HanleyLee
 " License:  MIT License
 
+" Configuration file located at ~/.vimspector.json
+
 if !PlugLoaded('vimspector')
     finish
 endif

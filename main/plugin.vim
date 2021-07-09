@@ -51,6 +51,7 @@ if s:vim_weight >= 1 || has('gui_running')
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
     Plug 'nathangrigg/vim-beancount'
+    Plug 'vim-python/python-syntax'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'szw/vim-maximizer'
     Plug '$VIMCONFIG/HanleyLee/vim-alternate'
@@ -66,8 +67,13 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'kana/vim-textobj-entire'
+    Plug 'kana/vim-textobj-user'                        " base text object plugin for below
+    Plug 'kana/vim-textobj-indent'                      " *ai, *ii
+    Plug 'kana/vim-textobj-fold'                        " *az, *iz
+    Plug 'kana/vim-textobj-line'                        " *al, *il
+    Plug 'kana/vim-textobj-syntax'                      " *ay, *iy
+    Plug 'kana/vim-textobj-entire'                      " *ae, *ie
+    Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
@@ -151,8 +157,6 @@ call plug#end()
 " Plug 'Yggdroot/LeaderF'                " 快速搜索文件
 " Plug 'preservim/nerdcommenter'         " 快速注释某行
 " Plug 'mhinz/vim-startify'              " 首页显示
-" Plug 'kana/vim-textobj-user'
-" Plug 'kana/vim-textobj-indent'
-" Plug 'kana/vim-textobj-syntax'
 " Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
 " Plug 'sgur/vim-textobj-parameter'
+" Plug 'michaeljsmith/vim-indent-object'

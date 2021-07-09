@@ -10,6 +10,14 @@ augroup Enter
     au VimEnter * call Enter()
 augroup END
 
+
+if PlugLoaded('onedark.vim')
+    augroup OneDarkRevise
+        autocmd!
+        autocmd ColorScheme * call onedark#set_highlight('pythonBuiltinFunc', {'fg': onedark#GetColors()['cyan']})
+    augroup END
+endif
+
 augroup HLHighlightKeyword
     autocmd!
     " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL

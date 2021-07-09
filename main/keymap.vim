@@ -25,14 +25,13 @@ inoremap <C-B>                   <LEFT>
 cnoremap <C-B>                   <LEFT>
 
 if PlugLoaded('vimspector')
-    nmap <leader>db <Plug>VimspectorToggleBreakpoint
-    nmap <leader>dcb <Plug>VimspectorToggleConditionalBreakpoint
+    nmap <leader>db  <Plug>VimspectorToggleBreakpoint
+    nmap <leader>d_b <Plug>VimspectorToggleConditionalBreakpoint
     nmap <leader>dd :call vimspector#Launch()<CR>
     nmap <leader>dx :call vimspector#Reset()<CR>
     nmap <leader>dX :call vimspector#ClearBreakpoints()<CR>
-    nmap <leader>d_ <Plug>VimspectorRestart
-    nnoremap <leader>d<space> <Plug>VimspectorContinue
-    nmap <leader>dn <Plug>VimspectorContinue
+    nmap <leader>dr <Plug>VimspectorRestart
+    nmap <leader>dc <Plug>VimspectorContinue
     nmap <leader>dp <Plug>VimspectorPause
     nmap <leader>ds <Plug>VimspectorStop
     nmap <Leader>di <Plug>VimspectorBalloonEval
@@ -89,9 +88,9 @@ if PlugLoaded('asynctasks.vim')
 endif
 
 if PlugLoaded('coc.nvim')
-    nmap <Space>rn      <Plug>(coc-rename)
-    nmap <Space>en      <Plug>(coc-diagnostic-next)<CR>
-    nmap <Space>ep      <Plug>(coc-diagnostic-prev)<CR>
+    nmap <Leader>rn     <Plug>(coc-rename)
+    nmap <Leader>en     <Plug>(coc-diagnostic-next)<CR>
+    nmap <Leader>ep     <Plug>(coc-diagnostic-prev)<CR>
     nmap <silent>gd     <Plug>(coc-definition)
     nmap <silent>gy     <Plug>(coc-type-definition)
     nmap <silent>gi     <Plug>(coc-implementation)
@@ -138,9 +137,9 @@ if PlugLoaded('coc.nvim')
     " vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 
-    inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
-    " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
+    " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+    inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     " inoremap <silent><expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"

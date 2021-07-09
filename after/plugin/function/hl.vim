@@ -25,6 +25,18 @@ function! hl#format_CN()
     %substitute /\s\+\n/\r/g " 清除尾部空格
 endfunction
 
+function! s:ReplaceSurgeRule(key,val)
+    let substitutedContent = substitute(a:val, ' =.*$', '', '')
+    return substitutedContent
+endfunction
+
+function! hl#format_surge_rule() range
+    let content = getline(a:firstline, a:lastline)
+
+    let mapedLine = map(content, function('s:ReplaceSurgeRule'))
+    let @0 = join(mapedLine, ',')
+endfunction
+
 function! hl#format_objectmapper()
     retab!
     %s /\/\/.*\n//ge

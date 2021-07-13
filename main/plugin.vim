@@ -81,7 +81,6 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 
     " ============= Appearance ============
-    " Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
     Plug 'jszakmeister/vim-togglecursor'   "改变 cursor 形状
 
@@ -161,3 +160,4 @@ call plug#end()
 " Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
 " Plug 'sgur/vim-textobj-parameter'
 " Plug 'michaeljsmith/vim-indent-object'
+" Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态

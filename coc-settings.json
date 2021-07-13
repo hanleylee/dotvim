@@ -140,7 +140,7 @@
     "python.analysis.diagnosticSeverityOverrides": {},
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.useLibraryCodeForTypes": true,
-    "python.pythonPath": "python",
+    "python.pythonPath": "python3",
     "python.venvPath": "",
     "python.formatting.provider": "autopep8",
     "python.formatting.blackPath": "black",

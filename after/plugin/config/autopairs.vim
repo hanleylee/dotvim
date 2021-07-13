@@ -8,6 +8,10 @@ if !PlugLoaded('auto-pairs')
 endif
 
 let g:AutoPairsMapCR = 0
+" let g:AutoPairsShortcutToggle = '<D-p>'
+" let g:AutoPairsShortcutFastWrap = '<D-e>'
+" let g:AutoPairsShortcutJump = '<D-n>'
+" let g:AutoPairsShortcutBackInsert = '<D-b>'
 " let g:AutoPairs['<']='>'
 " let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 " inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>

@@ -3,46 +3,54 @@
 " GitHub: https://github.com/HanleyLee
 " License:  MIT License
 
+" MARK
+" - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
+" - 如果已经有默认的 vim 功能了, 如 fa, 那么就要添加 leader 或其他前缀键
+
 "███████████████████████   KeyMapping   ██████████████████████████
-nnoremap <Backspace>         :noh<CR>
+nnoremap <silent><Backspace>         :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
-nnoremap <leader>rp          :call plug#load('')<LEFT><LEFT>
+nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
 nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-nnoremap <leader>ge :set operatorfunc=hl#GrepOperator<cr>g@
-vnoremap <leader>ge :<c-u>call hl#GrepOperator(visualmode())<cr>
+nnoremap <Leader>ge :set operatorfunc=hl#GrepOperator<cr>g@
+vnoremap <Leader>ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 
 " Emac like map in insert mode & command line mode
-inoremap <C-E>                   <END>
-cnoremap <C-E>                   <END>
-inoremap <C-A>                   <HOME>
-cnoremap <C-A>                   <HOME>
-inoremap <C-F>                   <RIGHT>
-cnoremap <C-F>                   <RIGHT>
-inoremap <C-B>                   <LEFT>
-cnoremap <C-B>                   <LEFT>
+inoremap <C-e>    <END>
+cnoremap <C-e>    <END>
+inoremap <C-a>    <HOME>
+cnoremap <C-a>    <HOME>
+inoremap <C-f>    <RIGHT>
+cnoremap <C-f>    <RIGHT>
+inoremap <C-b>    <LEFT>
+cnoremap <C-b>    <LEFT>
 
 if PlugLoaded('vimspector')
-    nmap <leader>db  <Plug>VimspectorToggleBreakpoint
-    nmap <leader>d_b <Plug>VimspectorToggleConditionalBreakpoint
-    nmap <leader>dd :call vimspector#Launch()<CR>
-    nmap <leader>dx :call vimspector#Reset()<CR>
-    nmap <leader>dX :call vimspector#ClearBreakpoints()<CR>
-    nmap <leader>dr <Plug>VimspectorRestart
-    nmap <leader>dc <Plug>VimspectorContinue
-    nmap <leader>dp <Plug>VimspectorPause
-    nmap <leader>ds <Plug>VimspectorStop
-    nmap <Leader>di <Plug>VimspectorBalloonEval
-    xmap <Leader>di <Plug>VimspectorBalloonEval
-    nmap <leader>dl <Plug>VimspectorStepInto
-    nmap <leader>dj <Plug>VimspectorStepOver
-    nmap <leader>dk <Plug>VimspectorStepOut
-    nmap <leader>drc <Plug>VimspectorRunToCursor
-    nmap <leader>de :VimspectorEval
-    nmap <leader>dw :VimspectorWatch
-    nmap <leader>do :VimspectorShowOutput
+    nmap <Leader>db   <Plug>VimspectorToggleBreakpoint
+    nmap <Leader>d_b  <Plug>VimspectorToggleConditionalBreakpoint
+    nmap <Leader>dd   :call vimspector#Launch()<CR>
+    nmap <Leader>dx   :call vimspector#Reset()<CR>
+    nmap <Leader>dX   :call vimspector#ClearBreakpoints()<CR>
+    nmap <Leader>dr   <Plug>VimspectorRestart
+    nmap <Leader>dc   <Plug>VimspectorContinue
+    nmap <Leader>dp   <Plug>VimspectorPause
+    nmap <Leader>ds   <Plug>VimspectorStop
+    nmap <Leader>di   <Plug>VimspectorBalloonEval
+    xmap <Leader>di   <Plug>VimspectorBalloonEval
+    nmap <Leader>dj   <Plug>VimspectorStepInto
+    nmap <Leader>dk   <Plug>VimspectorStepOut
+    nmap <Leader>dl   <Plug>VimspectorStepOver
+    nmap <Leader>drc  <Plug>VimspectorRunToCursor
+    nmap <Leader>de   :VimspectorEval
+    nmap <Leader>dw   :VimspectorWatch
+    nmap <Leader>do   :VimspectorShowOutput
+endif
+
+if PlugLoaded('vim-autoformat')
+    nnoremap <silent><Leader>af  :Autoformat<CR>
 endif
 
 if PlugLoaded('vim-maximizer')
@@ -60,19 +68,19 @@ if PlugLoaded('fzf.vim')
     nnoremap <C-H>       :History<CR>
     nnoremap <C-B>       :Buffers<CR>
     nnoremap <C-S>       :SignifyDiff<CR>
-    nnoremap <Leader>fa  :AgAll<CR>
-    nnoremap <Leader>fl  :Lines<CR>
-    nnoremap <Leader>fb  :BCommits<CR>
-    nnoremap <Leader>fg  :GFiles<CR>
-    nnoremap <Leader>f?  :GFiles?<CR>
-    nnoremap <Leader>tg  :Tags<CR>
-    nnoremap <Leader>fc  :Commits<CR>
-    nnoremap <Leader>fm  :FM<CR>
     nmap <C-x><C-m>      <plug>(fzf-maps-n)
     xmap <C-x><C-m>      <plug>(fzf-maps-x)
     omap <C-x><C-m>      <plug>(fzf-maps-o)
     imap <C-x><C-m>      <plug>(fzf-maps-i)
 
+    nnoremap <Leader>fa  :AgAll<CR>
+    nnoremap <Leader>fl  :Lines<CR>
+    nnoremap <Leader>fb  :BCommits<CR>
+    nnoremap <Leader>fg  :GFiles<CR>
+    nnoremap <Leader>f?  :GFiles?<CR>
+    nnoremap <Leader>ft  :Tags<CR>
+    nnoremap <Leader>fc  :Commits<CR>
+    nnoremap <Leader>fm  :FM<CR>
 endif
 
 if PlugLoaded('asyncrun.vim')
@@ -88,23 +96,11 @@ if PlugLoaded('asynctasks.vim')
 endif
 
 if PlugLoaded('coc.nvim')
-    nmap <Leader>rn     <Plug>(coc-rename)
-    nmap <Leader>en     <Plug>(coc-diagnostic-next)<CR>
-    nmap <Leader>ep     <Plug>(coc-diagnostic-prev)<CR>
-    nmap <silent>gd     <Plug>(coc-definition)
-    nmap <silent>gy     <Plug>(coc-type-definition)
-    nmap <silent>gi     <Plug>(coc-implementation)
-    nmap <silent>gr     <Plug>(coc-references)
-    nnoremap <silent><Leader>D :call coc#show_documentation()<CR>
-
-    xmap <Space>f  <Plug>(coc-format-selected)
-    nmap <Space>f  <Plug>(coc-format-selected)
-
-    xmap <Space>a  <Plug>(coc-codeaction-selected)
-    nmap <Space>a  <Plug>(coc-codeaction-selected)
-
-    nmap <Space>ac  <Plug>(coc-codeaction)
-    nmap <Space>fx  <Plug>(coc-fix-current)
+    " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+    inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
+    " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+    nnoremap <silent>K          :call coc#show_documentation()<CR>
 
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
@@ -115,8 +111,25 @@ if PlugLoaded('coc.nvim')
     xmap ac <Plug>(coc-classobj-a)
     omap ac <Plug>(coc-classobj-a)
 
+    nmap <silent><Leader>rn     <Plug>(coc-rename)
+    nmap <silent><Leader>en     <Plug>(coc-diagnostic-next)
+    nmap <silent><Leader>ep     <Plug>(coc-diagnostic-prev)
+    nmap <silent><Leader>fx     <Plug>(coc-fix-current)
+    nmap <silent><Leader>gd     <Plug>(coc-definition)
+    nmap <silent><Leader>gy     <Plug>(coc-type-definition)
+    nmap <silent><Leader>gi     <Plug>(coc-implementation)
+    nmap <silent><Leader>gr     <Plug>(coc-references)
+
+    xmap <Space>f  <Plug>(coc-format-selected)
+    nmap <Space>f  <Plug>(coc-format-selected)
+
+    xmap <Space>a  <Plug>(coc-codeaction-selected)
+    nmap <Space>a  <Plug>(coc-codeaction-selected)
+
     nmap <silent> <C-s> <Plug>(coc-range-select)
     xmap <silent> <C-s> <Plug>(coc-range-select)
+
+    nmap <Space>ac  <Plug>(coc-codeaction)
 
     nnoremap <silent><nowait> <Space>cl  :CocList<CR>
     nnoremap <silent><nowait> <Space>cd  :<C-u>CocList diagnostics<cr>
@@ -136,11 +149,6 @@ if PlugLoaded('coc.nvim')
     " vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     " vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
-
-    " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
-    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
-    " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     " inoremap <silent><expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
     " inoremap <silent><expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
@@ -159,11 +167,11 @@ if PlugLoaded('vim-easymotion')
 endif
 
 if PlugLoaded('vim-oscyank')
-    vnoremap <leader>oy :OSCYank<CR>
+    vnoremap <Leader>oy :OSCYank<CR>
 endif
 
 if PlugLoaded('vim-fugitive')
-    nnoremap <Leader>gs  :Git<CR>
+    nnoremap gs  :Git<CR>
 endif
 
 if PlugLoaded('vista')
@@ -171,10 +179,10 @@ if PlugLoaded('vista')
 endif
 
 if PlugLoaded('YouCompleteMe')
-    nnoremap <F1>        :YcmCompleter GoTo<CR>
-    nmap <Leader>D        <Plug>(YCMHover)
-    nnoremap <leader>jr  :YcmCompleter GoToReferences<CR>
-    nnoremap <Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
+    nnoremap <F1>                :YcmCompleter GoTo<CR>
+    nnoremap <silent>K           <Plug>(YCMHover)
+    nnoremap <silent><Leader>gr  :YcmCompleter GoToReferences<CR>
+    nnoremap <silent><Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
 endif
 
 if PlugLoaded('ale')

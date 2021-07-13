@@ -105,6 +105,7 @@ if s:vim_weight >= 3 || has('gui_running')
     Plug 'puremourning/vimspector'
     Plug 'tpope/vim-scriptease'
     Plug 'sillybun/vim-repl'
+    Plug 'rizzatti/dash.vim'
 endif
 
 call plug#end()

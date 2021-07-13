@@ -161,6 +161,20 @@ if PlugLoaded('coc.nvim')
 
 endif
 
+if PlugLoaded('vim-gitgutter')
+    nmap [h         <Plug>(GitGutterPrevHunk)
+    nmap ]h         <Plug>(GitGutterNextHunk)
+
+    omap ih         <Plug>(GitGutterTextObjectInnerPending)
+    omap ah         <Plug>(GitGutterTextObjectOuterPending)
+    xmap ih         <Plug>(GitGutterTextObjectInnerVisual)
+    xmap ah         <Plug>(GitGutterTextObjectOuterVisual)
+
+    nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+    nmap <Leader>hs <Plug>(GitGutterStageHunk)
+    nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+endif
+
 if PlugLoaded('vim-easymotion')
     nmap <Leader><Space>          <Plug>(easymotion-bd-w)
     vmap <Leader><Space>          <Plug>(easymotion-bd-w)
@@ -171,7 +185,7 @@ if PlugLoaded('vim-oscyank')
 endif
 
 if PlugLoaded('vim-fugitive')
-    nnoremap gs  :Git<CR>
+    nnoremap <silent>gs  :Git<CR>
 endif
 
 if PlugLoaded('vista')

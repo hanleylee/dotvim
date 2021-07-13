@@ -81,16 +81,17 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 
     " ============= Appearance ============
-    Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
-    Plug 'jszakmeister/vim-togglecursor' "改变 cursor 形状
+    " Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
+    Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
+    Plug 'jszakmeister/vim-togglecursor'   "改变 cursor 形状
 
     " ============== Function ==============
     Plug 'liuchengxu/vista.vim'
-    Plug 'jiazhoulvke/jianfan'      " 简繁转换 Tcn, Scn
-    Plug 'AndrewRadev/inline_edit.vim' "可以在 markdown 内编写代码片段
-    Plug 'qpkorr/vim-renamer'       " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug 'Chiel92/vim-autoformat'   " 自动格式化文档
-    Plug 'skywind3000/asyncrun.vim' " 异步执行
+    Plug 'jiazhoulvke/jianfan'         " 简繁转换 Tcn, Scn
+    Plug 'AndrewRadev/inline_edit.vim' " 可以在 markdown 内编写代码片段
+    Plug 'qpkorr/vim-renamer'          " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug 'Chiel92/vim-autoformat'      " 自动格式化文档
+    Plug 'skywind3000/asyncrun.vim'    " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
 endif
@@ -153,7 +154,6 @@ call plug#end()
 " Plug 'Yggdroot/hiPairs'                " 高亮匹配的括号
 " Plug 'junegunn/limelight.vim'          " 暗光效果插件, 与 Goyo 联动配合使用效果最佳
 " Plug 'nathanaelkane/vim-indent-guides' " 缩进线显示
-" Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
 " Plug 'scrooloose/syntastic'            " 语法错误检查
 " Plug 'Yggdroot/LeaderF'                " 快速搜索文件
 " Plug 'preservim/nerdcommenter'         " 快速注释某行

@@ -1,0 +1,2 @@
+setlocal norelativenumber
+setlocal colorcolumn=

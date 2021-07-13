@@ -47,3 +47,15 @@ endif
 if PlugLoaded('echodoc.vim')
     highlight link EchoDocPopup Pmenu
 endif
+
+if PlugLoaded('vim-gitgutter')
+    " highlight SignColumn ctermbg=whatever    " terminal Vim
+    " highlight SignColumn guibg=whatever      " gVim/MacVim
+    " highlight GitGutterAdd    guifg=#009900 guibg=#FFFFFF ctermfg=2 ctermbg=3
+    " highlight GitGutterChange guifg=#bbbb00 guibg=<X> ctermfg=3 ctermbg=<Y>
+    " highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=1 ctermbg=<Y>
+    " highlight GitGutterAdd    guifg=#8dff1b ctermfg=10
+    " highlight GitGutterChange guifg=#ffef00 ctermfg=13
+    " highlight GitGutterDelete guifg=#e03131 ctermfg=1
+    " highlight GitGutterChangeDelete guifg=#e03131 ctermfg=1
+endif

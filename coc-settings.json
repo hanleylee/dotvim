@@ -60,8 +60,15 @@
     ],
 
     // coc-tabnine
+    "tabnine.limit": 10,
     "tabnine.priority": 70,
     "tabnine.shortcut": "TN",
+    "tabnine.triggers": [],
+    "tabnine.disable_filetypes": [],
+    // "tabnine.filetypes": ,
+    "tabnine.binary_path": "",
+    "tabnine.disable_file_regex": [],
+    "tabnine.disable_line_regex": [],
 
     // coc-snippets
     "snippets.priority": 80,

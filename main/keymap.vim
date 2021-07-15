@@ -8,9 +8,11 @@
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要添加 leader 或其他前缀键
 
 "███████████████████████   KeyMapping   ██████████████████████████
-nnoremap <silent><Backspace>         :noh<CR>
+nnoremap <silent><C-q>       :x<CR>
+nnoremap <silent><C-w>q      :xa<CR>
+nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
-nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
+" nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 nnoremap gdl                 :diffget LO<CR>
 nnoremap gdr                 :diffget RE<CR>
 nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
@@ -190,6 +192,11 @@ endif
 
 if PlugLoaded('vista')
     nnoremap <F4>                :Vista!!<CR>
+endif
+
+if PlugLoaded('inline_edit.vim')
+    nnoremap <leader>ie :InlineEdit<cr>
+    xnoremap <leader>ie :InlineEdit<cr>
 endif
 
 if PlugLoaded('YouCompleteMe')

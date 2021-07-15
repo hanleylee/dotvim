@@ -82,7 +82,7 @@ if s:vim_weight >= 2 || has('gui_running')
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
-    Plug 'jszakmeister/vim-togglecursor'   "改变 cursor 形状
+    Plug 'jszakmeister/vim-togglecursor'   " 改变 cursor 形状
 
     " ============== Function ==============
     Plug 'liuchengxu/vista.vim'

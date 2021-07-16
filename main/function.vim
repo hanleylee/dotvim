@@ -13,7 +13,7 @@ func! Enter()
     if argc() == 0 && !has('gui_running')
         exec 'silent Explore'
     elseif argc() == 0 && has('gui_running')
-        exec 'cd ~/HL/00_Repo/00_HKMS' | exec 'silent Explore'
+        exec 'cd ~/data/00_repo/00_hkms' | exec 'silent Explore'
     endif
 endfunc
 

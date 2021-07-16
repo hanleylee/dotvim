@@ -78,7 +78,8 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
-    Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
+    Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
+    Plug 'mg979/vim-visual-multi'                       " 多选
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
@@ -161,3 +162,4 @@ call plug#end()
 " Plug 'sgur/vim-textobj-parameter'
 " Plug 'michaeljsmith/vim-indent-object'
 " Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
+" Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作

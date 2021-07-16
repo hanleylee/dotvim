@@ -81,7 +81,7 @@ endif
 "             \pumvisible() ? "\<C-n>" : "\<TAB>"
 " autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
 " au VimEnter * if argc() == 0 && !has("gui_running") | exec 'silent e.' | endif
-" au GUIEnter * exec 'cd ~/HL/00_Repo/00_HKMS/01_Dev' | exec 'silent e .'
+" au GUIEnter * exec 'cd ~/data/00_repo/00_hkms/01_dev' | exec 'silent e .'
 
 " " get project root
 " function! s:get_root(path, ...)

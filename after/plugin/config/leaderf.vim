@@ -20,10 +20,10 @@ endif
 "let g:Lf_CacheDirectory = '~/.vim/LeaderF'
 ""set ambiwidth=double
 "let g:Lf_WildIgnore = {
-"        \ 'dir': ['~/HL/00_Repo/04_hanleylee.com/source'],
+"        \ 'dir': ['~/data/00_repo/04_hanleylee.com/source'],
 "        \ 'file': []
 "        \}
-"let g:Lf_MruFileExclude = ['*.so', '~/HL/00_Repo/04_hanleylee.com/source/_posts/*']
+"let g:Lf_MruFileExclude = ['*.so', '~/hl/00_repo/04_hanleylee.com/source/_posts/*']
 ""let g:Lf_HistoryExclude = {
 ""        \ 'cmd': [],
 ""        \ 'search': []

@@ -5,7 +5,7 @@
 
 " MARK
 " - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
-" - 如果已经有默认的 vim 功能了, 如 fa, 那么就要添加 leader 或其他前缀键
+" - 如果已经有默认的 vim 功能了, 如 fa, 那么就要添加 leader 或与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "███████████████████████   KeyMapping   ██████████████████████████
 nnoremap <silent><C-q>       :x<CR>
@@ -69,7 +69,6 @@ if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>
     nnoremap <C-H>       :History<CR>
     nnoremap <C-B>       :Buffers<CR>
-    nnoremap <C-S>       :SignifyDiff<CR>
     nmap <C-x><C-m>      <plug>(fzf-maps-n)
     xmap <C-x><C-m>      <plug>(fzf-maps-x)
     omap <C-x><C-m>      <plug>(fzf-maps-o)
@@ -87,6 +86,17 @@ endif
 
 if PlugLoaded('asyncrun.vim')
     nnoremap <F10>       :call asyncrun#quickfix_toggle(6)<CR>
+endif
+
+if !PlugLoaded('dyng/ctrlsf.vim')
+    nmap     <C-s>f <Plug>CtrlSFPrompt<CR>
+    vmap     <C-s>f <Plug>CtrlSFVwordPath<CR>
+    vmap     <C-s>F <Plug>CtrlSFVwordExec
+    nmap     <C-s>n <Plug>CtrlSFCwordPath
+    nmap     <C-s>p <Plug>CtrlSFPwordPath
+    nnoremap <C-s>o :CtrlSFOpen<CR>
+    nnoremap <C-s>t :CtrlSFToggle<CR>
+    inoremap <C-s>t <Esc>:CtrlSFToggle<CR>
 endif
 
 if PlugLoaded('asynctasks.vim')
@@ -122,27 +132,27 @@ if PlugLoaded('coc.nvim')
     nmap <silent><Leader>gi     <Plug>(coc-implementation)
     nmap <silent><Leader>gr     <Plug>(coc-references)
 
-    xmap <Space>f  <Plug>(coc-format-selected)
-    nmap <Space>f  <Plug>(coc-format-selected)
+    xmap <C-c>f  <Plug>(coc-format-selected)
+    nmap <C-c>f  <Plug>(coc-format-selected)
 
-    xmap <Space>a  <Plug>(coc-codeaction-selected)
-    nmap <Space>a  <Plug>(coc-codeaction-selected)
+    xmap <C-c>a  <Plug>(coc-codeaction-selected)
+    nmap <C-c>a  <Plug>(coc-codeaction-selected)
 
-    nmap <silent> <C-s> <Plug>(coc-range-select)
-    xmap <silent> <C-s> <Plug>(coc-range-select)
+    nmap <silent> <C-c>r <Plug>(coc-range-select)
+    xmap <silent> <C-c>r <Plug>(coc-range-select)
 
-    nmap <Space>ac  <Plug>(coc-codeaction)
+    nmap <C-c>ac  <Plug>(coc-codeaction)
 
-    nnoremap <silent><nowait> <Space>cl  :CocList<CR>
-    nnoremap <silent><nowait> <Space>cd  :<C-u>CocList diagnostics<cr>
-    nnoremap <silent><nowait> <Space>ce  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <Space>cc  :<C-u>CocList commands<cr>
-    nnoremap <silent><nowait> <Space>co  :<C-u>CocList outline<cr>
-    nnoremap <silent><nowait> <Space>cs  :<C-u>CocList -I symbols<cr>
-    nnoremap <silent><nowait> <Space>cy  :<C-u>CocList -A --normal yank<cr>
-    nnoremap <silent><nowait> <Space>cr  :<C-u>CocListResume<CR>
-    nnoremap <silent><nowait> <Space>cn  :<C-u>CocNext<CR>
-    nnoremap <silent><nowait> <Space>cp  :<C-u>CocPrev<CR>
+    nnoremap <silent><nowait> <C-c>cl  :CocList<CR>
+    nnoremap <silent><nowait> <C-c>cd  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent><nowait> <C-c>ce  :<C-u>CocList extensions<cr>
+    nnoremap <silent><nowait> <C-c>cc  :<C-u>CocList commands<cr>
+    nnoremap <silent><nowait> <C-c>co  :<C-u>CocList outline<cr>
+    nnoremap <silent><nowait> <C-c>cs  :<C-u>CocList -I symbols<cr>
+    nnoremap <silent><nowait> <C-c>cy  :<C-u>CocList -A --normal yank<cr>
+    nnoremap <silent><nowait> <C-c>cr  :<C-u>CocListResume<CR>
+    nnoremap <silent><nowait> <C-c>cn  :<C-u>CocNext<CR>
+    nnoremap <silent><nowait> <C-c>cp  :<C-u>CocPrev<CR>
 
     " nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     " nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -178,8 +188,8 @@ if PlugLoaded('vim-gitgutter')
 endif
 
 if PlugLoaded('vim-easymotion')
-    nmap <Leader><Space>          <Plug>(easymotion-bd-w)
-    vmap <Leader><Space>          <Plug>(easymotion-bd-w)
+    nmap <Space>          <Plug>(easymotion-bd-w)
+    vmap <Space>          <Plug>(easymotion-bd-w)
 endif
 
 if PlugLoaded('vim-oscyank')

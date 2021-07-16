@@ -10,7 +10,7 @@ endif
 
 "let g:vimwiki_global_ext = 0
 "let g:vimwiki_list = [
-"  \{'path': '~/HL/00_Repo/00_HKMS',
+"  \{'path': '~/data/00_repo/00_hkms',
 "  \ 'syntax': 'markdown',
 "  \ 'ext': '.md',
 "  \ 'auto_export': 0,

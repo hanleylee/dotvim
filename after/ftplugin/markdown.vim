@@ -5,6 +5,7 @@
 
 setlocal conceallevel=2
 " setlocal textwidth=0
+" setlocal foldmethod=expr
 
 noremap <buffer> j   gj
 noremap <buffer> k   gk

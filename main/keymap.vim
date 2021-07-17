@@ -65,6 +65,10 @@ if PlugLoaded('vim-quickui')
     nnoremap <Leader>qm          :call quickui#quick_menu()<cr>
 endif
 
+if PlugLoaded('vim-renamer')
+    nmap <Leader>rr <Plug>RenamerStart
+endif
+
 if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>
     nnoremap <C-H>       :History<CR>

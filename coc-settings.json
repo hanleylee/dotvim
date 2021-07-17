@@ -25,6 +25,10 @@
 
     // source-emoji
     "coc.source.emoji.priority": 10,
+    "coc.source.emoji.enable": true,
+    "coc.source.emoji.triggerCharacters": [
+        "~"
+    ],
     "coc.source.emoji.filetypes": ["markdown"],
     "coc.source.emoji.shortcut": "EMOJI",
 
@@ -145,8 +149,10 @@
     "python.analysis.stubPath": "typings",
     "python.analysis.typeshedPaths": [],
     "python.analysis.diagnosticSeverityOverrides": {},
-    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.typeCheckingMode": "off", // 关闭 pyright 的类型检查
+    // "python.analysis.typeCheckingMode": "basic",
     "python.analysis.useLibraryCodeForTypes": true,
+    "python.analysis.extraPaths": [],
     "python.pythonPath": "python3",
     "python.venvPath": "",
     "python.formatting.provider": "autopep8",

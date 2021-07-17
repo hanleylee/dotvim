@@ -3,3 +3,8 @@
 	url = git@github.com:HanleyLee/vim-alternate.git
 	branch = master
 	update = rebase
+[submodule "vim-renamer"]
+	path = HanleyLee/vim-renamer
+	url = git@github.com:hanleylee/vim-renamer.git
+	branch = master
+	update = rebase

@@ -6,10 +6,10 @@
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
 
-    "suggest.noselect": false,
-    "suggest.enablePreselect": true,
-    // "suggest.noselect": true,
-    // "suggest.enablePreselect": false,
+    // "suggest.noselect": false,
+    // "suggest.enablePreselect": true,
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
 
     // source-file
     "coc.source.file.priority": 100,

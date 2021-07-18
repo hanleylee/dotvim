@@ -54,8 +54,8 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'vim-python/python-syntax'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'szw/vim-maximizer'
-    Plug '$VIMCONFIG/HanleyLee/vim-alternate'
-    " Plug '$VIMCONFIG/HanleyLee/potion'
+    Plug '$VIMCONFIG/hanleylee/vim-alternate'
+    " Plug '$VIMCONFIG/hanleylee/potion'
 endif
 
 " MARK: level v2, edit
@@ -93,7 +93,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'skywind3000/asyncrun.vim'    " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-    Plug '$VIMCONFIG/HanleyLee/vim-renamer'          " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug '$VIMCONFIG/hanleylee/vim-renamer'          " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
 endif
 
 " MARK: level3, heaviest, add completion & debugger on previous feature

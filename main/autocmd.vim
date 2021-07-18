@@ -6,7 +6,7 @@
 "███████████████████████  autocmd  ██████████████████████████
 augroup Enter
     autocmd!
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g'\"" | endif "自动跳转到上次退出的位置
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
     au VimEnter * call Enter()
 augroup END
 

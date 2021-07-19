@@ -1,6 +1,6 @@
 " Author: Hanley Lee
 " Website: https://www.hanleylee.com
-" GitHub: https://github.com/HanleyLee
+" GitHub: https://github.com/hanleylee
 " License:  MIT License
 
 "if has('gui_running') || exist('loaded_cursor_shape')

@@ -1,6 +1,6 @@
 " Author: Hanley Lee
 " Website: https://www.hanleylee.com
-" GitHub: https://github.com/HanleyLee
+" GitHub: https://github.com/hanleylee
 " License:  MIT License
 " Vim 配置原则:
 " 1. 一定要了解此项能实现什么功能再配置

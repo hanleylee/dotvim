@@ -1,7 +1,7 @@
 {
     // coc-preferences
     "coc.preferences.maxFileSize": "10MB",
-    "coc.preferences.jumpCommand": "tabe",
+    "coc.preferences.jumpCommand": "edit",
     "coc.preferences.promptInput": true,
     "coc.preferences.colorSupport": true,
     // "coc.preferences.watchmanPath": null,
@@ -73,10 +73,10 @@
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
 
-    // "suggest.noselect": false,
-    // "suggest.enablePreselect": true,
-    "suggest.noselect": true,
-    "suggest.enablePreselect": false,
+    "suggest.noselect": false,
+    "suggest.enablePreselect": true,
+    // "suggest.noselect": true,
+    // "suggest.enablePreselect": false,
 
     "suggest.timeout": 5000,
     "suggest.minTriggerInputLength": 2,
@@ -199,8 +199,8 @@
     "tabnine.priority": 70,
     "tabnine.shortcut": "TN",
     "tabnine.triggers": [],
-    "tabnine.disable_filetypes": [],
     // "tabnine.filetypes": [],
+    "tabnine.disable_filetypes": [],
     "tabnine.binary_path": "",
     "tabnine.disable_file_regex": [],
     "tabnine.disable_line_regex": [],

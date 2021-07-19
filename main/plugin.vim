@@ -10,7 +10,7 @@
 " :PlugUpgrade    -  更新 vim-plug 本身
 " :PlugClean      -  清理不使用的插件
 
-call plug#begin('$HOME/.vim/plugged')
+call plug#begin('$VIM_CONFIG/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 

@@ -57,12 +57,16 @@ set fileencoding=utf-8 " 编码方式为 utf-8
 set updatetime=500 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
-if isdirectory(expand('$HL_C_HEADER'))
+if isdirectory(expand('$C_INCLUDE_PATH'))
     set path+=$HL_C_HEADER " 头文件搜索目录, 非 $PATH
 endif
 
-if isdirectory(expand('$HL_CPP_HEADER'))
+if isdirectory(expand('$CPLUS_INCLUDE_PATH'))
     set path+=$HL_CPP_HEADER " 头文件搜索目录, 非 $PATH
+endif
+
+if isdirectory(expand('$OBJC_INCLUDE_PATH'))
+    set path+=$OBJC_INCLUDE_PATH " 头文件搜索目录, 非 $PATH
 endif
 
 if isdirectory(expand('$PYTHONPATH'))

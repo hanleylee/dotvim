@@ -5,20 +5,20 @@
 
 " MARK
 " - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
-" - 如果已经有默认的 vim 功能了, 如 fa, 那么就要添加 leader 或与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
+" - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
+"   - 添加 leader
+"   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "███████████████████████   KeyMapping   ██████████████████████████
-nnoremap <silent><C-q>       :x<CR>
-nnoremap <silent><C-w><C-q>      :xa<CR>
+nnoremap <silent><C-q>          :x<CR>
+nnoremap <silent><C-w>q         :xa<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
-nnoremap gdl                 :diffget LO<CR>
-nnoremap gdr                 :diffget RE<CR>
 nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-nnoremap <Leader>ge :set operatorfunc=hl#GrepOperator<cr>g@
-vnoremap <Leader>ge :<c-u>call hl#GrepOperator(visualmode())<cr>
+nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
+vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 
 " Emac like map in insert mode & command line mode
 inoremap <C-e>    <END>
@@ -118,6 +118,11 @@ if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent>K          :call coc#show_documentation()<CR>
+    nmap <silent>gd             <Plug>(coc-definition)
+    nmap <silent>gy             <Plug>(coc-type-definition)
+    nmap <silent>gm             <Plug>(coc-implementation)
+    nmap <silent>gr             <Plug>(coc-references)
+
 
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
@@ -132,11 +137,6 @@ if PlugLoaded('coc.nvim')
     nmap <silent><Leader>en     <Plug>(coc-diagnostic-next)
     nmap <silent><Leader>ep     <Plug>(coc-diagnostic-prev)
     nmap <silent><Leader>fx     <Plug>(coc-fix-current)
-    nmap <silent><Leader>gd     <Plug>(coc-definition)
-    nmap <silent><Leader>gy     <Plug>(coc-type-definition)
-    nmap <silent><Leader>gi     <Plug>(coc-implementation)
-    nmap <silent><Leader>gr     <Plug>(coc-references)
-
     xmap <C-c>f  <Plug>(coc-format-selected)
     nmap <C-c>f  <Plug>(coc-format-selected)
 

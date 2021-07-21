@@ -1,1 +1,1 @@
-let g:netrw_bookmarklist= ['/users/hanley/data/00_repo/00_hkms/']
+let g:netrw_bookmarklist= ['/users/hanley/data/repo/hkms/']

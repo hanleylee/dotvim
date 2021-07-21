@@ -16,5 +16,7 @@ let g:netrw_alto = 0 " 控制预览窗口位于左侧或右侧, 与 netrw_previe
 let g:netrw_keepdir=0
 let g:netrw_special_syntax=1
 let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_nogx = 1 " disable gx keymap
+" let g:netrw_browsex_viewer='open'
 " let g:netrw_fastbrowse = 0
 " let g:netrw_chgwin = 2 " 控制按下 <CR> 的新文件在位于屏幕右侧的 2 号窗口打开, Lex 默认会设为 2

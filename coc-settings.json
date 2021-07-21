@@ -73,6 +73,7 @@
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
 
+    "suggest.numberSelect": false,
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
     // "suggest.noselect": true,
@@ -85,7 +86,6 @@
     "suggest.lowPrioritySourceLimit": 50,
     "suggest.disableKind": false,
     "suggest.disableMenu": false,
-    "suggest.numberSelect": false,
     "suggest.enablePreview": true,
     "suggest.maxPreviewWidth": 80,
     "suggest.detailMaxLength": 50,
@@ -100,7 +100,7 @@
     "suggest.disableMenuShortcut": false,
     "suggest.asciiCharactersOnly": false,
     "suggest.triggerCompletionWait": 100,
-    "suggest.triggerAfterInsertEnter": false,
+    "suggest.triggerAfterInsertEnter": true,
     "suggest.completionItemKindLabels": {},
     "suggest.preferCompleteThanJumpPlaceholder": false,
     "suggest.invalidInsertCharacters": [
@@ -207,7 +207,7 @@
 
     // coc-snippets
     "snippets.ultisnips.enable": true,
-    "snippets.priority": 80,
+    "snippets.priority": 100,
     "snippets.shortcut": "SNIP",
     "snippets.ultisnips.usePythonx": true,
     "snippets.ultisnips.pythonVersion": 3,
@@ -218,11 +218,12 @@
     "snippets.userSnippetsDirectory": "~/.local/share/snippets",
     "snippets.trace": "error",
     "snippets.extends": {
+        "cpp": ["c"],
         "javascriptreact": ["javascript"],
         "typescript": ["javascript"]
     },
     "snippets.autoTrigger": true,
-    "snippets.snipmate.enable": true,
+    "snippets.snipmate.enable": false, // 如果为 true 会导致将每个 rtp 下的 snippets 文件夹的内容也作为 snippet 进行补全
     "snippets.snipmate.author": "",
     "snippets.enableStatusItem": true,
     "snippets.triggerCharacters": [],

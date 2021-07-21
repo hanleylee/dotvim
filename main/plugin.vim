@@ -30,6 +30,7 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-unimpaired'
     Plug 'ojroques/vim-oscyank'
+    Plug 'tyru/open-browser.vim'                        " use gx to open url link
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
@@ -50,6 +51,7 @@ if s:vim_weight >= 1 || has('gui_running')
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
+    " Plug 'tpope/vim-markdown'
     Plug 'nathangrigg/vim-beancount'
     Plug 'vim-python/python-syntax'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释

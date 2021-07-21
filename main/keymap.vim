@@ -15,7 +15,7 @@ nnoremap <silent><C-w>q         :xa<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
-nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
+" nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
 vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
@@ -49,6 +49,12 @@ if PlugLoaded('vimspector')
     nmap <Leader>de   :VimspectorEval
     nmap <Leader>dw   :VimspectorWatch
     nmap <Leader>do   :VimspectorShowOutput
+endif
+
+if PlugLoaded('open-browser.vim')
+    let g:netrw_nogx = 1 " disable gx keymap
+    nmap gx <Plug>(openbrowser-smart-search)
+	vmap gx <Plug>(openbrowser-smart-search)
 endif
 
 if PlugLoaded('vim-autoformat')
@@ -115,7 +121,7 @@ endif
 if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
+    inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent>K          :call coc#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)

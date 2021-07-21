@@ -13,7 +13,7 @@ func! Enter()
     if argc() == 0 && !has('gui_running')
         exec 'silent Explore'
     elseif argc() == 0 && has('gui_running')
-        exec 'cd ~/data/00_repo/00_hkms' | exec 'silent Explore'
+        exec 'cd $HKMS' | exec 'silent Explore'
     endif
 endfunc
 
@@ -65,4 +65,18 @@ func! CDF()
     let l:current_path = system("osascript -e 'tell application \"Finder\" to POSIX path of (target of window 1 as alias)'")
     let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
     exec 'Exp ' l:final_path
+endfunction
+
+" add path to vim from environment variables
+function! Expand_path_from_env(...)
+    for path_str in a:000
+        let paths=split(path_str, ':')
+
+        for path in paths
+            let expanded_path = expand(path)
+            if isdirectory(expanded_path)
+                execute 'set path+=' . expanded_path
+            endif
+        endfor
+    endfor
 endfunction

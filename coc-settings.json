@@ -351,9 +351,24 @@
     "yaml.format.bracketSpacing": true,
     "yaml.disableAdditionalProperties": false,
 
+    // coc-clangd
+    "clangd.enabled": true,
+    "clangd.path": "clangd",
+    "clangd.trace": "",
+    "clangd.arguments": [],
+    "clangd.checkUpdates": false,
+    "clangd.fallbackFlags": [],
+    "clangd.disableCompletion": false,
+    "clangd.disableDiagnostics": false,
+    "clangd.semanticHighlighting": false,
+    "clangd.compilationDatabasePath": "",
+    "clangd.serverCompletionRanking": true,
+    "clangd.disableSnippetCompletion": false,
+    "clangd.showDBChangedNotification": true,
+
     // coc-pyright
-    "pyright.trace.server": "off",
     "pyright.enable": true,
+    "pyright.trace.server": "off",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.logLevel": "Warning",
     "python.analysis.autoSearchPaths": true,

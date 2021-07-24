@@ -14,7 +14,7 @@ exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
 " set viminfo='50000,~/.viminfo
 " set viminfo=%,\"100,'10,/50,:100,h,f0,n~/.viminfo
 set nocompatible " 关闭 vi 兼容模式, 必选
-set viminfo='1000,f1,<500,:1000,@1000,/1000,h,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
+set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
 filetype plugin indent on " 开启插件功能,必选
 " set shell=bash\ -i
 set shell=zsh

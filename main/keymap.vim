@@ -19,6 +19,7 @@ nnoremap <C-g>               :call EchoPath()<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
 vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
+nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
 
 " Emac like map in insert mode & command line mode
 inoremap <C-e>    <END>
@@ -58,7 +59,7 @@ if PlugLoaded('open-browser.vim')
 endif
 
 if PlugLoaded('vim-autoformat')
-    nnoremap <silent><Leader>af  :Autoformat<CR>
+    nnoremap <silent><Leader>af  :call hl#format_document()<CR>
 endif
 
 if PlugLoaded('vim-maximizer')

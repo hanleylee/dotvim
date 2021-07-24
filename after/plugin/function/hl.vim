@@ -64,6 +64,52 @@ function! hl#GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
+" format document
+function! hl#format_document()
+    if &filetype ==? 'markdown'
+        execute "FormatCN"
+    else
+        execute "Autoformat"
+    endif
+endfunction
+
+" 异步执行任务
 function! hl#AsyncTask(mode)
     w | execute "AsyncTask! " . a:mode
+endfunction
+
+" 同步执行任务
+function! hl#SyncTask()
+    silent w
+    if &filetype ==? 'c'
+        "exec 'AsyncRun gcc % -o build/%< && ./build/%<' "花了一晚上研究出来的可用方案
+        "exec 'AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/build/$(VIM_FILENOEXT)" && ./build/"$(VIM_FILENOEXT)"'
+        " !gcc `pkg-config --cflags --libs glib-2.0` -Wall -O2 % -o "$XDG_CACHE_HOME/build/c/"%< && "$XDG_CACHE_HOME/build/c/"%<
+        let target = expand('$XDG_CACHE_HOME/build/c/') . expand('%:t:r')
+        exec '!clang % -o ' . target . " && " . target
+    elseif &filetype ==? 'cpp'
+        let target = expand('$XDG_CACHE_HOME/build/cpp/') . expand('%:t:r')
+        exec '!clang++ -std=c++17 % -o ' . target . " && " . target
+    elseif &filetype ==? 'java'
+        !javac %; time java %<
+    elseif &filetype ==? 'sh'
+        !time bash %
+    elseif &filetype ==? 'swift'
+        let target = expand('$XDG_CACHE_HOME/build/swift/') . expand('%:t:r')
+        !swiftc -o "$HOME/.cache/build/swift/$(VIM_FILENOEXT)" "$(VIM_FILEPATH)" && "$HOME/.cache/build/swift/$(VIM_FILENOEXT)"
+        exec '!swiftc % -o ' . target . " && " . target
+    elseif &filetype ==? 'python'
+        !time python3 %
+    elseif &filetype ==? 'html'
+        silent !open %
+    elseif &filetype ==? 'xhtml'
+        silent !open %
+    elseif &filetype ==? 'go'
+        !go build %<; time go run %
+    elseif &filetype ==? 'vim'
+        source %
+    else
+        echom 'Current filetype is not supported!'
+    endif
+
 endfunction

@@ -14,12 +14,19 @@ nnoremap <silent><C-q>          :x<CR>
 nnoremap <silent><C-w>q         :xa<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
-" nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
-" nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
+" inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
+" nnoremap <M-;> m`A;<Esc>``
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
 vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
+" nnoremap <silent> <S-cr> :set paste<cr>o<esc>:set nopaste<cr>
+" inoremap <silent> <S-cr> <C-o>:set paste<CR>o<ESC>:set nopaste<cr>
+" 确保没有注释跟随, 且不选中补全
+inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>" 
+nnoremap <silent><expr> <C-CR> "o\<C-u>"
+" nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
+" nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 
 " Emac like map in insert mode & command line mode
 inoremap <C-e>    <END>
@@ -122,7 +129,6 @@ endif
 if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent>K          :call coc#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)

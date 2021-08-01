@@ -11,3 +11,13 @@ noremap <buffer> j   gj
 noremap <buffer> k   gk
 noremap <buffer> gj  j
 noremap <buffer> gk  k
+
+" undo break points
+inoremap <buffer> , ,<C-g>u
+inoremap <buffer> . .<C-g>u
+inoremap <buffer> ! !<C-g>u
+inoremap <buffer> ? ?<C-g>u
+
+" jumplist mutations
+nnoremap <buffer> <expr> k (v:count > 5 ? "m'" . v:count : "") . 'gk'
+nnoremap <buffer> <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'

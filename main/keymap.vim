@@ -23,10 +23,30 @@ nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
 " nnoremap <silent> <S-cr> :set paste<cr>o<esc>:set nopaste<cr>
 " inoremap <silent> <S-cr> <C-o>:set paste<CR>o<ESC>:set nopaste<cr>
 " 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>" 
+inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
+" inoremap <silent><expr> <C-CR> "\<Esc>o\<C-u>"
+" inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>cc"
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
+" nnoremap <silent><expr> <C-CR> "o\<Esc>cc"
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
+
+" keeping it center
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" moving text(use unimpaired instead this)
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
+" inoremap <C-j> <esc>:m .+1<CR>==
+" inoremap <C-k> <esc>:m .-2<CR>==
+" nnoremap <leader>k :m .-2<CR>==
+" nnoremap <leader>j :m .+1<CR>==
 
 " Emac like map in insert mode & command line mode
 inoremap <C-e>    <END>
@@ -41,11 +61,12 @@ cnoremap <C-b>    <LEFT>
 if PlugLoaded('vimspector')
     nmap <Leader>db   <Plug>VimspectorToggleBreakpoint
     nmap <Leader>d_b  <Plug>VimspectorToggleConditionalBreakpoint
-    nmap <Leader>dd   :call vimspector#Launch()<CR>
+    " nmap <Leader>dd   :call vimspector#Launch()<CR>
+    nmap <Leader>dd   <Plug>VimspectorContinue
+    nmap <Leader>dc   <Plug>VimspectorContinue
     nmap <Leader>dx   :call vimspector#Reset()<CR>
     nmap <Leader>dX   :call vimspector#ClearBreakpoints()<CR>
     nmap <Leader>dr   <Plug>VimspectorRestart
-    nmap <Leader>dc   <Plug>VimspectorContinue
     nmap <Leader>dp   <Plug>VimspectorPause
     nmap <Leader>ds   <Plug>VimspectorStop
     nmap <Leader>di   <Plug>VimspectorBalloonEval
@@ -54,9 +75,9 @@ if PlugLoaded('vimspector')
     nmap <Leader>dk   <Plug>VimspectorStepOut
     nmap <Leader>dl   <Plug>VimspectorStepOver
     nmap <Leader>drc  <Plug>VimspectorRunToCursor
-    nmap <Leader>de   :VimspectorEval
-    nmap <Leader>dw   :VimspectorWatch
-    nmap <Leader>do   :VimspectorShowOutput
+    nmap <Leader>de   :VimspectorEval<Space>
+    nmap <Leader>dw   :VimspectorWatch<Space>
+    nmap <Leader>do   :VimspectorShowOutput<Space>
 endif
 
 if PlugLoaded('open-browser.vim')
@@ -108,7 +129,7 @@ if PlugLoaded('asyncrun.vim')
 endif
 
 if !PlugLoaded('dyng/ctrlsf.vim')
-    nmap     <C-s>f <Plug>CtrlSFPrompt<CR>
+    nmap     <C-s>f <Plug>CtrlSFPrompt
     vmap     <C-s>f <Plug>CtrlSFVwordPath<CR>
     vmap     <C-s>F <Plug>CtrlSFVwordExec
     nmap     <C-s>n <Plug>CtrlSFCwordPath

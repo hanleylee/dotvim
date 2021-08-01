@@ -116,6 +116,15 @@
         "\n"
     ],
 
+    // signature
+    "signature.enable": true,
+    "signature.hideOnTextChange": true,
+    "signature.target": "float",
+    "signature.maxWindowWidth": 80,
+    "signature.maxWindowHeight": 8,
+    "signature.preferShownAbove": true,
+    "signature.triggerSignatureWait": 500,
+
     // notification
     "notification.highlightGroup": "CocFloating",
     "notification.maxWidth": 60,
@@ -938,15 +947,6 @@
     "tsserver.implicitProjectConfig.checkJs": false,
     "tsserver.disableAutomaticTypeAcquisition": false,
     "tsserver.implicitProjectConfig.experimentalDecorators": false,
-
-    // signature
-    "signature.enable": true,
-    "signature.hideOnTextChange": false,
-    "signature.target": "float",
-    "signature.maxWindowWidth": 80,
-    "signature.maxWindowHeight": 8,
-    "signature.preferShownAbove": true,
-    "signature.triggerSignatureWait": 500,
 
     // sourcekit
     "sourcekit.enable": true,

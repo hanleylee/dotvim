@@ -165,3 +165,4 @@ call plug#end()
 " Plug 'michaeljsmith/vim-indent-object'
 " Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
 " Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
+" Plug 'google/vim-searchindex'

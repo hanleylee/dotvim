@@ -75,7 +75,11 @@ endfunction
 
 " 异步执行任务
 function! hl#AsyncTask(mode)
-    w | execute "AsyncTask! " . a:mode
+    if &filetype ==? 'vim'
+        source %
+    else
+        silent w | execute "AsyncTask! " . a:mode
+    endif
 endfunction
 
 " 同步执行任务
@@ -106,8 +110,6 @@ function! hl#SyncTask()
         silent !open %
     elseif &filetype ==? 'go'
         !go build %<; time go run %
-    elseif &filetype ==? 'vim'
-        source %
     else
         echom 'Current filetype is not supported!'
     endif

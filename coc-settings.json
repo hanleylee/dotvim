@@ -60,6 +60,20 @@
     "less.lint.propertyIgnoredDueToDisplay": "warning",
     "less.lint.unknownVendorSpecificProperties": "ignore",
 
+    // coc-pairs
+    // "pairs.enableBackspace": true,
+    // "pairs.disableLanguages": [],
+    // "pairs.enableCharacters": [
+    //     "(",
+    //     "[",
+    //     "{",
+    //     "<",
+    //     "'",
+    //     "\"",
+    //     "`"
+    // ],
+    // "pairs.alwaysPairCharacters": [],
+
     // codeLens
     "codeLens.enable": false,
     "codeLens.separator": "‣",

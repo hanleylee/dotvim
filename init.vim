@@ -14,7 +14,13 @@ exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
 " set viminfo='50000,~/.viminfo
 " set viminfo=%,\"100,'10,/50,:100,h,f0,n~/.viminfo
 set nocompatible " 关闭 vi 兼容模式, 必选
-set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
+
+if has('nvim')
+    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.nviminfo " 设置 viminfo, 必须放在 nocompatible 之后
+else
+    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
+endif
+
 filetype plugin indent on " 开启插件功能,必选
 " set shell=bash\ -i
 set shell=zsh
@@ -30,12 +36,16 @@ set writebackup " 在保存时自动写入 backup
 set undofile
 set backupcopy=auto
 
-call GuardExistDirectory(expand('$HOME/.cache/vim/undo'))
-set undodir=$HOME/.cache/vim/undo
-call GuardExistDirectory(expand('$HOME/.cache/vim/backup'))
-set backupdir=$HOME/.cache/vim/backup " backup 文件存放位置
-call GuardExistDirectory(expand('$HOME/.cache/vim/swp'))
-set directory=$HOME/.cache/vim/swp
+let s:undo_dir = has('nvim') ? expand('$HOME/.cache/nvim/undo') : expand('$HOME/.cache/vim/undo')
+let s:backup_dir = has('nvim') ? expand('$HOME/.cache/nvim/backup') : expand('$HOME/.cache/vim/backup')
+let s:cache_dir = has('nvim') ? expand('$HOME/.cache/nvim/swp') : expand('$HOME/.cache/vim/swp')
+
+call GuardExistDirectory(s:undo_dir)
+execute 'set undodir=' . s:undo_dir
+call GuardExistDirectory(s:backup_dir)
+execute 'set backupdir=' . s:backup_dir
+call GuardExistDirectory(s:cache_dir)
+execute 'set directory=' . s:cache_dir
 
 " set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
@@ -82,7 +92,11 @@ set wildmode=full
 set showcmd " 右下角显示正在操作的命令
 " set cmdheight=2
 set list " 设置显示行尾, 换行, 制表符等隐藏字符
-set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
+
+if !has('nvim')
+    set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
+endif
+
 set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
 
 set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
@@ -99,7 +113,7 @@ if has('textprop') && has('quickfix')
     set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口的样式
 endif
 set cursorline " 突出光标所在行, 开启后速度变慢
-" set scrolloff=1 " 设置光标距离最顶(底)部的距离不小于 1 行(一旦小于 1 行即触发位于下方的 scrolljump)
+set scrolloff=5 " 设置光标距离最顶(底)部的距离不小于 5 行(一旦小于 5 行即触发位于下方的 scrolljump)
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150

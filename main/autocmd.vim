@@ -55,7 +55,8 @@ if PlugLoaded('coc.nvim')
     augroup CocAutoGroup
         autocmd!
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-        autocmd CursorHold * silent call CocActionAsync('highlight')
+        " autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd CursorMoved * silent call CocActionAsync('highlight')
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     augroup end

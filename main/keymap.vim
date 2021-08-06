@@ -25,16 +25,16 @@ nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
 " 确保没有注释跟随, 且不选中补全
 inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
 " inoremap <silent><expr> <C-CR> "\<Esc>o\<C-u>"
-" inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>cc"
+" inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>c^"
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap <silent><expr> <C-CR> "o\<Esc>cc"
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 
 " keeping it center
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap J mzJ`z
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
+" nnoremap J mzJ`z
 
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'

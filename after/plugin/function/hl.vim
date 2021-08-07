@@ -75,11 +75,11 @@ endfunction
 
 " 异步执行任务
 function! hl#AsyncTask(mode)
-    if &filetype ==? 'vim'
-        source %
-    else
-        silent w | execute "AsyncTask! " . a:mode
-    endif
+    " if &filetype ==? 'vim'
+    "     source %
+    " else
+        silent update | execute "AsyncTask! " . a:mode
+    " endif
 endfunction
 
 " 同步执行任务

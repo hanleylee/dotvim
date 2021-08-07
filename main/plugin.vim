@@ -48,6 +48,7 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'simnalamburt/vim-mundo'   " 显示修改历史
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
+    Plug 'dsummersl/vus'
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'

@@ -22,3 +22,12 @@ endfunction
 "     return !col || getline('.')[col - 1]  =~# '\s'
 " endfunction
 
+function! coc#insert_map_for_enter()
+    if pumvisible()
+        return coc#_select_confirm()
+    elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
+        return "\<C-g>u\<CR>\<Esc>O"
+    else
+        return "\<CR>"
+    endif
+endfunction

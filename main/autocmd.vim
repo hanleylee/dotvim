@@ -54,6 +54,11 @@ endif
 if PlugLoaded('coc.nvim')
     augroup CocAutoGroup
         autocmd!
+        " use throttling
+        " let s:ThrottleFnTrailing = _#throttle(function('CocActionAsync'), 1000, 0)
+        " let s:ThrottleFnLeading = _#throttle(function('CocActionAsync'), 1000)
+        " autocmd CursorMoved * silent call s:ThrottleFnTrailing.call('highlight')
+        " autocmd CursorMoved * silent call s:ThrottleFnLeading.call('highlight')
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
         " autocmd CursorHold * silent call CocActionAsync('highlight')
         autocmd CursorMoved * silent call CocActionAsync('highlight')

@@ -31,3 +31,9 @@ function! coc#insert_map_for_enter()
         return "\<CR>"
     endif
 endfunction
+
+function coc#highlight_current_cursor()
+    if &filetype !=? 'markdown'
+        call CocActionAsync('highlight')
+    endif
+endfunction

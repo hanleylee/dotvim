@@ -64,10 +64,41 @@ function! hl#GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
+if PlugLoaded('vim-surround')
+    " make markdown text bold
+    function! hl#MarkdownBold(mode)
+        call hl#MarkdownEmphasis(a:mode, "bold")
+    endfunction
+
+    " make markdown text italic
+    function! hl#MarkdownItalic(mode)
+        call hl#MarkdownEmphasis(a:mode, "italic")
+    endfunction
+
+    " emphasis markdown text
+    function! hl#MarkdownEmphasis(mode, emphasis_type)
+        if a:emphasis_type ==# "italic"
+            let emphasis_str = "S*"
+        elseif a:emphasis_type ==# "bold"
+            let emphasis_str = "S*gvS*"
+        endif
+
+        if a:mode ==# 'v'
+            execute "normal `<v`>" . emphasis_str
+        elseif a:mode ==# 'char'
+            execute "normal `[v`]" . emphasis_str
+        else
+            return
+        endif
+    endfunction
+endif
+
 " format document
 function! hl#format_document()
     if &filetype ==? 'markdown'
         execute "FormatCN"
+    elseif &filetype ==? 'vim'
+        execute "normal mzgg=G`zmz"
     else
         execute "Autoformat"
     endif
@@ -78,7 +109,7 @@ function! hl#AsyncTask(mode)
     " if &filetype ==? 'vim'
     "     source %
     " else
-        silent update | execute "AsyncTask! " . a:mode
+    silent update | execute "AsyncTask! " . a:mode
     " endif
 endfunction
 

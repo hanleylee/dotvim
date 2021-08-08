@@ -14,3 +14,9 @@ func! GuardExistDirectory(dir)
         silent! call mkdir(a:dir, 'p')
     endif
 endfunc
+
+" 是否加载了 plug
+function! PlugLoaded(name)
+    return has_key(g:plugs, a:name)
+endfunction
+

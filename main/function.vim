@@ -3,11 +3,6 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" 是否加载了 plug
-function! PlugLoaded(name)
-    return has_key(g:plugs, a:name)
-endfunction
-
 " vim 进入时的判断
 func! Enter()
     if argc() == 0 && !has('gui_running')

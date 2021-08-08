@@ -34,7 +34,7 @@ nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " keeping it center
 " nnoremap n nzzzv
 " nnoremap N Nzzzv
-" nnoremap J mzJ`z
+nnoremap J mzJ`zmz
 
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -49,14 +49,14 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " nnoremap <leader>j :m .+1<CR>==
 
 " Emac like map in insert mode & command line mode
-inoremap <C-e>    <END>
-cnoremap <C-e>    <END>
-inoremap <C-a>    <HOME>
-cnoremap <C-a>    <HOME>
-inoremap <C-f>    <RIGHT>
-cnoremap <C-f>    <RIGHT>
-inoremap <C-b>    <LEFT>
-cnoremap <C-b>    <LEFT>
+inoremap <C-e>    <End>
+cnoremap <C-e>    <End>
+inoremap <C-a>    <Home>
+cnoremap <C-a>    <Home>
+inoremap <C-f>    <Right>
+cnoremap <C-f>    <Right>
+inoremap <C-b>    <Left>
+cnoremap <C-b>    <Left>
 
 if PlugLoaded('vimspector')
     nmap <Leader>db   <Plug>VimspectorToggleBreakpoint
@@ -109,10 +109,10 @@ if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>
     nnoremap <C-H>       :History<CR>
     nnoremap <C-B>       :Buffers<CR>
-    nmap <C-x><C-m>      <plug>(fzf-maps-n)
-    xmap <C-x><C-m>      <plug>(fzf-maps-x)
-    omap <C-x><C-m>      <plug>(fzf-maps-o)
-    imap <C-x><C-m>      <plug>(fzf-maps-i)
+    nmap <C-x><C-m>      <Plug>(fzf-maps-n)
+    xmap <C-x><C-m>      <Plug>(fzf-maps-x)
+    omap <C-x><C-m>      <Plug>(fzf-maps-o)
+    imap <C-x><C-m>      <Plug>(fzf-maps-i)
 
     nnoremap <Leader>fa  :AgAll<CR>
     nnoremap <Leader>fl  :Lines<CR>
@@ -149,8 +149,8 @@ endif
 
 if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
-    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    " inoremap <silent><expr> <CR> coc#insert_map_for_enter()
+    " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+    inoremap <silent><expr> <CR> coc#insert_map_for_enter()
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent>K          :call coc#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)

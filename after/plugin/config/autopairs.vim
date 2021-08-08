@@ -7,7 +7,7 @@ if !PlugLoaded('auto-pairs')
     finish
 endif
 
-" let g:AutoPairsMapCR = 0
+let g:AutoPairsMapCR = 0
 " let g:AutoPairsShortcutToggle = '<D-p>'
 " let g:AutoPairsShortcutFastWrap = '<D-e>'
 " let g:AutoPairsShortcutJump = '<D-n>'

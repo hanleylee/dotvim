@@ -90,13 +90,13 @@ if s:vim_weight >= 2 || has('gui_running')
 
     " ============== Function ==============
     Plug 'liuchengxu/vista.vim'
-    Plug 'jiazhoulvke/jianfan'                       " 简繁转换 Tcn, Scn
-    Plug 'AndrewRadev/inline_edit.vim'               " 可以在 markdown 内编写代码片段
-    Plug 'Chiel92/vim-autoformat'      " 自动格式化文档
-    Plug 'skywind3000/asyncrun.vim'    " 异步执行
+    Plug 'jiazhoulvke/jianfan'                      " 简繁转换 Tcn, Scn
+    Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
+    Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
+    Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-    Plug '$VIM_CONFIG/hanleylee/vim-renamer'          " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
 endif
 
 " MARK: level3, heaviest, add completion & debugger on previous feature

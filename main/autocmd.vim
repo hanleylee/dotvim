@@ -10,7 +10,6 @@ augroup Enter
     au VimEnter * call Enter()
 augroup END
 
-
 augroup HLHighlightKeyword
     autocmd!
     " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
@@ -61,7 +60,7 @@ if PlugLoaded('coc.nvim')
         " autocmd CursorMoved * silent call s:ThrottleFnLeading.call('highlight')
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
         " autocmd CursorHold * silent call CocActionAsync('highlight')
-        autocmd CursorMoved * silent call CocActionAsync('highlight')
+        autocmd CursorMoved * silent call coc#highlight_current_cursor()
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     augroup end

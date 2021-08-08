@@ -134,9 +134,9 @@
     "signature.enable": true,
     "signature.hideOnTextChange": true,
     "signature.target": "float",
-    "signature.maxWindowWidth": 80,
+    "signature.maxWindowWidth": 150,
     "signature.maxWindowHeight": 8,
-    "signature.preferShownAbove": true,
+    "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,
 
     // notification

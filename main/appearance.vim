@@ -5,7 +5,6 @@
 
 "███████████████████████   Appearance   ██████████████████████████
 
-
 if PlugLoaded('onedark.vim')
     colorscheme onedark
 endif
@@ -32,6 +31,15 @@ if PlugLoaded('vim-quickui')
     highlight! QuickKey term=bold ctermfg=9 gui=bold guifg=#f92772
     highlight! QuickOff ctermfg=59 guifg=#75715e
     highlight! QuickHelp ctermfg=247 guifg=#959173
+endif
+
+if PlugLoaded('vim-floaterm')
+    hi Floaterm                       ctermbg=39             guibg=#282C34
+    " hi FloatermBorder guibg=orange guifg=cyan
+    hi FloatermBorder cterm=bold      ctermbg=173 ctermfg=235 guibg=#C678DD guifg=#282C34 gui=bold
+    if has('nvim')
+        hi FloatermNC guibg=gray
+    endif
 endif
 
 if PlugLoaded('coc.nvim')

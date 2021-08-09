@@ -80,10 +80,11 @@ if PlugLoaded('vimspector')
     nmap <Leader>do   :VimspectorShowOutput<Space>
 endif
 
+
 if PlugLoaded('open-browser.vim')
     let g:netrw_nogx = 1 " disable gx keymap
     nmap gx <Plug>(openbrowser-smart-search)
-	vmap gx <Plug>(openbrowser-smart-search)
+    vmap gx <Plug>(openbrowser-smart-search)
 endif
 
 if PlugLoaded('vim-autoformat')
@@ -94,6 +95,23 @@ if PlugLoaded('vim-maximizer')
     nnoremap <F12> :MaximizerToggle!<CR>
 endif
 
+if PlugLoaded('vim-floaterm')
+    nnoremap <silent> <F3>          :FloatermToggle<CR>
+    tnoremap <silent> <F3>          <C-\><C-n>:FloatermToggle<CR>
+    nnoremap <silent> <Leader>tw    :FloatermNew<CR>
+    tnoremap <silent> <Leader>tw    <C-\><C-n>:FloatermNew<CR>
+    nnoremap <silent> <Leader>tp    :FloatermPrev<CR>
+    tnoremap <silent> <Leader>tp    <C-\><C-n>:FloatermPrev<CR>
+    nnoremap <silent> <Leader>tn    :FloatermNext<CR>
+    tnoremap <silent> <Leader>tn    <C-\><C-n>:FloatermNext<CR>
+    nnoremap <silent> <Leader>ts    :FloatermFirst<CR>
+    tnoremap <silent> <Leader>ts    <C-\><C-n>:FloatermFirst<CR>
+    nnoremap <silent> <Leader>te    :FloatermLast<CR>
+    tnoremap <silent> <Leader>te    <C-\><C-n>:FloatermLast<CR>
+    nnoremap <silent> <Leader>tk    :FloatermKill<CR>
+    tnoremap <silent> <Leader>tk    <C-\><C-n>:FloatermKill<CR>
+    nnoremap <silent> <Leader>lf    :FloatermNew lf<CR>
+endif
 
 if PlugLoaded('vim-quickui')
     nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
@@ -141,10 +159,10 @@ endif
 
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
-    nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><F3> :call hl#AsyncTask('project-build-run')<CR>
-    nnoremap <silent><F4> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><F5> :call hl#AsyncTask('project-run')<CR>
+    nnoremap <silent><F5> :call hl#AsyncTask('file-build-run')<CR>
+    nnoremap <silent><F6> :call hl#AsyncTask('project-run')<CR>
+    nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
+    nnoremap <silent><F8> :call hl#AsyncTask('project-build-run')<CR>
 endif
 
 if PlugLoaded('coc.nvim')
@@ -250,7 +268,7 @@ if PlugLoaded('inline_edit.vim')
 endif
 
 if PlugLoaded('YouCompleteMe')
-    nnoremap <F1>                :YcmCompleter GoTo<CR>
+    nnoremap gd                :YcmCompleter GoTo<CR>
     nnoremap <silent>K           <Plug>(YCMHover)
     nnoremap <silent><Leader>gr  :YcmCompleter GoToReferences<CR>
     nnoremap <silent><Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>

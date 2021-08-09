@@ -134,6 +134,9 @@ let filetype_m='objc'
 "=======================   Plugin   ============================
 call Source('$VIM_CONFIG/main/plugin.vim')
 
+"=======================   Variable   ============================
+call Source('$VIM_CONFIG/main/variable.vim')
+
 "=======================   Function   ============================
 call Source('$VIM_CONFIG/main/function.vim')
 

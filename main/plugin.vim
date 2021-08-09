@@ -24,6 +24,9 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
+    Plug 'rbgrouleff/bclose.vim'
+    Plug 'voldikss/vim-floaterm'
+    " Plug 'francoiscabrol/ranger.vim'
 
     " ============= Edit ===========
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
@@ -167,3 +170,4 @@ call plug#end()
 " Plug 'mhinz/vim-signify'             " 显示当前行的 git 状态
 " Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 " Plug 'google/vim-searchindex'
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }

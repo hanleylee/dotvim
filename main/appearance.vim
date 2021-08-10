@@ -5,16 +5,21 @@
 
 "███████████████████████   Appearance   ██████████████████████████
 
+set background=dark
+
+" onedark {{{
 if PlugLoaded('onedark.vim')
     colorscheme onedark
 endif
+"}}}
 
+" gruvbox {{{
 if PlugLoaded('gruvbox')
     colorscheme gruvbox
 endif
+"}}}
 
-set background=dark "设置背" seoul256 (dark):
-
+" highlight {{{
 highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
 " highlight ColorColumn ctermbg=green guibg=orange
 " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#4e4e4e   guifg=NONE gui=bold
@@ -24,7 +29,9 @@ highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black 
 " highlight Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey 
 highlight Todo                          ctermbg=208 ctermfg=black guibg=#ff8700    guifg=black  gui=bold
 highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178   guibg=#d7af00 guifg=black gui=italic
+"}}}
 
+" vim-quickui {{{
 if PlugLoaded('vim-quickui')
     highlight! QuickBG ctermfg=0 ctermbg=7 guifg=black guibg=gray
     highlight! QuickSel cterm=bold ctermfg=0 ctermbg=2 gui=bold guibg=brown guifg=gray
@@ -32,7 +39,9 @@ if PlugLoaded('vim-quickui')
     highlight! QuickOff ctermfg=59 guifg=#75715e
     highlight! QuickHelp ctermfg=247 guifg=#959173
 endif
+"}}}
 
+" vim-floaterm {{{
 if PlugLoaded('vim-floaterm')
     hi Floaterm                       ctermbg=39             guibg=#282C34
     " hi FloatermBorder guibg=orange guifg=cyan
@@ -41,21 +50,29 @@ if PlugLoaded('vim-floaterm')
         hi FloatermNC guibg=gray
     endif
 endif
+"}}}
 
+" coc.nvim {{{
 if PlugLoaded('coc.nvim')
     highlight CocHighlightText cterm=bold ctermbg=238 ctermfg=NONE  guibg=#444444 guifg=NONE gui=bold
 endif
+"}}}
 
+" vim-matchup {{{
 if PlugLoaded('vim-matchup')
     highlight MatchWord     cterm=underline ctermbg=238                 guibg=#444444             gui=underline
     highlight MatchParenCur cterm=underline                                                       gui=underline
     highlight MatchWordCur  cterm=underline                                                       gui=underline
 endif
+"}}}
 
+" echodoc {{{
 if PlugLoaded('echodoc.vim')
     highlight link EchoDocPopup Pmenu
 endif
+"}}}
 
+" vim-gitgutter {{{
 if PlugLoaded('vim-gitgutter')
     " highlight SignColumn ctermbg=whatever    " terminal Vim
     " highlight SignColumn guibg=whatever      " gVim/MacVim
@@ -67,3 +84,4 @@ if PlugLoaded('vim-gitgutter')
     " highlight GitGutterDelete guifg=#e03131 ctermfg=1
     " highlight GitGutterChangeDelete guifg=#e03131 ctermfg=1
 endif
+"}}}

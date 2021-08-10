@@ -3,11 +3,13 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+"{{{
 function! objc#map()
     ino <buffer> <silent><expr> <C-]> "\<C-g>u\<C-r>=objc#map_match_bracket()\<CR>"
 endfunc
+"}}}
 
-" Automatically inserts matching bracket, TextMate style!
+" Automatically inserts matching bracket, TextMate style!{{{
 func! objc#map_match_bracket()
     " if pumvisible() " Close popup menu if it's visible.
     "     call feedkeys("\<C-g>u")
@@ -76,7 +78,9 @@ func! objc#map_match_bracket()
         return ''
     endif
 endf
+"}}}
 
+" map count{{{
 func! objc#map_count(haystack, needle)
     let counter = 0
     let index = stridx(a:haystack, a:needle)
@@ -86,4 +90,5 @@ func! objc#map_count(haystack, needle)
     endw
     return counter
 endf
+"}}}
 

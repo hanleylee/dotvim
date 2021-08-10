@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" Better keymaps for Netrw
+" Better keymaps for Netrw{{{
 function! netrw#map()
     " Show the list of marked files
     nmap <buffer> fl :echo join(netrw#Expose("netrwmarkfilelist"), "\n")<CR>
@@ -12,8 +12,9 @@ function! netrw#map()
     " Delete a file
     nmap <buffer> fd :call netrw#remove_recursive()<CR>
 endfunction
+"}}}
 
-" Delete a non-empty directory
+" Delete a non-empty directory{{{
 function! netrw#remove_recursive()
     if &filetype ==# 'netrw'
         " Prepare the delete command.
@@ -40,4 +41,4 @@ function! netrw#remove_recursive()
         cunmap <buffer> <CR>
     endif
 endfunction
-
+"}}}

@@ -6,12 +6,14 @@
 " MARK
 " - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
-"   - 添加 leader
-"   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
+" - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "███████████████████████   KeyMapping   ██████████████████████████
-nnoremap <silent><C-q>          :x<CR>
-nnoremap <silent><C-w>q         :xa<CR>
+" Main map {{{
+let g:mapleader="\<Space>"
+
+nnoremap <silent><C-q>       :x<CR>
+nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
@@ -20,13 +22,11 @@ cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩
 nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
 vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
-" nnoremap <silent> <S-cr> :set paste<cr>o<esc>:set nopaste<cr>
-" inoremap <silent> <S-cr> <C-o>:set paste<CR>o<ESC>:set nopaste<cr>
 " 确保没有注释跟随, 且不选中补全
 inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
+nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " inoremap <silent><expr> <C-CR> "\<Esc>o\<C-u>"
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>c^"
-nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap <silent><expr> <C-CR> "o\<Esc>cc"
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
@@ -39,6 +39,9 @@ nnoremap J mzJ`zmz
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" add fold include top and bottom extra 1 line
+vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
@@ -57,7 +60,9 @@ inoremap <C-f>    <Right>
 cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
+"}}}
 
+" vimspector {{{
 if PlugLoaded('vimspector')
     nmap <Leader>db   <Plug>VimspectorToggleBreakpoint
     nmap <Leader>d_b  <Plug>VimspectorToggleConditionalBreakpoint
@@ -79,25 +84,39 @@ if PlugLoaded('vimspector')
     nmap <Leader>dw   :VimspectorWatch<Space>
     nmap <Leader>do   :VimspectorShowOutput<Space>
 endif
+"}}}
 
+" vim-unimpaired {{{
+if PlugLoaded('vim-unimpaired')
+    nmap <silent> []<Space> :execute "normal [\<Space>]\<Space>"<CR>
+    vmap <silent> []<Space> :<C-u>execute "normal '<[\<Space>'>]\<Space>"<CR>
+endif
+"}}}
 
+" open-browser {{{
 if PlugLoaded('open-browser.vim')
     let g:netrw_nogx = 1 " disable gx keymap
     nmap gx <Plug>(openbrowser-smart-search)
     vmap gx <Plug>(openbrowser-smart-search)
 endif
+"}}}
 
+" vim-autoformat {{{
 if PlugLoaded('vim-autoformat')
     nnoremap <silent><Leader>af  :call hl#format_document()<CR>
 endif
+"}}}
 
+" vim-maximzer {{{
 if PlugLoaded('vim-maximizer')
     nnoremap <F12> :MaximizerToggle!<CR>
 endif
+"}}}
 
+" vim-floaterm {{{
 if PlugLoaded('vim-floaterm')
-    nnoremap <silent> <F3>          :FloatermToggle<CR>
-    tnoremap <silent> <F3>          <C-\><C-n>:FloatermToggle<CR>
+    nnoremap <silent> <F2>          :FloatermToggle<CR>
+    tnoremap <silent> <F2>          <C-\><C-n>:FloatermToggle<CR>
     nnoremap <silent> <Leader>tw    :FloatermNew<CR>
     tnoremap <silent> <Leader>tw    <C-\><C-n>:FloatermNew<CR>
     nnoremap <silent> <Leader>tp    :FloatermPrev<CR>
@@ -112,17 +131,30 @@ if PlugLoaded('vim-floaterm')
     tnoremap <silent> <Leader>tk    <C-\><C-n>:FloatermKill<CR>
     nnoremap <silent> <Leader>lf    :FloatermNew lf<CR>
 endif
+"}}}
 
+" vim-quickui {{{
 if PlugLoaded('vim-quickui')
     nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <Leader>qm          :call quickui#quick_menu()<cr>
 endif
+"}}}
 
+" vim-renamer {{{
 if PlugLoaded('vim-renamer')
     nmap <Leader>rr <Plug>RenamerStart
     nmap <Leader>rc :Ren<CR>
 endif
+"}}}
 
+" wilder.nvim {{{
+if PlugLoaded('wilder.nvim')
+    cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
+    cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
+endif
+"}}}
+
+" fzf.vim {{{
 if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>
     nnoremap <C-H>       :History<CR>
@@ -141,12 +173,16 @@ if PlugLoaded('fzf.vim')
     nnoremap <Leader>fc  :Commits<CR>
     nnoremap <Leader>fm  :FM<CR>
 endif
+"}}}
 
+" asyncrun.vim {{{
 if PlugLoaded('asyncrun.vim')
     nnoremap <F10>       :call asyncrun#quickfix_toggle(6)<CR>
 endif
+"}}}
 
-if !PlugLoaded('dyng/ctrlsf.vim')
+" ctrlsf.vim{{{
+if PlugLoaded('ctrlsf.vim')
     nmap     <C-s>f <Plug>CtrlSFPrompt
     vmap     <C-s>f <Plug>CtrlSFVwordPath<CR>
     vmap     <C-s>F <Plug>CtrlSFVwordExec
@@ -156,7 +192,9 @@ if !PlugLoaded('dyng/ctrlsf.vim')
     nnoremap <C-s>t :CtrlSFToggle<CR>
     inoremap <C-s>t <Esc>:CtrlSFToggle<CR>
 endif
+"}}}
 
+" asynctasks.vim {{{
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F5> :call hl#AsyncTask('file-build-run')<CR>
@@ -164,7 +202,9 @@ if PlugLoaded('asynctasks.vim')
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
     nnoremap <silent><F8> :call hl#AsyncTask('project-build-run')<CR>
 endif
+"}}}
 
+" coc.vim {{{
 if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
@@ -230,7 +270,9 @@ if PlugLoaded('coc.nvim')
     " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 endif
+"}}}
 
+" vim-gitgutter {{{
 if PlugLoaded('vim-gitgutter')
     nmap [h         <Plug>(GitGutterPrevHunk)
     nmap ]h         <Plug>(GitGutterNextHunk)
@@ -244,38 +286,53 @@ if PlugLoaded('vim-gitgutter')
     nmap <Leader>hs <Plug>(GitGutterStageHunk)
     nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 endif
+"}}}
 
+" vim-easymotion {{{
 if PlugLoaded('vim-easymotion')
     nmap <Space>          <Plug>(easymotion-bd-w)
     vmap <Space>          <Plug>(easymotion-bd-w)
 endif
+"}}}
 
+" vim-oscyank {{{
 if PlugLoaded('vim-oscyank')
     vnoremap <Leader>oy :OSCYank<CR>
 endif
+"}}}
 
+" vim-fugitive {{{
 if PlugLoaded('vim-fugitive')
     nnoremap <silent>gs  :Git<CR>
 endif
+"}}}
 
+" vista {{{
 if PlugLoaded('vista')
     nnoremap <F4>                :Vista!!<CR>
 endif
+"}}}
 
+" inline_edit.vim {{{
 if PlugLoaded('inline_edit.vim')
     nnoremap <leader>ie :InlineEdit<cr>
     xnoremap <leader>ie :InlineEdit<cr>
 endif
+"}}}
 
+" YouCompleteMe {{{
 if PlugLoaded('YouCompleteMe')
-    nnoremap gd                :YcmCompleter GoTo<CR>
+    nnoremap gd                  :YcmCompleter GoTo<CR>
     nnoremap <silent>K           <Plug>(YCMHover)
     nnoremap <silent><Leader>gr  :YcmCompleter GoToReferences<CR>
     nnoremap <silent><Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
 endif
+"}}}
 
+" ale {{{
 if PlugLoaded('ale')
     nmap <Leader>en       <Plug>(ale_next)
     nmap <Leader>ep       <Plug>(ale_previous)
 endif
+"}}}
 

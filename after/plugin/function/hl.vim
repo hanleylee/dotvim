@@ -3,6 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" format chinese{{{
 function! hl#format_CN()
     retab
     %substitute /，/, /g
@@ -24,18 +25,23 @@ function! hl#format_CN()
     %substitute/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g " 汉字在后, 英文/数字在前, 中间添加空格
     %substitute /\s\+\n/\r/g " 清除尾部空格
 endfunction
+"}}}
 
+" replace surge rule {{{
 function! s:ReplaceSurgeRule(key,val)
     let substitutedContent = substitute(a:val, ' =.*$', '', '')
     return substitutedContent
 endfunction
+"}}}
 
+"{{{
 function! hl#format_surge_rule() range
     let content = getline(a:firstline, a:lastline)
 
     let mapedLine = map(content, function('s:ReplaceSurgeRule'))
     let @0 = join(mapedLine, ',')
 endfunction
+"}}}
 
 function! hl#format_objectmapper()
     retab!
@@ -145,4 +151,12 @@ function! hl#SyncTask()
         echom 'Current filetype is not supported!'
     endif
 
+endfunction
+
+function! hl#CloseAll() abort
+    let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+    for term_num in term_bufs
+        execute "bd! " . term_num
+    endfor
+    xa
 endfunction

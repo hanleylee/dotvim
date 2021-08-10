@@ -14,11 +14,12 @@ call plug#begin('$VIM_CONFIG/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 
-" MARK: level v0, load 0 plugin, only basic vim original configuration
+" MARK: level v0, load 0 plugin, only basic vim original configuration {{{
 if s:vim_weight >= 0
 endif
+" }}}
 
-" MARK: level v1, only for fast browse
+" MARK: level v1, only for fast browse {{{
 if s:vim_weight >= 1 || has('gui_running')
     " ============= File Management =============
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
@@ -63,8 +64,9 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
     " Plug '$VIM_CONFIG/hanleylee/potion'
 endif
+" }}}
 
-" MARK: level v2, edit
+" MARK: level v2, edit {{{
 if s:vim_weight >= 2 || has('gui_running')
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " signature 插件
@@ -80,7 +82,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'kana/vim-textobj-syntax'                      " *ay, *iy
     Plug 'kana/vim-textobj-entire'                      " *ae, *ie
     Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
-    Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
+    " Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
@@ -99,10 +101,12 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
+    " Plug 'gelguy/wilder.nvim'
     Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
 endif
+" }}}
 
-" MARK: level3, heaviest, add completion & debugger on previous feature
+" MARK: level3, heaviest, add completion & debugger on previous feature {{{
 if s:vim_weight >= 3 || has('gui_running')
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -114,10 +118,11 @@ if s:vim_weight >= 3 || has('gui_running')
     Plug 'sillybun/vim-repl'
     Plug 'rizzatti/dash.vim'
 endif
+" }}}
 
 call plug#end()
 
-"============== UNUSED ================
+"============== UNUSED ================ {{{
 " Plug 'ycm-core/YouCompleteMe'        " 补全插件
 " Plug 'SirVer/ultisnips'                             " 自定义某些片段
 " Plug 'machakann/vim-highlightedyank' " 使 yank 的文档半透明高亮
@@ -171,3 +176,4 @@ call plug#end()
 " Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 " Plug 'google/vim-searchindex'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+"}}}

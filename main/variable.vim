@@ -3,7 +3,6 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-
 let g:hl_rootmarkers = [
             \ '.svn', 
             \ '.git', 

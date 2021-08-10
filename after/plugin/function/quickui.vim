@@ -7,6 +7,7 @@ if !PlugLoaded('vim-quickui.vim')
     finish
 endif
 
+" quick menu{{{
 func! quickui#quick_menu()
     call quickui#menu#reset()
     " install a 'File' menu, use [text, command] to represent an item.
@@ -52,3 +53,5 @@ func! quickui#quick_menu()
                 \ ], 10000)
     call quickui#menu#open()
 endfunction
+"}}}
+

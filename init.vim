@@ -10,7 +10,7 @@ exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
 
 "███████████████████████   Vim 系统特性   ██████████████████████████
 
-"=======================   Main   ==================================
+"=======================   Main   =================================={{{
 " set viminfo='50000,~/.viminfo
 " set viminfo=%,\"100,'10,/50,:100,h,f0,n~/.viminfo
 set nocompatible " 关闭 vi 兼容模式, 必选
@@ -55,8 +55,9 @@ set visualbell " 错误时不发出声音, 只显示在屏幕上
 set ttimeout        " time out for key codes
 set ttimeoutlen=10  " wait up to 20ms after Esc for special key(default 1s)
 set switchbuf+=usetab,newtab
+"}}}
 
-"=======================   File   =======================
+"=======================   File   ======================={{{
 set fileformat=unix " 保存文件的格式为 unix
 set fileformats=unix,mac,dos
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
@@ -67,14 +68,19 @@ set fileencoding=utf-8 " 编码方式为 utf-8
 set updatetime=500 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
-"=======================   Search   =============================
-set hlsearch " highlight all matching phrases, equal to 'hls'
-set incsearch " show partial matches for a search phrase, equal to 'is'
+let filetype_m='objc'
+" let filetype_mm='objc'
+"}}}
+
+"=======================   Search   ============================={{{
+set hlsearch " highlight all matching phrases after <enter>, equal to 'hls'
+set incsearch " show partial matches for a search phrase when typing, equal to 'is'
 set ignorecase " ignore upper/lower case when searching, equal to 'ic'
 set smartcase " 搜索时只有输入大写字母时才会强制符合大小写, 需要与 ignorecase 一同设置才能正常工作
 set showmatch " 匹配括号
+"}}}
 
-"=======================   Indent   =========================
+"=======================   Indent   ========================={{{
 set backspace=2 " Backspace 键是否可以删除字符
 set autoindent " 自动缩进, 需要与 smartindent 配合使用才有效果
 set smartindent " 智能缩进, 在进行代码编写的时候会智能判断缩进距离, 与 autoindent 配合使用
@@ -82,8 +88,9 @@ set smarttab
 set shiftwidth=4 " 设置缩进的字符数, 与 tabstop 不同, 这个是系统进行自动缩进时会使用的值
 set tabstop=4 " 按下一次 tab 键缩进的距离, 不代表空格或制表符
 set expandtab " 缩进使用空格代表, 如果要使用制表符可以改为 noexpandtab, 设置后旧文件仍然采用之前的 tab 格式, 可以使用`%retab!`强制转换为新tab 格式
+"}}}
 
-"=======================   Appearance   ============================
+"=======================   Appearance   ============================{{{
 syntax on " 设置语法高亮
 "set termguicolors " true colors for vim in terminal
 set number " 显示行号
@@ -103,7 +110,11 @@ set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
+" set foldmethod=syntax
 set nofoldenable " 保证在开启文件的时候是全部展开的
+set foldopen-=hor
+set foldnestmax=10
+set foldlevel=2
 set relativenumber
 set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
 if has('textprop')
@@ -119,17 +130,13 @@ set signcolumn=yes
 set textwidth=150
 set colorcolumn=+1
 set formatoptions-=croql
-let filetype_m='objc'
-" let filetype_mm='objc'
 
 " set cursorcolumn " 突出光标所在列, 开启后速度变慢
 " set linespace=16 " 设置行间距
 " set showtabline=2 " 始终显示窗口上头的 tabline
-" set foldmethod=syntax
-" set foldnestmax=10
-" set foldlevel=2
+"}}}
 
-"███████████████████████   Source Load File   ██████████████████████████
+"███████████████████████   Source Load File   ██████████████████████████{{{
 
 "=======================   Plugin   ============================
 call Source('$VIM_CONFIG/main/plugin.vim')
@@ -153,4 +160,5 @@ call Source('$VIM_CONFIG/main/command.vim')
 call Source('$VIM_CONFIG/main/autocmd.vim')
 
 "=======================   Appearance   ============================
-call Source('$VIM_CONFIG/main/appearance.vim')
+call Source('$VIM_CONFIG/main/appearance.vim')"
+"}}}

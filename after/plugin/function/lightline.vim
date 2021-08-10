@@ -7,17 +7,18 @@ if !PlugLoaded('lightline.vim')
     finish
 endif
 
+" update diff hunks{{{
 function! UpdateDiffHunks()
     setlocal nocursorbind
     setlocal noscrollbind
     let winview = winsaveview() 
     let pos = getpos(".")
-    sil exe 'normal! gg'
+    silent execute 'normal! gg'
     let moved = 1
     let hunks = []
     while moved
         let startl = line(".")
-        keepjumps sil exe 'normal! ]c'
+        keepjumps silent execute 'normal! ]c'
         let moved = line(".") - startl
         if moved
             call add(hunks,line("."))
@@ -29,7 +30,9 @@ function! UpdateDiffHunks()
     setlocal scrollbind
     let g:diff_hunks = hunks
 endfunction
+"}}}
 
+" diff count{{{
 function! DiffCount()
     if !exists("g:diff_hunks") 
         call UpdateDiffHunks()
@@ -45,4 +48,5 @@ function! DiffCount()
     let diffCount = len(g:diff_hunks)
     return diffCount == 0 ? '' : n_hunks . '/' . len(g:diff_hunks)
 endfunction
+"}}}
 

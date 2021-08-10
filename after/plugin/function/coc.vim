@@ -7,6 +7,7 @@ if !PlugLoaded('coc.nvim')
     finish
 endif
 
+" show document{{{
 function! coc#show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -16,12 +17,14 @@ function! coc#show_documentation()
         execute '!' . &keywordprg . " " . expand('<cword>')
     endif
 endfunction
+"}}}
 
 " function! s:check_back_space() abort
 "     let col = col('.') - 1
 "     return !col || getline('.')[col - 1]  =~# '\s'
 " endfunction
 
+" insert map for enter{{{
 function! coc#insert_map_for_enter()
     if pumvisible()
         return coc#_select_confirm()
@@ -31,9 +34,12 @@ function! coc#insert_map_for_enter()
         return "\<CR>"
     endif
 endfunction
+"}}}
 
+" highlight current cursor{{{
 function coc#highlight_current_cursor()
     if &filetype !=? 'markdown'
         call CocActionAsync('highlight')
     endif
 endfunction
+"}}}

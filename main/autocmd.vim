@@ -4,12 +4,16 @@
 " License:  MIT License
 
 "███████████████████████  autocmd  ██████████████████████████
+
+" Enter{{{
 augroup Enter
     autocmd!
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
     au VimEnter * call Enter()
 augroup END
+"}}}
 
+"HLHighlightKeyword{{{
 augroup HLHighlightKeyword
     autocmd!
     " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
@@ -17,16 +21,21 @@ augroup HLHighlightKeyword
     " 这里要使用 matchadd 方法进行自定义词语的高亮, 因为它的优先级较高, 不会被 cursorLine 的背景色覆盖
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
 augroup end
+"}}}
+
 
 augroup NetrwMapping
     autocmd!
     autocmd filetype netrw call netrw#map()
 augroup END
 
+
 augroup ObjcMapping
     autocmd!
     autocmd filetype objc call objc#map()
 augroup END
+
+
 
 if PlugLoaded('onedark.vim')
     augroup OneDarkRevise
@@ -34,6 +43,7 @@ if PlugLoaded('onedark.vim')
         autocmd ColorScheme * call onedark#set_highlight('pythonBuiltinFunc', {'fg': onedark#GetColors()['cyan']})
     augroup END
 endif
+
 
 if PlugLoaded('vim-quickui')
     augroup QuickUIPreview
@@ -49,6 +59,8 @@ if PlugLoaded('vim-quickui')
         " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
     augroup END
 endif
+
+
 
 if PlugLoaded('coc.nvim')
     augroup CocAutoGroup
@@ -70,6 +82,8 @@ if PlugLoaded('coc.nvim')
         " autocmd FileType markdown let b:coc_suggest_disable = 1
     augroup end
 endif
+
+
 
 if PlugLoaded('vim-gutentags')
     augroup MyGutentagsStatusLineRefresher

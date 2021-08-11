@@ -10,7 +10,7 @@
 
 "███████████████████████   KeyMapping   ██████████████████████████
 " Main map {{{
-let g:mapleader="\<Space>"
+" let g:mapleader="\<Space>"
 
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>

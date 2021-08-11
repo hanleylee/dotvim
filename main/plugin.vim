@@ -12,7 +12,7 @@
 
 call plug#begin('$VIM_CONFIG/plugged')
 
-let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
+let s:vim_weight = get(g:, 'vim_weight', '3') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 
 " MARK: level v0, load 0 plugin, only basic vim original configuration {{{
 if s:vim_weight >= 0
@@ -27,7 +27,6 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'airblade/vim-rooter'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'voldikss/vim-floaterm'
-    " Plug 'francoiscabrol/ranger.vim'
 
     " ============= Edit ===========
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词

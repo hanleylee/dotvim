@@ -34,7 +34,7 @@ set history=10000 " 历史命令最大记录数
 set backup " backup 当前文件
 set writebackup " 在保存时自动写入 backup
 set undofile
-set backupcopy=auto
+set backupcopy=yes # 默认为 auto, yes 性能低, no 直接重写, auto 会自动选择, 在 mac 上 auto 会覆盖文件创建时间
 
 let s:undo_dir = has('nvim') ? expand('$HOME/.cache/nvim/undo') : expand('$HOME/.cache/vim/undo')
 let s:backup_dir = has('nvim') ? expand('$HOME/.cache/nvim/backup') : expand('$HOME/.cache/vim/backup')

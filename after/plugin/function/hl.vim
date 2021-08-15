@@ -4,26 +4,38 @@
 " License:  MIT License
 
 " format chinese{{{
-function! hl#format_CN()
+function! hl#Format_CN() range
     retab
-    %substitute /，/, /g
-    %substitute /。/. /g
-    %substitute /：/: /g
-    %substitute /？/? /g
-    %substitute /；/; /g
-    %substitute /“\|”/"/g
-    %substitute /、/, /g
-    %substitute /（/(/g
-    %substitute /）/)/g
-    %substitute /！/!/g
-    %substitute /「/ **/g
-    %substitute /」/** /g
-    %substitute /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g " 为 `content` 添加左右两侧空格
-    %substitute /\s\+\([!;,.:?]\)/\1/g " 清除标点前的空格
-    %substitute /^ `/`/g " 清除行首的空格
-    %substitute/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g " 汉字在前, 英文/数字在后, 中间添加空格
-    %substitute/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g " 汉字在后, 英文/数字在前, 中间添加空格
-    %substitute /\s\+\n/\r/g " 清除尾部空格
+
+    " let l = a:firstline
+    " for line in getline(a:firstline, a:lastline)
+    "     call setline(l, substitute(line, '，', ',', 'g'))
+    "     let l = l + 1
+    " endfor
+    execute a:firstline . "," . a:lastline . "substitute /，/, /g"
+    execute a:firstline . "," . a:lastline . "substitute /。/. /g"
+    execute a:firstline . "," . a:lastline . "substitute /：/: /g"
+    execute a:firstline . "," . a:lastline . "substitute /？/? /g"
+    execute a:firstline . "," . a:lastline . "substitute /；/; /g"
+    " execute a:firstline . "," . a:lastline . "substitute /“\|”/"/g"
+    execute a:firstline . "," . a:lastline . "substitute /、/, /g"
+    execute a:firstline . "," . a:lastline . "substitute /（/(/g"
+    execute a:firstline . "," . a:lastline . "substitute /）/)/g"
+    execute a:firstline . "," . a:lastline . "substitute /！/!/g"
+    execute a:firstline . "," . a:lastline . "substitute /「/ **/g"
+    execute a:firstline . "," . a:lastline . "substitute /」/** /g"
+    " 为 content 添加左右两侧空格
+    execute a:firstline . "," . a:lastline . "substitute /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g"
+    " 清除标点前的空格
+    execute a:firstline . "," . a:lastline . "substitute /\s\+\([!;,.:?]\)/\1/g"
+    " 清除行首的空格
+    execute a:firstline . "," . a:lastline . "substitute /^ `/`/g"
+    " 汉字在前, 英文/数字在后, 中间添加空格
+    execute a:firstline . "," . a:lastline . "substitute /\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g"
+    " 汉字在后, 英文/数字在前, 中间添加空格
+    execute a:firstline . "," . a:lastline . "substitute /\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g"
+    " 清除尾部空格
+    execute a:firstline . "," . a:lastline . "substitute /\s\+\n/\r/g"
 endfunction
 "}}}
 

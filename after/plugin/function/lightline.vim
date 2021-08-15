@@ -33,7 +33,7 @@ endfunction
 "}}}
 
 " diff count{{{
-function! DiffCount()
+function! GitDiffCount()
     if !exists("g:diff_hunks") 
         call UpdateDiffHunks()
     endif
@@ -49,4 +49,62 @@ function! DiffCount()
     return diffCount == 0 ? '' : n_hunks . '/' . len(g:diff_hunks)
 endfunction
 "}}}
+
+function! LightlineMode()
+    return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
+                \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
+                \ &filetype ==# 'unite' ? 'Unite' :
+                \ &filetype ==# 'vimfiler' ? 'VimFiler' :
+                \ &filetype ==# 'vimshell' ? 'VimShell' :
+                \ lightline#mode()
+endfunction
+
+function! LightlineFugitive()
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
+endfunction
+
+" function! AleLinterStatus() abort
+"     let l:counts = ale#statusline#Count(bufnr(''))
+"     let l:all_errors = l:counts.error + l:counts.style_error
+"     let l:all_non_errors = l:counts.total - l:all_errors
+"     return l:counts.total == 0 ? '' : printf('%d  %d ', all_non_errors, all_errors)
+" endfunction
+
+function! CocDiagnosticStatus1() abort
+    let info = get(b:, 'coc_diagnostic_info', {})
+    let msgs = []
+    if get(info, 'error', 0)
+        call add(msgs, '' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+        call add(msgs, ' ' . info['warning'])
+    endif
+    let statusStr = len(msgs) == 0 ? ' ' : join(msgs, ' ')
+    return statusStr . get(g:, 'coc_status', '')
+endfunction
+
+function! LightlineReadonly()
+    return &readonly ? '' : ''
+endfunction
+
+func! BuffersCount()
+    let changed_buffer = len(filter(getbufinfo(), 'v:val.changed == 1'))
+    let all_buffer = len(getbufinfo({'buflisted':1}))
+    return changed_buffer . '/' . all_buffer
+endfunc
+
+function! s:get_gutentags_status(mods) abort
+    let l:msg = ''
+    if index(a:mods, 'ctags') >= 0
+        let l:msg .= '♨'
+    endif
+    if index(a:mods, 'cscope') >= 0
+        let l:msg .= '♺'
+    endif
+    return l:msg
+endfunction
 

@@ -21,6 +21,7 @@ endif
 
 " highlight {{{
 highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
+highlight Visual        cterm=reverse   ctermbg=NONE  ctermfg=NONE guifg=NONE   guibg=NONE gui=reverse
 " highlight ColorColumn ctermbg=green guibg=orange
 " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#4e4e4e   guifg=NONE gui=bold
 " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
@@ -43,9 +44,8 @@ endif
 
 " vim-floaterm {{{
 if PlugLoaded('vim-floaterm')
-    hi Floaterm                       ctermbg=39             guibg=#282C34
-    " hi FloatermBorder guibg=orange guifg=cyan
-    hi FloatermBorder cterm=bold      ctermbg=173 ctermfg=235 guibg=#C678DD guifg=#282C34 gui=bold
+    hi Floaterm                       ctermbg=black           guibg=#282C34
+    hi FloatermBorder cterm=bold      ctermbg=170 ctermfg=235 guibg=#C678DD guifg=#282C34 gui=bold
     if has('nvim')
         hi FloatermNC guibg=gray
     endif

@@ -35,6 +35,7 @@ nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap n nzzzv
 " nnoremap N Nzzzv
 nnoremap J mzJ`zmz
+nnoremap Y y$
 
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -115,8 +116,8 @@ endif
 
 " vim-floaterm {{{
 if PlugLoaded('vim-floaterm')
-    nnoremap <silent> <F2>          :FloatermToggle<CR>
-    tnoremap <silent> <F2>          <C-\><C-n>:FloatermToggle<CR>
+    nnoremap <silent> <F3>          :FloatermToggle<CR>
+    tnoremap <silent> <F3>          <C-\><C-n>:FloatermToggle<CR>
     nnoremap <silent> <Leader>tw    :FloatermNew<CR>
     tnoremap <silent> <Leader>tw    <C-\><C-n>:FloatermNew<CR>
     nnoremap <silent> <Leader>tp    :FloatermPrev<CR>
@@ -197,12 +198,29 @@ endif
 " asynctasks.vim {{{
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
-    nnoremap <silent><F5> :call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><F6> :call hl#AsyncTask('project-run')<CR>
+    nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
+    nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><F8> :call hl#AsyncTask('project-build-run')<CR>
+    nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
 endif
 "}}}
+
+if PlugLoaded('vim-sandwich')
+    xmap is <Plug>(textobj-sandwich-query-i)
+    xmap as <Plug>(textobj-sandwich-query-a)
+    omap is <Plug>(textobj-sandwich-query-i)
+    omap as <Plug>(textobj-sandwich-query-a)
+
+    xmap iss <Plug>(textobj-sandwich-auto-i)
+    xmap ass <Plug>(textobj-sandwich-auto-a)
+    omap iss <Plug>(textobj-sandwich-auto-i)
+    omap ass <Plug>(textobj-sandwich-auto-a)
+
+    xmap im <Plug>(textobj-sandwich-literal-query-i)
+    xmap am <Plug>(textobj-sandwich-literal-query-a)
+    omap im <Plug>(textobj-sandwich-literal-query-i)
+    omap am <Plug>(textobj-sandwich-literal-query-a)
+endif
 
 " coc.vim {{{
 if PlugLoaded('coc.nvim')

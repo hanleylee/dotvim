@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-command! FormatCN silent! call hl#format_CN()
+command! -range=% -nargs=? FormatCN silent! <line1>,<line2> call hl#Format_CN()
 command! FormatObjectMapper silent! call hl#format_objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#format_surge_rule()
 command! MergeMD silent! call hl#merge_md()

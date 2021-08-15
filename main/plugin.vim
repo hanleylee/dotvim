@@ -25,7 +25,6 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
-    Plug 'rbgrouleff/bclose.vim'
     Plug 'voldikss/vim-floaterm'
 
     " ============= Edit ===========
@@ -42,20 +41,19 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
-    Plug 'ap/vim-css-color'              " 显示 css 颜色
+    " Plug 'ap/vim-css-color'              " 显示 css 颜色
+    " Plug 'RRethy/vim-hexokinase'
 
     " ============== Function ==============
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
     Plug 'junegunn/gv.vim'          " browse git log
-    Plug 'simnalamburt/vim-mundo'   " 显示修改历史
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
-    Plug 'dsummersl/vus'
+    " Plug 'dsummersl/vus'
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
-    " Plug 'tpope/vim-markdown'
     Plug 'nathangrigg/vim-beancount'
     Plug 'vim-python/python-syntax'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
@@ -73,6 +71,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
+    " Plug 'machakann/vim-sandwich'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
     Plug 'kana/vim-textobj-indent'                      " *ai, *ii
@@ -93,8 +92,9 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'jszakmeister/vim-togglecursor'   " 改变 cursor 形状
 
     " ============== Function ==============
+    Plug 'simnalamburt/vim-mundo'                   " 显示修改历史
     Plug 'liuchengxu/vista.vim'
-    Plug 'jiazhoulvke/jianfan'                      " 简繁转换 Tcn, Scn
+    " Plug 'jiazhoulvke/jianfan'                      " 简繁转换 Tcn, Scn
     Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
@@ -102,6 +102,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'skywind3000/vim-quickui'
     " Plug 'gelguy/wilder.nvim'
     Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug '$VIM_CONFIG/hanleylee/vim-t2s'
 endif
 " }}}
 
@@ -175,4 +176,6 @@ call plug#end()
 " Plug 'terryma/vim-multiple-cursors'                 " 多行文本操作
 " Plug 'google/vim-searchindex'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Plug 'tpope/vim-markdown'
+" Plug 'rbgrouleff/bclose.vim'
 "}}}

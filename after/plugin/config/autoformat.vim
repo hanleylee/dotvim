@@ -15,7 +15,7 @@ let g:autoformat_verbosemode=1
 " let g:formatdef_hl_c='"clang-format -style=\"{BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, PointerAlignment: Right, ColumnLimit: 150, SpacesBeforeTrailingComments: 1}\""' "指定格式化的方式, 使用配置参数
 let g:formatdef_hl_c='"clang-format -style=file"' "指定格式化的文件, 从项目路径依次向上查找
 let g:formatdef_hl_shfmt='"shfmt -i=4"'
-let g:formatdef_hl_js='"js-beautify"'
+let g:formatdef_hl_js='"js-beautify --config ~/.config/js-beautify/.jsbeautifyrc"'
 let g:formatdef_hl_jq='"jq --indent 4"'
 let g:formatdef_hl_yq='"yq e -I4"'
 let g:formatdef_hl_sqlformat = '"sqlformat --keywords upper -"'
@@ -28,7 +28,7 @@ let g:formatters_objc = ['hl_c']
 let g:formatters_objcpp = ['hl_c']
 let g:formatters_json = ['hl_jq']
 let g:formatters_jsonc = ['hl_jq']
-let g:formatters_js = ['hl_js']
+let g:formatters_javascript = ['hl_js']
 let g:formatters_yaml = ['hl_yq']
 let g:formatters_sh = ['hl_shfmt']
 let g:formatters_zsh = ['hl_shfmt']

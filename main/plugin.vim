@@ -36,6 +36,15 @@ if s:vim_weight >= 1 || has('gui_running')
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
+    " use 'lifepillar/vim-gruvbox8'
+" use 'ajmwagar/vim-deus'
+" use 'lifepillar/vim-solarized8'
+" use 'navarasu/onedark.nvim'
+" use 'sainnhe/edge'
+" use 'sainnhe/sonokai'
+" use 'sainnhe/gruvbox-material'
+" use 'shaunsingh/nord.nvim'
+" use 'NTBBloodbath/doom-one.nvim
     " Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'octol/vim-cpp-enhanced-highlight'

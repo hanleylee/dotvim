@@ -22,6 +22,8 @@ endif
 " highlight {{{
 highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
 highlight Visual        cterm=reverse   ctermbg=NONE  ctermfg=NONE guifg=NONE   guibg=NONE gui=reverse
+highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145  guibg=#4B5263   guifg=#ABB2BF gui=bold
+" highlight link QuickFixLine CursorLine
 " highlight ColorColumn ctermbg=green guibg=orange
 " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#4e4e4e   guifg=NONE gui=bold
 " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE

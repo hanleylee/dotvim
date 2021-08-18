@@ -12,30 +12,39 @@ function! hl#Format_CN() range
     "     call setline(l, substitute(line, '，', ',', 'g'))
     "     let l = l + 1
     " endfor
-    execute a:firstline . "," . a:lastline . "substitute /，/, /g"
-    execute a:firstline . "," . a:lastline . "substitute /。/. /g"
-    execute a:firstline . "," . a:lastline . "substitute /：/: /g"
-    execute a:firstline . "," . a:lastline . "substitute /？/? /g"
-    execute a:firstline . "," . a:lastline . "substitute /；/; /g"
-    " execute a:firstline . "," . a:lastline . "substitute /“\|”/"/g"
-    execute a:firstline . "," . a:lastline . "substitute /、/, /g"
-    execute a:firstline . "," . a:lastline . "substitute /（/(/g"
-    execute a:firstline . "," . a:lastline . "substitute /）/)/g"
-    execute a:firstline . "," . a:lastline . "substitute /！/!/g"
-    execute a:firstline . "," . a:lastline . "substitute /「/ **/g"
-    execute a:firstline . "," . a:lastline . "substitute /」/** /g"
-    " 为 content 添加左右两侧空格
-    execute a:firstline . "," . a:lastline . "substitute /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g"
-    " 清除标点前的空格
-    execute a:firstline . "," . a:lastline . "substitute /\s\+\([!;,.:?]\)/\1/g"
-    " 清除行首的空格
-    execute a:firstline . "," . a:lastline . "substitute /^ `/`/g"
-    " 汉字在前, 英文/数字在后, 中间添加空格
-    execute a:firstline . "," . a:lastline . "substitute /\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g"
-    " 汉字在后, 英文/数字在前, 中间添加空格
-    execute a:firstline . "," . a:lastline . "substitute /\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g"
-    " 清除尾部空格
-    execute a:firstline . "," . a:lastline . "substitute /\s\+\n/\r/g"
+
+    " /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g: 为 content 添加左右两侧空格
+    " substitute /\s\+\([!;,.:?]\)/\1/g: 清除标点前的空格
+    "/^ `/`/g: 清除行首的空格
+    "/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g: 汉字在前, 英文/数字在后, 中间添加空格
+    "/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g: 汉字在后, 英文/数字在前, 中间添加空格
+    "/\s\+\n/\r/g: 清除尾部空格
+    let regex_list = [
+                \ '/，/, /g',
+                \ '/。/. /g',
+                \ '/：/: /g',
+                \ '/？/? /g',
+                \ '/；/; /g',
+                \ '/“\|”/"/g',
+                \ '/、/, /g',
+                \ '/（/(/g',
+                \ '/）/)/g',
+                \ '/！/!/g',
+                \ '/「/ **/g',
+                \ '/」/** /g',
+                \ '/[ ]*\(`[^`]\+`\)[ ]*/ \1 /g',
+                \ '/\s\+\([!;,.:?]\)/\1/g',
+                \ '/^ `/`/g',
+                \ '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g',
+                \ '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g',
+                \ '/\s\+$//g',
+                \ '/^\n$//g',
+                \ ]
+
+    for pattern in regex_list
+        execute a:firstline . "," . a:lastline . " substitute " . pattern
+    endfor
+
 endfunction
 "}}}
 
@@ -65,6 +74,11 @@ endfunction
 " 作用: 将markdown 的多行在不影响布局的情况下合并为一段话
 function! hl#merge_md()
     %s /\([\.\,]$\)\n\(\S\)/\1 \2/g
+endfunction
+
+function! hl#merge_line()
+    normal! mzJ`z
+    execute 'delmarks z'
 endfunction
 
 function! hl#GrepOperator(type)
@@ -127,7 +141,7 @@ function! hl#AsyncTask(mode)
     " if &filetype ==? 'vim'
     "     source %
     " else
-    silent update | execute "AsyncTask! " . a:mode
+    silent update | execute "AsyncTask " . a:mode
     " endif
 endfunction
 

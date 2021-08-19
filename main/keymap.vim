@@ -34,7 +34,7 @@ nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " keeping it center
 " nnoremap n nzzzv
 " nnoremap N Nzzzv
-nnoremap <silent> J :call hl#merge_line()<CR>
+" nnoremap <silent> J :call hl#merge_line()<CR>
 nnoremap Y y$
 
 " jumplist mutations

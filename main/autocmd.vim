@@ -90,7 +90,14 @@ if PlugLoaded('vim-gutentags')
         autocmd!
         autocmd User GutentagsUpdating call lightline#update()
         autocmd User GutentagsUpdated call lightline#update()
-    augroup END
+    augroup end
+endif
+
+if PlugLoaded('emmet-vim')
+    augroup EmmetInstall
+        autocmd!
+        autocmd FileType html,css EmmetInstall
+    augroup end
 endif
 
 " 保存时自动格式化指定文件类型代码

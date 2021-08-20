@@ -38,7 +38,10 @@ endfunction
 
 " highlight current cursor{{{
 function coc#highlight_current_cursor()
-    if &filetype !=? 'markdown'
+    let ft = &filetype
+    if ft !=? 'markdown' 
+                \ && ft !=? 'csv'
+                \ && ft !=? 'txt'
         call CocActionAsync('highlight')
     endif
 endfunction

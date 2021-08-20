@@ -54,6 +54,7 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'nathangrigg/vim-beancount'
     Plug 'vim-python/python-syntax'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
+    Plug 'chrisbra/csv.vim'
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
     " Plug '$VIM_CONFIG/hanleylee/potion'
 endif

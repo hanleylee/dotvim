@@ -131,6 +131,8 @@ function! hl#format_document()
         execute "FormatCN"
     elseif &filetype ==? 'vim'
         execute "normal mzgg=G`zmz"
+    elseif &filetype ==? 'csv'
+        execute "%ArrangeColumn!"
     else
         execute "Autoformat"
     endif

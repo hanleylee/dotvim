@@ -3,12 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('lightline.vim')
-    finish
-endif
-
 " update diff hunks{{{
-function! UpdateDiffHunks()
+function! s:UpdateDiffHunks()
     setlocal nocursorbind
     setlocal noscrollbind
     let winview = winsaveview() 
@@ -33,9 +29,9 @@ endfunction
 "}}}
 
 " diff count{{{
-function! GitDiffCount()
+function! hl#lightline#GitDiffCount()
     if !exists("g:diff_hunks") 
-        call UpdateDiffHunks()
+        call s:UpdateDiffHunks()
     endif
     let n_hunks = 0
     let curline = line(".")
@@ -50,7 +46,7 @@ function! GitDiffCount()
 endfunction
 "}}}
 
-function! LightlineMode()
+function! hl#lightline#LightlineMode()
     return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
                 \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
                 \ &filetype ==# 'unite' ? 'Unite' :
@@ -59,7 +55,7 @@ function! LightlineMode()
                 \ lightline#mode()
 endfunction
 
-function! LightlineFugitive()
+function! hl#lightline#LightlineFugitive()
     if exists('*FugitiveHead')
         let branch = FugitiveHead()
         return branch !=# '' ? ' '.branch : ''
@@ -74,7 +70,7 @@ endfunction
 "     return l:counts.total == 0 ? '' : printf('%d  %d ', all_non_errors, all_errors)
 " endfunction
 
-function! CocDiagnosticStatus1() abort
+function! hl#lightline#CocDiagnosticStatus1() abort
     let info = get(b:, 'coc_diagnostic_info', {})
     let msgs = []
     if get(info, 'error', 0)
@@ -87,11 +83,11 @@ function! CocDiagnosticStatus1() abort
     return statusStr . get(g:, 'coc_status', '')
 endfunction
 
-function! LightlineReadonly()
+function! hl#lightline#LightlineReadonly()
     return &readonly ? '' : ''
 endfunction
 
-func! BuffersCount()
+func! hl#lightline#BuffersCount()
     let changed_buffer = len(filter(getbufinfo(), 'v:val.changed == 1'))
     let all_buffer = len(getbufinfo({'buflisted':1}))
     return changed_buffer . '/' . all_buffer

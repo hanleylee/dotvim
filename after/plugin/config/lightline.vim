@@ -69,13 +69,13 @@ let g:lightline = {
                                             \       'tabnum': 'lightline#tab#tabnum'
                                             \   },
                                             \   'component_function': {
-                                                \       'mode': 'LightlineMode',
-                                                \       'gitbranch': 'LightlineFugitive',
-                                                \       'readonly': 'LightlineReadonly',
-                                                \       'buffers_count': 'BuffersCount',
+                                                \       'mode': 'hl#lightline#LightlineMode',
+                                                \       'gitbranch': 'hl#lightline#LightlineFugitive',
+                                                \       'readonly': 'hl#lightline#LightlineReadonly',
+                                                \       'buffers_count': 'hl#lightline#BuffersCount',
                                                 \       'gutentags': 'gutentags#statusline',
-                                                \       'coc_status': 'CocDiagnosticStatus1',
-                                                \       'git_diff_count': 'GitDiffCount'
+                                                \       'coc_status': 'hl#lightline#CocDiagnosticStatus1',
+                                                \       'git_diff_count': 'hl#lightline#GitDiffCount'
                                                 \   },
                                                 \ }
 

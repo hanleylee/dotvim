@@ -4,18 +4,18 @@
 " License:  MIT License
 
 " Better keymaps for Netrw{{{
-function! netrw#map()
+function! hl#netrw#map()
     " Show the list of marked files
     nmap <buffer> fl :echo join(netrw#Expose("netrwmarkfilelist"), "\n")<CR>
     " Show the current target directory
     nmap <buffer> ft :echo 'Target:' . netrw#Expose("netrwmftgt")<CR>
     " Delete a file
-    nmap <buffer> fd :call netrw#remove_recursive()<CR>
+    nmap <buffer> fd :call hl#netrw#remove_recursive()<CR>
 endfunction
 "}}}
 
 " Delete a non-empty directory{{{
-function! netrw#remove_recursive()
+function! hl#netrw#remove_recursive()
     if &filetype ==# 'netrw'
         " Prepare the delete command.
         " Make it so that is triggered by just pressing Enter

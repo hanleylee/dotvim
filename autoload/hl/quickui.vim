@@ -3,12 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-quickui.vim')
-    finish
-endif
-
 " quick menu{{{
-func! quickui#quick_menu()
+func! hl#quickui#quick_menu()
     call quickui#menu#reset()
     " install a 'File' menu, use [text, command] to represent an item.
     call quickui#menu#install('&File', [

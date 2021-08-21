@@ -3,12 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('coc.nvim')
-    finish
-endif
-
 " show document{{{
-function! coc#show_documentation()
+function! hl#coc#show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     elseif (coc#rpc#ready())
@@ -25,7 +21,7 @@ endfunction
 " endfunction
 
 " insert map for enter{{{
-function! coc#insert_map_for_enter()
+function! hl#coc#insert_map_for_enter()
     if pumvisible()
         return coc#_select_confirm()
     elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
@@ -37,7 +33,7 @@ endfunction
 "}}}
 
 " highlight current cursor{{{
-function coc#highlight_current_cursor()
+function hl#coc#highlight_current_cursor()
     let ft = &filetype
     if ft !=? 'markdown' 
                 \ && ft !=? 'csv'

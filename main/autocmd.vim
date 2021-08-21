@@ -26,13 +26,13 @@ augroup end
 
 augroup NetrwMapping
     autocmd!
-    autocmd filetype netrw call netrw#map()
+    autocmd filetype netrw call hl#netrw#map()
 augroup END
 
 
 augroup ObjcMapping
     autocmd!
-    autocmd filetype objc call objc#map()
+    autocmd filetype objc call hl#objc#map()
 augroup END
 
 
@@ -72,7 +72,7 @@ if PlugLoaded('coc.nvim')
         " autocmd CursorMoved * silent call s:ThrottleFnLeading.call('highlight')
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
         " autocmd CursorHold * silent call CocActionAsync('highlight')
-        autocmd CursorMoved * silent call coc#highlight_current_cursor()
+        autocmd CursorMoved * silent call hl#coc#highlight_current_cursor()
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
     augroup end

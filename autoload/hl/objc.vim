@@ -4,13 +4,13 @@
 " License:  MIT License
 
 "{{{
-function! objc#map()
-    ino <buffer> <silent><expr> <C-]> "\<C-g>u\<C-r>=objc#map_match_bracket()\<CR>"
+function! hl#objc#map()
+    ino <buffer> <silent><expr> <C-]> "\<C-g>u\<C-r>=hl#objc#map_match_bracket()\<CR>"
 endfunc
 "}}}
 
 " Automatically inserts matching bracket, TextMate style!{{{
-func! objc#map_match_bracket()
+func! hl#objc#map_match_bracket()
     " if pumvisible() " Close popup menu if it's visible.
     "     call feedkeys("\<C-g>u")
     " endif
@@ -31,13 +31,13 @@ func! objc#map_match_bracket()
     let wrap_text = strpart(before_cursor, delimPos - 1)
 
     " These are used to tell whether the bracket is still open:
-    let left_brack_count = objc#map_count(before_cursor, '[') " Note the before_cursor!
-    let right_brack_count = objc#map_count(before_cursor, ']')
+    let left_brack_count = hl#objc#map_count(before_cursor, '[') " Note the before_cursor!
+    let right_brack_count = hl#objc#map_count(before_cursor, ']')
 
     " Don't autocomplete if line is blank, if inside or directly outside
     " string, or if inserting a matching bracket.
     if wrap_text == '' || wrap_text =~'@\=["'']\S*\s*\%'.col.'c'
-                \ || objc#map_count(line, '[') > objc#map_count(line, ']')
+                \ || hl#objc#map_count(line, '[') > hl#objc#map_count(line, ']')
         return ']'
         " Escape out of string when bracket is the next character, unless
         " wrapping past a colon or equals sign, or inserting a closing bracket.
@@ -81,7 +81,7 @@ endf
 "}}}
 
 " map count{{{
-func! objc#map_count(haystack, needle)
+func! hl#objc#map_count(haystack, needle)
     let counter = 0
     let index = stridx(a:haystack, a:needle)
     while index != -1

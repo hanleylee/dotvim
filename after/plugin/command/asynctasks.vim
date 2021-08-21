@@ -8,5 +8,5 @@ if !PlugLoaded('asynctasks.vim')
 endif
 
 if PlugLoaded('fzf.vim')
-    command! -nargs=0 AsyncTaskFzf call asynctasks#fzf_task()
+    command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()
 endif

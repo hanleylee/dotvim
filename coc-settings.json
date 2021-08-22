@@ -319,6 +319,22 @@
     "markdownlint.onChange": true,
     "markdownlint.config": {},
 
+    // coc-db
+    "coc.source.db.enable": true,
+    "coc.source.db.shortcut": "DB",
+    "coc.source.db.priority": 95,
+    "coc.source.db.filetypes": [
+        "sql",
+        "mysql",
+        "plsql"
+    ],
+    "coc.source.db.triggerCharacters": [
+        "\"",
+        ".",
+        "`",
+        "["
+    ],
+
     // coc-cmake
     "cmake.lsp.serverPath": "cmake-language-server",
     "cmake.cmakePath": "cmake",
@@ -453,6 +469,9 @@
     // coc-pyright
     "pyright.enable": true,
     "pyright.trace.server": "off",
+    "pyright.disableDiagnostics": false,
+    "pyright.completion.snippetSupport": true,
+    "pyright.organizeimports.provider": "pyright",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.logLevel": "Warning",
     "python.analysis.autoSearchPaths": true,
@@ -530,9 +549,6 @@
     "python.sortImports.args": [],
     "python.formatting.darkerArgs": [],
     "python.formatting.darkerPath": "darker",
-    "pyright.disableDiagnostics": false,
-    "pyright.completion.snippetSupport": true,
-    "pyright.organizeimports.provider": "pyright",
 
     // java
     "java.enabled": true,

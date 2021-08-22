@@ -9,7 +9,7 @@ endif
 
 let g:vim_markdown_folding_disabled = 1 "太耗费性能
 let g:vim_markdown_folding_level = 3 "文件打开时显示的目录总级别
-let g:vim_markdown_auto_insert_bullets = 0 "换行时自动插入项目符号
+let g:vim_markdown_auto_insert_bullets = 1 "换行时自动插入项目符号
 let g:vim_markdown_new_list_item_indent = 4 " 在排序项目上按 o 换行出现的缩进
 let g:vim_markdown_edit_url_in = 'tab'
 let g:vim_markdown_conceal = 1 " To disable conceal regardless of 'conceallevel' setting, use 0

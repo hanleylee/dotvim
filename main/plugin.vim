@@ -68,6 +68,8 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
+    Plug 'tpope/vim-dadbod'                             " interactive database operation
+    Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
     Plug 'kana/vim-textobj-indent'                      " *ai, *ii

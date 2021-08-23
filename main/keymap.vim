@@ -23,7 +23,8 @@ nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
 vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
 " 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
+" inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
+inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " inoremap <silent><expr> <C-CR> "\<Esc>o\<C-u>"
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>c^"
@@ -65,8 +66,8 @@ cnoremap <C-b>    <Left>
 
 " vimspector {{{
 if PlugLoaded('vimspector')
-    nmap <Leader>db   <Plug>VimspectorToggleBreakpoint
-    nmap <Leader>d_b  <Plug>VimspectorToggleConditionalBreakpoint
+    nmap <Leader>d.   <Plug>VimspectorToggleBreakpoint
+    nmap <Leader>d_.  <Plug>VimspectorToggleConditionalBreakpoint
     " nmap <Leader>dd   :call vimspector#Launch()<CR>
     nmap <Leader>dd   <Plug>VimspectorContinue
     nmap <Leader>dc   <Plug>VimspectorContinue
@@ -289,6 +290,28 @@ if PlugLoaded('coc.nvim')
 
 endif
 "}}}
+
+" vim-dadbod{{{
+if PlugLoaded('vim-dadbod')
+    xnoremap <expr> <Plug>(DBExe)     db#op_exec()
+    nnoremap <expr> <Plug>(DBExe)     db#op_exec()
+    nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
+
+    xmap <leader>sq  <Plug>(DBExe)
+    nmap <leader>sq  <Plug>(DBExe)
+    omap <leader>sq  <Plug>(DBExe)
+    nmap <leader>sql <Plug>(DBExeLine)
+endif
+"}}}
+
+
+if PlugLoaded('vim-dadbod-ui')
+    nnoremap <silent> <leader>qt :DBUIToggle<CR>
+    nnoremap <silent> <leader>qf :DBUIFindBuffer<CR>
+    nnoremap <silent> <leader>qr :DBUIRenameBuffer<CR>
+    nnoremap <silent> <leader>ql :DBUILastQueryInfo<CR>
+endif
+
 
 " vim-gitgutter {{{
 if PlugLoaded('vim-gitgutter')

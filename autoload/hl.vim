@@ -13,35 +13,49 @@ function! hl#Format_CN() range
     "     let l = l + 1
     " endfor
 
-    " /[ ]*\(`[^`]\+`\)[ ]*/ \1 /g: 为 `` 包裹的 content 添加左右两侧空格
-    " /\S\s\+\([!;,.:?]\)/\1/g: 清除标点前的空格
-    " /\([(\[]\)\s\+/\1/g: 清除某些标点后(如 '(' '[' )的空格
-    "/^ `/`/g: 清除行首的空格
-    "/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g: 汉字在前, 英文/数字在后, 中间添加空格
-    "/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g: 汉字在后, 英文/数字在前, 中间添加空格
-    "/\s\+\n/\r/g: 清除尾部空格
-    let regex_list = [
-                \ '/，/, /g',
-                \ '/。/. /g',
-                \ '/：/: /g',
-                \ '/？/? /g',
-                \ '/；/; /g',
-                \ '/“\|”/"/g',
-                \ '/、/, /g',
-                \ '/（/(/g',
-                \ '/）/)/g',
-                \ '/！/!/g',
-                \ '/「/ **/g',
-                \ '/」/** /g',
-                \ '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g',
-                \ '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g',
-                \ '/[ ]*\(`[^`]\+`\)[ ]*/ \1 /g',
-                \ '/\(\S\)\s\+\([!;,.:?\[\]()]\)/\1\2/g',
-                \ '/\([(\[]\)\s\+/\1/g',
-                \ '/^ `/`/g',
-                \ '/\s\+$//g',
-                \ '/^\n$//g',
-                \ ]
+    " /\S\s\+\([!;,.:?]\)/\1/g: 
+    " /\([(\[]\)\s\+/\1/g: 
+    "/^ `/`/g: 
+    "/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g:
+    "/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g:
+    "/\s\+\n/\r/g: 
+
+    " let regex_list = [
+    "             \ '/，/, /g',
+    "             \ '/。/. /g',
+    "             \ '/：/: /g',
+    "             \ ...
+    "             \ ]
+
+    let regex_list = []
+    let regex_list = add(regex_list, '/，/, /g')
+    let regex_list = add(regex_list, '/。/. /g')
+    let regex_list = add(regex_list, '/：/: /g')
+    let regex_list = add(regex_list, '/？/? /g')
+    let regex_list = add(regex_list, '/；/; /g')
+    let regex_list = add(regex_list, '/“\|”/"/g')
+    let regex_list = add(regex_list, '/、/, /g')
+    let regex_list = add(regex_list, '/（/(/g')
+    let regex_list = add(regex_list, '/）/)/g')
+    let regex_list = add(regex_list, '/！/!/g')
+    let regex_list = add(regex_list, '/「/ **/g')
+    let regex_list = add(regex_list, '/」/** /g')
+    " 汉字在前, 英文/数字在后, 中间添加空格
+    let regex_list = add(regex_list, '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
+    " 汉字在后, 英文/数字在前, 中间添加空格
+    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g')
+    " 包裹的 content 添加左右两侧空格
+    let regex_list = add(regex_list, '/[ ]*\(`[^`]\+`\)[ ]*/ \1 /g')
+    " 清除标点前的空格
+    let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,.:?\])]\)/\1\2/g')
+    " 清除某些标点后(如 '(' '[' )的空格
+    let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')
+    " 清除行首的空格
+    let regex_list = add(regex_list, '/^ `/`/g')
+    " 清除尾部空格
+    let regex_list = add(regex_list, '/\s\+$//g')
+    " 清空所有一行以上的空行
+    let regex_list = add(regex_list, '/^\n$//g')
 
     for pattern in regex_list
         execute a:firstline . "," . a:lastline . " substitute " . pattern

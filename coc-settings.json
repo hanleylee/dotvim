@@ -472,7 +472,7 @@
     "pyright.disableDiagnostics": false,
     "pyright.completion.snippetSupport": true,
     "pyright.organizeimports.provider": "pyright",
-    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoImportCompletions": false,
     "python.analysis.logLevel": "Warning",
     "python.analysis.autoSearchPaths": true,
     "python.analysis.diagnosticMode": "openFilesOnly",

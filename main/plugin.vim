@@ -26,10 +26,9 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
     Plug 'voldikss/vim-floaterm'
+    Plug 'tpope/vim-vinegar'
     Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
     Plug 'mhinz/vim-startify'              " 首页显示
-    Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'Xuyuanp/nerdtree-git-plugin'
 
     " ============= Edit ===========
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
@@ -72,6 +71,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-dadbod'                             " interactive database operation
+    Plug 'tpope/vim-eunuch'
     Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
@@ -188,5 +188,7 @@ call plug#end()
 " Plug 'sainnhe/sonokai'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'NTBBloodbath/doom-one.nvim
-" Plug 'tpope/vim-vinegar'
+" Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "}}}

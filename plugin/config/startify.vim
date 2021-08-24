@@ -13,7 +13,7 @@ let g:startify_bookmarks = [
             \]
 let g:startify_files_number = 10 "起始页显示的列表长度
 let g:startify_session_autoload = 1 "是否自动加载目录下的Session.vim, 很好用
-let g:startify_change_to_dir = 0
+let g:startify_change_to_dir = 1
 let g:startify_change_to_vcs_root = 0
 "过滤列表, 支持正则表达式
 let g:startify_skiplist = [
@@ -46,7 +46,7 @@ endfunction
 " |g:startify_enable_special|
 " |g:startify_list_order|
 " |g:startify_lists|
-" |g:startify_update_oldfiles|
+let g:startify_update_oldfiles = 1
 
 " |g:startify_commands|
 " |g:startify_custom_header_quotes|
@@ -55,15 +55,15 @@ endfunction
 " |g:startify_enable_unsafe|
 " |g:startify_fortune_use_unicode|
 " |g:startify_padding_left|
-" |g:startify_relative_path|
+let g:startify_relative_path = 1
 " |g:startify_skiplist_server|
 " |g:startify_use_env|
 
 " |g:startify_session_before_save|
 " |g:startify_session_delete_buffers|
-" |g:startify_session_dir|
+let g:startify_session_dir = "~/.cache/vim/session"
 " |g:startify_session_number|
-" |g:startify_session_persistence|
+let g:startify_session_persistence = 1
 " |g:startify_session_remove_lines|
 " |g:startify_session_savecmds|
 " |g:startify_session_savevars|

@@ -67,10 +67,10 @@ cnoremap <C-b>    <Left>
 " nerdtree {{{
 if PlugLoaded('nerdtree')
     " nnoremap <leader>n :NERDTreeFocus<CR>
-    nnoremap <F1> :NERDTreeToggleVCS<CR>
+    nnoremap <F1> :NERDTreeToggle<CR>
+    nnoremap <S-F1> :NERDTreeToggle <bar> wincmd p<cr>
     " 使用这种方式可以确保光标位于当前文件且整个vcs可看
     nnoremap - :NERDTree <bar> wincmd p <bar>  NERDTreeFind <cr>
-    " nnoremap - :execute 'NERDTreeFind' <bar> execute 'NERDTreeVCS'<CR>
 endif
 "}}}
 
@@ -213,8 +213,19 @@ if PlugLoaded('asynctasks.vim')
     nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
+    if has('gui')
+        nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
+        nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
+    endif
 endif
 "}}}
+
+if PlugLoaded('vim-commentary')
+    if has('gui')
+        nmap <D-/> gcc
+        vmap <D-/> gcc
+    endif
+endif
 
 if PlugLoaded('vim-sandwich')
     xmap is <Plug>(textobj-sandwich-query-i)

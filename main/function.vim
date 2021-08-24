@@ -5,10 +5,16 @@
 
 " vim 进入时的判断
 func! Enter()
-    if argc() == 0 && !has('gui_running')
-        exec 'silent Explore'
-    elseif argc() == 0 && has('gui_running')
-        exec 'cd $HKMS' | exec 'silent Explore'
+    if PlugLoaded('nerdtree') && PlugLoaded('vim-startify')
+        if argc() == 0
+            if !has('gui_running') " 终端运行且没有参数
+                exec 'Startify'
+            elseif has('gui_running') " gui 运行且没有参数
+                exec 'NERDTree' . '$HKMS' | wincmd p | exec 'Startify'
+            endif
+        else
+            " do nothing
+        endif
     endif
 endfunc
 

@@ -104,3 +104,19 @@ function! s:get_gutentags_status(mods) abort
     return l:msg
 endfunction
 
+function! hl#lightline#FileNameWithIcon()
+    return WebDevIconsGetFileTypeSymbol() . ' ' . expand('%:t')
+endfunction
+
+function! hl#lightline#TabIcon(n)
+    let l:bufnr = tabpagebuflist(a:n)[tabpagewinnr(a:n) - 1]
+    return WebDevIconsGetFileTypeSymbol(bufname(l:bufnr))
+endfunction
+
+function! hl#lightline#FiletypeWithIcon()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! hl#lightline#FileFormatWithIcon()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction

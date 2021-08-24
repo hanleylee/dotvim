@@ -8,41 +8,63 @@ if !PlugLoaded('vim-startify')
 endif
 
 "" 设置书签
-"let g:startify_bookmarks = [
-"            \ '~/.vimrc',
-"            \ '~/data/repo/hkms/quick/2020-01-01_inspiration.md',
-"            \ '~/data/repo/hkms/quick/2020-03-19_questions.md',
-"            \ '~/data/repo/hkms/dev/2019-07-28_blog_总结_ios_ios 编程零碎要点.md',
-"            \ '~/data/repo/hkms/dev/2019-12-01_blog_总结_vim_神级编辑器 vim 使用 - 操作篇.md',
-"            \ '~/data/repo/hkms/dev/2019-12-24_blog_总结_git_版本管理工具 git 的使用.md',
-"            \ '~/data/repo/hkms/dev/2019-12-09_blog_总结_算法_数据结构与算法.md',
-"            \ '~/data/repo/hkms/dev/2019-12-10_blog_总结_终端_终端原理及操作.md',
-"            \]
-"let g:startify_files_number = 10 "起始页显示的列表长度
-"let g:startify_session_autoload = 1 "是否自动加载目录下的Session.vim, 很好用
-"let g:startify_change_to_dir = 0
-"let g:startify_change_to_vcs_root = 0
+let g:startify_bookmarks = [
+            \ '~/.vimrc',
+            \]
+let g:startify_files_number = 10 "起始页显示的列表长度
+let g:startify_session_autoload = 1 "是否自动加载目录下的Session.vim, 很好用
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 0
+"过滤列表, 支持正则表达式
+let g:startify_skiplist = [
+            \ '\.vimgolf',
+            \ '^/tmp',
+            \ '/project/.*/documentation',
+            \ ]
+"页眉区域显示
+let g:startify_custom_header = [
+            \ '    __  __               __                 __                   ',
+            \ '   / / / /____ _ ____   / /___   __  __    / /   ___   ___       ',
+            \ '  / /_/ // __ `// __ \ / // _ \ / / / /   / /   / _ \ / _ \      ',
+            \ ' / __  // /_/ // / / // //  __// /_/ /   / /___/  __//  __/      ',
+            \ '/_/ /_/ \__,_//_/ /_//_/ \___/ \__, /   /_____/\___/ \___/       ',
+            \ '                              /____/                             ',
+            \]
+"页脚区域显示
+let g:startify_custom_footer = [
+            \ '+-------------------------------------+',
+            \ '|   Swift Shell C Python JavaScript   |',
+            \ '+-------------------------------------+',
+            \]
 
-""过滤列表, 支持正则表达式
-"let g:startify_skiplist = [
-"            \ '\.vimgolf',
-"            \ '^/tmp',
-"            \ '/project/.*/documentation',
-"            \ ]
-""页眉区域显示
-"let g:startify_custom_header = [
-"            \ '    __  __               __                 __                   ',
-"            \ '   / / / /____ _ ____   / /___   __  __    / /   ___   ___       ',
-"            \ '  / /_/ // __ `// __ \ / // _ \ / / / /   / /   / _ \ / _ \      ',
-"            \ ' / __  // /_/ // / / // //  __// /_/ /   / /___/  __//  __/      ',
-"            \ '/_/ /_/ \__,_//_/ /_//_/ \___/ \__, /   /_____/\___/ \___/       ',
-"            \ '                              /____/                             ',
-"            \]
-""页脚区域显示
-"let g:startify_custom_footer = [
-"            \ '+-------------------------------------+',
-"            \ '|   Swift Shell C Python JavaScript   |',
-"            \ '+-------------------------------------+',
-"            \]
+" Startify 自动呼叫
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
 
+" |g:startify_change_cmd|
+" |g:startify_enable_special|
+" |g:startify_list_order|
+" |g:startify_lists|
+" |g:startify_update_oldfiles|
 
+" |g:startify_commands|
+" |g:startify_custom_header_quotes|
+" |g:startify_custom_indices|
+" |g:startify_disable_at_vimenter|
+" |g:startify_enable_unsafe|
+" |g:startify_fortune_use_unicode|
+" |g:startify_padding_left|
+" |g:startify_relative_path|
+" |g:startify_skiplist_server|
+" |g:startify_use_env|
+
+" |g:startify_session_before_save|
+" |g:startify_session_delete_buffers|
+" |g:startify_session_dir|
+" |g:startify_session_number|
+" |g:startify_session_persistence|
+" |g:startify_session_remove_lines|
+" |g:startify_session_savecmds|
+" |g:startify_session_savevars|
+" |g:startify_session_sort|

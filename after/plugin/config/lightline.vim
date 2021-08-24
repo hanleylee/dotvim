@@ -33,7 +33,6 @@ let g:lightline = {
                                 \       'mode': '%{lightline#mode()}',
                                 \       'absolutepath': '%F',
                                 \       'relativepath': '%f',
-                                \       'filename': '%t',
                                 \       'modified': '%M',
                                 \       'bufnum': '%n',
                                 \       'paste': '%{&paste?"PASTE":""}',
@@ -75,7 +74,7 @@ let g:lightline = {
                                                 \       'buffers_count': 'hl#lightline#BuffersCount',
                                                 \       'gutentags': 'gutentags#statusline',
                                                 \       'coc_status': 'hl#lightline#CocDiagnosticStatus1',
-                                                \       'git_diff_count': 'hl#lightline#GitDiffCount'
+                                                \       'git_diff_count': 'hl#lightline#GitDiffCount',
+                                                \       'filename': 'hl#lightline#FileNameWithIcon',
                                                 \   },
                                                 \ }
-

@@ -8,10 +8,24 @@
 " Enter{{{
 augroup Enter
     autocmd!
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
     au VimEnter * call Enter()
 augroup END
 "}}}
+
+augroup BufEnter1
+    autocmd!
+    if PlugLoaded('nerdtree')
+        " Exit Vim if NERDTree is the only window remaining in the only tab.
+        autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+        " Close the tab if NERDTree is the only window remaining in it.
+        autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+    endif
+augroup END
+
+augroup ReadPost
+    autocmd!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
+augroup END
 
 "HLHighlightKeyword{{{
 augroup HLHighlightKeyword

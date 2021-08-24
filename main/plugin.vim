@@ -26,10 +26,13 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
     Plug 'voldikss/vim-floaterm'
+    Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
+    Plug 'mhinz/vim-startify'              " 首页显示
+    Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 
     " ============= Edit ===========
     Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
-    Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-unimpaired'
     Plug 'ojroques/vim-oscyank'
     Plug 'tyru/open-browser.vim'                        " use gx to open url link
@@ -153,7 +156,6 @@ call plug#end()
 " Plug 'Yggdroot/hiPairs'
 " Plug 'embear/vim-localvimrc'                        " 用于针对工程设置 vimrc
 " Plug 'sheerun/vim-polyglot'          " 会改变文件格式的 shiftwidth, 会动态判断 ft, 其禁用机制很麻烦
-" Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
 " Plug 'luochen1990/rainbow'           " 高亮括号
 " Plug 'tweekmonster/startuptime.vim'
 " Plug 'zxqfl/tabnine-vim'               " 补全
@@ -165,7 +167,6 @@ call plug#end()
 " Plug 'scrooloose/syntastic'            " 语法错误检查
 " Plug 'Yggdroot/LeaderF'                " 快速搜索文件
 " Plug 'preservim/nerdcommenter'         " 快速注释某行
-" Plug 'mhinz/vim-startify'              " 首页显示
 " Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
 " Plug 'sgur/vim-textobj-parameter'
 " Plug 'michaeljsmith/vim-indent-object'
@@ -187,4 +188,5 @@ call plug#end()
 " Plug 'sainnhe/sonokai'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'NTBBloodbath/doom-one.nvim
+" Plug 'tpope/vim-vinegar'
 "}}}

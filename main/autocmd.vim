@@ -49,7 +49,10 @@ augroup ObjcMapping
     autocmd filetype objc call hl#objc#map()
 augroup END
 
-
+augroup ColorSchemeSet
+    autocmd!
+    autocmd ColorScheme * call HLColorScheme()
+augroup END
 
 if PlugLoaded('onedark.vim')
     augroup OneDarkRevise

@@ -14,3 +14,7 @@ let g:hl_rootmarkers = [
             \ 'Makefile',
             \ 'CMakeLists.txt',
             \ ]
+let g:is_in_iterm = $TERM_PROGRAM ==? 'iTerm.app'
+let g:is_in_apple_term = $TERM_PROGRAM ==? 'Apple_Terminal'
+let g:is_in_gui = has('gui_running')
+let g:is_in_term = !has('gui_running')

@@ -64,12 +64,10 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
-if has('gui')
-    nnoremap <M-h> <C-w>h
-    nnoremap <M-j> <C-w>j
-    nnoremap <M-k> <C-w>k
-    nnoremap <M-l> <C-w>l
-endif
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 
 " nerdtree {{{
 if PlugLoaded('nerdtree')
@@ -173,6 +171,7 @@ if PlugLoaded('wilder.nvim')
 endif
 "}}}
 
+nnoremap <M-j> :echo 123<cr>
 " fzf.vim {{{
 if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>
@@ -190,7 +189,7 @@ if PlugLoaded('fzf.vim')
     nnoremap <Leader>f?  :GFiles?<CR>
     nnoremap <Leader>ft  :Tags<CR>
     nnoremap <Leader>fc  :Commits<CR>
-    nnoremap <Leader>fm  :FM<CR>
+    nnoremap <M-m>       :FM<CR>
 endif
 "}}}
 
@@ -220,7 +219,7 @@ if PlugLoaded('asynctasks.vim')
     nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
-    if has('gui')
+    if has('gui_running')
         nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
         nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
     endif
@@ -228,7 +227,7 @@ endif
 "}}}
 
 if PlugLoaded('vim-commentary')
-    if has('gui')
+    if has('gui_running')
         nmap <D-/> gcc
         vmap <D-/> gcc
     endif

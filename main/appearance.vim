@@ -34,6 +34,11 @@ highlight Todo                          ctermbg=208 ctermfg=black guibg=#ff8700 
 highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178   guibg=#d7af00 guifg=black gui=italic
 "}}}
 
+if PlugLoaded('vim-sneak')
+    highlight Sneak      guifg=black guibg=#E5C078    ctermfg=black ctermbg=yellow
+    highlight SneakScope guifg=red   guibg=green ctermfg=red   ctermbg=green
+endif
+
 " vim-quickui {{{
 if PlugLoaded('vim-quickui')
     highlight! QuickBG ctermfg=0 ctermbg=7 guifg=black guibg=gray

@@ -38,6 +38,7 @@ if s:vim_weight >= 1 || has('gui_running')
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
+    " Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'           " 显示缩进线
@@ -50,11 +51,13 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
     Plug 'szw/vim-maximizer'
+    Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
-    Plug 'nathangrigg/vim-beancount'
     Plug 'vim-python/python-syntax'
+    Plug 'nathangrigg/vim-beancount'
+    " Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
@@ -179,8 +182,6 @@ call plug#end()
 " Plug 'ap/vim-css-color'              " 显示 css 颜色
 " Plug 'RRethy/vim-hexokinase'
 " Plug 'machakann/vim-sandwich'
-" Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-" Plug 'morhetz/gruvbox'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'navarasu/onedark.nvim'
@@ -191,4 +192,5 @@ call plug#end()
 " Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'justinmk/vim-sneak'
 "}}}

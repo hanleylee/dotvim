@@ -16,9 +16,9 @@ exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
 set nocompatible " 关闭 vi 兼容模式, 必选
 
 if has('nvim')
-    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.nviminfo " 设置 viminfo, 必须放在 nocompatible 之后
+    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/Users/hanley/Desktop/t1,s10,n~/.nviminfo " 设置 viminfo, 必须放在 nocompatible 之后
 else
-    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r$TEMP:,s10,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
+    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/private/tmp,s10,n~/.viminfo " 设置 viminfo, 必须放在 nocompatible 之后
 endif
 
 filetype plugin indent on " 开启插件功能,必选

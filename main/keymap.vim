@@ -64,6 +64,13 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
+if has('gui')
+    nnoremap <M-h> <C-w>h
+    nnoremap <M-j> <C-w>j
+    nnoremap <M-k> <C-w>k
+    nnoremap <M-l> <C-w>l
+endif
+
 " nerdtree {{{
 if PlugLoaded('nerdtree')
     " nnoremap <leader>n :NERDTreeFocus<CR>
@@ -354,6 +361,9 @@ endif
 if PlugLoaded('vim-easymotion')
     nmap <Space>          <Plug>(easymotion-bd-w)
     vmap <Space>          <Plug>(easymotion-bd-w)
+    " Move to line
+    map <Leader>L <Plug>(easymotion-bd-jk)
+    nmap <Leader>L <Plug>(easymotion-overwin-line)
 endif
 "}}}
 

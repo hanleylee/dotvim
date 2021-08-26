@@ -29,3 +29,7 @@ set transparency=0
 " if has('gui_macvim')
 "     let macvim_skip_cmd_opt_movement = 1
 " endif
+" if has('gui_macvim')
+"   " This removes the Cmd-P binding from 'Print':
+"   macmenu &File.Print key=<nop>
+" endif

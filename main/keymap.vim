@@ -69,9 +69,6 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-nnoremap <D-e> :echo 456<cr>
-nnoremap <D-/> :echo 457<cr>
-
 " nerdtree {{{
 if PlugLoaded('nerdtree')
     " nnoremap <leader>n :NERDTreeFocus<CR>
@@ -224,14 +221,13 @@ if PlugLoaded('asynctasks.vim')
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
     nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
     nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
+    nnoremap <silent><M-.> :AsyncStop!<CR>
 endif
 "}}}
 
 if PlugLoaded('vim-commentary')
-    if has('gui_running')
-        nmap <D-/> gcc
-        vmap <D-/> gcc
-    endif
+    nmap <D-/> gcc
+    vmap <D-/> gcc
 endif
 
 if PlugLoaded('vim-sandwich')

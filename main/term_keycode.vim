@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if g:is_in_gui
+if g:is_in_gui || g:is_in_nvim
     finish
 endif
 
@@ -33,15 +33,6 @@ execute "set <M-v>=\ev"
 execute "set <M-w>=\ew"
 execute "set <M-x>=\ex"
 execute "set <M-y>=\ey"
-
- " wrong!!!
-" execute "set <D-z>=\ez"
-" 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
-" execute "nmap \ed-r <D-r>"
-nmap <lt>D-r> <D-r>
-nmap <lt>D-b> <D-b>
-nmap <lt>D-e> <D-e>
-nmap <lt>D-/> <D-/>
 
 execute "set <S-F1>=\e[1;2P"
 execute "set <S-F2>=\e[1;2Q"
@@ -81,3 +72,12 @@ execute "set <F34>=\e[21;5~"
 execute "set <F35>=\e[23;5~"
 execute "set <F36>=\e[24;5~"
 execute "set <F37>=\eO6P"
+
+ " wrong!!!
+" execute "set <D-z>=\ez"
+" 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
+" execute "nmap \ed-r <D-r>"
+nmap <lt>D-r> <D-r>
+nmap <lt>D-b> <D-b>
+nmap <lt>D-e> <D-e>
+nmap <lt>D-/> <D-/>

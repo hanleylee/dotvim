@@ -280,7 +280,7 @@
 
     // coc-snippets
     "snippets.ultisnips.enable": true,
-    "snippets.priority": 100,
+    "snippets.priority": 85,
     "snippets.shortcut": "SNIP",
     "snippets.ultisnips.usePythonx": true,
     "snippets.ultisnips.pythonVersion": 3,
@@ -482,8 +482,8 @@
     "python.analysis.typeCheckingMode": "off", // 关闭 pyright 的类型检查
     "python.analysis.useLibraryCodeForTypes": true,
     "python.analysis.extraPaths": [],
-    "python.pythonPath": "python3",
-    "python.venvPath": "",
+    "python.pythonPath": "python",
+    "python.venvPath": "~/.pyenv/versions",
     "python.formatting.provider": "autopep8",
     "python.formatting.blackPath": "black",
     "python.formatting.blackArgs": [],

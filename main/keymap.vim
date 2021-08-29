@@ -171,7 +171,6 @@ if PlugLoaded('wilder.nvim')
 endif
 "}}}
 
-nnoremap <M-j> :echo 123<cr>
 " fzf.vim {{{
 if PlugLoaded('fzf.vim')
     nnoremap <C-F>       :Files<CR>

@@ -64,10 +64,12 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
+nnoremap <M-h> gT
+nnoremap <M-l> gt
+nnoremap <M-H> <C-w>h
+nnoremap <M-J> <C-w>j
+nnoremap <M-K> <C-w>k
+nnoremap <M-L> <C-w>l
 
 " nerdtree {{{
 if PlugLoaded('nerdtree')
@@ -220,7 +222,7 @@ if PlugLoaded('asynctasks.vim')
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
     nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
     nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><M-.> :AsyncStop!<CR>
+    nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}
 

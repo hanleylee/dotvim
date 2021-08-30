@@ -9,4 +9,4 @@ endif
 
 let g:asyncrun_rootmarks = g:hl_rootmarkers
 let g:asyncrun_open = 10 " 自动打开 quickfix window ，高度为 6
-let g:asyncrun_bell = 0  " 任务结束时候响铃提醒
+let g:asyncrun_bell = 1  " 任务结束时候响铃提醒

@@ -101,6 +101,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
+    " Plug 'skywind3000/vim-terminal-help'
     Plug 'skywind3000/vim-quickui'
     Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
     Plug '$VIM_CONFIG/hanleylee/vim-t2s'

@@ -3,6 +3,23 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+function! hl#preview_scroll(mode)
+    let scroll_lines = 20
+    if a:mode ==# 'u'
+        if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
+            call coc#float#scroll(0, scroll_lines)
+        elseif PlugLoaded('vim-quickui')
+            call quickui#preview#scroll(-scroll_lines)
+        endif
+    elseif a:mode ==# 'd'
+        if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
+            call coc#float#scroll(1, scroll_lines)
+        elseif PlugLoaded('vim-quickui')
+            call quickui#preview#scroll(scroll_lines)
+        endif
+    endif
+endfunction
+
 " format chinese{{{
 function! hl#Format_CN() range
     retab
@@ -159,6 +176,7 @@ function! hl#AsyncTask(mode)
     " if &filetype ==? 'vim'
     "     source %
     " else
+    " execute "AsyncTask " . a:mode
     silent update | execute "AsyncTask " . a:mode
     " endif
 endfunction

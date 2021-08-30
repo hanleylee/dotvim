@@ -256,7 +256,7 @@
     "coc.source.syntax.priority": 60,
     "coc.source.syntax.shortcut": "SYN",
     "coc.source.syntax.filetypes": null,
-    "coc.source.syntax.firstMatch": true,
+    "coc.source.syntax.firstMatch": false,
     "coc.source.syntax.disableSyntaxes": [],
 
     // source-omni

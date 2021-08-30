@@ -45,6 +45,9 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
+nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
+nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
+
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -134,28 +137,28 @@ endif
 
 " vim-floaterm {{{
 if PlugLoaded('vim-floaterm')
-    nnoremap <silent> <F3>          :FloatermToggle<CR>
-    tnoremap <silent> <F3>          <C-\><C-n>:FloatermToggle<CR>
-    nnoremap <silent> <Leader>tw    :FloatermNew<CR>
-    tnoremap <silent> <Leader>tw    <C-\><C-n>:FloatermNew<CR>
-    nnoremap <silent> <Leader>tp    :FloatermPrev<CR>
-    tnoremap <silent> <Leader>tp    <C-\><C-n>:FloatermPrev<CR>
-    nnoremap <silent> <Leader>tn    :FloatermNext<CR>
-    tnoremap <silent> <Leader>tn    <C-\><C-n>:FloatermNext<CR>
-    nnoremap <silent> <Leader>ts    :FloatermFirst<CR>
-    tnoremap <silent> <Leader>ts    <C-\><C-n>:FloatermFirst<CR>
-    nnoremap <silent> <Leader>te    :FloatermLast<CR>
-    tnoremap <silent> <Leader>te    <C-\><C-n>:FloatermLast<CR>
-    nnoremap <silent> <Leader>tk    :FloatermKill<CR>
-    tnoremap <silent> <Leader>tk    <C-\><C-n>:FloatermKill<CR>
-    nnoremap <silent> <Leader>lf    :FloatermNew lf<CR>
+    nnoremap <silent><F3>          :FloatermToggle<CR>
+    tnoremap <silent><F3>          <C-\><C-n>:FloatermToggle<CR>
+    nnoremap <silent><Leader>tw    :FloatermNew<CR>
+    tnoremap <silent><Leader>tw    <C-\><C-n>:FloatermNew<CR>
+    nnoremap <silent><Leader>tp    :FloatermPrev<CR>
+    tnoremap <silent><Leader>tp    <C-\><C-n>:FloatermPrev<CR>
+    nnoremap <silent><Leader>tn    :FloatermNext<CR>
+    tnoremap <silent><Leader>tn    <C-\><C-n>:FloatermNext<CR>
+    nnoremap <silent><Leader>ts    :FloatermFirst<CR>
+    tnoremap <silent><Leader>ts    <C-\><C-n>:FloatermFirst<CR>
+    nnoremap <silent><Leader>te    :FloatermLast<CR>
+    tnoremap <silent><Leader>te    <C-\><C-n>:FloatermLast<CR>
+    nnoremap <silent><Leader>tk    :FloatermKill<CR>
+    tnoremap <silent><Leader>tk    <C-\><C-n>:FloatermKill<CR>
+    nnoremap <silent><Leader>lf    :FloatermNew lf<CR>
 endif
 "}}}
 
 " vim-quickui {{{
 if PlugLoaded('vim-quickui')
-    " nnoremap <F1>                :call quickui#tools#preview_tag('')<cr>
-    nnoremap <Leader>qm          :call hl#quickui#quick_menu()<cr>
+    nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
+    nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
 endif
 "}}}
 
@@ -217,11 +220,12 @@ endif
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
+    nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
+
     nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
-    nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
     nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
+    nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
     nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}
@@ -296,12 +300,10 @@ if PlugLoaded('coc.nvim')
     nnoremap <silent><nowait> <C-c>cn  :<C-u>CocNext<CR>
     nnoremap <silent><nowait> <C-c>cp  :<C-u>CocPrev<CR>
 
-    " nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    " nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    " inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-    " inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    " vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    " vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    " inoremap <silent><nowait><expr> <M-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    " inoremap <silent><nowait><expr> <M-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    " vnoremap <silent><nowait><expr> <M-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    " vnoremap <silent><nowait><expr> <M-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
     " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     " inoremap <silent><expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"

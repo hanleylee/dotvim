@@ -74,6 +74,13 @@ nnoremap <M-J> <C-w>j
 nnoremap <M-K> <C-w>k
 nnoremap <M-L> <C-w>l
 
+" vim-surround {{{
+if PlugLoaded('vim-surround')
+    nmap do) ds)db
+    nmap do] ds]db
+endif
+" }}}
+
 " nerdtree {{{
 if PlugLoaded('nerdtree')
     " nnoremap <leader>n :NERDTreeFocus<CR>

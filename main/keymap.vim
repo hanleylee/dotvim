@@ -206,7 +206,13 @@ endif
 
 " asyncrun.vim {{{
 if PlugLoaded('asyncrun.vim')
-    nnoremap <F10>       :call asyncrun#quickfix_toggle(6)<CR>
+    nnoremap <F10>       :call asyncrun#quickfix_toggle(10)<CR>
+endif
+"}}}
+
+" vim-qf {{{
+if PlugLoaded('vim-qf')
+    " nmap <F10> <Plug>(qf_qf_toggle)
 endif
 "}}}
 

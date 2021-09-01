@@ -107,6 +107,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug '$VIM_CONFIG/hanleylee/vim-t2s'
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
+    Plug 'romainl/vim-qf'
 endif
 " }}}
 
@@ -114,6 +115,7 @@ endif
 if s:vim_weight >= 3 || has('gui_running')
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'ycm-core/YouCompleteMe'        " 补全插件
     Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
@@ -127,7 +129,6 @@ endif
 call plug#end()
 
 "============== UNUSED ================ {{{
-" Plug 'ycm-core/YouCompleteMe'        " 补全插件
 " Plug 'SirVer/ultisnips'                             " 自定义某些片段
 " Plug 'machakann/vim-highlightedyank' " 使 yank 的文档半透明高亮
 " Plug 'machakann/vim-Verdin'     " vim 语法补全

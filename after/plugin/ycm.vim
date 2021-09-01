@@ -67,5 +67,5 @@ let g:ycm_complete_in_comments=1 "是否在注释中也开启补全
 let g:ycm_filetype_specific_completion_to_disable={'gitcommit': 1} "语义补全黑名单, vim打开这些类型文件时会关闭YCM语义补全, 但标识符补全仍可用
 let g:ycm_filepath_blacklist = {'html' : 1, 'jsx' : 1,'xml' : 1,} "对特定文件类型禁用文件路径补全
 let g:ycm_disable_signature_help = 1 "移除函数定义的提示, 使用 echodoc 进行替代
-let g:ycm_auto_hover='' "or `CursorHold`
+let g:ycm_auto_hover='CursorHold' "or `CursorHold`
 let g:ycm_clangd_args = ['-cross-file-rename'] 

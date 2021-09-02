@@ -14,5 +14,7 @@
 	branch = main
 	update = rebase
 [submodule "vim-gitignore"]
-	path = HanleyLee/vim-gitignore
+	path = hanleylee/vim-gitignore
 	url = git@github.com:hanleylee/vim-gitignore.git
+	branch = main
+	update = rebase

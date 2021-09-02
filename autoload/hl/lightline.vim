@@ -106,7 +106,21 @@ function! s:get_gutentags_status(mods) abort
 endfunction
 
 function! hl#lightline#FileNameWithIcon()
-    return WebDevIconsGetFileTypeSymbol() . ' ' . expand('%:t')
+    if FindRootDirectory() == '' " when not inside a repo
+        let git_dir = ''
+        let root_path = GetOnlyDirectory() " /Users/hanley/test_dir
+        let modified_path = fnamemodify(root_path, ':~') " ~/test_dir
+        let right_path = pathshorten(modified_path) " ~/t
+    else " when inside a repo
+        let root_path = FindRootDirectory() " /Users/hanley/repo/hkms
+        let modified_path = fnamemodify(root_path, ':~') " ~/repo/hkms
+        let git_dir = pathshorten(modified_path) " ~/r/hkms
+        let full_path = GetOnlyDirectory()
+        let right_path = substitute(full_path, root_path, '', '') " src
+    endif
+    let res_path = git_dir . right_path " ~/r/hkms/src/test.vim
+    let file_name = GetOnlyFileName() == '' ? '' : '/' . GetOnlyFileName()
+    return WebDevIconsGetFileTypeSymbol() . ' ' . res_path . file_name "  ~/r/hkms/src/test.vim
 endfunction
 
 function! hl#lightline#TabIcon(n)

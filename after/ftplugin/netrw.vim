@@ -1,1 +1,2 @@
 setlocal colorcolumn=
+" setlocal autochdir

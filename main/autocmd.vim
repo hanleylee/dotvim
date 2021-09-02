@@ -66,10 +66,10 @@ if PlugLoaded('vim-quickui')
     augroup QuickUIPreview
         autocmd!
         au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
-        au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
-        au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
-        au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
-        au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
+        " au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
+        " au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
+        " au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
+        " au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
         " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
         " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
         " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>

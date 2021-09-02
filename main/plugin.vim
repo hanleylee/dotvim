@@ -61,6 +61,7 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
+    Plug '$VIM_CONFIG/hanleylee/vim-gitignore'
     " Plug '$VIM_CONFIG/hanleylee/potion'
 endif
 " }}}
@@ -74,7 +75,7 @@ if s:vim_weight >= 2 || has('gui_running')
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-dadbod'                             " interactive database operation
-    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
     Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
@@ -140,7 +141,6 @@ call plug#end()
 " Plug 'MFreidank/AnkiVim'
 " Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'
-" Plug 'benknoble/gitignore-vim'
 " Plug 'tpope/vim-git'
 " Plug 'tpope/vim-projectionist'        " 在头文件与本文件之间跳转
 " Plug 'fszymanski/fzf-gitignore'
@@ -195,4 +195,5 @@ call plug#end()
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'justinmk/vim-sneak'
+" Plug 'benknoble/gitignore-vim'
 "}}}

@@ -17,10 +17,27 @@ func! Enter()
     endif
 endfunc
 
+func! GetOnlyDirectory()
+    " if &filetype ==# 'netrw'
+    "     return getcwd()
+    " else
+        return resolve(expand('%:p:h'))
+    " endif
+endfunc
+
+func! GetOnlyFileName()
+    if &filetype ==# 'netrw'
+        return ''
+    else
+        return resolve(expand('%:t'))
+    endif
+endfunc
+
 " echo path
 func! EchoPath()
-    echo expand('%:p')
+    echo GetOnlyDirectory() . '/' . GetOnlyFileName()
 endfunc
+
 
 " 移除行尾空格
 func! TrimWhitespace()

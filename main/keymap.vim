@@ -12,6 +12,7 @@
 " Main map {{{
 " let g:mapleader="\<Space>"
 
+" nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>
 nnoremap <silent><Backspace> :noh<CR>
@@ -45,9 +46,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
-nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
-nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
-
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -73,6 +71,9 @@ nnoremap <M-H> <C-w>h
 nnoremap <M-J> <C-w>j
 nnoremap <M-K> <C-w>k
 nnoremap <M-L> <C-w>l
+
+nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
+nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 
 " vim-surround {{{
 if PlugLoaded('vim-surround')

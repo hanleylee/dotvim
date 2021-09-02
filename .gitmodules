@@ -13,3 +13,6 @@
 	url = git@github.com:hanleylee/vim-t2s.git
 	branch = main
 	update = rebase
+[submodule "vim-gitignore"]
+	path = HanleyLee/vim-gitignore
+	url = git@github.com:hanleylee/vim-gitignore.git

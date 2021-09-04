@@ -63,6 +63,10 @@ inoremap <C-f>    <Right>
 cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
+inoremap <M-b>    <C-Left>
+cnoremap <M-b>    <C-Left>
+inoremap <M-f>    <C-Right>
+cnoremap <M-f>    <C-Right>
 "}}}
 
 nnoremap <M-h> gT

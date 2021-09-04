@@ -23,10 +23,13 @@ endfunction
 " insert map for enter{{{
 function! hl#coc#insert_map_for_enter()
     if pumvisible()
+        echom 1
         return coc#_select_confirm()
     elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
+        echom 2
         return "\<C-g>u\<CR>\<Esc>O"
     else
+        echom 3
         return "\<CR>"
     endif
 endfunction

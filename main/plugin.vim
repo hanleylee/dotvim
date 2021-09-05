@@ -22,6 +22,8 @@ endif
 " MARK: level v1, only for fast browse {{{
 if s:vim_weight >= 1 || has('gui_running')
     " ============= File Management =============
+    Plug 'preservim/nerdtree'
+    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
@@ -191,9 +193,7 @@ call plug#end()
 " Plug 'sainnhe/sonokai'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'NTBBloodbath/doom-one.nvim
-" Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'justinmk/vim-sneak'
 " Plug 'benknoble/gitignore-vim'
 "}}}

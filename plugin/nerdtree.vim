@@ -18,4 +18,4 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeAutoCenter = 0
 let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeHijackNetrw=1
+let g:NERDTreeHijackNetrw=0

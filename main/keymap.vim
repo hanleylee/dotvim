@@ -67,6 +67,7 @@ inoremap <M-b>    <C-Left>
 cnoremap <M-b>    <C-Left>
 inoremap <M-f>    <C-Right>
 cnoremap <M-f>    <C-Right>
+nnoremap <M-x>    :Commands<CR>
 "}}}
 
 nnoremap <M-h> gT
@@ -88,11 +89,11 @@ endif
 
 " nerdtree {{{
 if PlugLoaded('nerdtree')
-    " nnoremap <leader>n :NERDTreeFocus<CR>
-    nnoremap <F1> :NERDTreeToggle<CR>
-    nnoremap <S-F1> :NERDTreeToggle <bar> wincmd p<cr>
-    " 使用这种方式可以确保光标位于当前文件且整个vcs可看
-    nnoremap - :NERDTree <bar> wincmd p <bar>  NERDTreeFind <cr>
+    nnoremap <F1> :call hl#nerdtree#toggle_vcs_focus_current()<cr>
+    nnoremap <leader>nt :NERDTreeToggleVCS<CR>
+    nnoremap <leader>nf :NERDTreeFind<CR>
+
+    " nnoremap <S-F1> :NERDTreeVCS <bar> wincmd p <bar>  NERDTreeFind <cr>
 endif
 "}}}
 
@@ -169,7 +170,7 @@ endif
 
 " vim-quickui {{{
 if PlugLoaded('vim-quickui')
-    nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
+    " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
 endif
 "}}}

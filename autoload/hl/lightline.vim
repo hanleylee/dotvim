@@ -88,8 +88,8 @@ function! hl#lightline#LightlineReadonly()
 endfunction
 
 func! hl#lightline#BuffersCount()
-    let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
-    let changed_buffer = len(filter(getbufinfo(), 'v:val.changed == 1')) - len(term_bufs)
+    let term_count = has('nvim') ? 0 : len(filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"'))
+    let changed_buffer = len(filter(getbufinfo(), 'v:val.changed == 1')) - term_count
     let all_buffer = len(getbufinfo({'buflisted':1}))
     return changed_buffer . '/' . all_buffer
 endfunc

@@ -23,7 +23,7 @@ endif
 if s:vim_weight >= 1 || has('gui_running')
     " ============= File Management =============
     Plug 'preservim/nerdtree'
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
@@ -62,6 +62,7 @@ if s:vim_weight >= 1 || has('gui_running')
     " Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
+    Plug 'fladson/vim-kitty'
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
     Plug '$VIM_CONFIG/hanleylee/vim-gitignore'
     " Plug '$VIM_CONFIG/hanleylee/potion'

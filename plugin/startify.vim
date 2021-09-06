@@ -13,7 +13,7 @@ let g:startify_bookmarks = [
             \]
 let g:startify_files_number = 10 "起始页显示的列表长度
 let g:startify_session_autoload = 1 "是否自动加载目录下的Session.vim, 很好用
-let g:startify_change_to_dir = 1
+let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 0
 "过滤列表, 支持正则表达式
 let g:startify_skiplist = [

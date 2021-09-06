@@ -12,6 +12,7 @@
 " Main map {{{
 " let g:mapleader="\<Space>"
 
+nmap <lt>D-/> <D-/>
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>
@@ -39,6 +40,7 @@ nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap <silent> J :call hl#merge_line()<CR>
 nnoremap Y y$
 
+
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
@@ -63,11 +65,13 @@ inoremap <C-f>    <Right>
 cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
-inoremap <M-b>    <C-Left>
-cnoremap <M-b>    <C-Left>
-inoremap <M-f>    <C-Right>
-cnoremap <M-f>    <C-Right>
+" inoremap <M-b>    <C-Left>
+" cnoremap <M-b>    <C-Left>
+" inoremap <M-f>    <C-Right>
+" cnoremap <M-f>    <C-Right>
 nnoremap <M-x>    :Commands<CR>
+inoremap <M-BS> <C-w>
+inoremap <D-BS> <C-u>
 "}}}
 
 nnoremap <M-h> gT
@@ -191,9 +195,9 @@ endif
 
 " fzf.vim {{{
 if PlugLoaded('fzf.vim')
-    nnoremap <C-F>       :Files<CR>
-    nnoremap <C-H>       :History<CR>
-    nnoremap <C-B>       :Buffers<CR>
+    nnoremap <silent><C-F>       :Files<CR>
+    nnoremap <silent><C-H>       :History<CR>
+    nnoremap <silent><C-B>       :Buffers<CR>
     nmap <C-x><C-m>      <Plug>(fzf-maps-n)
     xmap <C-x><C-m>      <Plug>(fzf-maps-x)
     omap <C-x><C-m>      <Plug>(fzf-maps-o)
@@ -276,6 +280,7 @@ if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
     inoremap <silent><expr> <CR> hl#coc#insert_map_for_enter()
+    " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent>K          :call hl#coc#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)

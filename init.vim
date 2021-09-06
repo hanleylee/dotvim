@@ -65,7 +65,7 @@ set encoding=utf-8 " UTF-8 支持
 scriptencoding utf-8
 set termencoding=utf-8
 set fileencoding=utf-8 " 编码方式为 utf-8
-set updatetime=500 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
+set updatetime=50 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
 let filetype_m='objc'
@@ -100,9 +100,7 @@ set showcmd " 右下角显示正在操作的命令
 " set cmdheight=2
 set list " 设置显示行尾, 换行, 制表符等隐藏字符
 
-if !has('nvim')
-    set listchars=tab:▸-,eol:↩︎,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
-endif
+set listchars=tab:▸-,eol:↲,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
 
 set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
 
@@ -130,6 +128,10 @@ set signcolumn=yes
 set textwidth=150
 set colorcolumn=+1
 set formatoptions-=croql
+
+if has('termguicolors')
+    set termguicolors
+endif
 
 " set cursorcolumn " 突出光标所在列, 开启后速度变慢
 " set linespace=16 " 设置行间距

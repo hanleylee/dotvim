@@ -8,7 +8,6 @@
     "coc.preferences.formatOnType": false,
     "coc.preferences.floatActions": true,
     "coc.preferences.enableMarkdown": true,
-    "coc.preferences.highlightTimeout": 500,
     "coc.preferences.silentAutoupdate": true,
     "coc.preferences.snippetStatusText": "SNIP",
     "coc.preferences.enableMessageDialog": false,
@@ -90,7 +89,7 @@
     "suggest.numberSelect": false,
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
-    // "suggest.noselect": true,
+    // "suggest.noselect": false,
     // "suggest.enablePreselect": false,
 
     "suggest.timeout": 5000,
@@ -278,6 +277,20 @@
     // "tabnine.disable_file_regex": [],
     // "tabnine.disable_line_regex": [""],
 
+    // // coc-pair
+    // "pairs.enableBackspace": true,
+    // "pairs.disableLanguages": [],
+    // "pairs.alwaysPairCharacters": [],
+    // "pairs.enableCharacters": [
+    //     "(",
+    //     "[",
+    //     "{",
+    //     "<",
+    //     "'",
+    //     "\"",
+    //     "`"
+    // ],
+
     // coc-snippets
     "snippets.ultisnips.enable": true,
     "snippets.priority": 85,
@@ -402,7 +415,7 @@
 
     // coc-vimlsp
     "vimlsp.trace.server": "off",
-    "vimlsp.debug": false,
+    "vimlsp.debug": true,
     "vimlsp.diagnostic.enable": true,
     "vimlsp.suggest.fromVimruntime": true,
     "vimlsp.suggest.fromRuntimepath": false,

@@ -20,7 +20,7 @@ endif
 " }}}
 
 " MARK: level v1, only for fast browse {{{
-if s:vim_weight >= 1 || has('gui_running')
+if s:vim_weight >= 1 || g:is_in_gui
     " ============= File Management =============
     Plug 'preservim/nerdtree'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -47,6 +47,7 @@ if s:vim_weight >= 1 || has('gui_running')
     Plug 'andymass/vim-matchup'          " 高亮括号
 
     " ============== Function ==============
+    Plug 'equalsraf/neovim-gui-shim'
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
     Plug 'junegunn/gv.vim'          " browse git log
@@ -70,7 +71,7 @@ endif
 " }}}
 
 " MARK: level v2, edit {{{
-if s:vim_weight >= 2 || has('gui_running')
+if s:vim_weight >= 2 || g:is_in_gui
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " signature 插件
     Plug 'jiangmiao/auto-pairs'                         " 匹配括号
@@ -116,7 +117,7 @@ endif
 " }}}
 
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
-if s:vim_weight >= 3 || has('gui_running')
+if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Plug 'ycm-core/YouCompleteMe'        " 补全插件
@@ -151,8 +152,7 @@ call plug#end()
 " Plug 'sjl/vitality.vim' "光标形状改变
 " Plug 'elzr/vim-json'
 " Plug 'ianding1/leetcode.vim'
-" Plug 'tenfyzhong/CompleteParameter.vim'
-" Plug 'hotoo/pangu.vim'
+" Plug 'tenfyzhong/CompleteParameter.vim' Plug 'hotoo/pangu.vim'
 " Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 " Plug 'justinmk/vim-dirvish'
 " Plug 'skywind3000/vim-terminal-help'

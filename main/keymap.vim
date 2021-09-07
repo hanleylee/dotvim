@@ -8,11 +8,12 @@
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
 " - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
+call Source('$VIM_CONFIG/main/gui_keymap.vim')"
+
 "███████████████████████   KeyMapping   ██████████████████████████
 " Main map {{{
 " let g:mapleader="\<Space>"
 
-nmap <lt>D-/> <D-/>
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>
@@ -26,11 +27,8 @@ vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
 nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
 " 确保没有注释跟随, 且不选中补全
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
-inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>"
+inoremap <silent> <C-CR> <C-g>u<CR>
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
-" inoremap <silent><expr> <C-CR> "\<Esc>o\<C-u>"
-" inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>c^"
-" nnoremap <silent><expr> <C-CR> "o\<Esc>cc"
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 
@@ -39,7 +37,6 @@ nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap N Nzzzv
 " nnoremap <silent> J :call hl#merge_line()<CR>
 nnoremap Y y$
-
 
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
@@ -65,24 +62,7 @@ inoremap <C-f>    <Right>
 cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
-" inoremap <M-b>    <C-Left>
-" cnoremap <M-b>    <C-Left>
-" inoremap <M-f>    <C-Right>
-" cnoremap <M-f>    <C-Right>
-nnoremap <M-x>    :Commands<CR>
-inoremap <M-BS> <C-w>
-inoremap <D-BS> <C-u>
 "}}}
-
-nnoremap <M-h> gT
-nnoremap <M-l> gt
-nnoremap <M-H> <C-w>h
-nnoremap <M-J> <C-w>j
-nnoremap <M-K> <C-w>k
-nnoremap <M-L> <C-w>l
-
-nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
-nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 
 " vim-surround {{{
 if PlugLoaded('vim-surround')
@@ -243,20 +223,13 @@ endif
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
 
     nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
     nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}
-
-if PlugLoaded('vim-commentary')
-    nmap <D-/> gcc
-    vmap <D-/> gcc
-endif
 
 if PlugLoaded('vim-sandwich')
     xmap is <Plug>(textobj-sandwich-query-i)

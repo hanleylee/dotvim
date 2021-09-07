@@ -6,9 +6,9 @@
 " vim 进入时的判断
 func! Enter()
     if argc() == 0
-        if !has('gui_running') " 终端运行且没有参数
+        if !g:is_in_gui " 终端运行且没有参数
             " exec 'Startify'
-        elseif has('gui_running') " gui 运行且没有参数
+        elseif g:is_in_gui " gui 运行且没有参数
             " exec 'NERDTree' . '$HKMS' | wincmd p | exec 'Startify'
             cd $HKMS
         endif

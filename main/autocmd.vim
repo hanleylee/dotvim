@@ -37,18 +37,6 @@ augroup HLHighlightKeyword
 augroup end
 "}}}
 
-
-augroup NetrwMapping
-    autocmd!
-    autocmd filetype netrw call hl#netrw#map()
-augroup END
-
-
-augroup ObjcMapping
-    autocmd!
-    autocmd filetype objc call hl#objc#map()
-augroup END
-
 augroup ColorSchemeSet
     autocmd!
     autocmd ColorScheme * call HLColorScheme()

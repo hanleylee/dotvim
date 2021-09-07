@@ -105,6 +105,6 @@ if !g:is_in_gui
     nmap <lt>D-r> <D-r>
     nmap <lt>D-b> <D-b>
     nmap <lt>D-/> <D-/>
-    imap <lt>D-BS> <D-BS>
+    " imap <lt>D-BS> <D-BS>
     " nmap <lt>D-e> <D-e>
 endif

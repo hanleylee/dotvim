@@ -7,10 +7,10 @@ setlocal conceallevel=2
 " setlocal textwidth=0
 " setlocal foldmethod=expr
 
-noremap <buffer> j   gj
-noremap <buffer> k   gk
-noremap <buffer> gj  j
-noremap <buffer> gk  k
+noremap <silent><buffer> j   gj
+noremap <silent><buffer> k   gk
+noremap <silent><buffer> gj  j
+noremap <silent><buffer> gk  k
 
 " undo break points
 inoremap <buffer> , ,<C-g>u

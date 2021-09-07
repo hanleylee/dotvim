@@ -139,12 +139,11 @@ endif
 "}}}
 
 "███████████████████████   Source Load File   ██████████████████████████{{{
+"=======================   Variable   ============================
+call Source('$VIM_CONFIG/main/variable.vim')
 
 "=======================   Plugin   ============================
 call Source('$VIM_CONFIG/main/plugin.vim')
-
-"=======================   Variable   ============================
-call Source('$VIM_CONFIG/main/variable.vim')
 
 "=======================   Terminal Keycode   ============================
 call Source('$VIM_CONFIG/main/term_keycode.vim')

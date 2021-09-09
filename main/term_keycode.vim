@@ -3,7 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !g:is_in_gui && !g:is_in_nvim
+
+if g:is_in_term && g:is_in_vim
     " <M-a> ~ <M-z>
     execute "set <M-a>=\ea"
     execute "set <M-b>=\eb"
@@ -95,9 +96,11 @@ if !g:is_in_gui && !g:is_in_nvim
     execute "set <F35>=\e[23;5~"
     execute "set <F36>=\e[24;5~"
     execute "set <F37>=\eO6P"
+    " imap <lt>D-BS> <D-BS>
+    " nmap <lt>D-e> <D-e>
 endif
 
-if !g:is_in_gui
+if g:is_in_term " 在终端中
     " wrong!!!
     " execute "set <D-z>=\ez"
     " 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
@@ -105,6 +108,109 @@ if !g:is_in_gui
     nmap <lt>D-r> <D-r>
     nmap <lt>D-b> <D-b>
     nmap <lt>D-/> <D-/>
-    " imap <lt>D-BS> <D-BS>
-    " nmap <lt>D-e> <D-e>
+
 endif
+
+" " 1 ~ =
+" map ¡  <M-1>
+" map ™  <M-2>
+" map £  <M-3>
+" map ¢  <M-4>
+" map ∞  <M-5>
+" map §  <M-6>
+" map ¶  <M-7>
+" map •  <M-8>
+" map ª  <M-9>
+" map º  <M-0>
+" map –  <M-->
+" map ≠  <M-=>
+" " nmap «  <M-\>
+
+" " ! ~ +
+" map ⁄  <M-!>
+" map €  <M-@>
+" map ‹  <M-#>
+" map ›  <M-$>
+" map ﬁ  <M-%>
+" map ﬂ  <M-^>
+" map ‡  <M-&>
+" map °  <M-*>
+" map ·  <M-(>
+" map ‚  <M-)>
+" map —  <M-_>
+" map ±  <M-+>
+" map »  <M-|>
+
+" " q ~ ]
+" map œ  <M-q>
+" map ∑  <M-w>
+" map ´  <M-e>
+" map ®  <M-r>
+" map †  <M-t>
+" map ¥  <M-y>
+" map ¨  <M-u>
+" map ˆ  <M-i>
+" map ø  <M-o>
+" map π  <M-p>
+" map “  <M-[>
+" map ‘  <M-]>
+
+" " Q ~ }
+" map Œ  <M-Q>
+" map „  <M-W>
+" map ‰  <M-R>
+" map ˇ  <M-T>
+" map Á  <M-Y>
+" map Ø  <M-O>
+" map ∏  <M-P>
+" map ”  <M-{>
+" map ’  <M-}>
+
+" " a ~ '
+" map å  <M-a>
+" map ß  <M-s>
+" map ∂  <M-d>
+" map ƒ  <M-f>
+" map ©  <M-g>
+" map ˙  <M-h>
+" map ∆  <M-j>
+" map ˚  <M-k>
+" map ¬  <M-l>
+" map …  <M-;>
+" map æ  <M-'>
+
+" " A ~ "
+" map Å  <M-A>
+" map Í  <M-S>
+" map Î  <M-D>
+" map Ï  <M-F>
+" map ˝  <M-G>
+" map Ó  <M-H>
+" map Ô  <M-J>
+" map   <M-K>
+" map Ò  <M-L>
+" " map Ú  <M-:>
+" map Æ  <M-">
+
+" " z ~ /
+" map Ω  <M-z>
+" map ≈  <M-x>
+" map ç  <M-c>
+" map √  <M-v>
+" map ∫  <M-b>
+" map ˜  <M-n>
+" map µ  <M-m>
+" map ≤  <M-,>
+" map ≥  <M-.>
+" map ÷  <M-/>
+
+" " Z ~ ?
+" map ¸  <M-Z>
+" map ˛  <M-X>
+" map Ç  <M-C>
+" map ◊  <M-V>
+" map ı  <M-B>
+" map Â  <M-M>
+" map ¯  <M-<>
+" map ˘  <M->>
+" map ¿  <M-?>

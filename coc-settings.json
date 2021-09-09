@@ -94,13 +94,13 @@
 
     "suggest.timeout": 5000,
     "suggest.minTriggerInputLength": 2,
-    "suggest.maxCompleteItemCount": 50,
-    "suggest.highPrioritySourceLimit": 50,
-    "suggest.lowPrioritySourceLimit": 50,
+    "suggest.maxCompleteItemCount": 20,
+    "suggest.highPrioritySourceLimit": 20,
+    "suggest.lowPrioritySourceLimit": 20,
     "suggest.disableKind": false,
     "suggest.disableMenu": false,
     "suggest.enablePreview": true,
-    "suggest.maxPreviewWidth": 80,
+    "suggest.floatConfig": {},
     "suggest.detailMaxLength": 50,
     "suggest.localityBonus": true,
     "suggest.labelMaxLength": 200,
@@ -133,8 +133,7 @@
     "signature.enable": true,
     "signature.hideOnTextChange": true,
     "signature.target": "float",
-    "signature.maxWindowWidth": 150,
-    "signature.maxWindowHeight": 8,
+    "signature.floatConfig": {},
     "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,
 
@@ -182,10 +181,9 @@
     "dialog.floatBorderHighlight": null,
 
     // hover
-    "hover.floatMaxWidth": 80,
     "hover.target": "float",
     "hover.autoHide": true,
-    "hover.floatMaxHeight": 0,
+    "hover.floatConfig": {},
     "hover.previewMaxHeight": 12,
 
     // source-file
@@ -412,7 +410,7 @@
     "highlight.colorNames.enable": true,
 
     // coc-vimlsp
-    "vimlsp.trace.server": "off",
+    "vimlsp.trace.server": "verbose",
     "vimlsp.debug": true,
     "vimlsp.diagnostic.enable": true,
     "vimlsp.suggest.fromVimruntime": true,

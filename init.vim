@@ -145,9 +145,6 @@ call Source('$VIM_CONFIG/main/variable.vim')
 "=======================   Plugin   ============================
 call Source('$VIM_CONFIG/main/plugin.vim')
 
-"=======================   Terminal Keycode   ============================
-call Source('$VIM_CONFIG/main/term_keycode.vim')
-
 "=======================   Function   ============================
 call Source('$VIM_CONFIG/main/function.vim')
 

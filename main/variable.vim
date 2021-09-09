@@ -14,10 +14,10 @@ let g:hl_rootmarkers = [
             \ 'Makefile',
             \ 'CMakeLists.txt',
             \ ]
-let g:is_in_term = !empty($TERM)
+let g:is_in_term = !empty($TERM) " 位于终端中
 let g:is_in_gui = !g:is_in_term
+let g:is_in_macvim_gui = has('gui_macvim') && has('gui_running') " 位于 macvim 的gui 模式下
 let g:is_in_iterm = $TERM_PROGRAM ==? 'iTerm.app'
 let g:is_in_apple_term = $TERM_PROGRAM ==? 'Apple_Terminal'
-" let g:is_in_gui = has('gui_running') || exists('g:gonvim_running') || $TERM ==? ''
-" let g:is_in_term = !g:is_in_gui
-let g:is_in_nvim = has('nvim')
+let g:is_in_nvim = has('nvim') " 位于 neovim 中
+let g:is_in_vim = !g:is_in_nvim " 位于 vim 中

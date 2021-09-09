@@ -55,12 +55,12 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'skywind3000/vim-preview'
     Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
+    Plug 'trapd00r/vidir'
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
     Plug 'vim-python/python-syntax'
     Plug 'nathangrigg/vim-beancount'
-    " Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug 'fladson/vim-kitty'
@@ -119,7 +119,8 @@ endif
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'ycm-core/YouCompleteMe'        " 补全插件
     Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
@@ -197,4 +198,5 @@ call plug#end()
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'justinmk/vim-sneak'
 " Plug 'benknoble/gitignore-vim'
+" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 "}}}

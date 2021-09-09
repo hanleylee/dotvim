@@ -6,12 +6,11 @@
 if exists('g:loaded_gui_init')
     finish
 endif
-
 let g:loaded_gui_init = 1
 
 set encoding=utf-8                            " MacVim: use UTF-8 everywhere.
-" set guifont=YaHei\ Fira\ Icon\ Hybrid:h16     " 设置 GUI 下字体及大小
-" set guifontwide=YaHei\ Fira\ Icon\ Hybrid:h14 " 设置 GUI 下中文字体及大小
+set guifont=YaHei\ Fira\ Icon\ Hybrid:h16     " 设置 GUI 下字体及大小
+set guifontwide=YaHei\ Fira\ Icon\ Hybrid:h14 " 设置 GUI 下中文字体及大小
 set guicursor+=a:blinkon0                     " 设置光标不闪动
 set guioptions-=e                             " 有多个 tab(文件) 时使用系统原生的 tab 样式
 set guioptions-=T                             " MacVim: hide toolbar.
@@ -21,9 +20,9 @@ set guioptions-=l                             " MacVim: hide left scrollbar.
 set guioptions-=L                             " MacVim: hide left scrollbar.
 set tabpagemax=100
 set lines=100
-set columns=160
+set columns=190
 
-if has('gui_macvim') " 位于 macvim
+if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     set toolbariconsize=small
     set antialias                                 " MacVim: smooth fonts.
     set macmeta                                   " Receive meta key

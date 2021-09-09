@@ -8,6 +8,10 @@
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
 " - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
+"=======================   Terminal Keycode   ============================
+call Source('$VIM_CONFIG/main/term_keycode.vim')
+
+"=======================   GUI Keycode   ============================
 call Source('$VIM_CONFIG/main/gui_keymap.vim')"
 
 "███████████████████████   KeyMapping   ██████████████████████████
@@ -161,7 +165,8 @@ endif
 
 " vim-renamer {{{
 if PlugLoaded('vim-renamer')
-    nmap <Leader>rr <Plug>RenamerStart
+    " nmap <Leader>rr <Plug>RenamerStart
+    nmap <Leader>rr :Renamer %:p:h<cr>
     nmap <Leader>rc :Ren<CR>
 endif
 "}}}
@@ -223,7 +228,6 @@ endif
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
-
     nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
     nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>

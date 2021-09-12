@@ -68,6 +68,11 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
+if PlugLoaded('fern.vim')
+    nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
+    nnoremap <silent> -    :Fern . -reveal=%<cr>
+endif
+
 " vim-surround {{{
 if PlugLoaded('vim-surround')
     nmap do) ds)db
@@ -152,6 +157,8 @@ if PlugLoaded('vim-floaterm')
     tnoremap <silent><Leader>te    <C-\><C-n>:FloatermLast<CR>
     nnoremap <silent><Leader>tk    :FloatermKill<CR>
     tnoremap <silent><Leader>tk    <C-\><C-n>:FloatermKill<CR>
+    nnoremap <silent><Leader>tcd   :FloatermSend cd %:p:h<CR>
+
     nnoremap <silent><Leader>lf    :FloatermNew lf<CR>
 endif
 "}}}
@@ -252,6 +259,9 @@ if PlugLoaded('vim-sandwich')
     omap am <Plug>(textobj-sandwich-literal-query-a)
 endif
 
+vnoremap <silent> <C-T> :<C-u>Ydv<CR>
+nnoremap <silent> <C-T> :<C-u>Ydc<CR>
+noremap <leader>yd :<C-u>Yde<CR>
 " coc.vim {{{
 if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"

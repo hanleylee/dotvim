@@ -5,14 +5,22 @@
 
 "███████████████████████   Appearance   ██████████████████████████
 
-function HLColorScheme()
+function! OneDarkRevise()
+    call onedark#set_highlight('pythonBuiltinFunc', {'fg': onedark#GetColors()['cyan']})
+    " call onedark#set_highlight('CursorLineNr', {'fg': onedark#GetColors()['white'], 'bg': onedark#GetColors()['cursor_grey']})
+endfunction
+
+function! HLColorScheme()
     " highlight {{{
     highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
     highlight Visual        cterm=reverse   ctermbg=NONE  ctermfg=NONE guifg=NONE   guibg=NONE gui=reverse
     highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145  guibg=#4B5263   guifg=#ABB2BF gui=bold
+    " highlight CursorLineNr guibg=green guifg=black
+    " highlight LineNr ctermfg=grey ctermbg=white guibg=grey
+    " highlight SignColumn ctermfg=grey ctermbg=white guibg=grey
     " highlight link QuickFixLine CursorLine
     " highlight ColorColumn ctermbg=green guibg=orange
-    " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#4e4e4e   guifg=NONE gui=bold
+    " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#444444   guifg=NONE gui=bold
     " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
     " highlight PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
     " highlight Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold

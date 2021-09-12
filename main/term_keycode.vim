@@ -105,10 +105,41 @@ if g:is_in_term " 在终端中
     " execute "set <D-z>=\ez"
     " 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
     " execute "nmap \ed-r <D-r>"
-    nmap <lt>D-r> <D-r>
-    nmap <lt>D-b> <D-b>
-    nmap <lt>D-/> <D-/>
-
+    nmap  <lt>D-/>          <D-/>
+    nmap  <lt>D-r>          <D-r>
+    nmap  <lt>D-b>          <D-b>
+    vmap  <lt>D-c>         <D-c>
+    vmap  <lt>D-x>         <D-x>
+    tmap  <lt>D-v>         <D-v>
+    nmap  <lt>D-v>         <D-v>
+    vmap  <lt>D-v>         <D-v>
+    imap  <lt>D-v>         <D-v>
+    cmap  <lt>D-v>         <D-v>
+    map   <lt>D-Left>      <D-Left>
+    map!  <lt>D-Left>      <D-Left>
+    map   <lt>D-Right>     <D-Right>
+    map!  <lt>D-Right>     <D-Right>
+    map   <lt>D-Up>        <D-Up>
+    imap  <lt>D-Up>        <D-Up>
+    map   <lt>D-Down>      <D-Down>
+    imap  <lt>D-Down>      <D-Down>
+    imap  <lt>D-BS>        <D-BS>
+    nmap  <lt>D-w>         <D-w>
+    imap  <lt>D-w>         <D-w>
+    nmap  <lt>D-s>         <D-s>
+    map   <lt>D-s>         <D-s>
+    vmap  <lt>D-s>         <D-s>
+    imap  <lt>D-s>         <D-s>
+    map   <lt>D-z>         <D-z>
+    imap  <lt>D-z>         <D-z>
+    map   <lt>S-D-z>       <S-D-z>
+    imap  <lt>S-D-z>       <S-D-z>
+    map   <lt>D-a>         <D-a>
+    imap  <lt>D-a>         <D-a>
+    cmap  <lt>D-a>         <D-a>
+    omap  <lt>D-a>         <D-a>
+    smap  <lt>D-a>         <D-a>
+    xmap  <lt>D-a>         <D-a>
 endif
 
 " " 1 ~ =

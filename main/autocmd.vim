@@ -45,7 +45,7 @@ augroup END
 if PlugLoaded('onedark.vim')
     augroup OneDarkRevise
         autocmd!
-        autocmd ColorScheme * call onedark#set_highlight('pythonBuiltinFunc', {'fg': onedark#GetColors()['cyan']})
+        autocmd ColorScheme * call OneDarkRevise()
     augroup END
 endif
 
@@ -89,7 +89,20 @@ if PlugLoaded('coc.nvim')
     augroup end
 endif
 
+if PlugLoaded('fern.vim')
+    augroup fern-custom
+        autocmd!
+        autocmd FileType fern call FernInit()
+    augroup END
+endif
 
+if PlugLoaded('fern-git-status.vim')
+    augroup my-glyph-palette
+        autocmd!
+        autocmd FileType fern call glyph_palette#apply()
+        autocmd FileType nerdtree,startify call glyph_palette#apply()
+    augroup END
+endif
 
 if PlugLoaded('vim-gutentags')
     augroup MyGutentagsStatusLineRefresher

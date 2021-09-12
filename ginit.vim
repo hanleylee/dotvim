@@ -10,7 +10,7 @@ let g:loaded_gui_init = 1
 
 set encoding=utf-8                            " MacVim: use UTF-8 everywhere.
 set guifont=YaHei\ Fira\ Icon\ Hybrid:h16     " 设置 GUI 下字体及大小
-set guifontwide=YaHei\ Fira\ Icon\ Hybrid:h14 " 设置 GUI 下中文字体及大小
+set guifontwide=YaHei\ Fira\ Icon\ Hybrid:h16 " 设置 GUI 下中文字体及大小
 set guicursor+=a:blinkon0                     " 设置光标不闪动
 set guioptions-=e                             " 有多个 tab(文件) 时使用系统原生的 tab 样式
 set guioptions-=T                             " MacVim: hide toolbar.
@@ -57,5 +57,4 @@ if exists('g:GuiLoaded') " 当前位于 neovim-qt
     inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
     xnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
     snoremap <silent><RightMouse> <C-G>:call GuiShowContextMenu()<CR>gv
-
 endif

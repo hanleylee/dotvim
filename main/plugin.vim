@@ -61,7 +61,8 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'skywind3000/vim-preview'
     Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-    Plug 'ianva/vim-youdao-translater'
+    " Plug 'skywind3000/vim-auto-popmenu'
+    " Plug 'ianva/vim-youdao-translater'
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
@@ -100,6 +101,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
     Plug 'mg979/vim-visual-multi'                       " 多选
+    Plug 'skywind3000/vim-dict'
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态

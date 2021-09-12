@@ -51,3 +51,8 @@ func! hl#quickui#quick_menu()
 endfunction
 "}}}
 
+func! hl#quickui#show_dict(word)
+    let command = 'ecdict ' . a:word
+    let opts = {"close":"button", "title":"Dictionary: ecdict"}
+    call quickui#textbox#command(command, opts)
+endfunction

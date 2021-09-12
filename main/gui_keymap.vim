@@ -74,12 +74,22 @@ if !g:is_in_macvim_gui " macvim 自带这些快捷键
     ino  <M-Down>       <C-o>}
 endif
 
-nnoremap <M-h> gT
-nnoremap <M-l> gt
-nnoremap <M-H> <C-w>h
-nnoremap <M-J> <C-w>j
-nnoremap <M-K> <C-w>k
-nnoremap <M-L> <C-w>l
+nnoremap <silent><M-h> gT
+nnoremap <silent><M-l> gt
+noremap  <silent><D-1> :tabn 1<cr>
+noremap  <silent><D-2> :tabn 2<cr>
+noremap  <silent><D-3> :tabn 3<cr>
+noremap  <silent><D-4> :tabn 4<cr>
+noremap  <silent><D-5> :tabn 5<cr>
+noremap  <silent><D-6> :tabn 6<cr>
+noremap  <silent><D-7> :tabn 7<cr>
+noremap  <silent><D-8> :tabn 8<cr>
+noremap  <silent><D-9> :tabn 9<cr>
+noremap  <silent><D-0> :tabn 10<cr>
+nnoremap <silent><M-H> <C-w>h
+nnoremap <silent><M-J> <C-w>j
+nnoremap <silent><M-K> <C-w>k
+nnoremap <silent><M-L> <C-w>l
 
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
@@ -91,6 +101,12 @@ if PlugLoaded('vim-commentary')
 endif
 
 if PlugLoaded('asynctasks.vim')
-    nnoremap <silent><D-r> :call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><D-b> :call hl#AsyncTask('project-build')<CR>
+    noremap <silent><D-r> :<C-u>call hl#AsyncTask('file-build-run')<CR>
+    nnoremap <silent><D-b> :<C-u>call hl#AsyncTask('project-build')<CR>
+endif
+
+if PlugLoaded('vim-quickui')
+    " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
+    nnoremap <silent><D-d>          :call hl#quickui#show_dict(expand("<cword>"))<cr>
+    vnoremap <silent><D-d>          :call hl#quickui#show_dict(hl#visual_selection())<cr>
 endif

@@ -68,6 +68,11 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
+noremap <silent><tab>m :tabnew<cr>
+noremap <silent><tab>e :tabclose<cr>
+noremap <silent><tab>n :tabn<cr>
+noremap <silent><tab>p :tabp<cr>
+
 if PlugLoaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=%<cr>
@@ -167,6 +172,8 @@ endif
 if PlugLoaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
+    nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
+    vnoremap <silent><Leader>qd          :call hl#quickui#show_dict(hl#visual_selection())<cr>
 endif
 "}}}
 

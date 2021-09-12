@@ -3,6 +3,16 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+function! hl#visual_selection() abort
+    try
+        let a_save = @a
+        silent! normal! gv"ay
+        return @a
+    finally
+        let @a = a_save
+    endtry
+endfunction
+
 function! hl#preview_scroll(mode)
     let scroll_lines = 20
     if a:mode ==# 'u'

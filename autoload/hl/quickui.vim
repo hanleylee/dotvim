@@ -52,7 +52,26 @@ endfunction
 "}}}
 
 func! hl#quickui#show_dict(word)
-    let command = 'ecdict ' . a:word
-    let opts = {"close":"button", "title":"Dictionary: ecdict"}
+    let is_alpha = v:true
+    for char in split(a:word, '\zs')
+        if char2nr(char) > 127
+            let is_alpha = v:false
+        endif
+    endfor
+    if is_alpha
+        let tool = 'ecdict'
+    else
+        let tool = 'sdcv'
+    endif
+    let command = tool . ' ' . a:word
+    let opts = {"close":"button", "title": tool}
+    call quickui#textbox#command(command, opts)
+endfunction
+
+func! hl#quickui#show_translate(word)
+    let word = substitute(a:word, '\n', ' ', 'g')
+    let tool = 'translator'
+    let command = tool . ' ' . '"' . word . '"'
+    let opts = {"close": "button", "title": tool}
     call quickui#textbox#command(command, opts)
 endfunction

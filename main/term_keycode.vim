@@ -151,6 +151,7 @@ if g:is_in_term " 在终端中
     smap  <lt>D-a>          <D-a>
     xmap  <lt>D-a>          <D-a>
     map   <lt>D-d>          <D-d>
+    map   <lt>D-t>          <D-t>
 endif
 
 " " 1 ~ =

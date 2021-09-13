@@ -108,11 +108,11 @@ set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
-" set foldmethod=syntax
-set nofoldenable " 保证在开启文件的时候是全部展开的
+set foldenable " 保证在开启文件的时候是全部展开的
+set foldmethod=indent
 set foldopen-=hor
 set foldnestmax=10
-set foldlevel=2
+set foldlevel=99
 set relativenumber
 set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
 if has('textprop')

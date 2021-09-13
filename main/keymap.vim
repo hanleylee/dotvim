@@ -173,7 +173,9 @@ if PlugLoaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qd          :call hl#quickui#show_dict(hl#visual_selection())<cr>
+    vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
+    nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
+    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
 endif
 "}}}
 

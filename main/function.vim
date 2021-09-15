@@ -17,6 +17,10 @@ func! Enter()
     endif
 endfunc
 
+func! MapMetaCode(key)
+    exec "set <M-" . a:key . ">=\e" . a:key
+endfunc
+
 func! GetOnlyDirectory()
     " if &filetype ==# 'netrw'
     "     return getcwd()

@@ -189,7 +189,7 @@
     // source-file
     "coc.source.file.priority": 100,
     "coc.source.file.ignoreHidden": false,
-    "coc.source.file.shortcut": "FILE",
+    "coc.source.file.shortcut": "F&D",
     "coc.source.file.ignorePatterns": [],
     "coc.source.file.enable": true,
     "coc.source.file.triggerCharacters": [

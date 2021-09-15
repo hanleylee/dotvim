@@ -94,6 +94,7 @@ nnoremap <silent><M-L> <C-w>l
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 nnoremap <silent><M-x> :Commands<CR>
+inoremap <silent><M-x> :Commands<CR>
 
 if PlugLoaded('vim-commentary')
     nmap <D-/> gcc

@@ -10,6 +10,16 @@
 " :PlugUpgrade    -  更新 vim-plug 本身
 " :PlugClean      -  清理不使用的插件
 
+" branch/tag/commit Branch/tag/commit of the repository to use
+" rtp               Subdirectory that contains Vim plugin
+" dir               Custom directory for the plugin
+" as                Use different name for the plugin
+" do                Post-update hook (string or funcref)
+" on                On-demand loading: Commands or <Plug>-mappings
+" for               On-demand loading: File types
+" frozen            Do not update unless explicitly specified
+
+
 call plug#begin('$VIM_CONFIG/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
@@ -61,12 +71,14 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'skywind3000/vim-preview'
     Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
+    Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
     " Plug 'skywind3000/vim-auto-popmenu'
     " Plug 'ianva/vim-youdao-translater'
 
     "============== Language ==============
     Plug 'plasticboy/vim-markdown'
-    Plug 'vim-python/python-syntax'
+    Plug 'vim-python/python-syntax' " python 语法高亮
+    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
@@ -85,8 +97,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
-    Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
+    Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
@@ -114,13 +126,14 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
-    " Plug 'skywind3000/vim-terminal-help'
     Plug 'skywind3000/vim-quickui'
     Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
     Plug '$VIM_CONFIG/hanleylee/vim-t2s'
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
+    Plug 'Konfekt/FastFold'     " 尽可能的减少折叠次数
+    " Plug 'chrisbra/NrrwRgn'   " inline_edit 已经实现了
 endif
 " }}}
 
@@ -128,7 +141,7 @@ endif
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'ycm-core/YouCompleteMe'        " 补全插件
     Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
@@ -207,4 +220,5 @@ call plug#end()
 " Plug 'justinmk/vim-sneak'
 " Plug 'benknoble/gitignore-vim'
 " Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+" Plug 'skywind3000/vim-terminal-help'
 "}}}

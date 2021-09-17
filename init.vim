@@ -109,7 +109,7 @@ set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏�
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
 set foldenable " 保证在开启文件的时候是全部展开的
-set foldmethod=indent
+set foldmethod=manual
 set foldopen-=hor
 set foldnestmax=10
 set foldlevel=99
@@ -128,6 +128,7 @@ set signcolumn=yes
 set textwidth=150
 set colorcolumn=+1
 set formatoptions-=croql
+set viewoptions=folds,options,cursor,curdir,slash,unix
 
 if has('termguicolors')
     set termguicolors

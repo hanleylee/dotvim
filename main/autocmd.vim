@@ -22,10 +22,10 @@ augroup BufEnter1
     endif
 augroup END
 
-augroup ReadPost
-    autocmd!
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
-augroup END
+" augroup ReadPost
+"     autocmd!
+"     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
+" augroup END
 
 "HLHighlightKeyword{{{
 augroup HLHighlightKeyword

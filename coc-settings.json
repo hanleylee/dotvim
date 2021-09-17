@@ -187,7 +187,7 @@
     "hover.previewMaxHeight": 12,
 
     // source-file
-    "coc.source.file.priority": 100,
+    "coc.source.file.priority": 110,
     "coc.source.file.ignoreHidden": false,
     "coc.source.file.shortcut": "F&D",
     "coc.source.file.ignorePatterns": [],
@@ -291,7 +291,7 @@
 
     // coc-snippets
     "snippets.ultisnips.enable": true,
-    "snippets.priority": 85,
+    "snippets.priority": 100,
     "snippets.shortcut": "SNIP",
     "snippets.ultisnips.usePythonx": true,
     "snippets.ultisnips.pythonVersion": 3,

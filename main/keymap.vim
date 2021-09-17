@@ -46,6 +46,10 @@ nnoremap Y y$
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
+" nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>
+" nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
+" nnoremap <expr> OO printf('m`%sO<ESC>``', v:count1)
+
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
@@ -123,6 +127,12 @@ endif
 if PlugLoaded('vim-unimpaired')
     nmap <silent> []<Space> :execute "normal [\<Space>]\<Space>"<CR>
     vmap <silent> []<Space> :<C-u>execute "normal '<[\<Space>'>]\<Space>"<CR>
+endif
+"}}}
+
+" FastFold {{{
+if PlugLoaded('FastFold')
+    nmap zuz <Plug>(FastFoldUpdate)
 endif
 "}}}
 

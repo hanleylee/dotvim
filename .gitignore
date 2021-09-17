@@ -18,4 +18,7 @@ tags
 # Persistent undo
 [._]*.un~
 .DS_Store
+# vim-plug
 /plugged/
+# viewdir
+/view/

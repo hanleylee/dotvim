@@ -90,6 +90,27 @@ set tabstop=4 " 按下一次 tab 键缩进的距离, 不代表空格或制表符
 set expandtab " 缩进使用空格代表, 如果要使用制表符可以改为 noexpandtab, 设置后旧文件仍然采用之前的 tab 格式, 可以使用`%retab!`强制转换为新tab 格式
 "}}}
 
+"=======================   Fold   ========================={{{
+set foldenable " 保证在开启文件的时候是全部展开的
+set foldmethod=manual
+" set sessionoptions-=folds
+set foldopen-=hor
+set foldnestmax=10
+set foldlevel=3
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
+" }}}
+
 "=======================   Appearance   ============================{{{
 syntax on " 设置语法高亮
 "set termguicolors " true colors for vim in terminal
@@ -108,11 +129,7 @@ set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
-set foldenable " 保证在开启文件的时候是全部展开的
-set foldmethod=manual
-set foldopen-=hor
-set foldnestmax=10
-set foldlevel=99
+
 set relativenumber
 set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
 if has('textprop')

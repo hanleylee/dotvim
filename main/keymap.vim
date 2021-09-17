@@ -133,6 +133,7 @@ endif
 " FastFold {{{
 if PlugLoaded('FastFold')
     nmap zuz <Plug>(FastFoldUpdate)
+    command! -nargs=0 FDM :echo w:lastfdm
 endif
 "}}}
 

@@ -48,21 +48,18 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
     Plug 'mhinz/vim-startify'              " 首页显示
 
-    " ============= Edit ===========
-    Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
-    Plug 'tpope/vim-unimpaired'
-    Plug 'ojroques/vim-oscyank'
-    Plug 'tyru/open-browser.vim'                        " use gx to open url link
-
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
     " Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
-    Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
 
     " ============== Function ==============
+    Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
+    Plug 'tpope/vim-unimpaired'
+    Plug 'ojroques/vim-oscyank'
+    Plug 'tyru/open-browser.vim'                        " use gx to open url link
     Plug 'equalsraf/neovim-gui-shim'
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
@@ -76,6 +73,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     " Plug 'ianva/vim-youdao-translater'
 
     "============== Language ==============
+    Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'plasticboy/vim-markdown'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
@@ -132,7 +130,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
-    Plug 'Konfekt/FastFold'     " 尽可能的减少折叠次数
+    Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
     " Plug 'chrisbra/NrrwRgn'   " inline_edit 已经实现了
 endif
 " }}}

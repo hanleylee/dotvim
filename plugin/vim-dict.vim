@@ -3,6 +3,9 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+if !PlugLoaded('vim-dict')
+    finish
+endif
 " Add additional dict folders
 let g:vim_dict_dict = [
             \ '~/.vim/dict',
@@ -10,7 +13,7 @@ let g:vim_dict_dict = [
             \ ]
 
 " File type override
-let g:vim_dict_config = {'html':'html,javascript,css', 'markdown':'text'}
+let g:vim_dict_config = {'html':'html,javascript,css', 'markdown': 'text'}
 
-" Disable certain types
-let g:vim_dict_config = {'text': ''}
+" " Disable certain types
+" let g:vim_dict_config = {'text': ''}

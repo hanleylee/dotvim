@@ -119,6 +119,12 @@ if PlugLoaded('emmet-vim')
     augroup end
 endif
 
+if PlugLoaded('fzf.vim')
+    augroup FzfStatusLineTheme
+        autocmd! User FzfStatusLine call hl#fzf#statusline_theme()
+    augroup end
+endif
+
 " 保存时自动格式化指定文件类型代码
 " au BufWrite * :Autoformat
 " autocmd BufWrite *.sql,*.c,*.py,*.java,*.js :Autoformat "设置发生保存事件时执行格式化

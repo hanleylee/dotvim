@@ -13,17 +13,22 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 let g:fzf_files_options = '--preview "rougify {2..} | head -'.&lines.'"'
 let g:fzf_tags_command = 'ctags -R' " [Tags] Command to generate tags file
 let g:fzf_commands_expect = 'alt-enter,ctrl-x' " [Commands] --expect expression for directly executing the command
+let g:fzf_preview_window = ['right:50%:hidden:nowrap', '?']
+" Empty value to disable preview window altogether
+" let g:fzf_preview_window = []
+
+" `g:fzf_action`, `g:fzf_layout`, `g:fzf_colors`, `g:fzf_history_dir` will be used in `fzf#wrap()`
 let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit'
             \}
 if has('popupwin') || has('nvim')
+    " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'relative': v:true } }
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 else
     let g:fzf_layout = { 'down': '~60%' }
 endif
-
 " let g:fzf_colors =
 "             \ {
 "                 \ 'fg':      ['fg', 'Normal'],
@@ -40,3 +45,5 @@ endif
 "                 \ 'spinner': ['fg', 'Label'],
 "                 \ 'header':  ['fg', 'Comment']
 "                 \ }
+" let g:fzf_history_dir = '~/.local/share/fzf-history' " 使用之后 c-n, c-p 就是前后命令的意思, 不好
+

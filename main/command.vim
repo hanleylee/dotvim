@@ -26,11 +26,16 @@ if PlugLoaded('coc.nvim')
 endif
 
 if PlugLoaded('fzf.vim')
+    " The query history for this command will be stored as 'ls' inside g:fzf_history_dir. The name is ignored if g:fzf_history_dir is not defined.
+    " command! -bang -complete=dir -nargs=? LS call fzf#run(fzf#wrap('ls', {'source': 'ls', 'dir': <q-args>}, <bang>0))
     command! -nargs=* -complete=file AgAll :call hl#fzf#ag_all(<q-args>)
     command! -nargs=* FzfExploreCurrent call hl#fzf#explore_current(shellescape(<q-args>))
-    command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
+    command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"',
+                \ 'options': "-m --preview 'tree -N -C -l -L 5 {3} | head -500'"
+                \ }, <bang>0))
     " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
-
+    command! -bang Args call fzf#run(fzf#wrap('args',
+                \ {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
 endif
 
 if PlugLoaded('vim-floaterm')

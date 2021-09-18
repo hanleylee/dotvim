@@ -89,6 +89,13 @@ if PlugLoaded('vim-surround')
 endif
 " }}}
 
+" cosco.vim {{{
+if PlugLoaded('cosco.vim')
+    nmap <silent> <M-;> <Plug>(cosco-commaOrSemiColon)
+    imap <silent> <M-;> <c-o><Plug>(cosco-commaOrSemiColon)
+endif
+" }}}
+
 " nerdtree {{{
 if PlugLoaded('nerdtree')
     nnoremap <F1> :call hl#nerdtree#toggle_vcs_focus_current()<cr>
@@ -176,6 +183,8 @@ if PlugLoaded('vim-floaterm')
     nnoremap <silent><Leader>tcd   :FloatermSend cd %:p:h<CR>
 
     nnoremap <silent><Leader>lf    :FloatermNew lf<CR>
+    nnoremap <silent><C-l>         :FloatermNew lf<CR>
+
 endif
 "}}}
 
@@ -214,6 +223,13 @@ if PlugLoaded('fzf.vim')
     xmap <C-x><C-m>      <Plug>(fzf-maps-x)
     omap <C-x><C-m>      <Plug>(fzf-maps-o)
     imap <C-x><C-m>      <Plug>(fzf-maps-i)
+    " Insert mode completion
+    " imap <c-x><c-k> <plug>(fzf-complete-word)
+    " inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
+    inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+    " imap <c-x><c-f> <plug>(fzf-complete-path)
+    inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+    imap <c-x><c-l> <plug>(fzf-complete-line)
 
     nnoremap <Leader>fa  :AgAll<CR>
     nnoremap <Leader>fl  :Lines<CR>

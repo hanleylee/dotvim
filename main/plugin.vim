@@ -36,11 +36,13 @@ if s:vim_weight >= 1 || g:is_in_gui
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     " Plug 'lambdalisue/fern-hijack.vim'
     " Plug 'tpope/vim-vinegar'
+
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
     Plug 'lambdalisue/fern-git-status.vim'
+
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
@@ -48,6 +50,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
     Plug 'mhinz/vim-startify'              " 首页显示
 
+    Plug 'LumaKernel/fern-mapping-fzf.vim'
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
     " Plug 'morhetz/gruvbox'

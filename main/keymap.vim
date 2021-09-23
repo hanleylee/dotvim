@@ -231,7 +231,13 @@ if PlugLoaded('fzf.vim')
     inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
     imap <c-x><c-l> <plug>(fzf-complete-line)
 
-    nnoremap <Leader>fa  :AgAll<CR>
+    " without hidden files and ignored files
+    nnoremap <Leader>fa. :Ag<CR>
+    " with hidden files(such as dot files)
+    nnoremap <Leader>fah :AgWithHidden<CR>
+    " with all files(include ignored files and hidden files)
+    nnoremap <Leader>faa :AgAll<CR>
+
     nnoremap <Leader>fl  :Lines<CR>
     nnoremap <Leader>fb  :BCommits<CR>
     nnoremap <Leader>fg  :GFiles<CR>

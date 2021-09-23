@@ -28,7 +28,8 @@ endif
 if PlugLoaded('fzf.vim')
     " The query history for this command will be stored as 'ls' inside g:fzf_history_dir. The name is ignored if g:fzf_history_dir is not defined.
     " command! -bang -complete=dir -nargs=? LS call fzf#run(fzf#wrap('ls', {'source': 'ls', 'dir': <q-args>}, <bang>0))
-    command! -nargs=* -complete=file AgAll :call hl#fzf#ag_all(<q-args>)
+    command! -nargs=* -complete=file AgWithHidden :call hl#fzf#ag_all(<q-args>, '--hidden')
+    command! -nargs=* -complete=file AgAll :call hl#fzf#ag_all(<q-args>, '-u') " all with ignored and hidden files
     command! -nargs=* FzfExploreCurrent call hl#fzf#explore_current(shellescape(<q-args>))
     " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"',
     command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/"',

@@ -18,9 +18,14 @@
 
 "
 " Search all content use ag{{{
-function! hl#fzf#ag_all(query, ...)
-    let query = empty(a:query) ? '^(?=.)' : a:query
-    return fzf#vim#ag_raw('--hidden ' . fzf#shellescape(query) . ' ' . getcwd())
+" query_pattern: 搜索 pattern
+" ag_arg: ag 搜索参数
+function! hl#fzf#ag_all(query_pattern, ag_arg, ...)
+    let query_pattern = empty(a:query_pattern) ? '^(?=.)' : a:query_pattern
+    " ag options
+    " --hidden: search hidden files,(obeys  .*ignore files)
+    " -u: Search all files (ignore .ignore, .gitignore, etc.; searches binary and hidden files as well)
+    return fzf#vim#ag_raw(a:ag_arg . ' ' . fzf#shellescape(query_pattern) . ' ' . getcwd())
 endfunction
 "}}}
 

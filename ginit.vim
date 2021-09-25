@@ -9,8 +9,8 @@ endif
 let g:loaded_gui_init = 1
 
 set encoding=utf-8                            " MacVim: use UTF-8 everywhere.
-set guifont=YaHei\ Fira\ Icon\ Hybrid:h16     " 设置 GUI 下字体及大小
-set guifontwide=YaHei\ Fira\ Icon\ Hybrid:h14 " 设置 GUI 下中文字体及大小
+set guifont=FiraCode\ Nerd\ Font\ Mono:h16     " 设置 GUI 下字体及大小
+set guifontwide=Microsoft\ YaHei:h14 " 设置 GUI 下中文字体及大小
 set guicursor+=a:blinkon0                     " 设置光标不闪动
 set guioptions-=e                             " 有多个 tab(文件) 时使用系统原生的 tab 样式
 set guioptions-=T                             " MacVim: hide toolbar.

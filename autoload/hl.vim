@@ -3,6 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" 获得上次选中区域的内容
 function! hl#visual_selection() abort
     try
         let a_save = @a
@@ -13,15 +14,16 @@ function! hl#visual_selection() abort
     endtry
 endfunction
 
-function! hl#preview_scroll(mode)
+" 使 preview 窗口滚动, 比如 coc.nvim 或者 vim-quickui
+function! hl#preview_scroll(direction)
     let scroll_lines = 20
-    if a:mode ==# 'u'
+    if a:direction ==# 'u'
         if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
             call coc#float#scroll(0, scroll_lines)
         elseif PlugLoaded('vim-quickui')
             call quickui#preview#scroll(-scroll_lines)
         endif
-    elseif a:mode ==# 'd'
+    elseif a:direction ==# 'd'
         if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
             call coc#float#scroll(1, scroll_lines)
         elseif PlugLoaded('vim-quickui')
@@ -30,29 +32,38 @@ function! hl#preview_scroll(mode)
     endif
 endfunction
 
+" quick move bracket to backward when cursor is inside a pair of paris `(|)`
+function! hl#move_bracket_to_left() abort
+
+    let is_insert = mode() == 'i'
+    let current_pos = getpos('.')
+    " 是否为第一次在这个位置
+    let is_first_time_this_postion = current_pos != get(b:, 'assist_move_bracket_pos', [])
+    if is_first_time_this_postion " 如果是第一次, 那么就寻找左侧括号进行移动
+        let bracket_arr = ['{', '[', '(']
+        let current_char_shift = is_insert ? 2 : 1
+        let current_char = getline('.')[col('.') - current_char_shift]
+        let is_in_left_bracket = index(bracket_arr, current_char) >= 0
+        if is_in_left_bracket " 如果已经在左括号上了, 那么就不需要跳转了
+            let opeart = 'm`xbP``'
+        else " 如果没有在左括号上, 那么要跳到左括号上
+            let opeart = 'm`%xbP``'
+        endif
+    else " 如果不是第一次, 那么就寻找上次移动的那个位置, 再次递进左移
+        let opeart = 'm``.xbP``'
+    endif
+
+    let b:assist_move_bracket_pos = current_pos
+
+    let prefix = is_insert ? "\<Esc>" : ''
+    let suffix = is_insert ? 'a' : ''
+
+    return prefix . opeart . suffix
+endfunction
+
 " format chinese{{{
 function! hl#Format_CN() range
     retab
-
-    " let l = a:firstline
-    " for line in getline(a:firstline, a:lastline)
-    "     call setline(l, substitute(line, '，', ',', 'g'))
-    "     let l = l + 1
-    " endfor
-
-    " /\S\s\+\([!;,.:?]\)/\1/g: 
-    " /\([(\[]\)\s\+/\1/g: 
-    "/^ `/`/g: 
-    "/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g:
-    "/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g:
-    "/\s\+\n/\r/g: 
-
-    " let regex_list = [
-    "             \ '/，/, /g',
-    "             \ '/。/. /g',
-    "             \ '/：/: /g',
-    "             \ ...
-    "             \ ]
 
     let regex_list = []
     let regex_list = add(regex_list, '/，/, /g')
@@ -107,11 +118,13 @@ function! hl#format_surge_rule() range
 endfunction
 "}}}
 
+"{{{
 function! hl#format_objectmapper()
     retab!
     %s /\/\/.*\n//ge
     %s /^.* \(.*\):.*/    \1 <- map["\1"]/ge
 endfunction
+"}}}
 
 " 目的: 用于将 markdown 文件复制到外界
 " 作用: 将markdown 的多行在不影响布局的情况下合并为一段话
@@ -186,7 +199,7 @@ function! hl#AsyncTask(mode)
     if &filetype ==? 'vim'
         silent update | source %
     else
-    " execute "AsyncTask " . a:mode
+        " execute "AsyncTask " . a:mode
         silent update | execute "AsyncTask " . a:mode
     endif
 endfunction
@@ -225,6 +238,7 @@ function! hl#SyncTask()
 
 endfunction
 
+" close all window, specially for vim {{{
 function! hl#CloseAll() abort
     let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
     for term_num in term_bufs
@@ -232,3 +246,4 @@ function! hl#CloseAll() abort
     endfor
     xa
 endfunction
+"}}}

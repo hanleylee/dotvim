@@ -64,7 +64,7 @@ func! hl#quickui#show_dict(word)
         let tool = 'sdcv'
     endif
     let command = tool . ' ' . a:word
-    let opts = {"close":"button", "title": tool}
+    let opts = {"close":"button", "title": tool . ' -> ' . a:word}
     call quickui#textbox#command(command, opts)
 endfunction
 

@@ -12,9 +12,9 @@ endfunction
 
 function! HLColorScheme()
     " highlight {{{
-    highlight Cursor        cterm=bold      ctermbg=black ctermfg=white guifg=black   guibg=white gui=bold
-    highlight Visual        cterm=reverse   ctermbg=NONE  ctermfg=NONE guifg=NONE   guibg=NONE gui=reverse
-    highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145  guibg=#4B5263   guifg=#ABB2BF gui=bold
+    highlight Cursor        cterm=NONE      ctermbg=black ctermfg=white  gui=NONE     guifg=black     guibg=white
+    highlight Visual        cterm=reverse,bold   ctermbg=NONE  ctermfg=NONE   gui=reverse,bold  guifg=NONE      guibg=NONE
+    highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145      gui=bold     guibg=#4B5263   guifg=#ABB2BF
     " highlight CursorLineNr guibg=green guifg=black
     " highlight LineNr ctermfg=grey ctermbg=white guibg=grey
     " highlight SignColumn ctermfg=grey ctermbg=white guibg=grey
@@ -24,14 +24,14 @@ function! HLColorScheme()
     " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
     " highlight PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
     " highlight Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold
-    " highlight Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey 
-    highlight Todo                          ctermbg=208 ctermfg=black guibg=#ff8700    guifg=black  gui=bold
-    highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178   guibg=#d7af00 guifg=black gui=italic
+    " highlight Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey
+    highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
+    highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178    gui=italic,bold    guibg=#d7af00    guifg=black
     "}}}
 
     if PlugLoaded('vim-sneak')
-        highlight Sneak      guifg=black guibg=#E5C078    ctermfg=black ctermbg=yellow
-        highlight SneakScope guifg=red   guibg=green ctermfg=red   ctermbg=green
+        highlight Sneak       ctermfg=black ctermbg=yellow  guifg=black guibg=#E5C078
+        highlight SneakScope  ctermbg=green ctermfg=red     guifg=red   guibg=green
     endif
 
     " vim-quickui {{{
@@ -46,8 +46,8 @@ function! HLColorScheme()
 
     " vim-floaterm {{{
     if PlugLoaded('vim-floaterm')
-        hi Floaterm                       ctermbg=black           guibg=#282C34
-        hi FloatermBorder cterm=bold      ctermbg=170 ctermfg=235 guibg=#C678DD guifg=#282C34 gui=bold
+        hi Floaterm                       ctermbg=black                     guibg=#282C34
+        hi FloatermBorder cterm=bold      ctermbg=170 ctermfg=235  gui=bold guibg=#C678DD guifg=#282C34
         if has('nvim')
             hi FloatermNC guibg=gray
         endif
@@ -56,15 +56,15 @@ function! HLColorScheme()
 
     " coc.nvim {{{
     if PlugLoaded('coc.nvim')
-        highlight CocHighlightText cterm=bold ctermbg=238 ctermfg=NONE  guibg=#444444 guifg=NONE gui=bold
+        highlight CocHighlightText cterm=bold ctermbg=238 ctermfg=NONE gui=bold guibg=#444444 guifg=NONE
     endif
     "}}}
 
     " vim-matchup {{{
     if PlugLoaded('vim-matchup')
-        highlight MatchWord     cterm=underline ctermbg=238                 guibg=#444444             gui=underline
-        highlight MatchParenCur cterm=underline                                                       gui=underline
-        highlight MatchWordCur  cterm=underline                                                       gui=underline
+        highlight MatchWord     cterm=underline ctermbg=238    gui=underline   guibg=#444444    
+        highlight MatchParenCur cterm=underline                gui=underline                    
+        highlight MatchWordCur  cterm=underline                gui=underline                    
     endif
     "}}}
 

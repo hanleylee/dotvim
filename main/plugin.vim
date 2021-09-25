@@ -4,7 +4,7 @@
 " License:  MIT License
 
 "███████████████████████   插件   ██████████████████████████
-"vim-plug 插件管理工具使用命令
+" vim-plug 插件管理工具使用命令
 " :PlugInstall    -  安装插件
 " :PlugUpdate     -  更新插件
 " :PlugUpgrade    -  更新 vim-plug 本身
@@ -34,10 +34,10 @@ if s:vim_weight >= 1 || g:is_in_gui
     " ============= File Management =============
     " Plug 'preservim/nerdtree'
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    " Plug 'lambdalisue/fern-hijack.vim'
     " Plug 'tpope/vim-vinegar'
 
     Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-hijack.vim'
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
@@ -47,10 +47,10 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
     Plug 'voldikss/vim-floaterm'
-    Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
     Plug 'mhinz/vim-startify'              " 首页显示
-
+    Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
     Plug 'LumaKernel/fern-mapping-fzf.vim'
+
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
     " Plug 'morhetz/gruvbox'
@@ -72,14 +72,13 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
-    " Plug 'skywind3000/vim-auto-popmenu'
-    " Plug 'ianva/vim-youdao-translater'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'plasticboy/vim-markdown'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    Plug 'mityu/vim-applescript'    " for applescript
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
@@ -108,7 +107,11 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'kana/vim-textobj-line'                        " *al, *il
     Plug 'kana/vim-textobj-syntax'                      " *ay, *iy
     Plug 'kana/vim-textobj-entire'                      " *ae, *ie
-    Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
+    " i, I, a, A, in, In, il, Il, an, An, al, Al, num+...
+    " (, ), {, }, B, <, >, t, ', ", `, \,, ., ;, :, +, -, =, ~, _, *, #, /, |, \, &, $, b, a, q
+    " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+    Plug 'wellle/targets.vim'
+    " Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
@@ -188,7 +191,6 @@ call plug#end()
 " Plug 'Yggdroot/hiPairs'
 " Plug 'embear/vim-localvimrc'                        " 用于针对工程设置 vimrc
 " Plug 'sheerun/vim-polyglot'          " 会改变文件格式的 shiftwidth, 会动态判断 ft, 其禁用机制很麻烦
-" Plug 'luochen1990/rainbow'           " 高亮括号
 " Plug 'tweekmonster/startuptime.vim'
 " Plug 'zxqfl/tabnine-vim'               " 补全
 " Plug 'junegunn/goyo.vim'               " 专注于写作的插件, 不适用写代码!
@@ -223,4 +225,7 @@ call plug#end()
 " Plug 'benknoble/gitignore-vim'
 " Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 " Plug 'skywind3000/vim-terminal-help'
+" Plug 'skywind3000/vim-auto-popmenu'
+" Plug 'ianva/vim-youdao-translater'
+" Plug 'luochen1990/rainbow'           " 高亮括号
 "}}}

@@ -91,10 +91,22 @@ nnoremap <silent><M-J> <C-w>j
 nnoremap <silent><M-K> <C-w>k
 nnoremap <silent><M-L> <C-w>l
 
+" test movement
+inoremap <M-f>    <C-Right>
+cnoremap <M-f>    <C-Right>
+tnoremap <M-f>    <C-Right>
+inoremap <M-b>    <C-Left>
+cnoremap <M-b>    <C-Left>
+tnoremap <M-b>    <C-Left>
+
+" quick move bracket to backward
+nnoremap <expr> <M-B>  hl#move_bracket_to_left()
+inoremap <expr> <M-B>  hl#move_bracket_to_left()
+
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 nnoremap <silent><M-x> :Commands<CR>
-inoremap <silent><M-x> :Commands<CR>
+" inoremap <silent><M-x> :Commands<CR>
 
 if PlugLoaded('vim-commentary')
     nmap <D-/> gcc

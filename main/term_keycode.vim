@@ -6,11 +6,11 @@
 
 if g:is_in_term && g:is_in_vim
 
-    for i in range(26)
+    for index in range(26)
         " <M-A> ~ <M-Z>
-        call MapMetaCode(nr2char(65 + i))
+        call MapMetaCode(nr2char(65 + index))
         " <M-a> ~ <M-z>
-        call MapMetaCode(nr2char(97 + i))
+        call MapMetaCode(nr2char(97 + index))
     endfor
 
     let s:punctuation_list = [',', '.', ';', ':', '/', '?', '-', '_', '{', '}', '=', '+', "'"]
@@ -19,8 +19,8 @@ if g:is_in_term && g:is_in_vim
     endfor
     unlet s:punctuation_list
 
-    for i in range(10)
-        call MapMetaCode(nr2char(char2nr('0') + i))
+    for index in range(10)
+        call MapMetaCode(nr2char(char2nr('0') + index))
     endfor
 
 

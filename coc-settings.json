@@ -93,7 +93,7 @@
     // "suggest.enablePreselect": false,
 
     "suggest.timeout": 5000,
-    "suggest.minTriggerInputLength": 2,
+    "suggest.minTriggerInputLength": 1,
     "suggest.maxCompleteItemCount": 20,
     "suggest.highPrioritySourceLimit": 20,
     "suggest.lowPrioritySourceLimit": 20,
@@ -296,15 +296,18 @@
     "snippets.ultisnips.usePythonx": true,
     "snippets.ultisnips.pythonVersion": 3,
     "snippets.ultisnips.directories": [
-        "Ultisnips",
+        // "Ultisnips", // 这个会在 rtp 全局搜索 Ultisnips 文件夹, 因为不用 vim-snippets 了, 所以就不需要这个了
         "~/.local/share/snippets"
     ],
     "snippets.userSnippetsDirectory": "~/.local/share/snippets",
     "snippets.trace": "error",
     "snippets.extends": {
-        "cpp": ["c"],
+        // "cpp": ["c"],
+        // "objc": ["c"],
+        // "bash": ["sh"],
+        // "zsh": ["sh"],
+        // "typescript": ["javascript"]
         "javascriptreact": ["javascript"],
-        "typescript": ["javascript"]
     },
     "snippets.autoTrigger": true,
     "snippets.snipmate.enable": false, // 如果为 true 会导致将每个 rtp 下的 snippets 文件夹的内容也作为 snippet 进行补全

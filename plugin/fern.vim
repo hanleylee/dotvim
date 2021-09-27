@@ -105,7 +105,7 @@ function! FernInit() abort
     nmap <buffer> i         <Plug>(fern-action-open:vsplit)
     nmap <buffer> gi        <Plug>(fern-action-open:vsplit)<C-w>p
     nmap <buffer> s         <Plug>(fern-action-open:vsplit)
-    nmap <buffer> gs        <Plug>(fern-action-open:vsplit)<C-w>p
+    nmap <buffer> gv        <Plug>(fern-action-open:vsplit)<C-w>p
     nmap <buffer> q         :<C-u>quit<CR>
 endfunction
 

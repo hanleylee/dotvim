@@ -152,34 +152,32 @@ function! hl#GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
-if PlugLoaded('vim-surround')
-    " make markdown text bold
-    function! hl#MarkdownBold(mode)
-        call hl#MarkdownEmphasis(a:mode, "bold")
-    endfunction
+" make markdown text bold
+function! hl#MarkdownBold(mode)
+    call hl#EmbeddedWithString(a:mode, '**', '**')
+endfunction
 
-    " make markdown text italic
-    function! hl#MarkdownItalic(mode)
-        call hl#MarkdownEmphasis(a:mode, "italic")
-    endfunction
+" make markdown text italic
+function! hl#MarkdownItalic(mode)
+    call hl#EmbeddedWithString(a:mode, '*', '*')
+endfunction
 
-    " emphasis markdown text
-    function! hl#MarkdownEmphasis(mode, emphasis_type)
-        if a:emphasis_type ==# "italic"
-            let emphasis_str = "S*"
-        elseif a:emphasis_type ==# "bold"
-            let emphasis_str = "S*gvS*"
-        endif
+function! hl#SnippetsEmbedded(mode)
+    call hl#EmbeddedWithString(a:mode, 'hl_', '_hl')
+endfunction
 
-        if a:mode ==# 'v'
-            execute "normal `<v`>" . emphasis_str
-        elseif a:mode ==# 'char'
-            execute "normal `[v`]" . emphasis_str
-        else
-            return
-        endif
-    endfunction
-endif
+" emebeded string with left_string and right_string
+function! hl#EmbeddedWithString(mode, left_str, right_str)
+    if a:mode ==# 'v'
+        execute 'normal `>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
+    elseif a:mode ==# 'char'
+        " execute 'normal `]a' . a:right_str . "\<ESC>`[" . 'i' . a:left_str . "\<ESC>"
+        execute "normal `[v`]\<ESC>`" . '>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
+        " execute "normal `[v`]" . 'S*'
+    else
+        return
+    endif
+endfunction
 
 " format document
 function! hl#format_document()

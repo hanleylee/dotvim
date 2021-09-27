@@ -22,3 +22,7 @@ tags
 /plugged/
 # viewdir
 /view/
+
+.viminfo
+
+__pycache__

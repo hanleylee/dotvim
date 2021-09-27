@@ -32,10 +32,6 @@ endif
 " MARK: level v1, only for fast browse {{{
 if s:vim_weight >= 1 || g:is_in_gui
     " ============= File Management =============
-    " Plug 'preservim/nerdtree'
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    " Plug 'tpope/vim-vinegar'
-
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-hijack.vim'
     Plug 'lambdalisue/nerdfont.vim'
@@ -59,7 +55,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'andymass/vim-matchup'          " 高亮括号
 
     " ============== Function ==============
-    Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
     Plug 'tpope/vim-unimpaired'
     Plug 'ojroques/vim-oscyank'
     Plug 'tyru/open-browser.vim'                        " use gx to open url link
@@ -74,6 +69,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
 
     "============== Language ==============
+    " Plug 'vitalk/vim-shebang'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'plasticboy/vim-markdown'
     Plug 'vim-python/python-syntax' " python 语法高亮
@@ -111,7 +107,6 @@ if s:vim_weight >= 2 || g:is_in_gui
     " (, ), {, }, B, <, >, t, ', ", `, \,, ., ;, :, +, -, =, ~, _, *, #, /, |, \, &, $, b, a, q
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
-    " Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
@@ -148,7 +143,6 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'ycm-core/YouCompleteMe'        " 补全插件
     Plug 'skywind3000/vim-dict'
-    Plug 'honza/vim-snippets'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'puremourning/vimspector'
@@ -228,4 +222,10 @@ call plug#end()
 " Plug 'skywind3000/vim-auto-popmenu'
 " Plug 'ianva/vim-youdao-translater'
 " Plug 'luochen1990/rainbow'           " 高亮括号
+" Plug 'honza/vim-snippets'
+" Plug 'bronson/vim-visual-star-search'               " 使用 * 搜索选中的单词
+" Plug 'preservim/nerdtree'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tpope/vim-vinegar'
+    " Plug 'vim-scripts/argtextobj.vim'                   " *aa, *ia
 "}}}

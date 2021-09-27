@@ -77,6 +77,14 @@ noremap <silent><tab>e :tabclose<cr>
 noremap <silent><tab>n :tabn<cr>
 noremap <silent><tab>p :tabp<cr>
 
+" replace vim's built-in visual * and # behavior {{{
+xnoremap * :<C-u>call VisualStarSearchSet('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call VisualStarSearchSet('?')<CR>?<C-R>=@/<CR><CR>
+
+nnoremap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
+vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+" }}}
+
 if PlugLoaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=%<cr>

@@ -23,10 +23,8 @@ nnoremap <buffer> <expr> k (v:count > 5 ? "m'" . v:count : "") . 'gk'
 nnoremap <buffer> <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
 
 " make bold
-if PlugLoaded('vim-surround')
-    vmap <buffer> <Leader>/ :<c-u>call hl#MarkdownItalic(visualmode())<cr>
-    nmap <buffer> <Leader>/ :set operatorfunc=hl#MarkdownItalic<cr>g@
-    vmap <buffer> <Leader>b :<c-u>call hl#MarkdownBold(visualmode())<cr>
-    nmap <buffer> <Leader>b :set operatorfunc=hl#MarkdownBold<cr>g@
-endif
+vmap <buffer> <Leader>/ :<c-u>call hl#MarkdownItalic(visualmode())<cr>
+nmap <buffer> <Leader>/ :set operatorfunc=hl#MarkdownItalic<cr>g@
+vmap <buffer> <Leader>b :<c-u>call hl#MarkdownBold(visualmode())<cr>
+nmap <buffer> <Leader>b :set operatorfunc=hl#MarkdownBold<cr>g@
 

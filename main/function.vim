@@ -25,7 +25,7 @@ func! GetOnlyDirectory()
     " if &filetype ==# 'netrw'
     "     return getcwd()
     " else
-        return resolve(expand('%:p:h'))
+    return resolve(expand('%:p:h'))
     " endif
 endfunc
 
@@ -89,6 +89,8 @@ func! CDF()
 endfunction
 
 " add path to vim from environment variables
+" This is a list of directories which will be searched when using the
+" |gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands
 function! Expand_path_from_env(...)
     for path_str in a:000
         let paths=split(path_str, ':')
@@ -100,4 +102,28 @@ function! Expand_path_from_env(...)
             endif
         endfor
     endfor
+endfunction
+
+" echo runtimepath
+func! EchoRunPath()
+    for I in split(&rtp, ',')
+        echo I
+    endfor
+endfunction
+
+" makes * and # work on visual mode too.  global function so user mappings can call it.
+" specifying 'raw' for the second argument prevents escaping the result for vimgrep
+" TODO: there's a bug with raw mode.  since we're using @/ to return an unescaped
+" search string, vim's search highlight will be wrong.  Refactor plz.
+function! VisualStarSearchSet(cmdtype,...)
+    let temp = @"
+    normal! gvy
+    if !a:0 || a:1 != 'raw'
+        let @" = escape(@", a:cmdtype.'\*')
+    endif
+    let @/ = substitute(@", '\n', '\\n', 'g')
+    let @/ = substitute(@/, '\[', '\\[', 'g')
+    let @/ = substitute(@/, '\~', '\\~', 'g')
+    let @/ = substitute(@/, '\.', '\\.', 'g')
+    let @" = temp
 endfunction

@@ -62,9 +62,9 @@ function! HLColorScheme()
 
     " vim-matchup {{{
     if PlugLoaded('vim-matchup')
-        highlight MatchWord     cterm=underline ctermbg=238    gui=underline   guibg=#444444    
-        highlight MatchParenCur cterm=underline                gui=underline                    
-        highlight MatchWordCur  cterm=underline                gui=underline                    
+        highlight MatchWord     cterm=bold,underline ctermbg=238    gui=bold,underline   guibg=#444444
+        highlight MatchParenCur cterm=bold,underline                gui=bold,underline
+        highlight MatchWordCur  cterm=bold,underline                gui=bold,underline
     endif
     "}}}
 

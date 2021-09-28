@@ -28,3 +28,9 @@ nmap <buffer> <Leader>/ :set operatorfunc=hl#MarkdownItalic<cr>g@
 vmap <buffer> <Leader>b :<c-u>call hl#MarkdownBold(visualmode())<cr>
 nmap <buffer> <Leader>b :set operatorfunc=hl#MarkdownBold<cr>g@
 
+" text object for code block
+vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
+onoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
+vnoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
+onoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
+

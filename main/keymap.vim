@@ -20,7 +20,7 @@ call Source('$VIM_CONFIG/main/gui_keymap.vim')"
 
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
-nnoremap <silent><C-w>q      :call hl#CloseAll()<CR>
+nnoremap <silent><M-q>       :call hl#CloseAll()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
@@ -371,10 +371,15 @@ if PlugLoaded('coc.nvim')
     " inoremap <silent><expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
     " inoremap <silent><expr> <TAB>
-    "   \ pumvisible() ? "\<C-n>" :
-    "   \ <SID>check_back_space() ? "\<TAB>" :
-    "   \ coc#refresh()
+    "             \ pumvisible() ? "\<C-n>" :
+    "             \ <SID>check_back_space() ? "\<TAB>" :
+    "             \ coc#refresh()
     " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    " function! s:check_back_space() abort
+    "     let col = col('.') - 1
+    "     return !col || getline('.')[col - 1]  =~# '\s'
+    " endfunction
 
 endif
 "}}}

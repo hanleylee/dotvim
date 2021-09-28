@@ -189,7 +189,7 @@
     // source-file
     "coc.source.file.priority": 110,
     "coc.source.file.ignoreHidden": false,
-    "coc.source.file.shortcut": "F&D",
+    "coc.source.file.shortcut": "D & F",
     "coc.source.file.ignorePatterns": [],
     "coc.source.file.enable": true,
     "coc.source.file.triggerCharacters": [
@@ -311,9 +311,9 @@
     },
     "snippets.autoTrigger": true,
     "snippets.snipmate.enable": false, // 如果为 true 会导致将每个 rtp 下的 snippets 文件夹的内容也作为 snippet 进行补全
-    "snippets.snipmate.author": "",
+    "snippets.snipmate.author": "hanleylee",
     "snippets.enableStatusItem": true,
-    "snippets.triggerCharacters": [],
+    "snippets.triggerCharacters": ["hl"],
     "snippets.loadFromExtensions": true,
     "snippets.editSnippetsCommand": "",
     "snippets.textmateSnippetsRoots": [],

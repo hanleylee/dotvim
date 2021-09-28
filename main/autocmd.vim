@@ -22,6 +22,19 @@ augroup BufEnter1
     endif
 augroup END
 
+augroup BufEnter2
+    autocmd!
+    if PlugLoaded('fern.vim')
+        autocmd BufEnter * if &ft ==? 'fern' | call hl#fern#highlight_cusorline() | endif
+    endif
+augroup END
+
+augroup BufLeave1
+    if PlugLoaded('fern.vim')
+        autocmd BufLeave * if &ft ==? 'fern' | call hl#fern#put_back_cusorline() | endif
+    endif
+augroup END
+
 " augroup ReadPost
 "     autocmd!
 "     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置

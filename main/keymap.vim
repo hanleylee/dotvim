@@ -85,6 +85,10 @@ nnoremap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("
 vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 " }}}
 
+let g:netrw_nogx = 1 " disable gx keymap
+nmap <silent>gx :silent call OpenInBrowser('n')<cr>
+vmap <silent>gx :<C-u>silent call OpenInBrowser('v')<cr>
+
 if PlugLoaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=%<cr>
@@ -149,14 +153,6 @@ endif
 if PlugLoaded('FastFold')
     nmap zuz <Plug>(FastFoldUpdate)
     command! -nargs=0 FDM :echo w:lastfdm
-endif
-"}}}
-
-" open-browser {{{
-if PlugLoaded('open-browser.vim')
-    let g:netrw_nogx = 1 " disable gx keymap
-    nmap gx <Plug>(openbrowser-smart-search)
-    vmap gx <Plug>(openbrowser-smart-search)
 endif
 "}}}
 

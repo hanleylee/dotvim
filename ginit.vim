@@ -21,7 +21,7 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     set guioptions-=L                             " MacVim: hide left scrollbar.
     set tabpagemax=100
     set lines=100
-    set columns=190
+    set columns=130
 
     set toolbariconsize=small
     set antialias                                 " MacVim: smooth fonts.

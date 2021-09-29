@@ -100,12 +100,12 @@ cnoremap <M-b>    <C-Left>
 tnoremap <M-b>    <C-Left>
 
 " quick move bracket to backward
-nnoremap <expr> <M-B>  hl#move_bracket_to_left()
-inoremap <expr> <M-B>  hl#move_bracket_to_left()
+" nnoremap <expr> <M-B>  hl#move_bracket_to_left()
+" inoremap <expr> <M-B>  hl#move_bracket_to_left()
 
 " quick move any character to backward
-nnoremap <expr> <M-H>  hl#move_any_char_to_left()
-inoremap <expr> <M-H>  hl#move_any_char_to_left()
+nnoremap <expr> <M-B>  hl#move_any_char_to_left()
+inoremap <expr> <M-B>  hl#move_any_char_to_left()
 
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>

@@ -1054,7 +1054,12 @@
     "sourcekit.args": [],
     "sourcekit.sdkPath": "",
     "sourcekit.targetArch": "",
-    "sourcekit.commandPath": "",
+    // "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
+    "sourcekit.commandPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    // xcrun --toolchain swift --find sourcekit-lsp
+    // "sourcekit.sdk": "iphonesimulator",
+    // "sourcekit.targetArch": "x86_64-apple-ios14.3-simulator"
+    // arm64
 
     // dark
     "dart.enableSdkFormatter": true,

@@ -11,7 +11,7 @@ command! MergeMD silent! call hl#merge_md()
 command! CDF silent call CDF()
 command! OFD silent call OFD()
 command! TrimWhitespace call TrimWhitespace()
-command! -nargs=0 PlugBrowse silent call PlugBrowse()
+command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
 command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
 

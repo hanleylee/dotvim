@@ -57,7 +57,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
     Plug 'ojroques/vim-oscyank'
-    Plug 'tyru/open-browser.vim'                        " use gx to open url link
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
     Plug 'junegunn/gv.vim'          " browse git log
@@ -86,7 +85,7 @@ endif
 " MARK: level v2, edit {{{
 if s:vim_weight >= 2 || g:is_in_gui
     " ============= Edit ===========
-    Plug 'kshenoy/vim-signature'                        " signature 插件
+    Plug 'kshenoy/vim-signature'                        " marks 管理插件
     Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
@@ -103,6 +102,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'kana/vim-textobj-entire'                      " *ae, *ie
     " i, I, a, A, in, In, il, Il, an, An, al, Al, num+...
     " (, ), {, }, B, <, >, t, ', ", `, \,, ., ;, :, +, -, =, ~, _, *, #, /, |, \, &, $, b, a, q
+    " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行

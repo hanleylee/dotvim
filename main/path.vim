@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-call Expand_path_from_env(
+call ExpandPathFromEnv(
             \ $C_INCLUDE_PATH,
             \ $CPLUS_INCLUDE_PATH,
             \ $OBJC_INCLUDE_PATH,

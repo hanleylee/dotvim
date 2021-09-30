@@ -3,13 +3,14 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-call ExpandPathFromEnv(
+let paths_arr = [
             \ $C_INCLUDE_PATH,
             \ $CPLUS_INCLUDE_PATH,
             \ $OBJC_INCLUDE_PATH,
             \ $CPATH,
-            \ $PYTHONPATH
-            \ )
+            \ $PYTHONPATH,
+            \ ]
+call ExpandPathFromEnv(paths_arr)
 
 " let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
 " if isdirectory(s:llvm_path)

@@ -9,7 +9,6 @@ endif
 " Add additional dict folders
 let g:vim_dict_dict = [
             \ '~/.vim/dict',
-            \ '~/.config/nvim/dict',
             \ ]
 
 " File type override

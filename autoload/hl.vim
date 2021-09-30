@@ -267,4 +267,11 @@ function! hl#CloseAll() abort
     endfor
     xa
 endfunction
+
+function! hl#TrySetDictionary()
+    let dict_path = "~/.vim/dict/" . &filetype . '.dict'
+    if filereadable(expand(dict_path))
+        execute 'setlocal dict+=' . dict_path
+    endif
+endfunction
 "}}}

@@ -11,12 +11,11 @@ exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
 "███████████████████████   Vim 系统特性   ██████████████████████████
 
 "=======================   Main   =================================={{{
-" set viminfo='50000,~/.viminfo
-" set viminfo=%,\"100,'10,/50,:100,h,f0,n~/.viminfo
 set nocompatible " 关闭 vi 兼容模式, 必选
 
 if has('nvim')
-    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/Users/hanley/Desktop/t1,s10,n~/.vim/.nviminfo " 设置 viminfo, 必须放在 nocompatible 之后
+    " 设置 viminfo, 必须放在 nocompatible 之后
+    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/Users/hanley/Desktop/t1,s10,n~/.vim/.nviminfo
 else
     " 设置 viminfo, 必须放在 nocompatible 之后
     " 同时 viminfo 的默认位置是 ~/.viminfo, 这里为它赋予不同路径用来防止在 vim -u NONE 时原有的数据被覆盖
@@ -28,6 +27,7 @@ filetype plugin indent on " 开启插件功能,必选
 set shell=zsh
 set modifiable " 设置文件可被修改
 set tags=./.tags;,./tags;,.tags,tags
+set dictionary+=~/.vim/dict/all.dict " 加载全局 dict, filetype 的 dict 由 vim-dict 插件负责
 set splitbelow " 设置新的垂直分割窗口在下侧
 set splitright " 设置新的垂直分割窗口在右侧
 set modeline

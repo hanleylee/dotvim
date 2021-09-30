@@ -40,6 +40,11 @@ augroup END
 "     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
 " augroup END
 
+" augroup SetDictionary
+"     autocmd!
+"     au FileType * call hl#TrySetDictionary()
+" augroup END
+
 "HLHighlightKeyword{{{
 augroup HLHighlightKeyword
     autocmd!

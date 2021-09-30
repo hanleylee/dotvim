@@ -32,10 +32,10 @@ if PlugLoaded('fzf.vim')
     command! -nargs=* -complete=file AgAll :call hl#fzf#ag_all(<q-args>, '-u') " all with ignored and hidden files
     command! -nargs=* FzfExploreCurrent call hl#fzf#explore_current(shellescape(<q-args>))
     " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"',
+    " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
     command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/"',
                 \ 'options': "-m --preview 'tree -N -C -l -L 1 {} | head -500'"
                 \ }, <bang>0))
-    " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
     command! -bang Args call fzf#run(fzf#wrap('args',
                 \ {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
 endif

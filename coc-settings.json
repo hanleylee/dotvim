@@ -80,6 +80,7 @@
 
     // suggest
     "suggest.languageSourcePriority": 90,
+    "suggest.maxPreviewWidth": 80,
     "suggest.removeDuplicateItems": true,
     "suggest.autoTrigger": "always",
     "suggest.detailField": "preview",
@@ -133,9 +134,30 @@
     "signature.enable": true,
     "signature.hideOnTextChange": true,
     "signature.target": "float",
+    "signature.maxWindowWidth": 80,
+    "signature.maxWindowHeight": 8,
     "signature.floatConfig": {},
     "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,
+
+    "outline.sortBy": "category",
+    "outline.keepWindow": false,
+    "outline.expandLevel": 1,
+    "outline.splitCommand": "botright 30vs",
+    "outline.followCursor": true,
+    "outline.checkBufferSwitch": true,
+
+    "tree.key.close": "<esc>",
+    "tree.closedIcon": "+",
+    "tree.openedIcon": "-",
+    "tree.key.toggle": "t",
+    "tree.key.invoke": "<cr>",
+    "tree.key.actions": "<tab>",
+    "tree.key.selectNext": "<C-j>",
+    "tree.key.collapseAll": "M",
+    "tree.key.activeFilter": "f",
+    "tree.key.selectPrevious": "<C-k>",
+    "tree.key.toggleSelection": "<space>",
 
     // notification
     "notification.highlightGroup": "CocFloating",
@@ -184,6 +206,8 @@
     "hover.target": "float",
     "hover.autoHide": true,
     "hover.floatConfig": {},
+    "hover.floatMaxWidth": 80,
+    "hover.floatMaxHeight": 0,
     "hover.previewMaxHeight": 12,
 
     // source-file
@@ -355,12 +379,15 @@
     "cmake.formatter": "cmake-format",
     "cmake.lsp.enable": false,
     "cmake.lsp.buildDirectory": "build",
+    "cmake.formatter_args": [],
 
     // npm
     "npm.binPath": "npm",
 
     // diagnostic
     "diagnostic.signPriority": 100,
+    "diagnostic.maxWindowHeight": 8,
+    "diagnostic.maxWindowWidth": 80,
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
     "diagnostic.warningSign":         "⚠",
@@ -1007,8 +1034,9 @@
     "flutter.trace.server": "off",
     "flutter.autoOpenDevLog": false,
     "flutter.autoHideDevLog": false,
-    // "flutter.selectedDeviceId": null,
-    // "flutter.sdk.path": [],
+    "flutter.selectedDeviceId":"",
+    "flutter.sdk.path": "",
+    "flutter.closingLabelPrefix": "// ",
     "flutter.sdk.searchPaths": [],
     "flutter.sdk.dart-lookup": "",
     "flutter.sdk.dart-command": "",
@@ -1024,6 +1052,59 @@
     "flutter.lsp.initialization.suggestFromUnimportedLibraries": true,
     "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": true,
     "flutter.lsp.initialization.closingLabels": true,
+
+    // coc-lua
+    "lua.enable": true,
+    "lua.trace.server": "off",
+    "lua.checkForUpdates": "inform",
+    "lua.installPreReleases": false,
+    "lua.runtime.fileEncoding": "utf8",
+    "Lua.color.mode": "Semantic",
+    "Lua.hint.enable": false,
+    "Lua.hint.setType": false,
+    "Lua.hover.enable": true,
+    "Lua.runtime.path": [
+        "?.lua",
+        "?/init.lua",
+        "?/?.lua"
+    ],
+    "Lua.hint.paramName": true,
+    "Lua.hint.paramType": true,
+    "Lua.runtime.plugin": ".vscode/lua/plugin.lua",
+    "Lua.runtime.special": {},
+    "Lua.runtime.version": "Lua 5.4",
+    "Lua.hover.fieldInfer": 3000,
+    "Lua.hover.viewNumber": true,
+    "Lua.hover.viewString": true,
+    "Lua.telemetry.enable": true,
+    "Lua.window.statusBar": true,
+    "Lua.completion.enable": true,
+    "Lua.workspace.library": {},
+    "Lua.diagnostics.enable": true,
+    "Lua.window.progressBar": true,
+    "Lua.diagnostics.disable": [],
+    "Lua.diagnostics.globals": [],
+    "Lua.hover.previewFields": 100,
+    "Lua.hover.viewStringMax": 1000,
+    "Lua.runtime.unicodeName": false,
+    "Lua.workspace.ignoreDir": [
+        ".vscode"
+    ],
+    "Lua.diagnostics.severity": {},
+    "Lua.signatureHelp.enable": true,
+    "Lua.workspace.maxPreload": 1000,
+    "Lua.completion.callSnippet": "Disable",
+    "Lua.workspace.useGitIgnore": true,
+    "Lua.completion.workspaceWord": true,
+    "Lua.intelliSense.searchDepth": 0,
+    "Lua.completion.displayContext": 6,
+    "Lua.completion.keywordSnippet":"Replace",
+    "Lua.diagnostics.workspaceRate": 100,
+    "Lua.runtime.nonstandardSymbol": [],
+    "Lua.workspace.preloadFileSize": 100,
+    "Lua.diagnostics.workspaceDelay": 0,
+    "Lua.workspace.ignoreSubmodules": true,
+    "Lua.diagnostics.neededFileStatus": {},
 
     // tsserver
     "tsserver.enable": true,
@@ -1268,12 +1349,6 @@
             "args": ["start"],
             "filetypes": ["sh", "zsh"],
             "ignoredRootPaths": ["~"]
-        },
-        "lua": {
-            "command": "lua-lsp",
-            "filetypes": [
-                "lua"
-            ]
         },
         "efm": {
             "command": "efm-langserver",

@@ -114,8 +114,9 @@ endfunction
 " add path to vim from environment variables
 " This is a list of directories which will be searched when using the
 " |gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands
-function! ExpandPathFromEnv(...)
-    for path_str in a:000
+function! ExpandPathFromEnv(paths_arr)
+    " for path_str in a:000
+    for path_str in a:paths_arr
         let paths=split(path_str, ':')
 
         for path in paths

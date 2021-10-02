@@ -226,6 +226,6 @@ call plug#end()
 " Plug 'ycm-core/YouCompleteMe'        " 补全插件
 " Plug 'chrisbra/NrrwRgn'   " inline_edit 已经实现了
 " Plug 'vitalk/vim-shebang'
-" Plug 'SirVer/ultisnips'                             " 自定义某些片段
 " Plug 'equalsraf/neovim-gui-shim'
+" Plug 'SirVer/ultisnips'                             " 自定义某些片段
 "}}}

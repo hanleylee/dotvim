@@ -91,7 +91,7 @@ nnoremap <silent><M-J> <C-w>j
 nnoremap <silent><M-K> <C-w>k
 nnoremap <silent><M-L> <C-w>l
 
-" test movement
+" text movement
 inoremap <M-f>    <C-Right>
 cnoremap <M-f>    <C-Right>
 tnoremap <M-f>    <C-Right>
@@ -128,4 +128,9 @@ if PlugLoaded('vim-quickui')
     vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
     nnoremap <silent><D-t>          :call hl#quickui#show_translate(expand("<cword>"))<cr>
     vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
+endif
+
+if PlugLoaded('vim-floaterm')
+    nnoremap <silent><M-=>          :FloatermToggle<CR>
+    tnoremap <silent><M-=>          <C-\><C-n>:FloatermToggle<CR>
 endif

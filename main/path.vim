@@ -4,6 +4,8 @@
 " License:  MIT License
 
 let paths_arr = [
+            \ 'include',
+            \ 'src/include',
             \ $C_INCLUDE_PATH,
             \ $CPLUS_INCLUDE_PATH,
             \ $OBJC_INCLUDE_PATH,

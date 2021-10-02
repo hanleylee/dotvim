@@ -20,8 +20,8 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     set guioptions-=l                             " MacVim: hide left scrollbar.
     set guioptions-=L                             " MacVim: hide left scrollbar.
     set tabpagemax=100
-    set lines=100
-    set columns=130
+    " set lines=100
+    " set columns=130
 
     set toolbariconsize=small
     set antialias                                 " MacVim: smooth fonts.
@@ -29,7 +29,7 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     set blurradius=10
     set nofullscreen
     set fuoptions=maxvert,maxhorz
-    set macligatures
+    " set macligatures
     set macthinstrokes
     set transparency=0
     " 释放 <D-t>

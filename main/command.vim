@@ -14,6 +14,8 @@ command! TrimWhitespace call TrimWhitespace()
 command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
 command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
+"`:Redir` followed by either shell or vim command
+command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
 
 if PlugLoaded('asynctasks.vim') && PlugLoaded('fzf.vim')
     command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()
@@ -33,7 +35,7 @@ if PlugLoaded('fzf.vim')
     command! -nargs=* FzfExploreCurrent call hl#fzf#explore_current(shellescape(<q-args>))
     " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"',
     " command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'e'}, <bang>0))
-    command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | sed "s/.*: \(.*\)$/\1/"',
+    command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | grep "^[^#]" | sed "s/.*: \(.*\)$/\1/"',
                 \ 'options': "-m --preview 'tree -N -C -l -L 1 {} | head -500'"
                 \ }, <bang>0))
     command! -bang Args call fzf#run(fzf#wrap('args',

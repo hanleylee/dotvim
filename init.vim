@@ -6,7 +6,7 @@
 " 1. 一定要了解此项能实现什么功能再配置
 " 2. 没有必要的插件能不装就不装, 尽量用 Vim 原生功能
 
-exec 'source '.expand('$VIM_CONFIG/main/preinit.vim')
+exec 'source ' . expand('$VIM_CONFIG/main/preinit.vim')
 
 "███████████████████████   Vim 系统特性   ██████████████████████████
 

@@ -313,6 +313,12 @@
     //     "`"
     // ],
 
+    // // coc-ultisnips
+    // "coc.source.ultisnips.enable": true,
+    // "coc.source.ultisnips.priority": 100,
+    // "coc.source.ultisnips.filetypes": null,
+    // "coc.source.ultisnips.disableSyntaxes": [],
+
     // coc-snippets
     "snippets.ultisnips.enable": true,
     "snippets.priority": 100,
@@ -882,13 +888,13 @@
     "go.goplsUseDaemon": true,
     "go.checkForUpdates": "disabled",
 
-    // sh
-    "sh.enable": true,
-    "sh.commandPath": "",
-    "sh.globPattern": "",
-    "sh.trace.server":"off",
-    "sh.explainshellEndpoint": "",
-    "sh.highlightParsingErrors": false,
+    // // sh
+    // "sh.enable": true,
+    // "sh.commandPath": "",
+    // "sh.globPattern": "",
+    // "sh.trace.server":"off",
+    // "sh.explainshellEndpoint": "",
+    // "sh.highlightParsingErrors": false,
 
     // solargraph
     "solargraph.hover": true,

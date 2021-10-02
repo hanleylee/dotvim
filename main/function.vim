@@ -151,3 +151,36 @@ function! VisualStarSearchSet(cmdtype,...)
     let @/ = substitute(@/, '\.', '\\.', 'g')
     let @" = temp
 endfunction
+
+" Redirect output to a single window
+function! Redir(cmd)
+    for win in range(1, winnr('$'))
+        if getwinvar(win, 'scratch')
+            execute win . 'windo close'
+        endif
+    endfor
+    if a:cmd =~ '^!'
+        let output = system(matchstr(a:cmd, '^!\zs.*'))
+    else
+        redir => output
+        execute a:cmd
+        redir END
+    endif
+    botright vnew
+    let w:scratch = 1
+    setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+    call setline(1, split(output, "\n"))
+endfunction
+
+" Get output of a command
+function! GetOutput(cmd)
+    if a:cmd =~ '^!'
+        let output = system(matchstr(a:cmd, '^!\zs.*'))
+    else
+        redir => output
+        silent execute a:cmd
+        redir END
+    endif
+    let output = substitute(output, '[\x0]', '', 'g')
+    return output
+endfunction

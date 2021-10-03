@@ -57,6 +57,7 @@ set visualbell " 错误时不发出声音, 只显示在屏幕上
 set ttimeout        " time out for key codes
 set ttimeoutlen=10  " wait up to 20ms after Esc for special key(default 1s)
 set switchbuf+=usetab,newtab
+set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 "}}}
 
 "=======================   File   ======================={{{
@@ -101,26 +102,44 @@ set foldnestmax=10
 set foldlevel=3
 " }}}
 
+
+"=======================   Format   ============================{{{
+set formatoptions-=croql
+set formatlistpat=^\\s*                     " Optional leading whitespace
+set formatlistpat+=[                        " Start character class
+set formatlistpat+=\\[({]\\?                " |  Optionally match opening punctuation
+set formatlistpat+=\\(                      " |  Start group
+set formatlistpat+=[0-9]\\+                 " |  |  Numbers
+set formatlistpat+=\\\|                     " |  |  or
+set formatlistpat+=[a-zA-Z]\\+              " |  |  Letters
+set formatlistpat+=\\)                      " |  End group
+set formatlistpat+=[\\]:.)}                 " |  Closing punctuation
+set formatlistpat+=]                        " End character class
+set formatlistpat+=\\s\\+                   " One or more spaces
+set formatlistpat+=\\\|                     " or
+set formatlistpat+=^\\s*[-–+o*•]\\s\\+      " Bullet points
+" This handles a broader range of lists
+" 1.  Typical item the default handles
+" a.  An item with an alphabetic character and punctuation
+" (2) An item with punctuation preceding and following it
+" •   An item consisting of leading punctuation
+"}}}
+
 "=======================   Appearance   ============================{{{
 syntax on " 设置语法高亮
 "set termguicolors " true colors for vim in terminal
 set number " 显示行号
+set relativenumber
 set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
 set wildmode=full
 set showcmd " 右下角显示正在操作的命令
 " set cmdheight=2
 set list " 设置显示行尾, 换行, 制表符等隐藏字符
-
 set listchars=tab:▸-,eol:↲,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
-
 set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
-
-set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
-
-set relativenumber
 set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
 if has('textprop')
     set completeopt+=popup
@@ -129,19 +148,18 @@ if has('textprop') && has('quickfix')
     set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口的样式
 endif
 set cursorline " 突出光标所在行, 开启后速度变慢
+" set cursorcolumn " 突出光标所在列, 开启后速度变慢
 set scrolloff=5 " 设置光标距离最顶(底)部的距离不小于 5 行(一旦小于 5 行即触发位于下方的 scrolljump)
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150
-set colorcolumn=+1
-set formatoptions-=croql
 set viewoptions=folds,options,cursor,curdir,slash,unix
+set colorcolumn=+1
 
 if has('termguicolors')
     set termguicolors
 endif
 
-" set cursorcolumn " 突出光标所在列, 开启后速度变慢
 " set linespace=16 " 设置行间距
 " set showtabline=2 " 始终显示窗口上头的 tabline
 "}}}

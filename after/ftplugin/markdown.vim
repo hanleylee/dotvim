@@ -4,6 +4,8 @@
 " License:  MIT License
 
 setlocal conceallevel=2
+" 设置 gq 时判断的列表, 如果是列表的话会使用列表后的第一个字符的作为缩进距离
+setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 " setlocal textwidth=0
 " setlocal foldmethod=expr
 

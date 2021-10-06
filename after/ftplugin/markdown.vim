@@ -14,6 +14,9 @@ noremap <silent><buffer> k   gk
 noremap <silent><buffer> gj  j
 noremap <silent><buffer> gk  k
 
+" nmap <silent><buffer> <Tab> za
+" nmap <silent><buffer> <S-Tab> zA
+
 " undo break points
 inoremap <buffer> , ,<C-g>u
 inoremap <buffer> . .<C-g>u

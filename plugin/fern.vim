@@ -96,7 +96,7 @@ function! FernInit() abort
     nmap <buffer> R         <Plug>(fern-action-rename)
     nmap <buffer> .         <Plug>(fern-action-repeat)
     nmap <buffer> D         <Plug>(fern-action-trash)
-    nmap <buffer> z         <Plug>(fern-action-zoom)
+    " nmap <buffer> z         <Plug>(fern-action-zoom)
     nmap <buffer> Z         <Plug>(fern-action-zoom:reset)  
     nmap <buffer> cd        <Plug>(fern-action-cd)
     nmap <buffer> CD        gg<Plug>(fern-action-cd)<C-o>
@@ -104,8 +104,10 @@ function! FernInit() abort
     nmap <buffer> go        <Plug>(fern-action-open:edit)<C-w>p
     nmap <buffer> i         <Plug>(fern-action-open:vsplit)
     nmap <buffer> gi        <Plug>(fern-action-open:vsplit)<C-w>p
-    nmap <buffer> s         <Plug>(fern-action-open:vsplit)
+    nmap <buffer> v         <Plug>(fern-action-open:vsplit)
     nmap <buffer> gv        <Plug>(fern-action-open:vsplit)<C-w>p
+    nmap <buffer> s         <Plug>(fern-action-open:split)
+    nmap <buffer> gs        <Plug>(fern-action-open:split)<C-w>p
     nmap <buffer> q         :<C-u>quit<CR>
 endfunction
 

@@ -52,7 +52,7 @@ execute 'set directory=' . s:cache_dir
 " set signcolumn=number
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
-set mouse+=a " 保证行号不被复制
+set mouse+=a " mouse enable for all modes
 set visualbell " 错误时不发出声音, 只显示在屏幕上
 set ttimeout        " time out for key codes
 set ttimeoutlen=10  " wait up to 20ms after Esc for special key(default 1s)

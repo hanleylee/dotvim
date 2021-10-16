@@ -56,7 +56,7 @@ if s:vim_weight >= 1 || g:is_in_gui
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
-    Plug 'ojroques/vim-oscyank'
+    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
     Plug 'junegunn/gv.vim'          " browse git log
@@ -65,10 +65,10 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
+    Plug 'ojroques/vim-oscyank'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
-    Plug 'plasticboy/vim-markdown'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
     Plug 'mityu/vim-applescript'    " for applescript
@@ -78,6 +78,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'fladson/vim-kitty'
     Plug '$VIM_CONFIG/hanleylee/vim-alternate'
     Plug '$VIM_CONFIG/hanleylee/vim-gitignore'
+    Plug '$VIM_CONFIG/hanleylee/vim-markdown'
     " Plug '$VIM_CONFIG/hanleylee/potion'
 endif
 " }}}
@@ -87,7 +88,6 @@ if s:vim_weight >= 2 || g:is_in_gui
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " marks 管理插件
     Plug 'jiangmiao/auto-pairs'                         " 匹配括号
-    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
@@ -228,4 +228,7 @@ call plug#end()
 " Plug 'vitalk/vim-shebang'
 " Plug 'equalsraf/neovim-gui-shim'
 " Plug 'SirVer/ultisnips'                             " 自定义某些片段
+" Plug 'plasticboy/vim-markdown'
+" Plug 'vimwiki/vimwiki'
+" Plug 'tpope/vim-markdown'
 "}}}

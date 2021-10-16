@@ -3,6 +3,12 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" 目的: 用于将 markdown 文件复制到外界
+" 作用: 将markdown 的多行在不影响布局的情况下合并为一段话
+function! hl#markdown#merge_md()
+    %s /\([\.\,]$\)\n\(\S\)/\1 \2/g
+endfunction
+
 function! hl#markdown#CodeBlockTextObj(type) abort
     " the parameter type specify whether it is inner text objects or arround text objects.
     let start_row = searchpos('\s*```', 'bn')[0]
@@ -19,4 +25,68 @@ function! hl#markdown#CodeBlockTextObj(type) abort
     call setpos("'>", [buf_num, end_row, 1, 0])
     execute 'normal! `<V`>'
 endfunction
+
+" make markdown text bold
+function! hl#markdown#make_bold(mode)
+    call hl#embedded_with_string(a:mode, '**', '**')
+endfunction
+
+" make markdown text italic
+function! hl#markdown#make_italic(mode)
+    call hl#embedded_with_string(a:mode, '*', '*')
+endfunction
+
+" format chinese{{{
+function! hl#markdown#Format() range
+    retab
+
+    let regex_list = []
+    let regex_list = add(regex_list, '/，/, /g')
+    let regex_list = add(regex_list, '/。/. /g')
+    let regex_list = add(regex_list, '/：/: /g')
+    let regex_list = add(regex_list, '/？/? /g')
+    let regex_list = add(regex_list, '/；/; /g')
+    let regex_list = add(regex_list, '/“\|”/"/g')
+    let regex_list = add(regex_list, '/、/, /g')
+    let regex_list = add(regex_list, '/（/(/g')
+    let regex_list = add(regex_list, '/）/)/g')
+    let regex_list = add(regex_list, '/！/!/g')
+    let regex_list = add(regex_list, '/「/ **/g')
+    let regex_list = add(regex_list, '/」/** /g')
+
+    " 汉字在前, 英文/数字在后, 中间添加空格
+    let regex_list = add(regex_list, '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
+
+    " 汉字在后, 英文/数字在前, 中间添加空格
+    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g')
+
+    " 包裹的 content 添加左右两侧空格
+    " let regex_list = add(regex_list, '/\S\{-}\zs\s*\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
+    " let regex_list = add(regex_list, '/\%(^\|\S\{-1,}\zs\s*\)\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
+
+    " 清除行首为高亮行内代码的空格
+    " let regex_list = add(regex_list, '/^ `/`/g')
+
+    " 清除标点前的空格
+    " let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,.:?\])]\)/\1\2/g')
+    " TODO: 移除本行, 恢复上一行
+    let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,\])]\)/\1\2/g')
+
+    " 清除某些标点后(如 '(' '[' )的空格
+    " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')
+
+    " 清除尾部空格
+    let regex_list = add(regex_list, '/\s\+$//g')
+
+    " 清空所有一行以上的空行
+    let regex_list = add(regex_list, '/^\n$//g')
+
+    " echom a:firstline
+    " echom a:lastline
+    for pattern in regex_list
+        execute a:firstline . "," . a:lastline . " substitute " . pattern
+    endfor
+
+endfunction
+"}}}
 

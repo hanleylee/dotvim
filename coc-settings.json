@@ -79,7 +79,7 @@
     "codeLens.subseparator": " ",
 
     // suggest
-    "suggest.languageSourcePriority": 90,
+    "suggest.languageSourcePriority": 98,
     "suggest.maxPreviewWidth": 80,
     "suggest.removeDuplicateItems": true,
     "suggest.autoTrigger": "always",

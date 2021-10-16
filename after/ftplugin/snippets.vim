@@ -1,4 +1,4 @@
 setlocal expandtab
 
-vmap <buffer> <Leader>hl :<c-u>call hl#SnippetsEmbedded(visualmode())<cr>
-nmap <buffer> <Leader>hl :set operatorfunc=hl#SnippetsEmbedded<cr>g@
+vmap <buffer> <Leader>hl :<c-u>call hl#snippets#make_hl(visualmode())<cr>
+nmap <buffer> <Leader>hl :set operatorfunc=hl#snippets#make_hl<cr>g@

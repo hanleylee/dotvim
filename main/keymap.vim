@@ -6,7 +6,7 @@
 " MARK
 " - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
-" - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
+"     - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "=======================   Terminal Keycode   ============================
 call Source('$VIM_CONFIG/main/term_keycode.vim')
@@ -20,15 +20,15 @@ call Source('$VIM_CONFIG/main/gui_keymap.vim')"
 
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
-nnoremap <silent><M-q>       :call hl#CloseAll()<CR>
+nnoremap <silent><M-q>       :call hl#close_all()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
 " nnoremap <M-;> m`A;<Esc>``
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
-nnoremap ge :set operatorfunc=hl#GrepOperator<cr>g@
-vnoremap ge :<c-u>call hl#GrepOperator(visualmode())<cr>
-nnoremap <silent><S-F2> :call hl#SyncTask()<CR>
+nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
+vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
+nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
 inoremap <silent> <C-CR> <C-g>u<CR>
@@ -158,7 +158,8 @@ endif
 
 " vim-autoformat {{{
 if PlugLoaded('vim-autoformat')
-    nnoremap <silent><Leader>af  :call hl#format_document()<CR>
+    nnoremap <silent><Leader>af  :call hl#format_document('n')<CR>
+    vnoremap <silent><Leader>af  :call hl#format_document('v')<CR>
 endif
 "}}}
 
@@ -236,11 +237,11 @@ if PlugLoaded('fzf.vim')
     imap <c-x><c-l> <plug>(fzf-complete-line)
 
     " without hidden files and ignored files
-    nnoremap <Leader>fa. :Ag<CR>
+    nnoremap <Leader>fa :Ag<CR>
     " with hidden files(such as dot files)
-    nnoremap <Leader>fah :AgWithHidden<CR>
+    nnoremap <Leader>fAH :AgWithHidden<CR>
     " with all files(include ignored files and hidden files)
-    nnoremap <Leader>faa :AgAll<CR>
+    nnoremap <Leader>fA :AgAll<CR>
 
     nnoremap <Leader>fl  :Lines<CR>
     nnoremap <Leader>fb  :BCommits<CR>
@@ -280,10 +281,10 @@ endif
 " asynctasks.vim {{{
 if PlugLoaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
-    nnoremap <silent><F2> :call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><F6> :call hl#AsyncTask('project-build-run')<CR>
-    nnoremap <silent><F7> :call hl#AsyncTask('project-build')<CR>
-    nnoremap <silent><F8> :call hl#AsyncTask('project-run')<CR>
+    nnoremap <silent><F2> :call hl#async_task('file-build-run')<CR>
+    nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
+    nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
+    nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
     nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}

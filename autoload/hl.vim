@@ -84,55 +84,6 @@ function! hl#move_any_char_to_left() abort
     return prefix . opeart . suffix
 endfunction
 
-" format chinese{{{
-function! hl#Format_CN() range
-    retab
-
-    let regex_list = []
-    let regex_list = add(regex_list, '/，/, /g')
-    let regex_list = add(regex_list, '/。/. /g')
-    let regex_list = add(regex_list, '/：/: /g')
-    let regex_list = add(regex_list, '/？/? /g')
-    let regex_list = add(regex_list, '/；/; /g')
-    let regex_list = add(regex_list, '/“\|”/"/g')
-    let regex_list = add(regex_list, '/、/, /g')
-    let regex_list = add(regex_list, '/（/(/g')
-    let regex_list = add(regex_list, '/）/)/g')
-    let regex_list = add(regex_list, '/！/!/g')
-    let regex_list = add(regex_list, '/「/ **/g')
-    let regex_list = add(regex_list, '/」/** /g')
-
-    " 汉字在前, 英文/数字在后, 中间添加空格
-    let regex_list = add(regex_list, '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
-
-    " 汉字在后, 英文/数字在前, 中间添加空格
-    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g')
-
-    " 包裹的 content 添加左右两侧空格
-    " let regex_list = add(regex_list, '/\S\{-}\zs\s*\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
-
-    " 清除行首为高亮行内代码的空格
-    " let regex_list = add(regex_list, '/^ `/`/g')
-
-    " 清除标点前的空格
-    let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,.:?\])]\)/\1\2/g')
-
-    " 清除某些标点后(如 '(' '[' )的空格
-    " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')
-
-    " 清除尾部空格
-    let regex_list = add(regex_list, '/\s\+$//g')
-
-    " 清空所有一行以上的空行
-    let regex_list = add(regex_list, '/^\n$//g')
-
-    for pattern in regex_list
-        execute a:firstline . "," . a:lastline . " substitute " . pattern
-    endfor
-
-endfunction
-"}}}
-
 " replace surge rule {{{
 function! s:ReplaceSurgeRule(key,val)
     let substitutedContent = substitute(a:val, ' =.*$', '', '')
@@ -157,18 +108,13 @@ function! hl#format_objectmapper()
 endfunction
 "}}}
 
-" 目的: 用于将 markdown 文件复制到外界
-" 作用: 将markdown 的多行在不影响布局的情况下合并为一段话
-function! hl#merge_md()
-    %s /\([\.\,]$\)\n\(\S\)/\1 \2/g
-endfunction
-
+" use `J` to merge to line
 function! hl#merge_line()
     normal! mzJ`z
     execute 'delmarks z'
 endfunction
 
-function! hl#GrepOperator(type)
+function! hl#grep_operator(type)
     let saved_unnamed_register = @@
     if a:type ==# 'v'
         execute "normal! `<v`>y"
@@ -183,37 +129,28 @@ function! hl#GrepOperator(type)
     let @@ = saved_unnamed_register
 endfunction
 
-" make markdown text bold
-function! hl#MarkdownBold(mode)
-    call hl#EmbeddedWithString(a:mode, '**', '**')
-endfunction
-
-" make markdown text italic
-function! hl#MarkdownItalic(mode)
-    call hl#EmbeddedWithString(a:mode, '*', '*')
-endfunction
-
-function! hl#SnippetsEmbedded(mode)
-    call hl#EmbeddedWithString(a:mode, 'hl_', '_hl')
-endfunction
-
 " emebeded string with left_string and right_string
-function! hl#EmbeddedWithString(mode, left_str, right_str)
+function! hl#embedded_with_string(mode, left_str, right_str)
     if a:mode ==# 'v'
         execute 'normal `>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
     elseif a:mode ==# 'char'
         " execute 'normal `]a' . a:right_str . "\<ESC>`[" . 'i' . a:left_str . "\<ESC>"
-        execute "normal `[v`]\<ESC>`" . '>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
         " execute "normal `[v`]" . 'S*'
+        execute "normal `[v`]\<ESC>`" . '>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
     else
         return
     endif
 endfunction
 
 " format document
-function! hl#format_document()
+function! hl#format_document(mode) range
     if &filetype ==? 'markdown'
-        execute "FormatCN"
+        if a:mode == 'n'
+            let range = '%'
+        elseif a:mode == 'v'
+            let range = a:firstline . ',' . a:lastline
+        endif
+        execute range . "FormatMarkdown"
     elseif &filetype ==? 'vim'
         execute "normal mzgg=G`zmz"
     elseif &filetype ==? 'csv'
@@ -224,7 +161,7 @@ function! hl#format_document()
 endfunction
 
 " 异步执行任务
-function! hl#AsyncTask(mode)
+function! hl#async_task(mode)
     if &filetype ==? 'vim'
         silent update | source %
     else
@@ -234,7 +171,7 @@ function! hl#AsyncTask(mode)
 endfunction
 
 " 同步执行任务
-function! hl#SyncTask()
+function! hl#sync_task()
     silent w
     if &filetype ==? 'c'
         "exec 'AsyncRun gcc % -o build/%< && ./build/%<' "花了一晚上研究出来的可用方案
@@ -268,7 +205,7 @@ function! hl#SyncTask()
 endfunction
 
 " close all window, specially for vim {{{
-function! hl#CloseAll() abort
+function! hl#close_all() abort
     let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
     for term_num in term_bufs
         execute "bd! " . term_num
@@ -276,7 +213,7 @@ function! hl#CloseAll() abort
     xa
 endfunction
 
-function! hl#TrySetDictionary()
+function! hl#try_set_dictionary()
     let dict_path = "~/.vim/dict/" . &filetype . '.dict'
     if filereadable(expand(dict_path))
         execute 'setlocal dict+=' . dict_path

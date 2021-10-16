@@ -109,8 +109,14 @@ inoremap <expr> <M-B>  hl#move_any_char_to_left()
 
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
-nnoremap <silent><M-x> :Commands<CR>
-" inoremap <silent><M-x> :Commands<CR>
+
+if PlugLoaded('fzf.vim')
+    nnoremap <silent><M-x> :Commands<CR>
+    nnoremap <silent><M-t> :Tags<CR>
+    inoremap <silent><M-t> ⦿
+    cnoremap <silent><M-t> ⦿
+    tnoremap <silent><M-t> ⦿
+endif
 
 if PlugLoaded('vim-commentary')
     nmap <D-/> gcc
@@ -118,8 +124,8 @@ if PlugLoaded('vim-commentary')
 endif
 
 if PlugLoaded('asynctasks.vim')
-    noremap <silent><D-r> :<C-u>call hl#AsyncTask('file-build-run')<CR>
-    nnoremap <silent><D-b> :<C-u>call hl#AsyncTask('project-build')<CR>
+    noremap <silent><D-r>  :<C-u>call hl#async_task('file-build-run')<CR>
+    nnoremap <silent><D-b> :<C-u>call hl#async_task('project-build')<CR>
 endif
 
 if PlugLoaded('vim-quickui')

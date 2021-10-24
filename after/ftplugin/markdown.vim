@@ -12,6 +12,7 @@ setlocal conceallevel=2
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
 " setlocal textwidth=0
 " setlocal foldmethod=expr
+" setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-
 
 noremap <silent><buffer> j   gj
 noremap <silent><buffer> k   gk

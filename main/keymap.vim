@@ -241,7 +241,7 @@ if PlugLoaded('fzf.vim')
     " with hidden files(such as dot files)
     nnoremap <Leader>fAH :AgWithHidden<CR>
     " with all files(include ignored files and hidden files)
-    nnoremap <Leader>fA :AgAll<CR>
+    nnoremap <Leader>fAA :AgAll<CR>
 
     nnoremap <Leader>fl  :Lines<CR>
     nnoremap <Leader>fb  :BCommits<CR>

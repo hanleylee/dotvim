@@ -6,6 +6,7 @@
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#Format_CN()
 command! FormatObjectMapper silent! call hl#format_objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#format_surge_rule()
+command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>,<line2> call hl#Format_CN() | call winrestview(b:view)
 command! MergeMD silent! call hl#markdown#merge_md()
 command! CDF silent call CDF()
 command! OFD silent call OFD()

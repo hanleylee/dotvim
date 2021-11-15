@@ -60,6 +60,11 @@ augroup ColorSchemeSet
     autocmd ColorScheme * call HLColorScheme()
 augroup END
 
+augroup ChezmoiApply
+    autocmd!
+    autocmd BufWritePost ~/.local/share/chezmoi/* !chezmoi apply --source-path "%"
+augroup END
+
 if PlugLoaded('onedark.vim')
     augroup OneDarkRevise
         autocmd!

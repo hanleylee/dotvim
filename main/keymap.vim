@@ -9,10 +9,10 @@
 "     - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "=======================   Terminal Keycode   ============================
-call Source('$VIM_CONFIG/main/term_keycode.vim')
+call Source('$HOME/.vim/main/term_keycode.vim')
 
 "=======================   GUI Keycode   ============================
-call Source('$VIM_CONFIG/main/gui_keymap.vim')"
+call Source('$HOME/.vim/main/gui_keymap.vim')"
 
 "███████████████████████   KeyMapping   ██████████████████████████
 " Main map {{{

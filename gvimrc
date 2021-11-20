@@ -1,1 +1,1 @@
-source $VIM_CONFIG/ginit.vim
+source /Users/hanley/.vim/ginit.vim

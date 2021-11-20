@@ -20,7 +20,7 @@
 " frozen            Do not update unless explicitly specified
 
 
-call plug#begin('$VIM_CONFIG/plugged')
+call plug#begin('$HOME/.vim/plugged')
 
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 
@@ -76,10 +76,10 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug 'fladson/vim-kitty'
-    Plug '$VIM_CONFIG/hanleylee/vim-alternate'
-    Plug '$VIM_CONFIG/hanleylee/vim-gitignore'
-    Plug '$VIM_CONFIG/hanleylee/vim-markdown'
-    " Plug '$VIM_CONFIG/hanleylee/potion'
+    Plug '$HOME/.vim/hanleylee/vim-alternate'
+    Plug '$HOME/.vim/hanleylee/vim-gitignore'
+    Plug '$HOME/.vim/hanleylee/vim-markdown'
+    " Plug '$HOME/.vim/hanleylee/potion'
 endif
 " }}}
 
@@ -124,8 +124,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-    Plug '$VIM_CONFIG/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug '$VIM_CONFIG/hanleylee/vim-t2s'
+    Plug '$HOME/.vim/hanleylee/vim-renamer'         " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug '$HOME/.vim/hanleylee/vim-t2s'
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
@@ -136,8 +136,8 @@ endif
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     Plug 'skywind3000/vim-dict'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能

@@ -6,7 +6,7 @@
 " 1. 一定要了解此项能实现什么功能再配置
 " 2. 没有必要的插件能不装就不装, 尽量用 Vim 原生功能
 
-exec 'source ' . expand('$VIM_CONFIG/main/preinit.vim')
+exec 'source ' . expand('$HOME/.vim/main/preinit.vim')
 
 "███████████████████████   Vim 系统特性   ██████████████████████████
 
@@ -166,26 +166,26 @@ endif
 
 "███████████████████████   Source Load File   ██████████████████████████{{{
 "=======================   Variable   ============================
-call Source('$VIM_CONFIG/main/variable.vim')
+call Source('$HOME/.vim/main/variable.vim')
 
 "=======================   Plugin   ============================
-call Source('$VIM_CONFIG/main/plugin.vim')
+call Source('$HOME/.vim/main/plugin.vim')
 
 "=======================   Function   ============================
-call Source('$VIM_CONFIG/main/function.vim')
+call Source('$HOME/.vim/main/function.vim')
 
 "=======================   Path   ============================
-call Source('$VIM_CONFIG/main/path.vim')
+call Source('$HOME/.vim/main/path.vim')
 
 "=======================   Keymap   ============================
-call Source('$VIM_CONFIG/main/keymap.vim')
+call Source('$HOME/.vim/main/keymap.vim')
 
 "=======================   Command   ============================
-call Source('$VIM_CONFIG/main/command.vim')
+call Source('$HOME/.vim/main/command.vim')
 
 "=======================   Auto   ============================
-call Source('$VIM_CONFIG/main/autocmd.vim')
+call Source('$HOME/.vim/main/autocmd.vim')
 
 "=======================   Appearance   ============================
-call Source('$VIM_CONFIG/main/appearance.vim')"
+call Source('$HOME/.vim/main/appearance.vim')"
 "}}}

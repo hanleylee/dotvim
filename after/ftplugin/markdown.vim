@@ -33,10 +33,10 @@ nnoremap <buffer> <expr> k (v:count > 5 ? "m'" . v:count : "") . 'gk'
 nnoremap <buffer> <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
 
 " make bold
-vmap <buffer> <Leader>/ :<c-u>call hl#markdown#make_italic(visualmode())<cr>
-nmap <buffer> <Leader>/ :set operatorfunc=hl#markdown#make_italic<cr>g@
-vmap <buffer> <Leader>b :<c-u>call hl#markdown#make_bold(visualmode())<cr>
-nmap <buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<cr>g@
+vmap <silent><buffer> <Leader>/ :<c-u>call hl#markdown#make_italic(visualmode())<cr>
+nmap <silent><buffer> <Leader>/ :set operatorfunc=hl#markdown#make_italic<cr>g@
+vmap <silent><buffer> <Leader>b :<c-u>call hl#markdown#make_bold(visualmode())<cr>
+nmap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<cr>g@
 
 " text object for code block
 vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>

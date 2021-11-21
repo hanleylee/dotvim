@@ -80,7 +80,6 @@
 
     // suggest
     "suggest.languageSourcePriority": 98,
-    "suggest.maxPreviewWidth": 80,
     "suggest.removeDuplicateItems": true,
     "suggest.autoTrigger": "always",
     "suggest.detailField": "preview",
@@ -134,8 +133,6 @@
     "signature.enable": true,
     "signature.hideOnTextChange": true,
     "signature.target": "float",
-    "signature.maxWindowWidth": 80,
-    "signature.maxWindowHeight": 8,
     "signature.floatConfig": {},
     "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,
@@ -206,8 +203,6 @@
     "hover.target": "float",
     "hover.autoHide": true,
     "hover.floatConfig": {},
-    "hover.floatMaxWidth": 80,
-    "hover.floatMaxHeight": 0,
     "hover.previewMaxHeight": 12,
 
     // source-file
@@ -392,8 +387,6 @@
 
     // diagnostic
     "diagnostic.signPriority": 100,
-    "diagnostic.maxWindowHeight": 8,
-    "diagnostic.maxWindowWidth": 80,
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
     "diagnostic.warningSign":         "⚠",
@@ -638,7 +631,6 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pylintArgs": [],
     "python.linting.pylintPath": "pylint",
-    "python.linting.pylintUseMinimalCheckers": true,
     "python.linting.pylintCategorySeverity.error": "Error",
     "python.linting.pylintCategorySeverity.fatal": "Error",
     "python.linting.pylintCategorySeverity.warning": "Warning",

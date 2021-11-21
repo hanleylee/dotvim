@@ -69,6 +69,7 @@ if s:vim_weight >= 1 || g:is_in_gui
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'vim-ruby/vim-ruby'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
     Plug 'mityu/vim-applescript'    " for applescript

@@ -77,6 +77,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug 'fladson/vim-kitty'
+    Plug 'alker0/chezmoi.vim'
     Plug '$HOME/.vim/hanleylee/vim-alternate'
     Plug '$HOME/.vim/hanleylee/vim-gitignore'
     Plug '$HOME/.vim/hanleylee/vim-markdown'

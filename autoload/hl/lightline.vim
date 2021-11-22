@@ -105,7 +105,7 @@ function! s:get_gutentags_status(mods) abort
     return l:msg
 endfunction
 
-function! hl#lightline#FileNameWithIcon()
+function! hl#lightline#FileNameWithIcon() abort
     if &filetype ==? 'fern'
         return WebDevIconsGetFileTypeSymbol() . ' ' . expand('%') "  ~/r/hkms/src/test.vim
     else
@@ -119,7 +119,10 @@ function! hl#lightline#FileNameWithIcon()
             let modified_path = fnamemodify(root_path, ':~') " ~/repo/hkms
             let git_dir = pathshorten(modified_path) " ~/r/hkms
             let full_path = GetOnlyDirectory()
-            let right_path = substitute(full_path, root_path, '', '') " src
+            " avoid error: no previous substitute regular expression
+            " https://github.com/Shougo/deoplete.nvim/commit/dfe7e189b17f28d9b93bda6cc1a64f61fdf5e206
+            let escaped_root_path = escape(root_path, '~\.^$[]*')
+            let right_path = substitute(full_path, escaped_root_path, '', 'e') " src
         endif
         let res_path = git_dir . right_path " ~/r/hkms/src/test.vim
         let file_name = GetOnlyFileName() == '' ? '' : '/' . GetOnlyFileName()

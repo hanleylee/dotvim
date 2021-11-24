@@ -14,6 +14,7 @@ command! TrimWhitespace call TrimWhitespace()
 command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
 command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
+command! ChezmoiApply !chezmoi apply --source-path "%"
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
 

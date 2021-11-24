@@ -59,6 +59,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github
+    Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'junegunn/gv.vim'          " browse git log
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
@@ -164,7 +165,6 @@ call plug#end()
 " Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'
 " Plug 'tpope/vim-git'
-" Plug 'tpope/vim-projectionist'        " 在头文件与本文件之间跳转
 " Plug 'fszymanski/fzf-gitignore'
 " Plug 'bfrg/vim-cpp-modern'
 " Plug 'sjl/vitality.vim' "光标形状改变

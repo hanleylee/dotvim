@@ -3,4 +3,4 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-setlocal shiftwidth=4
+setlocal shiftwidth=2

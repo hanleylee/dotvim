@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-terminal-help')
+if !hl#plug_loaded('vim-terminal-help')
     finish
 endif
 

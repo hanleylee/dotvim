@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if PlugLoaded('fzf.vim')
+if hl#plug_loaded('fzf.vim')
     function! hl#asynctasks#fzf_task()
         let rows = asynctasks#source(&columns * 48 / 100)
         let source = []

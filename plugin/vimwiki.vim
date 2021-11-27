@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vimwiki')
+if !hl#plug_loaded('vimwiki')
     finish
 endif
 

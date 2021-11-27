@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-polyglot')
+if !hl#plug_loaded('vim-polyglot')
     finish
 endif
 

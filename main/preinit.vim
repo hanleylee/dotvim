@@ -18,9 +18,3 @@ func! GuardExistDirectory(dir)
 endfunc
 "}}}
 
-" 是否加载了 plug{{{
-function! PlugLoaded(name)
-    return has_key(g:plugs, a:name)
-endfunction
-"}}}
-

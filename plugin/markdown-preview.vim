@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('markdown-preview.nvim')
+if !hl#plug_loaded('markdown-preview.nvim')
     finish
 endif
 

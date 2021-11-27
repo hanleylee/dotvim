@@ -29,13 +29,13 @@ function! HLColorScheme()
     highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178    gui=italic,bold    guibg=#d7af00    guifg=black
     "}}}
 
-    if PlugLoaded('vim-sneak')
+    if hl#plug_loaded('vim-sneak')
         highlight Sneak       ctermfg=black ctermbg=yellow  guifg=black guibg=#E5C078
         highlight SneakScope  ctermbg=green ctermfg=red     guifg=red   guibg=green
     endif
 
     " vim-quickui {{{
-    if PlugLoaded('vim-quickui')
+    if hl#plug_loaded('vim-quickui')
         highlight! QuickBG ctermfg=0 ctermbg=7 guifg=black guibg=gray
         highlight! QuickSel cterm=bold ctermfg=0 ctermbg=2 gui=bold guibg=brown guifg=gray
         highlight! QuickKey term=bold ctermfg=9 gui=bold guifg=#f92772
@@ -45,7 +45,7 @@ function! HLColorScheme()
     "}}}
 
     " vim-floaterm {{{
-    if PlugLoaded('vim-floaterm')
+    if hl#plug_loaded('vim-floaterm')
         hi Floaterm                       ctermbg=black                     guibg=#282C34
         hi FloatermBorder cterm=bold      ctermbg=170 ctermfg=235  gui=bold guibg=#C678DD guifg=#282C34
         if has('nvim')
@@ -55,13 +55,13 @@ function! HLColorScheme()
     "}}}
 
     " coc.nvim {{{
-    if PlugLoaded('coc.nvim')
+    if hl#plug_loaded('coc.nvim')
         highlight CocHighlightText cterm=bold ctermbg=238 ctermfg=NONE gui=bold guibg=#444444 guifg=NONE
     endif
     "}}}
 
     " vim-matchup {{{
-    if PlugLoaded('vim-matchup')
+    if hl#plug_loaded('vim-matchup')
         highlight MatchWord     cterm=bold,underline ctermbg=238    gui=bold,underline   guibg=#444444
         highlight MatchParenCur cterm=bold,underline                gui=bold,underline
         highlight MatchWordCur  cterm=bold,underline                gui=bold,underline
@@ -69,13 +69,13 @@ function! HLColorScheme()
     "}}}
 
     " echodoc {{{
-    if PlugLoaded('echodoc.vim')
+    if hl#plug_loaded('echodoc.vim')
         highlight link EchoDocPopup Pmenu
     endif
     "}}}
 
     " vim-gitgutter {{{
-    if PlugLoaded('vim-gitgutter')
+    if hl#plug_loaded('vim-gitgutter')
         " highlight SignColumn ctermbg=whatever    " terminal Vim
         " highlight SignColumn guibg=whatever      " gVim/MacVim
         " highlight GitGutterAdd    guifg=#009900 guibg=#FFFFFF ctermfg=2 ctermbg=3
@@ -92,13 +92,13 @@ endfunction
 set background=dark
 
 " onedark {{{
-if PlugLoaded('onedark.vim')
+if hl#plug_loaded('onedark.vim')
     colorscheme onedark
 endif
 "}}}
 
 " gruvbox {{{
-if PlugLoaded('gruvbox')
+if hl#plug_loaded('gruvbox')
     colorscheme gruvbox
 endif
 "}}}

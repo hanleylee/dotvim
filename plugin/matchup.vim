@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-matchup')
+if !hl#plug_loaded('vim-matchup')
     finish
 endif
 

@@ -110,7 +110,7 @@ inoremap <expr> <M-B>  hl#move_any_char_to_left()
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 
-if PlugLoaded('fzf.vim')
+if hl#plug_loaded('fzf.vim')
     nnoremap <silent><M-x> :Commands<CR>
     nnoremap <silent><M-t> :Tags<CR>
     inoremap <silent><M-t> ⦿
@@ -118,17 +118,17 @@ if PlugLoaded('fzf.vim')
     tnoremap <silent><M-t> ⦿
 endif
 
-if PlugLoaded('vim-commentary')
+if hl#plug_loaded('vim-commentary')
     nmap <D-/> gcc
     vmap <D-/> gc
 endif
 
-if PlugLoaded('asynctasks.vim')
+if hl#plug_loaded('asynctasks.vim')
     noremap <silent><D-r>  :<C-u>call hl#async_task('file-build-run')<CR>
     nnoremap <silent><D-b> :<C-u>call hl#async_task('project-build')<CR>
 endif
 
-if PlugLoaded('vim-quickui')
+if hl#plug_loaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><D-d>          :call hl#quickui#show_dict(expand("<cword>"))<cr>
     vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
@@ -136,7 +136,7 @@ if PlugLoaded('vim-quickui')
     vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
 endif
 
-if PlugLoaded('vim-floaterm')
+if hl#plug_loaded('vim-floaterm')
     nnoremap <silent><M-=>          :FloatermToggle<CR>
     tnoremap <silent><M-=>          <C-\><C-n>:FloatermToggle<CR>
 endif

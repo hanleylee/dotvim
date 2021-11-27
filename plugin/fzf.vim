@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('fzf.vim')
+if !hl#plug_loaded('fzf.vim')
     finish
 endif
 

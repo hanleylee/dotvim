@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('fern-mapping-fzf.vim')
+if !hl#plug_loaded('fern-mapping-fzf.vim')
     finish
 endif
 

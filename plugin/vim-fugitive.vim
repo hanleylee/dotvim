@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-fugitive')
+if !hl#plug_loaded('vim-fugitive')
     finish
 endif
 

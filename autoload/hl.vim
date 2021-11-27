@@ -3,6 +3,16 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" 是否加载了 plug{{{
+function! hl#plug_loaded(name)
+    if !exists('g:plugs')
+        return 0
+    else
+        return has_key(g:plugs, a:name)
+    endif
+endfunction
+"}}}
+
 " 获得上次选中区域的内容
 function! hl#visual_selection() abort
     try
@@ -18,15 +28,15 @@ endfunction
 function! hl#preview_scroll(direction)
     let scroll_lines = 20
     if a:direction ==# 'u'
-        if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
+        if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
             call coc#float#scroll(0, scroll_lines)
-        elseif PlugLoaded('vim-quickui')
+        elseif hl#plug_loaded('vim-quickui')
             call quickui#preview#scroll(-scroll_lines)
         endif
     elseif a:direction ==# 'd'
-        if PlugLoaded('coc.nvim') && coc#float#has_scroll() 
+        if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
             call coc#float#scroll(1, scroll_lines)
-        elseif PlugLoaded('vim-quickui')
+        elseif hl#plug_loaded('vim-quickui')
             call quickui#preview#scroll(scroll_lines)
         endif
     endif

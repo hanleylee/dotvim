@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vista')
+if !hl#plug_loaded('vista')
     finish
 endif
 

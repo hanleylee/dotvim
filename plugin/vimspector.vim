@@ -5,7 +5,7 @@
 
 " Configuration file located at ~/.vimspector.json
 
-if !PlugLoaded('vimspector')
+if !hl#plug_loaded('vimspector')
     finish
 endif
 

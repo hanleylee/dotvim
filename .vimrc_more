@@ -1,0 +1,69 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/hanleylee
+" License:  MIT License
+
+"███████████████████████   Vim 系统特性   ██████████████████████████
+
+"=======================   Main   =================================={{{
+" No compatibility – necessary for mappings to work.
+set nocompatible " 关闭 vi 兼容模式, 必选
+
+" set laststatus=0 " Status line
+set cmdheight=1
+set nomodifiable " Only in version 6.0
+set readonly
+
+"=======================   Search   ============================={{{
+set hlsearch " highlight all matching phrases after <enter>, equal to 'hls'
+set incsearch " show partial matches for a search phrase when typing, equal to 'is'
+set ignorecase " ignore upper/lower case when searching, equal to 'ic'
+set smartcase " 搜索时只有输入大写字母时才会强制符合大小写, 需要与 ignorecase 一同设置才能正常工作
+set showmatch " 匹配括号
+"}}}
+
+"=======================   Appearance   ============================{{{
+syntax on " 设置语法高亮
+"set termguicolors " true colors for vim in terminal
+set background=dark
+set guioptions=aiMr " No menu bar and tool bar
+set number " 显示行号
+set relativenumber
+set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
+set wildmode=full
+set showcmd " 右下角显示正在操作的命令
+" set cmdheight=2
+set list " 设置显示行尾, 换行, 制表符等隐藏字符
+set listchars=tab:▸-,eol:↲,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
+set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
+set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
+set t_Co=256 " Vim 能显示的颜色数
+set shortmess-=S " 显示当前搜索的结果数量及当前位置
+set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
+if has('textprop')
+    set completeopt+=popup
+endif
+if has('textprop') && has('quickfix')
+    set completepopup=align:menu,border:off,highlight:WildMenu " 调整侧边窗口的样式
+endif
+set cursorline " 突出光标所在行, 开启后速度变慢
+" set cursorcolumn " 突出光标所在列, 开启后速度变慢
+set scrolloff=5 " 设置光标距离最顶(底)部的距离不小于 5 行(一旦小于 5 行即触发位于下方的 scrolljump)
+" set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
+set signcolumn=yes
+set textwidth=150
+set viewoptions=folds,options,cursor,curdir,slash,unix
+set colorcolumn=+1
+
+if has('termguicolors')
+    set termguicolors
+endif
+
+" set linespace=16 " 设置行间距
+" set showtabline=2 " 始终显示窗口上头的 tabline
+"}}}
+
+"=======================   Keymap   ============================={{{
+nnoremap <C-q> :q!<cr>
+nnoremap q :q!<cr>
+"}}}

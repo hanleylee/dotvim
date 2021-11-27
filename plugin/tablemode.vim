@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-table-mode')
+if !hl#plug_loaded('vim-table-mode')
     finish
 endif
 

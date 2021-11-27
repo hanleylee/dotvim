@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-qf')
+if !hl#plug_loaded('vim-qf')
     finish
 endif
 

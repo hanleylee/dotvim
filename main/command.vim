@@ -18,17 +18,17 @@ command! ChezmoiApply !chezmoi apply --source-path "%"
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
 
-if PlugLoaded('asynctasks.vim') && PlugLoaded('fzf.vim')
+if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
     command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()
 endif
 
-if PlugLoaded('coc.nvim')
+if hl#plug_loaded('coc.nvim')
     command! -nargs=0 Format :call CocAction('format') " Add `:Format` command to format current buffer.
     command! -nargs=? Fold :call CocAction('fold', <f-args>) " Add `:Fold` command to fold current buffer.
     command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport') " Add `:OR` command for organize imports of the current buffer.
 endif
 
-if PlugLoaded('fzf.vim')
+if hl#plug_loaded('fzf.vim')
     " The query history for this command will be stored as 'ls' inside g:fzf_history_dir. The name is ignored if g:fzf_history_dir is not defined.
     " command! -bang -complete=dir -nargs=? LS call fzf#run(fzf#wrap('ls', {'source': 'ls', 'dir': <q-args>}, <bang>0))
     command! -nargs=* -complete=file AgWithHidden :call hl#fzf#ag_all(<q-args>, '--hidden')
@@ -43,7 +43,7 @@ if PlugLoaded('fzf.vim')
                 \ {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
 endif
 
-if PlugLoaded('vim-floaterm')
+if hl#plug_loaded('vim-floaterm')
     command! LF FloatermNew lf
     command! FFF FloatermNew fff
     command! NNN FloatermNew nnn

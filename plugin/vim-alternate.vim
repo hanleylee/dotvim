@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-alternate')
+if !hl#plug_loaded('vim-alternate')
     finish
 endif
 

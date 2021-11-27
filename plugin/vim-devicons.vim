@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-devicons')
+if !hl#plug_loaded('vim-devicons')
     finish
 endif
 

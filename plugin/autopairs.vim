@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('auto-pairs')
+if !hl#plug_loaded('auto-pairs')
     finish
 endif
 

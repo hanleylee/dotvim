@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-indent-guides')
+if !hl#plug_loaded('vim-indent-guides')
     finish
 endif
 

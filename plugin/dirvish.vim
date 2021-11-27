@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-dirvish')
+if !hl#plug_loaded('vim-dirvish')
     finish
 endif
 " let g:loaded_netrwPlugin = 1

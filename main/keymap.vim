@@ -53,6 +53,7 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
+nnoremap <leader>J ddpkJ
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -89,27 +90,27 @@ let g:netrw_nogx = 1 " disable gx keymap
 nmap <silent>gx :silent call OpenInBrowser('n')<cr>
 vmap <silent>gx :<C-u>silent call OpenInBrowser('v')<cr>
 
-if PlugLoaded('fern.vim')
+if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=%<cr>
 endif
 
 " vim-surround {{{
-if PlugLoaded('vim-surround')
+if hl#plug_loaded('vim-surround')
     nmap do) ds)db
     nmap do] ds]db
 endif
 " }}}
 
 " cosco.vim {{{
-if PlugLoaded('cosco.vim')
+if hl#plug_loaded('cosco.vim')
     nmap <silent> <M-;> <Plug>(cosco-commaOrSemiColon)
     imap <silent> <M-;> <c-o><Plug>(cosco-commaOrSemiColon)
 endif
 " }}}
 
 " nerdtree {{{
-if PlugLoaded('nerdtree')
+if hl#plug_loaded('nerdtree')
     nnoremap <F1> :call hl#nerdtree#toggle_vcs_focus_current()<cr>
     nnoremap <leader>nt :NERDTreeToggleVCS<CR>
     nnoremap <leader>nf :NERDTreeFind<CR>
@@ -119,7 +120,7 @@ endif
 "}}}
 
 " vimspector {{{
-if PlugLoaded('vimspector')
+if hl#plug_loaded('vimspector')
     nmap <Leader>d.   <Plug>VimspectorToggleBreakpoint
     nmap <Leader>d_.  <Plug>VimspectorToggleConditionalBreakpoint
     " nmap <Leader>dd   :call vimspector#Launch()<CR>
@@ -143,34 +144,34 @@ endif
 "}}}
 
 " vim-unimpaired {{{
-if PlugLoaded('vim-unimpaired')
+if hl#plug_loaded('vim-unimpaired')
     nmap <silent> []<Space> :execute "normal [\<Space>]\<Space>"<CR>
     vmap <silent> []<Space> :<C-u>execute "normal '<[\<Space>'>]\<Space>"<CR>
 endif
 "}}}
 
 " FastFold {{{
-if PlugLoaded('FastFold')
+if hl#plug_loaded('FastFold')
     nmap zuz <Plug>(FastFoldUpdate)
     command! -nargs=0 FDM :echo w:lastfdm
 endif
 "}}}
 
 " vim-autoformat {{{
-if PlugLoaded('vim-autoformat')
+if hl#plug_loaded('vim-autoformat')
     nnoremap <silent><Leader>af  :call hl#format_document('n')<CR>
     vnoremap <silent><Leader>af  :call hl#format_document('v')<CR>
 endif
 "}}}
 
 " vim-maximzer {{{
-if PlugLoaded('vim-maximizer')
+if hl#plug_loaded('vim-maximizer')
     nnoremap <F12> :MaximizerToggle!<CR>
 endif
 "}}}
 
 " vim-floaterm {{{
-if PlugLoaded('vim-floaterm')
+if hl#plug_loaded('vim-floaterm')
     nnoremap <silent><F3>          :FloatermToggle<CR>
     tnoremap <silent><F3>          <C-\><C-n>:FloatermToggle<CR>
     nnoremap <silent><Leader>tw    :FloatermNew<CR>
@@ -194,7 +195,7 @@ endif
 "}}}
 
 " vim-quickui {{{
-if PlugLoaded('vim-quickui')
+if hl#plug_loaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
@@ -205,7 +206,7 @@ endif
 "}}}
 
 " vim-renamer {{{
-if PlugLoaded('vim-renamer')
+if hl#plug_loaded('vim-renamer')
     " nmap <Leader>rr <Plug>RenamerStart
     nmap <Leader>rr :Renamer %:p:h<cr>
     nmap <Leader>rc :Ren<CR>
@@ -213,14 +214,14 @@ endif
 "}}}
 
 " wilder.nvim {{{
-if PlugLoaded('wilder.nvim')
+if hl#plug_loaded('wilder.nvim')
     cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
     cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
 endif
 "}}}
 
 " fzf.vim {{{
-if PlugLoaded('fzf.vim')
+if hl#plug_loaded('fzf.vim')
     nnoremap <silent><C-F>       :Files<CR>
     nnoremap <silent><C-H>       :History<CR>
     nnoremap <silent><C-B>       :Buffers<CR>
@@ -254,19 +255,19 @@ endif
 "}}}
 
 " asyncrun.vim {{{
-if PlugLoaded('asyncrun.vim')
+if hl#plug_loaded('asyncrun.vim')
     nnoremap <F10>       :call asyncrun#quickfix_toggle(10)<CR>
 endif
 "}}}
 
 " vim-qf {{{
-if PlugLoaded('vim-qf')
+if hl#plug_loaded('vim-qf')
     " nmap <F10> <Plug>(qf_qf_toggle)
 endif
 "}}}
 
 " ctrlsf.vim{{{
-if PlugLoaded('ctrlsf.vim')
+if hl#plug_loaded('ctrlsf.vim')
     nmap     <C-s>f <Plug>CtrlSFPrompt
     vmap     <C-s>f <Plug>CtrlSFVwordPath<CR>
     vmap     <C-s>F <Plug>CtrlSFVwordExec
@@ -279,7 +280,7 @@ endif
 "}}}
 
 " asynctasks.vim {{{
-if PlugLoaded('asynctasks.vim')
+if hl#plug_loaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
     nnoremap <silent><F2> :call hl#async_task('file-build-run')<CR>
     nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
@@ -289,7 +290,7 @@ if PlugLoaded('asynctasks.vim')
 endif
 "}}}
 
-if PlugLoaded('vim-sandwich')
+if hl#plug_loaded('vim-sandwich')
     xmap is <Plug>(textobj-sandwich-query-i)
     xmap as <Plug>(textobj-sandwich-query-a)
     omap is <Plug>(textobj-sandwich-query-i)
@@ -310,7 +311,7 @@ vnoremap <silent> <C-T> :<C-u>Ydv<CR>
 nnoremap <silent> <C-T> :<C-u>Ydc<CR>
 noremap <leader>yd :<C-u>Yde<CR>
 " coc.vim {{{
-if PlugLoaded('coc.nvim')
+if hl#plug_loaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
     inoremap <silent><expr> <CR> hl#coc#insert_map_for_enter()
@@ -382,7 +383,7 @@ endif
 "}}}
 
 " vim-dadbod{{{
-if PlugLoaded('vim-dadbod')
+if hl#plug_loaded('vim-dadbod')
     xnoremap <expr> <Plug>(DBExe)     db#op_exec()
     nnoremap <expr> <Plug>(DBExe)     db#op_exec()
     nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
@@ -395,7 +396,7 @@ endif
 "}}}
 
 
-if PlugLoaded('vim-dadbod-ui')
+if hl#plug_loaded('vim-dadbod-ui')
     nnoremap <silent> <leader>qt :DBUIToggle<CR>
     nnoremap <silent> <leader>qf :DBUIFindBuffer<CR>
     nnoremap <silent> <leader>qr :DBUIRenameBuffer<CR>
@@ -404,7 +405,7 @@ endif
 
 
 " vim-gitgutter {{{
-if PlugLoaded('vim-gitgutter')
+if hl#plug_loaded('vim-gitgutter')
     nmap [h         <Plug>(GitGutterPrevHunk)
     nmap ]h         <Plug>(GitGutterNextHunk)
 
@@ -420,7 +421,7 @@ endif
 "}}}
 
 " vim-easymotion {{{
-if PlugLoaded('vim-easymotion')
+if hl#plug_loaded('vim-easymotion')
     nmap <Space>          <Plug>(easymotion-bd-w)
     vmap <Space>          <Plug>(easymotion-bd-w)
     " Move to line
@@ -430,32 +431,32 @@ endif
 "}}}
 
 " vim-oscyank {{{
-if PlugLoaded('vim-oscyank')
+if hl#plug_loaded('vim-oscyank')
     vnoremap <Leader>oy :OSCYank<CR>
 endif
 "}}}
 
 " vim-fugitive {{{
-if PlugLoaded('vim-fugitive')
+if hl#plug_loaded('vim-fugitive')
     nnoremap <silent>gs  :Git<CR>
 endif
 "}}}
 
 " vista {{{
-if PlugLoaded('vista')
+if hl#plug_loaded('vista')
     nnoremap <F4>                :Vista!!<CR>
 endif
 "}}}
 
 " inline_edit.vim {{{
-if PlugLoaded('inline_edit.vim')
+if hl#plug_loaded('inline_edit.vim')
     nnoremap <leader>ie :InlineEdit<cr>
     xnoremap <leader>ie :InlineEdit<cr>
 endif
 "}}}
 
 " YouCompleteMe {{{
-if PlugLoaded('YouCompleteMe')
+if hl#plug_loaded('YouCompleteMe')
     nnoremap gd                  :YcmCompleter GoTo<CR>
     nnoremap <silent>K           <Plug>(YCMHover)
     nnoremap <silent><Leader>gr  :YcmCompleter GoToReferences<CR>
@@ -464,7 +465,7 @@ endif
 "}}}
 
 " ale {{{
-if PlugLoaded('ale')
+if hl#plug_loaded('ale')
     nmap <Leader>en       <Plug>(ale_next)
     nmap <Leader>ep       <Plug>(ale_previous)
 endif

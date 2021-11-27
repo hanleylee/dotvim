@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('tagbar')
+if !hl#plug_loaded('tagbar')
     finish
 endif
 

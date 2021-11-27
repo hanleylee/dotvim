@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('nerdtree')
+if !hl#plug_loaded('nerdtree')
     finish
 endif
 

@@ -19,7 +19,7 @@ call ExpandPathFromEnv(paths_arr)
 "     let $PATH=s:llvm_path.':'.$PATH
 " endif
 
-" if PlugLoaded('ultisnips')
+" if hl#plug_loaded('ultisnips')
 
 "     call UltiSnips#bootstrap#Bootstrap()
 "     if exists('g:_uspy')

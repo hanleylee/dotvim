@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('rainbow')
+if !hl#plug_loaded('rainbow')
     finish
 endif
 

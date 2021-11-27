@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-Verdin')
+if !hl#plug_loaded('vim-Verdin')
     finish
 endif
 

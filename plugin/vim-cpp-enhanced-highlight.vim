@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-cpp-enhanced-highlight')
+if !hl#plug_loaded('vim-cpp-enhanced-highlight')
     finish
 endif
 

@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-dadbod-ui')
+if !hl#plug_loaded('vim-dadbod-ui')
     finish
 endif
 

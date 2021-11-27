@@ -5,7 +5,7 @@
 
 " Configuration file located at ~/.vim/coc-settings.json
 
-if !PlugLoaded('coc.nvim')
+if !hl#plug_loaded('coc.nvim')
     finish
 endif
 

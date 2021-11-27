@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('FastFold')
+if !hl#plug_loaded('FastFold')
     finish
 endif
 

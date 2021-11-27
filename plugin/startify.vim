@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('vim-startify')
+if !hl#plug_loaded('vim-startify')
     finish
 endif
 

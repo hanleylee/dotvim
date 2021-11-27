@@ -14,7 +14,7 @@ augroup END
 
 augroup BufEnter1
     autocmd!
-    if PlugLoaded('nerdtree')
+    if hl#plug_loaded('nerdtree')
         " Exit Vim if NERDTree is the only window remaining in the only tab.
         autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
         " Close the tab if NERDTree is the only window remaining in it.
@@ -24,13 +24,13 @@ augroup END
 
 augroup BufEnter2
     autocmd!
-    if PlugLoaded('fern.vim')
+    if hl#plug_loaded('fern.vim')
         autocmd BufEnter * if &ft ==? 'fern' | call hl#fern#highlight_cusorline() | endif
     endif
 augroup END
 
 augroup BufLeave1
-    if PlugLoaded('fern.vim')
+    if hl#plug_loaded('fern.vim')
         autocmd BufLeave * if &ft ==? 'fern' | call hl#fern#put_back_cusorline() | endif
     endif
 augroup END
@@ -60,7 +60,7 @@ augroup ColorSchemeSet
     autocmd ColorScheme * call HLColorScheme()
 augroup END
 
-if PlugLoaded('onedark.vim')
+if hl#plug_loaded('onedark.vim')
     augroup OneDarkRevise
         autocmd!
         autocmd ColorScheme * call OneDarkRevise()
@@ -68,7 +68,7 @@ if PlugLoaded('onedark.vim')
 endif
 
 
-if PlugLoaded('vim-quickui')
+if hl#plug_loaded('vim-quickui')
     augroup QuickUIPreview
         autocmd!
         au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
@@ -85,7 +85,7 @@ endif
 
 
 
-if PlugLoaded('coc.nvim')
+if hl#plug_loaded('coc.nvim')
     augroup CocAutoGroup
         autocmd!
         " use throttling
@@ -107,14 +107,14 @@ if PlugLoaded('coc.nvim')
     augroup end
 endif
 
-if PlugLoaded('fern.vim')
+if hl#plug_loaded('fern.vim')
     augroup fern-custom
         autocmd!
         autocmd FileType fern call FernInit()
     augroup END
 endif
 
-if PlugLoaded('fern-git-status.vim')
+if hl#plug_loaded('fern-git-status.vim')
     augroup my-glyph-palette
         autocmd!
         autocmd FileType fern call glyph_palette#apply()
@@ -122,7 +122,7 @@ if PlugLoaded('fern-git-status.vim')
     augroup END
 endif
 
-if PlugLoaded('vim-gutentags')
+if hl#plug_loaded('vim-gutentags')
     augroup MyGutentagsStatusLineRefresher
         autocmd!
         autocmd User GutentagsUpdating call lightline#update()
@@ -130,14 +130,14 @@ if PlugLoaded('vim-gutentags')
     augroup end
 endif
 
-if PlugLoaded('emmet-vim')
+if hl#plug_loaded('emmet-vim')
     augroup EmmetInstall
         autocmd!
         autocmd FileType html,css EmmetInstall
     augroup end
 endif
 
-if PlugLoaded('fzf.vim')
+if hl#plug_loaded('fzf.vim')
     augroup FzfStatusLineTheme
         autocmd! User FzfStatusLine call hl#fzf#statusline_theme()
     augroup end

@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('fern-renderer-nerdfont.vim')
+if !hl#plug_loaded('fern-renderer-nerdfont.vim')
     finish
 endif
 let g:fern#renderer#nerdfont#padding = '  '

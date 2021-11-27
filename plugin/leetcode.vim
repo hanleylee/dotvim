@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('leetcode.vim')
+if !hl#plug_loaded('leetcode.vim')
     finish
 endif
 

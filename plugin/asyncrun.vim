@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !PlugLoaded('asyncrun.vim')
+if !hl#plug_loaded('asyncrun.vim')
     finish
 endif
 

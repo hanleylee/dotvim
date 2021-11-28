@@ -34,7 +34,8 @@ set wildmode=full
 set showcmd " 右下角显示正在操作的命令
 " set cmdheight=2
 set list " 设置显示行尾, 换行, 制表符等隐藏字符
-set listchars=tab:▸-,eol:↲,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
+" set listchars=tab:▸-,eol:↲,trail:-,space:⋅ " 自定义换行, 制表符等显示格式
+set listchars=tab:▸-,eol:↲,trail:- " 自定义换行, 制表符等显示格式
 set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息
 set t_Co=256 " Vim 能显示的颜色数

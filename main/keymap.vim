@@ -53,6 +53,9 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
+nnoremap <leader>ms :ChezmoiSwap<cr>
+nnoremap <leader>ma :ChezmoiApply<cr>
+
 nnoremap <leader>J ddpkJ
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv

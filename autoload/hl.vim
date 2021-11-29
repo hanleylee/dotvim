@@ -201,7 +201,10 @@ endfunction
 
 " 异步执行任务
 function! hl#async_task(mode)
-    if &filetype ==? 'vim'
+    let filename = expand('%:t')
+    if filename ==# 'Podfile'
+        silent update | execute "AsyncRun pod update --project-directory=\"$VIM_FILEDIR\""
+    elseif &filetype ==? 'vim'
         silent update | source %
     else
         " execute "AsyncTask " . a:mode

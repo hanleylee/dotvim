@@ -332,7 +332,7 @@
         // "bash": ["sh"],
         // "zsh": ["sh"],
         // "typescript": ["javascript"]
-        "javascriptreact": ["javascript"],
+        "javascriptreact": ["javascript"]
     },
     "snippets.autoTrigger": true,
     "snippets.snipmate.enable": false, // 如果为 true 会导致将每个 rtp 下的 snippets 文件夹的内容也作为 snippet 进行补全

@@ -16,6 +16,9 @@ command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
 command! ChezmoiApply !chezmoi apply --source-path "%"
+command! PodUpdate call hl#cocoapods#execute('pod update')
+command! PodInstall call hl#cocoapods#execute('pod install')
+command! PodUpdateNoRepoUpdate call hl#cocoapods#execute('pod update --no-repo-update')
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
 

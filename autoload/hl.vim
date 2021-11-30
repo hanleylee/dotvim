@@ -203,12 +203,12 @@ endfunction
 function! hl#async_task(mode)
     let filename = expand('%:t')
     if filename ==# 'Podfile'
-        silent update | execute "AsyncRun pod update --project-directory=\"$VIM_FILEDIR\""
+        silent update | execute 'PodUpdateNoRepoUpdate'
     elseif &filetype ==? 'vim'
         silent update | source %
     else
         " execute "AsyncTask " . a:mode
-        silent update | execute "AsyncTask " . a:mode
+        silent update | execute 'AsyncTask ' . a:mode
     endif
 endfunction
 

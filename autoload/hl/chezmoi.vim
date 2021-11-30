@@ -63,6 +63,5 @@ function! hl#chezmoi#swap_between_target_and_source()
         else
             exec 'edit ' . target_path
         endif
-
     endif
 endfunction

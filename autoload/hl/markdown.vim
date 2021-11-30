@@ -39,7 +39,7 @@ endfunction
 " format chinese{{{
 function! hl#markdown#Format() range
     " a:firstline,a:lastline call hl#Format_CN()
-    execute a:firstline . "," . a:lastline . " call hl#Format_CN()"
+    execute a:firstline . "," . a:lastline . " call hl#format_cn()"
 
     let regex_list = []
     " 包裹的 content 添加左右两侧空格
@@ -50,9 +50,7 @@ function! hl#markdown#Format() range
     " let regex_list = add(regex_list, '/^ `/`/g')
 
     " 清除标点前的空格
-    " let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,.:?\])]\)/\1\2/g')
-    " TODO: 移除本行, 恢复上一行
-    let regex_list = add(regex_list, '/\(\S\)\s\+\([!;,\])]\)/\1\2/g')
+    let regex_list = add(regex_list, '/\(\S\)\s\+\([;,\])]\)/\1\2/g')
 
     " 清除某些标点后(如 '(' '[' )的空格
     " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')

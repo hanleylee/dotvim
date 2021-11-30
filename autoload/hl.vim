@@ -118,7 +118,7 @@ function! hl#format_objectmapper()
 endfunction
 "}}}
 
-function! hl#Format_CN() range
+function! hl#format_cn() range
     echom a:firstline
     echom a:lastline
 
@@ -139,7 +139,7 @@ function! hl#Format_CN() range
     " 汉字在前, 英文/数字在后, 中间添加空格
     let regex_list = add(regex_list, '/\([\u4e00-\u9fa5\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
 
-    " 汉字在后, 英文/数字在前, 中间添加空格
+    " 英文/数字在前, 汉字在后, 中间添加空格
     let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fa5\u3040-\u30FF]\)/\1 \2/g')
 
     for pattern in regex_list

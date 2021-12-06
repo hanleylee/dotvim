@@ -9,10 +9,20 @@ endif
 let g:loaded_gui_init = 1
 
 if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
+
+    " " Set font size based on screen size. When vertical height is greater than 900
+    " " (i.e. an external monitor is attached on 13" or smaller MacBooks), use 18, else use 16.
+    " if has('mac')
+    "   if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
+    "     set guifont=Inconsolata:h18
+    "   else
+    "     set guifont=Inconsolata:h16
+    "   endif
+    " endif
     set encoding=utf-8                            " MacVim: use UTF-8 everywhere.
-    set guifont=FiraCode\ Nerd\ Font:h16     " 设置 GUI 下字体及大小
-    " set guifont=Iosevka\ Nerd\ Font:h16     " 设置 GUI 下字体及大小
-    set guifontwide=Microsoft\ YaHei:h14 " 设置 GUI 下中文字体及大小
+    set guifont=FiraCode\ Nerd\ Font:h16          " 设置 GUI 下字体及大小
+    " set guifont=Iosevka\ Nerd\ Font:h16         " 设置 GUI 下字体及大小
+    set guifontwide=Microsoft\ YaHei:h14          " 设置 GUI 下中文字体及大小
     set guicursor+=a:blinkon0                     " 设置光标不闪动
     set guioptions-=e                             " 有多个 tab(文件) 时使用系统原生的 tab 样式
     set guioptions-=T                             " MacVim: hide toolbar.

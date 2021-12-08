@@ -67,6 +67,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
     Plug 'ojroques/vim-oscyank'
+    Plug 'dstein64/vim-startuptime'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'

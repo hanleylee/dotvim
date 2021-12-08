@@ -35,3 +35,4 @@ else
 endif
 
 " let $VIM_CONFIG=expand('$HOME/.vim')
+let $HKMS=expand('$HOME/repo/hkms')

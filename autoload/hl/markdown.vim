@@ -11,6 +11,7 @@ endfunction
 
 function! hl#markdown#CodeBlockTextObj(type) abort
     " the parameter type specify whether it is inner text objects or arround text objects.
+    normal! $
     let start_row = searchpos('\s*```', 'bn')[0]
     let end_row = searchpos('\s*```', 'n')[0]
 

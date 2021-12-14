@@ -21,6 +21,9 @@ let g:is_in_iterm = $TERM_PROGRAM ==? 'iTerm.app'
 let g:is_in_apple_term = $TERM_PROGRAM ==? 'Apple_Terminal'
 let g:is_in_nvim = has('nvim') " 位于 neovim 中
 let g:is_in_vim = !g:is_in_nvim " 位于 vim 中
+let g:is_win = (has('win32') || has('win64')) ? v:true : v:false
+let g:is_linux = (has('unix') && !has('macunix')) ? v:true : v:false
+let g:is_mac = has('macunix') ? v:true : v:false
 
 if has('nvim')
     lua vim.g["system_name"] = vim.loop.os_uname().sysname

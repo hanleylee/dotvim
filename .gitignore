@@ -6,6 +6,9 @@
 [._]ss[a-gi-z]
 [._]sw[a-p]
 
+# tmp
+[._]*.tmp
+
 # Session
 Session.vim
 Sessionx.vim

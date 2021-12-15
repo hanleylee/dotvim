@@ -264,33 +264,66 @@ endfunction
 "}}}
 
 function! hl#Get_titlestr() abort
-  let l:title_str = ''
-  if g:is_linux
-      let l:title_str = hostname() . '  '
-  endif
-  let l:title_str = l:title_str . expand('%:p:~') . '  '
-  if &buflisted
-    let l:title_str = l:title_str . strftime('%Y-%m-%d %H:%M',getftime(expand('%')))
-  endif
+    let l:title_str = ''
+    if g:is_linux
+        let l:title_str = hostname() . '  '
+    endif
+    let l:title_str = l:title_str . expand('%:p:~') . '  '
+    if &buflisted
+        let l:title_str = l:title_str . strftime('%Y-%m-%d %H:%M',getftime(expand('%')))
+    endif
 
-  return l:title_str
+    return l:title_str
 endfunction
 
 " Output current time or unix timestamp in human-readable format.
 function! hl#iso_time(timestamp) abort
-  if a:timestamp
-    return strftime('%Y-%m-%d %H:%M:%S%z', a:timestamp)
-  endif
+    if a:timestamp
+        return strftime('%Y-%m-%d %H:%M:%S%z', a:timestamp)
+    endif
 
-  return strftime('%Y-%m-%d %H:%M:%S%z')
+    return strftime('%Y-%m-%d %H:%M:%S%z')
 endfunction
 
 function! hl#GetGitBranch()
-  let l:res = systemlist('git rev-parse --abbrev-ref HEAD')[0]
-  if match(l:res, 'fatal') != -1
-    return ''
-  else
-    return l:res
-  endif
+    let l:res = systemlist('git rev-parse --abbrev-ref HEAD')[0]
+    if match(l:res, 'fatal') != -1
+        return ''
+    else
+        return l:res
+    endif
+endfunction
+
+function hl#LoadTemplate(read)
+    " read 指示是新文件还是在读取文件
+    " 1: new file
+    " 2: current file
+
+    " 另作处理的文件类型
+    if expand("%:t") =~ '\.h$'
+        return
+    endif
+
+    if g:is_win
+        let templatePrefix = '$VIM/vimfiles/templates/template.'
+    else
+        let templatePrefix = '~/.vim/templates/template.'
+    endif
+    let fname = templatePrefix . &ft
+    let fname = expand(fname)
+
+    if !filereadable(fname)
+        return
+    endif
+
+    if a:read == 0 
+        sil exe 'keepalt read ' . fname
+        " 删除空行
+        normal ggdd
+        setlocal nomodified
+    else
+        echom fname
+        sil exe 'tabedit '. fname
+    endif
 endfunction
 

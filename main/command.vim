@@ -21,6 +21,8 @@ command! PodInstall call hl#cocoapods#execute('pod install')
 command! PodUpdateNoRepoUpdate call hl#cocoapods#execute('pod update --no-repo-update')
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
+command! LoadTemplate call hl#LoadTemplate(0)
+command! Template call hl#LoadTemplate(1)
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
     command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()

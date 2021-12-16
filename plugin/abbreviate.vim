@@ -11,3 +11,4 @@ iabbrev udpated updated
 iabbrev isntall install
 iabbrev cofnig config
 iabbrev toekn token
+iabbrev serach search

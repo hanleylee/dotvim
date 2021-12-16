@@ -44,7 +44,7 @@ endfunc
 
 
 " 移除行尾空格
-func! TrimWhitespace()
+func! TrimTrailingWhitespace()
     let l:save = winsaveview() " 保存当前 window 状态 (光标位置等)
     keeppatterns %s/\s\+$//e " 不添加到查找历史记录中
     call winrestview(l:save) " 恢复 window 窗口状态

@@ -181,6 +181,12 @@ function! hl#embedded_with_string(mode, left_str, right_str)
     endif
 endfunction
 
+function! hl#reindent_document()
+    " execute "normal mzgg=G`zmz"
+    let v = winsaveview()
+    keepjumps normal! gg=G
+    call winrestview(v)
+endfunction
 " format document
 function! hl#format_document(mode) range
     if &filetype ==? 'markdown'
@@ -191,7 +197,7 @@ function! hl#format_document(mode) range
         endif
         execute range . "FormatMarkdown"
     elseif &filetype ==? 'vim'
-        execute "normal mzgg=G`zmz"
+        call hl#reindent_document()
     elseif &filetype ==? 'csv'
         execute "%ArrangeColumn!"
     else
@@ -327,3 +333,115 @@ function hl#LoadTemplate(read)
     endif
 endfunction
 
+" 复制缓冲区到新标签页
+function hl#copy_to_newtab()
+  let temp = tempname()
+  try
+    let nr = bufnr('%')
+    exec "mkview" temp
+    tabnew
+    silent exec "source" temp
+  finally
+    call delete(temp)
+  endtry
+endfunction
+
+" 删除所有未显示且无修改的缓冲区以减少内存占用
+function hl#clean_bufs()
+  for bufNr in filter(range(1, bufnr('$')),
+        \ 'buflisted(v:val) && !bufloaded(v:val)')
+    execute bufNr . 'bdelete'
+  endfor
+endfunction
+
+" 获取可读的文件大小
+function hl#getfsize(file)
+  let size = getfsize(a:file)
+  if has('python3')
+    try
+      py3 from myutils import filesize
+      return py3eval('filesize('.size.')')
+    catch /.*/
+    endtry
+  endif
+  return size . 'B'
+endfunction
+
+" 使用分隔符连接多行
+function hl#join(sep, bang) range
+  if a:sep[0] == '\'
+    let sep = strpart(a:sep, 1)
+  else
+    let sep = a:sep
+  endif
+  let lines = getline(a:firstline, a:lastline)
+  if a:firstline == 1 && a:lastline == line('$')
+    let dellast = 1
+  else
+    let dellast = 0
+  endif
+  exe a:firstline . ',' . a:lastline . 'd_'
+  if a:bang != '!'
+    call map(lines, "substitute(v:val, '^\\s\\+\\|\\s\\+$', '', 'g')")
+  endif
+  call append(a:firstline-1, join(lines, sep))
+  if dellast
+    $d_
+  endif
+endfunction
+
+" 切换显示行号/相对行号/不显示
+function hl#toggle_number()
+  if &nu && &rnu
+    set nonu nornu
+  elseif &nu && !&rnu
+    set rnu
+  else
+    set nu
+  endif
+endfunction
+
+" 将当前窗口置于屏幕中间(全屏时用)
+function hl#center_full()
+  on
+  vs
+  ene
+  setl nocul
+  setl nonu
+  40winc |
+  winc l
+  vs
+  winc l
+  ene
+  setl nocul
+  setl nonu
+  40winc |
+  winc h
+  redr!
+endfunction
+
+" 返回当前日期的中文表示
+function hl#zh_date()
+  let d = strftime("%Y年%m月%d日")
+  let d = substitute(d, '[年月]\@<=0', '', 'g')
+  return d
+endfunction
+
+function hl#close_win(winnr)
+  let winnum = bufwinnr(a:winnr)
+  if winnum == -1
+    return 0
+  endif
+  " Goto the workspace window, close it and then come back to the
+  " original window
+  let curbufnr = bufnr('%')
+  exe winnum . 'wincmd w'
+  close
+  " Need to jump back to the original window only if we are not
+  " already in that window
+  let winnum = bufwinnr(curbufnr)
+  if winnr() != winnum
+    exe winnum . 'wincmd w'
+  endif
+  return 1
+endfunction

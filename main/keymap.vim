@@ -18,16 +18,24 @@ call Source('$HOME/.vim/main/gui_keymap.vim')"
 " Main map {{{
 " let g:mapleader="\<Space>"
 
+nmap <F5> :e!<CR>
+
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
+nnoremap <silent><C-Tab>     :tabnew<CR>
 nnoremap <silent><M-q>       :call hl#close_all()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
+" Ctrl-S 保存文件
+nnoremap <silent><C-S>       :update<CR>
+inoremap <silent><C-S>       <ESC>:update<CR>
+vnoremap <silent><C-S>       <ESC>:update<CR>
 " inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
 " nnoremap <M-;> m`A;<Esc>``
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
+nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
@@ -45,6 +53,15 @@ nnoremap Y y$
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <M-j> gj
+nnoremap <M-k> gk
+vnoremap <M-j> gj
+vnoremap <M-k> gk
+" 上下移动一行文字
+nnoremap <C-j> :m+<cr>
+nnoremap <C-k> :m-2<cr>
+vnoremap <C-j> :m'>+<cr>gv
+vnoremap <C-k> :m'<-2<cr>gv
 
 " nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
@@ -76,10 +93,10 @@ inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
 
-noremap <silent><tab>m :tabnew<cr>
-noremap <silent><tab>e :tabclose<cr>
-noremap <silent><tab>n :tabn<cr>
-noremap <silent><tab>p :tabp<cr>
+noremap <silent><Tab>m :tabnew<cr>
+noremap <silent><Tab>c :tabclose<cr>
+noremap <silent><Tab>n :tabn<cr>
+noremap <silent><Tab>p :tabp<cr>
 
 " replace vim's built-in visual * and # behavior {{{
 xnoremap * :<C-u>call VisualStarSearchSet('/')<CR>/<C-R>=@/<CR><CR>

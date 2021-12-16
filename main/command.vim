@@ -10,7 +10,9 @@ command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>
 command! MergeMD silent! call hl#markdown#merge_md()
 command! CDF silent call CDF()
 command! OFD silent call OFD()
-command! TrimWhitespace call TrimWhitespace()
+command! TrimTrailingWhitespace call TrimTrailingWhitespace()
+" 删除拖尾的空白
+" command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
 command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
 command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
@@ -23,6 +25,10 @@ command! PodUpdateNoRepoUpdate call hl#cocoapods#execute('pod update --no-repo-u
 command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
 command! LoadTemplate call hl#LoadTemplate(0)
 command! Template call hl#LoadTemplate(1)
+command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+"   某个 pattern 出现的次数
+command -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
+command CenterFull call hl#center_full()
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
     command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()

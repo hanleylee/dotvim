@@ -34,13 +34,14 @@ set backup " backup 当前文件
 set writebackup " 在保存时自动写入 backup
 set undofile
 set backupcopy=yes " 默认为 auto, yes 性能低, no 直接重写, auto 会自动选择, 在 mac 上 auto 会覆盖文件创建时间
+set cedit=<C-Y>
 
 " Ignore certain files and folders when globing
 set wildignore+=*.o,*.obj,*.dylib,*.bin,*.dll,*.exe
 set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
 set wildignore+=*.jpg,*.png,*.jpeg,*.bmp,*.gif,*.tiff,*.svg,*.ico
-set wildignore+=*.pyc,*.pkl
-set wildignore+=*.DS_Store
+set wildignore+=*.py[co],*.pkl
+set wildignore+=*.DS_Store,.*.swp
 set wildignore+=*.aux,*.bbl,*.blg,*.brf,*.fls,*.fdb_latexmk,*.synctex.gz,*.xdv
 set wildignorecase  " ignore file and dir name cases in cmd-completion
 
@@ -72,6 +73,7 @@ set ttimeout        " time out for key codes
 set ttimeoutlen=10  " wait up to 20ms after Esc for special key(default 1s)
 set switchbuf+=usetab,newtab
 set hidden  " 允许在未保存 buffer 的时候切换至另一个 buffer
+set tabpagemax=50
 "}}}
 
 "=======================   File   ======================={{{
@@ -97,6 +99,7 @@ set smartcase " 搜索时只有输入大写字母时才会强制符合大小写,
 set showmatch " 匹配括号
 
 " External program to use for grep command
+set grepprg=grep\ -nH\ $*
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
   set grepformat=%f:%l:%c:%m
@@ -158,7 +161,10 @@ set diffopt+=internal,indent-heuristic,algorithm:histogram
 syntax on " 设置语法高亮
 set number " 显示行号
 set relativenumber
-set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》 " Set matching pairs of characters and highlight matching brackets
+try
+    set matchpairs+=<:>,(:),{:},[:],【:】,《:》,〈:〉,［:］,（:）,「:」,『:』,‘:’,“:” " Set matching pairs of characters and highlight matching brackets
+catch /^Vim\%((\a\+)\)\=:E474/
+endtry
 set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
 set wildmode=full
 set showcmd " 右下角显示正在操作的命令
@@ -188,6 +194,10 @@ set textwidth=150
 set viewoptions=folds,options,cursor,curdir,slash,unix
 set colorcolumn=+1
 
+if has('arabic')
+  set noarabicshape
+endif
+
 if has('termguicolors')
     set termguicolors
 endif
@@ -198,3 +208,8 @@ set nostartofline
 " set showtabline=2 " 始终显示窗口上头的 tabline
 "}}}
 
+" try
+"   set completeopt+=popup
+"   set completepopup=border:off
+" catch /.*/
+" endtry

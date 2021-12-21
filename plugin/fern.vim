@@ -90,8 +90,8 @@ function! FernInit() abort
     nmap <buffer> T         <Plug>(fern-action-open:tabedit)gT
     nmap <buffer> l         <Plug>(fern-action-open-or-expand)
     nmap <buffer> x         <Plug>(fern-action-open:system)
-    nmap <buffer> <C-r>     <Plug>(fern-action-reload)
-    " nmap <buffer> <F5>      <Plug>(fern-action-reload)
+    " nmap <buffer> <C-r>     <Plug>(fern-action-reload)
+    nmap <buffer> <F5>      <Plug>(fern-action-reload)
     nmap <buffer> r         <Plug>(fern-action-move)
     nmap <buffer> R         <Plug>(fern-action-rename)
     nmap <buffer> .         <Plug>(fern-action-repeat)

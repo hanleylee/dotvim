@@ -560,6 +560,9 @@
 
     // coc-pyright
     "pyright.enable": true,
+    // "pyright.server": "",
+    "pyright.completion.importSupport": true,
+    "pyright.disableCompletion": false,
     "pyright.trace.server": "off",
     "pyright.disableDiagnostics": false,
     "pyright.completion.snippetSupport": true,

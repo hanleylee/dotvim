@@ -16,6 +16,6 @@ let g:floaterm_height = 0.8
 let g:floaterm_borderchars = '─│─│┌┐┘└'
 let g:floaterm_rootmarkers = g:hl_rootmarkers
 let g:floaterm_opener = 'tabe'
-let g:floaterm_autoclose = 0
+let g:floaterm_autoclose = 1
 let g:floaterm_autohide = 1
 let g:floaterm_autoinsert = v:true

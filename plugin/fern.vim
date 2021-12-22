@@ -109,6 +109,7 @@ function! FernInit() abort
     nmap <buffer> s         <Plug>(fern-action-open:split)
     nmap <buffer> gs        <Plug>(fern-action-open:split)<C-w>p
     nmap <buffer> q         :<C-u>quit<CR>
+    nmap <buffer><Leader>gs :Git<CR>
 endfunction
 
 " <C-C>                               cancel                   <Plug>(fern-action-cancel)

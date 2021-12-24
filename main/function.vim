@@ -111,6 +111,20 @@ func! CDF()
     exec 'e '. l:final_path
 endfunction
 
+" change to the explorer interface of current path of iterm2
+func! CDIT()
+    let l:current_path = system("pfit")
+    let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
+    exec 'e '. l:final_path
+endfunction
+
+" change to the explorer interface of current path of Xcode
+func! MVXC()
+    let l:current_path = system("pfxc")
+    let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
+    exec 'e '. l:final_path
+endfunction
+
 " add path to vim from environment variables
 " This is a list of directories which will be searched when using the
 " |gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands

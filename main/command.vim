@@ -10,6 +10,8 @@ command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>
 command! MergeMD silent! call hl#markdown#merge_md()
 command! CDF silent call CDF()
 command! OFD silent call OFD()
+command! CDIT silent call CDIT()
+command! MVXC silent call MVXC()
 command! TrimTrailingWhitespace call TrimTrailingWhitespace()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``

@@ -106,23 +106,21 @@ endfunction
 
 " change to the explorer interface of current path of mac finder
 func! CDF()
-    let l:current_path = system("osascript -e 'tell application \"Finder\" to POSIX path of (target of window 1 as alias)'")
-    let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
-    exec 'e '. l:final_path
+    let l:path = system("osascript -e 'tell application \"Finder\" to POSIX path of (target of window 1 as alias)'")
+    " let l:final_path = substitute(l:path, '[\x0]', '', 'g')
+    exec 'e '. l:path
 endfunction
 
 " change to the explorer interface of current path of iterm2
 func! CDIT()
-    let l:current_path = system("pfit")
-    let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
-    exec 'e '. l:final_path
+    let l:path = system("pfit")
+    exec 'e '. l:path
 endfunction
 
 " change to the explorer interface of current path of Xcode
 func! MVXC()
-    let l:current_path = system("pfxc")
-    let l:final_path = substitute(l:current_path, '[\x0]', '', 'g')
-    exec 'e '. l:final_path
+    let l:path = system("pfxc")
+    exec 'e '. l:path
 endfunction
 
 " add path to vim from environment variables

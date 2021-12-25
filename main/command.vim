@@ -3,34 +3,45 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" For File Manipulate {{{
+command! CDF silent call CDF()
+command! OFD silent call OFD()
+command! CDIT silent call CDIT()
+command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
+command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
+command! LoadTemplate call hl#LoadTemplate(0)
+command! Template call hl#LoadTemplate(1)
+command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+"}}}
+
+" Format {{{
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#Format_CN()
 command! FormatObjectMapper silent! call hl#format_objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#format_surge_rule()
 command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>,<line2> call hl#format_cn() | call winrestview(b:view)
 command! MergeMD silent! call hl#markdown#merge_md()
-command! CDF silent call CDF()
-command! OFD silent call OFD()
-command! CDIT silent call CDIT()
-command! MVXC silent call MVXC()
 command! TrimTrailingWhitespace call TrimTrailingWhitespace()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
-command! -nargs=0 OpenInBrowser silent call OpenInBrowser()
 command! UnescapeJSON silent! call UnescapeJSON()
 command! EscapeJSON silent! call EscapeJSON()
-command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
+" }}}
+
+" Command {{{
 command! ChezmoiApply !chezmoi apply --source-path "%"
+"`:Redir` followed by either shell or vim command
+command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
+" 某个 pattern 出现的次数
+command -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
+command CenterFull call hl#center_full()
+" }}}
+
+" iOS {{{
+command! MVXC silent call MVXC()
 command! PodUpdate call hl#cocoapods#execute('pod update')
 command! PodInstall call hl#cocoapods#execute('pod install')
 command! PodUpdateNoRepoUpdate call hl#cocoapods#execute('pod update --no-repo-update')
-"`:Redir` followed by either shell or vim command
-command! -nargs=+ -complete=command Redir silent call Redir(<q-args>)
-command! LoadTemplate call hl#LoadTemplate(0)
-command! Template call hl#LoadTemplate(1)
-command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
-"   某个 pattern 出现的次数
-command -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
-command CenterFull call hl#center_full()
+" }}}
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
     command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()

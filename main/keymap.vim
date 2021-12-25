@@ -67,6 +67,7 @@ vnoremap <C-k> :m'<-2<cr>gv
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
 " nnoremap <expr> OO printf('m`%sO<ESC>``', v:count1)
 
+nmap <Space> za
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
@@ -443,8 +444,8 @@ endif
 
 " vim-easymotion {{{
 if hl#plug_loaded('vim-easymotion')
-    nmap <Space>          <Plug>(easymotion-bd-w)
-    vmap <Space>          <Plug>(easymotion-bd-w)
+    nmap <Leader><Space>          <Plug>(easymotion-bd-w)
+    vmap <Leader><Space>          <Plug>(easymotion-bd-w)
     " Move to line
     map <Leader>L <Plug>(easymotion-bd-jk)
     nmap <Leader>L <Plug>(easymotion-overwin-line)

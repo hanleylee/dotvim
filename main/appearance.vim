@@ -12,7 +12,7 @@ endfunction
 
 function! HLColorScheme()
     " highlight {{{
-    highlight Cursor        cterm=NONE      ctermbg=black ctermfg=white  gui=NONE     guifg=black     guibg=white
+    highlight Cursor        cterm=bold      ctermbg=black ctermfg=white  gui=bold     guifg=black     guibg=white
     highlight Visual        cterm=reverse,bold   ctermbg=NONE  ctermfg=NONE   gui=reverse,bold  guifg=NONE      guibg=NONE
     highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145      gui=bold     guibg=#4B5263   guifg=#ABB2BF
     " highlight CursorLineNr guibg=green guifg=black

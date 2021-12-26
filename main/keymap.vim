@@ -39,7 +39,8 @@ nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
 " inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<C-u>"
-inoremap <silent> <C-CR> <C-g>u<CR>
+inoremap <silent><expr> <C-CR> "\<C-g>u\<CR>\<Esc>cc"
+" inoremap <silent> <C-CR> <C-g>u<CR>
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>

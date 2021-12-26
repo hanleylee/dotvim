@@ -128,7 +128,7 @@ function! hl#format_cn() range
     let regex_list = add(regex_list, '/：/: /g')
     let regex_list = add(regex_list, '/？/? /g')
     let regex_list = add(regex_list, '/；/; /g')
-    let regex_list = add(regex_list, '/“\|”/"/g')
+    let regex_list = add(regex_list, '/“\|”\|‘\|’/"/g')
     let regex_list = add(regex_list, '/、/, /g')
     let regex_list = add(regex_list, '/（/(/g')
     let regex_list = add(regex_list, '/）/)/g')

@@ -149,6 +149,9 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tpope/vim-scriptease'
     Plug 'sillybun/vim-repl'
     Plug 'rizzatti/dash.vim'
+
+    " ============= Else ==============
+    Plug 'skanehira/christmas.vim'
 endif
 " }}}
 

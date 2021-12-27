@@ -283,6 +283,18 @@ if hl#plug_loaded('asyncrun.vim')
 endif
 "}}}
 
+" asynctasks.vim {{{
+if hl#plug_loaded('asynctasks.vim')
+    " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
+    nnoremap <silent><F2> :call hl#async_task('file-build-run')<CR>
+    nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
+    nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
+    nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
+    nnoremap <silent><M-.> :AsyncStop<CR>
+    nnoremap <silent><D-.> :AsyncStop<CR>
+endif
+"}}}
+
 " vim-qf {{{
 if hl#plug_loaded('vim-qf')
     " nmap <F10> <Plug>(qf_qf_toggle)
@@ -299,17 +311,6 @@ if hl#plug_loaded('ctrlsf.vim')
     nnoremap <C-s>o :CtrlSFOpen<CR>
     nnoremap <C-s>t :CtrlSFToggle<CR>
     inoremap <C-s>t <Esc>:CtrlSFToggle<CR>
-endif
-"}}}
-
-" asynctasks.vim {{{
-if hl#plug_loaded('asynctasks.vim')
-    " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
-    nnoremap <silent><F2> :call hl#async_task('file-build-run')<CR>
-    nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
-    nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
-    nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
-    nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}
 

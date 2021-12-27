@@ -120,7 +120,7 @@ endfunction
 " change to the explorer interface of current path of Xcode
 func! MVXC()
     let l:path = system("pfxc")
-    exec 'e '. l:path
+    exec 'tabnew '. l:path
 endfunction
 
 " add path to vim from environment variables

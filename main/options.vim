@@ -30,6 +30,7 @@ set modelines=5
 set history=10000 " 历史命令最大记录数
 set confirm " Ask for confirmation when handling unsaved or read-only files
 set autowrite " Auto-write the file based on some condition
+set autoread
 set backup " backup 当前文件
 set writebackup " 在保存时自动写入 backup
 set undofile

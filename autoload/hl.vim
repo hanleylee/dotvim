@@ -445,3 +445,15 @@ function hl#close_win(winnr)
   endif
   return 1
 endfunction
+
+" insert map for ctrl-enter{{{
+function! hl#insert_map_for_ctrl_enter()
+    let current_syntax = synIDattr(synIDtrans(synID(line("."), col("$")-1, 1)), "name")
+    " let current_indent_size = indent('.')
+    if current_syntax ==? 'Comment'
+        return "\<C-g>u\<CR>\<C-u>"
+    else
+        return "\<C-g>u\<CR>"
+    endif
+endfunction
+"}}}

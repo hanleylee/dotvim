@@ -75,3 +75,29 @@ func! hl#quickui#show_translate(word)
     let opts = {"close": "button", "title": tool}
     call quickui#textbox#command(command, opts)
 endfunction
+
+func! hl#quickui#show_context()
+
+    let content = [
+                \ ["Get D&oc(Coc)\t(K)", 'call hl#show_documentation()'],
+                \ ["&Peek Definition\t\\qp", 'call quickui#tools#preview_tag("")'],
+                \ ["--", ],
+                \ ["Goto D&efinition(Coc)\tgd", "call CocActionAsync('jumpDefinition')"],
+                \ ["Goto &References(Coc)\tgr", "call CocActionAsync('jumpReferences')"],
+                \ ["Goto I&mplementation(Coc)\tgm", "CocActionAsync('jumpImplementation')"],
+                \ ["Get &Type Definition(Coc)\tgy", "call CocActionAsync('jumpTypeDefinition')"],
+                \ ["--", ],
+                \ ["Find &Definition\t\\cg", 'call feedkeys("\\cg")', 'GNU Global search g'],
+                \ ["Find &Symbol\t\\cs", 'exec "call feedkeys("\\cs")', 'GNU Gloal search s'],
+                \ ["Find &Called by\t\\cd", 'exec "call feedkeys("\\cd")', 'GNU Global search d'],
+                \ ["Find C&alling\t\\cc", 'exec "call feedkeys("\\cc")', 'GNU Global search c'],
+                \ ["Find &From Ctags\t\\cz", 'exec "call feedkeys("\\cz")', 'GNU Global search z'],
+                \ ["--", ],
+                \ ['Cpp&man', 'exec "Cppman " . expand("<cword>")', '', "c,cpp"],
+                \ ['P&ython Doc', 'call quickui#tools#python_help("")', '', 'python'],
+                \ ]
+    " set cursor to the last position
+    let opts = {'index':g:quickui#context#cursor}
+
+    call quickui#context#open(content, opts)
+endfunction

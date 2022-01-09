@@ -47,19 +47,21 @@ function! hl#markdown#Format() range
     " let regex_list = add(regex_list, '/\S\{-}\zs\s*\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
     " let regex_list = add(regex_list, '/\%(^\|\S\{-1,}\zs\s*\)\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
 
-    " 清除行首为高亮行内代码的空格
-    " let regex_list = add(regex_list, '/^ `/`/g')
+    " 1. 为 inline code 添加左右括号
+    let regex_list = add(regex_list, '/\s*\(`[^`]\+\n*[^`]\+`\)\s*/ \1 /g')
+    " 2. 清除由上一步骤造成的副作用(行首单空格)
+    let regex_list = add(regex_list, '/^\s`/`/g')
 
-    " 清除标点前的空格
+    " 3. 清除标点前的空格
     let regex_list = add(regex_list, '/\(\S\)\s\+\([;,\])]\)/\1\2/g')
 
-    " 清除某些标点后(如 '(' '[' )的空格
+    " 4. 清除某些标点后(如 '(' '[' )的空格
     " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')
 
-    " 清除尾部空格
+    " 5. 清除尾部空格
     let regex_list = add(regex_list, '/\s\+$//g')
 
-    " 清空所有一行以上的空行
+    " 6. 清空所有一行以上的空行
     let regex_list = add(regex_list, '/^\n$//g')
 
     " echom a:firstline

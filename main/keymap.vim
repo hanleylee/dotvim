@@ -220,12 +220,13 @@ endif
 
 " vim-quickui {{{
 if hl#plug_loaded('vim-quickui')
-    " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
+    nnoremap <silent><Leader>qp          :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
     vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
     nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
     vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
+    nnoremap <silent>K                   :call hl#quickui#show_context()<CR>
 endif
 "}}}
 
@@ -315,6 +316,20 @@ if hl#plug_loaded('ctrlsf.vim')
 endif
 "}}}
 
+if hl#plug_loaded('vim-gutentags')
+    nmap <silent> <leader>cs <Plug>GscopeFindSymbol
+    nmap <silent> <leader>cg <Plug>GscopeFindDefinition
+    nmap <silent> <leader>cc <Plug>GscopeFindCallingFunc
+    nmap <silent> <leader>ct <Plug>GscopeFindText
+    nmap <silent> <leader>ce <Plug>GscopeFindEgrep
+    nmap <silent> <leader>cf <Plug>GscopeFindFile
+    nmap <silent> <leader>ci <Plug>GscopeFindInclude
+    nmap <silent> <leader>cd <Plug>GscopeFindCalledFunc
+    nmap <silent> <leader>ca <Plug>GscopeFindAssign
+    nmap <silent> <leader>cz <Plug>GscopeFindCtag
+    nmap <silent> <leader>ck :GscopeKill<cr>
+endif
+
 if hl#plug_loaded('vim-sandwich')
     xmap is <Plug>(textobj-sandwich-query-i)
     xmap as <Plug>(textobj-sandwich-query-a)
@@ -342,7 +357,7 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <CR> hl#coc#insert_map_for_enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-    nnoremap <silent>K          :call hl#coc#show_documentation()<CR>
+    " nnoremap <silent>K          :call hl#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
     nmap <silent>gy             <Plug>(coc-type-definition)
     nmap <silent>gm             <Plug>(coc-implementation)
@@ -483,7 +498,7 @@ endif
 " YouCompleteMe {{{
 if hl#plug_loaded('YouCompleteMe')
     nnoremap gd                  :YcmCompleter GoTo<CR>
-    nnoremap <silent>K           <Plug>(YCMHover)
+    " nnoremap <silent>K           <Plug>(YCMHover)
     nnoremap <silent><Leader>gr  :YcmCompleter GoToReferences<CR>
     nnoremap <silent><Leader>rn  :YcmCompleter RefactorRename<Space><C-R><C-W>
 endif

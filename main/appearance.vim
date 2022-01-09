@@ -36,11 +36,16 @@ function! HLColorScheme()
 
     " vim-quickui {{{
     if hl#plug_loaded('vim-quickui')
-        highlight! QuickBG ctermfg=0 ctermbg=7 guifg=black guibg=gray
-        highlight! QuickSel cterm=bold ctermfg=0 ctermbg=2 gui=bold guibg=brown guifg=gray
-        highlight! QuickKey term=bold ctermfg=9 gui=bold guifg=#f92772
-        highlight! QuickOff ctermfg=59 guifg=#75715e
-        highlight! QuickHelp ctermfg=247 guifg=#959173
+        " hi! QuickBG ctermfg=0 ctermbg=7 guifg=green guibg=red
+        " hi! QuickSel cterm=bold ctermfg=0 ctermbg=2 gui=bold guibg=brown guifg=gray
+        " hi! QuickKey term=bold ctermfg=9 gui=bold guifg=#f92772
+        " hi! QuickOff ctermfg=59 guifg=#75715e
+        " hi! QuickHelp ctermfg=247 guifg=#959173
+        " call onedark#set_highlight('QuickBG', {'fg': onedark#GetColors()['comment_grey'], 'bg': onedark#GetColors()['visual_grey']})
+        " call onedark#set_highlight('QuickSel', {'fg': onedark#GetColors()['black'], 'bg': onedark#GetColors()['comment_grey']})
+        " call onedark#set_highlight('QuickKey', {'fg': onedark#GetColors()['green'], 'bg': onedark#GetColors()['comment_grey']})
+        " call onedark#set_highlight('QuickOff', {'fg': onedark#GetColors()['red'], 'bg': onedark#GetColors()['comment_grey']})
+        " call onedark#set_highlight('QuickHelp', {'fg': onedark#GetColors()['white'], 'bg': onedark#GetColors()['visual_grey']})
     endif
     "}}}
 

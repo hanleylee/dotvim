@@ -457,3 +457,16 @@ function! hl#insert_map_for_ctrl_enter()
     endif
 endfunction
 "}}}
+
+" show document{{{
+function! hl#show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+endfunction
+"}}}
+

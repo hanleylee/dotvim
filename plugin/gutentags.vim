@@ -74,3 +74,4 @@ let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_define_advanced_commands = 1
 " let g:gutentags_trace = 1 "将此选项打开, 发生错误后再使用 messages 查看出错的原因
 let g:gutentags_plus_switch = 1
+let g:gutentags_plus_nomap = 1 " 不使用默认映射

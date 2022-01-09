@@ -76,25 +76,28 @@ func! hl#quickui#show_translate(word)
     call quickui#textbox#command(command, opts)
 endfunction
 
-func! hl#quickui#show_context()
-
+func! hl#quickui#show_context(content)
     let content = [
-                \ ["Get D&oc(Coc)\t(K)", 'call hl#show_documentation()'],
+                \ ["Get D&ocumentation\t\\K", 'call hl#show_documentation()'],
                 \ ["&Peek Definition\t\\qp", 'call quickui#tools#preview_tag("")'],
                 \ ["--", ],
-                \ ["Goto D&efinition(Coc)\tgd", "call CocActionAsync('jumpDefinition')"],
+                \ ["Goto &Definition(Coc)\tgd", "call CocActionAsync('jumpDefinition')"],
                 \ ["Goto &References(Coc)\tgr", "call CocActionAsync('jumpReferences')"],
-                \ ["Goto I&mplementation(Coc)\tgm", "CocActionAsync('jumpImplementation')"],
-                \ ["Get &Type Definition(Coc)\tgy", "call CocActionAsync('jumpTypeDefinition')"],
+                \ ["Goto I&mplementation(Coc)\tgm", "call CocActionAsync('jumpImplementation')"],
+                \ ["Goto T&ype Definition(Coc)\tgy", "call CocActionAsync('jumpTypeDefinition')"],
                 \ ["--", ],
-                \ ["Find &Definition\t\\cg", 'call feedkeys("\\cg")', 'GNU Global search g'],
-                \ ["Find &Symbol\t\\cs", 'exec "call feedkeys("\\cs")', 'GNU Gloal search s'],
-                \ ["Find &Called by\t\\cd", 'exec "call feedkeys("\\cd")', 'GNU Global search d'],
-                \ ["Find C&alling\t\\cc", 'exec "call feedkeys("\\cc")', 'GNU Global search c'],
-                \ ["Find &From Ctags\t\\cz", 'exec "call feedkeys("\\cz")', 'GNU Global search z'],
+                \ ["Find this Definition(g)\t\\cg", 'call feedkeys("\\cg")', 'GNU Global search g'],
+                \ ["Find this C Symbol(&s)\t\\cs", 'call feedkeys("\\cs")', 'GNU Gloal search s'],
+                \ ["Find functions Called by this function(d)\t\\cd", 'call feedkeys("\\cd")', 'GNU Global search d'],
+                \ ["Find functions Calling this function(&c)\t\\cc", 'call feedkeys("\\cc")', 'GNU Global search c'],
+                \ ["Find from Ctags(&z)\t\\cz", 'call feedkeys("\\cz")', 'GNU Global search z'],
+                \ ["Find this Text String(&t)\t\\ct", 'call feedkeys("\\ct")', 'GNU Global search t'],
                 \ ["--", ],
-                \ ['Cpp&man', 'exec "Cppman " . expand("<cword>")', '', "c,cpp"],
-                \ ['P&ython Doc', 'call quickui#tools#python_help("")', '', 'python'],
+                \ ["ECDICT Dict\t<D-d>", 'call hl#quickui#show_dict("' . a:content . '")'],
+                \ ["ECDICT Translate\t<D-t>", 'call hl#quickui#show_translate("' . a:content . '")'],
+                \ ["--", ],
+                \ ['Cppman', 'exec "Cppman " . expand("<cword>")', '', "c,cpp"],
+                \ ['Python Doc', 'call quickui#tools#python_help("")', '', 'python'],
                 \ ]
     " set cursor to the last position
     let opts = {'index':g:quickui#context#cursor}

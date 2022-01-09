@@ -91,13 +91,19 @@ nnoremap <silent><M-J> <C-w>j
 nnoremap <silent><M-K> <C-w>k
 nnoremap <silent><M-L> <C-w>l
 
-" text movement
+" Text Movement
 inoremap <M-f>    <C-Right>
 cnoremap <M-f>    <C-Right>
 tnoremap <M-f>    <C-Right>
 inoremap <M-b>    <C-Left>
 cnoremap <M-b>    <C-Left>
 tnoremap <M-b>    <C-Left>
+
+" Movement on popup window
+nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
+nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
+nnoremap <silent><M-k> :call hl#preview_scroll('k')<cr>
+nnoremap <silent><M-j> :call hl#preview_scroll('j')<cr>
 
 " quick move bracket to backward
 " nnoremap <expr> <M-B>  hl#move_bracket_to_left()
@@ -106,9 +112,6 @@ tnoremap <M-b>    <C-Left>
 " quick move any character to backward
 nnoremap <expr> <M-B>  hl#move_any_char_to_left()
 inoremap <expr> <M-B>  hl#move_any_char_to_left()
-
-nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
-nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
 
 if hl#plug_loaded('fzf.vim')
     nnoremap <silent><M-x> :Commands<CR>

@@ -55,10 +55,10 @@ nnoremap Y y$
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-nnoremap <M-j> gj
-nnoremap <M-k> gk
-vnoremap <M-j> gj
-vnoremap <M-k> gk
+" nnoremap <M-j> gj
+" nnoremap <M-k> gk
+" vnoremap <M-j> gj
+" vnoremap <M-k> gk
 " 上下移动一行文字
 nnoremap <C-j> :m+<cr>
 nnoremap <C-k> :m-2<cr>
@@ -226,7 +226,8 @@ if hl#plug_loaded('vim-quickui')
     vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
     nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
     vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
-    nnoremap <silent>K                   :call hl#quickui#show_context()<CR>
+    nnoremap <silent>K                   :call hl#quickui#show_context(expand("<cword>"))<CR>
+    vnoremap <silent>K                   :<C-u>call hl#quickui#show_context(hl#visual_selection())<CR>
 endif
 "}}}
 
@@ -357,7 +358,7 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <CR> hl#coc#insert_map_for_enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-    " nnoremap <silent>K          :call hl#show_documentation()<CR>
+    nnoremap <silent><Leader>K  :call hl#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
     nmap <silent>gy             <Plug>(coc-type-definition)
     nmap <silent>gm             <Plug>(coc-implementation)

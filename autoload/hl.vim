@@ -26,20 +26,32 @@ endfunction
 
 " 使 preview 窗口滚动, 比如 coc.nvim 或者 vim-quickui
 function! hl#preview_scroll(direction)
-    let scroll_lines = 20
     if a:direction ==# 'u'
-        if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
-            call coc#float#scroll(0, scroll_lines)
-        elseif hl#plug_loaded('vim-quickui')
-            call quickui#preview#scroll(-scroll_lines)
-        endif
+        let scroll_lines = -20
+        let scroll_direction = 0
     elseif a:direction ==# 'd'
+        let scroll_lines = 20
+        let scroll_direction = 1
+    elseif a:direction ==# 'k'
+        let scroll_lines = -1
+        let scroll_direction = 0
+    elseif a:direction ==# 'j'
+        let scroll_lines = 1
+        let scroll_direction = 1
+    endif
+    " if a:direction ==# 'u'
         if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
-            call coc#float#scroll(1, scroll_lines)
+            call coc#float#scroll(scroll_direction, abs(scroll_lines))
         elseif hl#plug_loaded('vim-quickui')
             call quickui#preview#scroll(scroll_lines)
         endif
-    endif
+    " elseif a:direction ==# 'd'
+    "     if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
+    "         call coc#float#scroll(1, scroll_lines)
+    "     elseif hl#plug_loaded('vim-quickui')
+    "         call quickui#preview#scroll(scroll_lines)
+    "     endif
+    " endif
 endfunction
 
 " quick move bracket to backward when cursor is inside a pair of paris `(|)`

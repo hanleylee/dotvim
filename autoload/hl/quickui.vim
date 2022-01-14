@@ -100,7 +100,7 @@ func! hl#quickui#show_context(content)
                 \ ['Python Doc', 'call quickui#tools#python_help("")', '', 'python'],
                 \ ]
     " set cursor to the last position
-    let opts = {'index':g:quickui#context#cursor}
+    let opts = {'index': g:quickui#context#cursor}
 
     call quickui#context#open(content, opts)
 endfunction

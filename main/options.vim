@@ -153,7 +153,9 @@ set formatlistpat+=^\\s*[-–+o*•]\\s\\+      " Bullet points
 set diffopt=
 set diffopt+=vertical  " show diff in vertical position
 set diffopt+=filler  " show filler for deleted lines
-set diffopt+=closeoff  " turn off diff when one file window is closed
+if has('patch-8.1.2289')
+    set diffopt+=closeoff  " turn off diff when one file window is closed
+endif
 set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
 "}}}

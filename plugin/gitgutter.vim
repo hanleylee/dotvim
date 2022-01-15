@@ -29,7 +29,7 @@ let g:gitgutter_git_executable = 'git'
 " let g:gitgutter_git_args = ''
 " let g:gitgutter_diff_args = ''
 " let g:gitgutter_diff_relative_to = ''
-" let g:gitgutter_diff_base = '' "diff against any commit
+let g:gitgutter_diff_base = 'HEAD' "diff against any commit
 let g:gitgutter_grep = 'grep'
 
 let g:gitgutter_show_msg_on_hunk_jumping = 1

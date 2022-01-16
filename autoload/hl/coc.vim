@@ -31,3 +31,21 @@ function hl#coc#highlight_current_cursor()
     endif
 endfunction
 "}}}
+
+function! hl#coc#disable_for_type()
+  " if index(g:coc_filetypes_enable, &filetype) == -1
+  "   :silent! CocDisable
+  " else
+  "   :silent! CocEnable
+  " endif
+  	if index(g:coc_disable_file_types, &filetype) != -1
+        let b:coc_enabled = 0
+    endif
+endfunction
+
+function! hl#coc#disable_for_large_file()
+    let total_line = line('$')
+    if total_line > g:coc_max_acceptable_line
+        let b:coc_enabled = 0
+    endif
+endfunction

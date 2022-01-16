@@ -99,11 +99,8 @@ if hl#plug_loaded('coc.nvim')
         autocmd CursorMoved * silent call hl#coc#highlight_current_cursor()
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-    augroup end
-
-    augroup CocDisabled
-        autocmd!
-        " autocmd FileType markdown let b:coc_suggest_disable = 1
+        autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_type()
+        autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_large_file()
     augroup end
 endif
 

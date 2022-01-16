@@ -57,3 +57,6 @@ let g:coc_global_extensions = [
             \ 'coc-yaml',
             \ 'coc-yank',
             \ ]
+
+let g:coc_disable_file_types = []
+let g:coc_max_acceptable_line = 10000

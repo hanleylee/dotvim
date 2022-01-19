@@ -294,7 +294,6 @@ if hl#plug_loaded('asynctasks.vim')
     nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
     nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
     nnoremap <silent><M-.> :AsyncStop<CR>
-    nnoremap <silent><D-.> :AsyncStop<CR>
 endif
 "}}}
 

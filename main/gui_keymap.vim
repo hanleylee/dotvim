@@ -127,8 +127,9 @@ if hl#plug_loaded('vim-commentary')
 endif
 
 if hl#plug_loaded('asynctasks.vim')
-    noremap <silent><D-r>  :<C-u>call hl#async_task('file-build-run')<CR>
-    nnoremap <silent><D-b> :<C-u>call hl#async_task('project-build')<CR>
+    noremap <silent><D-r> :<C-u>call hl#async_task('file-build-run')<CR>
+    noremap <silent><D-b> :<C-u>call hl#async_task('project-build')<CR>
+    noremap <silent><D-.> :<C-u>AsyncStop<CR>
 endif
 
 if hl#plug_loaded('vim-quickui')

@@ -45,7 +45,9 @@ endfunction
 
 function! hl#coc#disable_for_large_file()
     let total_line = line('$')
-    if total_line > g:coc_max_acceptable_line
+    let total_column = col('$')
+
+    if (total_line > g:coc_max_acceptable_line) || (total_column > g:coc_max_acceptable_column)
         let b:coc_enabled = 0
     endif
 endfunction

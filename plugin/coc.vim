@@ -60,3 +60,4 @@ let g:coc_global_extensions = [
 
 let g:coc_disable_file_types = []
 let g:coc_max_acceptable_line = 10000
+let g:coc_max_acceptable_column = 10000

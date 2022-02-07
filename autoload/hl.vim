@@ -221,7 +221,7 @@ endfunction
 function! hl#async_task(mode)
     let filename = expand('%:t')
     if filename ==# 'Podfile'
-        silent update | execute 'PodUpdateNoRepoUpdate'
+        silent update | execute 'PodUpdate'
     elseif &filetype ==? 'vim'
         silent update | source %
     else

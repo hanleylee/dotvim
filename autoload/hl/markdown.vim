@@ -47,13 +47,13 @@ function! hl#markdown#Format() range
     " let regex_list = add(regex_list, '/\S\{-}\zs\s*\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
     " let regex_list = add(regex_list, '/\%(^\|\S\{-1,}\zs\s*\)\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
 
-    " 1. 为 inline code 添加左右括号
+    " 1. 为 inline code 添加左右空格
     let regex_list = add(regex_list, '/\s*\(`[^`]\+\n*[^`]\+`\)\s*/ \1 /g')
     " 2. 清除由上一步骤造成的副作用(行首单空格)
     let regex_list = add(regex_list, '/^\s`/`/g')
 
     " 3. 清除标点前的空格
-    let regex_list = add(regex_list, '/\(\S\)\s\+\([;,\])]\)/\1\2/g')
+    let regex_list = add(regex_list, '/\(\S\)\s\+\([:;,\])]\)/\1\2/g')
 
     " 4. 清除某些标点后(如 '(' '[' )的空格
     " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')

@@ -88,15 +88,34 @@ endfunction
 " 对 JSON 数据进行转义
 func! UnescapeJSON()
     setf json
-    %s/\\"/"/g
-    Autoformat
+    " MARK: method 1: use sed
+    " sed -e 's/\\\"/\"/g' -e 's/^.//g' -e 's/.$//g'
+    " MARK: method 2: use vim regex
+    " %s/\\"/"/g 
+    " %s/^.//g
+    " %s/.$//g
+    " Autoformat
+    " MARK: method 3: use jq
+    %!jq '. | fromjson' --indent 4
 endfunc
 
 " 对 JSON 数据进行去除转义
 func! EscapeJSON()
-    %s/"/\\"/g
-    %s/\s//g
-    %s/\n//g
+    " MARK: method 1: use vim regrex
+    " %s/"/\\"/g
+    " %s/\s//g
+    " %s/\n//g
+    " %s/^/"/g
+    " %s/$/"/g
+    " MARK: method 2: use jq(1)
+    " %!jq -R -s '.'
+    " MARK: method 2: use jq(2)
+    " %!jq @json
+    " MARK: method 2: use jq(3)
+    " %!jq '. | tostring'
+    " MARK: method 2: use jq(4)
+    %!jq '. | tojson'
+
 endfunc
 
 " open frontmost vim path in mac finder

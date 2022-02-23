@@ -80,6 +80,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'chrisbra/csv.vim'
     Plug 'fladson/vim-kitty'
     Plug 'alker0/chezmoi.vim'
+    Plug 'aklt/plantuml-syntax'
     " Plug '$HOME/.vim/hanleylee/vim-alternate'
     Plug '$HOME/.vim/hanleylee/vim-gitignore'
     Plug '$HOME/.vim/hanleylee/vim-markdown'
@@ -149,6 +150,8 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tpope/vim-scriptease'
     Plug 'sillybun/vim-repl'
     Plug 'rizzatti/dash.vim'
+    Plug 'tyru/open-browser.vim'
+    Plug 'weirongxu/plantuml-previewer.vim'
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'

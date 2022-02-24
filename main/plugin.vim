@@ -74,6 +74,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'vim-ruby/vim-ruby'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    Plug 'dart-lang/dart-vim-plugin'
     Plug 'mityu/vim-applescript'    " for applescript
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释

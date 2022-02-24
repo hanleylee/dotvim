@@ -3,7 +3,6 @@
     "coc.preferences.maxFileSize": "10MB",
     "coc.preferences.jumpCommand": "edit",
     "coc.preferences.promptInput": true,
-    "coc.preferences.colorSupport": true,
     "coc.preferences.watchmanPath": "",
     "coc.preferences.formatOnType": false,
     "coc.preferences.floatActions": true,
@@ -15,9 +14,11 @@
     "coc.preferences.bracketEnterImprove": true,
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.formatOnTypeFiletypes": [],
-    "coc.preferences.formatOnSaveFiletypes": [],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "dart"
+    ],
     "coc.preferences.willSaveHandlerTimeout": 500,
-    "coc.preferences.semanticTokensHighlights": true,
+    "coc.preferences.renameFillCurrent": true,
     "coc.preferences.currentFunctionSymbolAutoUpdate": false,
     "coc.preferences.excludeImageLinksInMarkdownDocument": true,
     "coc.preferences.messageLevel": "warning",

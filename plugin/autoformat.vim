@@ -28,7 +28,7 @@ let g:formatdef_hl_rustfmt = '"rustfmt --edition 2018"'
 let g:formatdef_hl_cmake_format = '"cmake-format - -c ~/.config/cmake-format/cmake-format.yaml"'
 let g:formatdef_hl_rubocop = "'rubocop --auto-correct -o /dev/null -s '.bufname('%').' \| sed -n 2,\\$p'"
 " let g:formatdef_hl_rbeautify = '"rbeautify ".(&expandtab ? "-s -c ".shiftwidth() : "-t")'
-let g:formatdef_hl_dartfmt = '"dartfmt"'
+let g:formatdef_hl_dartfmt = '"dart format"'
 let g:formatdef_hl_perltidy = '"perltidy"'
 let g:formatdef_hl_latexindent = '"latexindent"'
 

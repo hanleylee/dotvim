@@ -106,9 +106,9 @@ if g:is_in_term " 在终端中
     map   <lt>D-s>          <D-s>
     vmap  <lt>D-s>          <D-s>
     imap  <lt>D-s>          <D-s>
-    map   <lt>D-z>          <D-z>
     imap  <lt>D-z>          <D-z>
     map   <lt>S-D-z>        <S-D-z>
+    map   <lt>D-z>          <D-z>
     imap  <lt>S-D-z>        <S-D-z>
     map   <lt>D-a>          <D-a>
     imap  <lt>D-a>          <D-a>

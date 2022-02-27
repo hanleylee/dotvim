@@ -81,8 +81,12 @@
     // ],
     // "pairs.alwaysPairCharacters": [],
 
+    "colors.filetypes": [],
+    "colors.highlightPriority": 1000,
+
     // codeLens
     "codeLens.enable": true,
+    "codeLens.position": "top",
     "codeLens.separator": "‣",
     "codeLens.subseparator": " ",
 
@@ -94,7 +98,6 @@
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
 
-    "suggest.numberSelect": false,
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
     // "suggest.noselect": false,
@@ -401,7 +404,6 @@
     "diagnostic.warningSign":         "⚠",
     "diagnostic.errorSign":           ">>",
     "diagnostic.enable":              true,
-    "diagnostic.highlightOffset":     9999999,
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     "diagnostic.level": "hint",
@@ -507,9 +509,7 @@
     "clangd.fallbackFlags": [],
     "clangd.disableCompletion": false,
     "clangd.disableDiagnostics": false,
-    "clangd.semanticHighlighting": false,
     "clangd.compilationDatabasePath": "",
-    "clangd.serverCompletionRanking": true,
     "clangd.disableSnippetCompletion": false,
     "clangd.showDBChangedNotification": true,
 
@@ -1157,7 +1157,6 @@
     "tsserver.enableJavascript": true,
     "tsserver.tsdk": "",
     "tsserver.locale": null,
-    "tsserver.debugPort": 0,
     "tsserver.pluginPaths": [],
     "tsserver.tsconfigPath": "tsconfig.json",
     "tsserver.formatOnType": true,

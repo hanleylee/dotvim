@@ -131,9 +131,6 @@ endfunction
 "}}}
 
 function! hl#format_cn() range
-    echom a:firstline
-    echom a:lastline
-
     let regex_list = []
     let regex_list = add(regex_list, '/，/, /g')
     let regex_list = add(regex_list, '/。/. /g')

@@ -20,7 +20,7 @@ function! HLColorScheme()
     " highlight SignColumn ctermfg=grey ctermbg=white guibg=grey
     " highlight link QuickFixLine CursorLine
     " highlight ColorColumn ctermbg=green guibg=orange
-    " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#444444   guifg=NONE gui=bold
+    " highlight CursorLine    cterm=NONE      ctermbg=NONE ctermfg=NONE  guibg=#444444   guifg=black gui=bold
     " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
     " highlight PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
     " highlight Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold

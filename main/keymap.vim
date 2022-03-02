@@ -388,14 +388,26 @@ if hl#plug_loaded('coc.nvim')
 
     nmap <C-c>ac  <Plug>(coc-codeaction)
 
-    nnoremap <silent><nowait> <C-c>cl  :CocList<CR>
-    nnoremap <silent><nowait> <C-c>cd  :<C-u>CocList diagnostics<cr>
-    nnoremap <silent><nowait> <C-c>ce  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <C-c>cc  :<C-u>CocList commands<cr>
-    nnoremap <silent><nowait> <C-c>co  :<C-u>CocList outline<cr>
-    nnoremap <silent><nowait> <C-c>cs  :<C-u>CocList -I symbols<cr>
-    nnoremap <silent><nowait> <C-c>cy  :<C-u>CocList -A --normal yank<cr>
-    nnoremap <silent><nowait> <C-c>cr  :<C-u>CocListResume<CR>
+    if hl#plug_loaded('coc-fzf')
+        nnoremap <silent><nowait> <C-c>cl  :CocFzfList<CR>
+        nnoremap <silent><nowait> <C-c>cd  :<C-u>CocFzfList diagnostics<cr>
+        nnoremap <silent><nowait> <C-c>ce  :<C-u>CocFzfList extensions<cr>
+        nnoremap <silent><nowait> <C-c>cc  :<C-u>CocFzfList commands<cr>
+        nnoremap <silent><nowait> <C-c>co  :<C-u>CocFzfList outline<cr>
+        nnoremap <silent><nowait> <C-c>cs  :<C-u>CocFzfList -I symbols<cr>
+        nnoremap <silent><nowait> <C-c>cy  :<C-u>CocFzfList -A --normal yank<cr>
+        nnoremap <silent><nowait> <C-c>cr  :<C-u>CocFzfListResume<CR>
+    else
+        nnoremap <silent><nowait> <C-c>cl  :CocList<CR>
+        nnoremap <silent><nowait> <C-c>cd  :<C-u>CocList diagnostics<cr>
+        nnoremap <silent><nowait> <C-c>ce  :<C-u>CocList extensions<cr>
+        nnoremap <silent><nowait> <C-c>cc  :<C-u>CocList commands<cr>
+        nnoremap <silent><nowait> <C-c>co  :<C-u>CocList outline<cr>
+        nnoremap <silent><nowait> <C-c>cs  :<C-u>CocList -I symbols<cr>
+        nnoremap <silent><nowait> <C-c>cy  :<C-u>CocList -A --normal yank<cr>
+        nnoremap <silent><nowait> <C-c>cr  :<C-u>CocListResume<CR>
+    endif
+
     nnoremap <silent><nowait> <C-c>cn  :<C-u>CocNext<CR>
     nnoremap <silent><nowait> <C-c>cp  :<C-u>CocPrev<CR>
 

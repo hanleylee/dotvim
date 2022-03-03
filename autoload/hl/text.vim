@@ -6,7 +6,7 @@
 " get formatted url string, return '' if it isn't url link
 function! hl#text#get_url_formatted_string(string)
     " 确保 uri 中含有 '.', 且不以引号开头结尾
-    let uri = matchstr(a:string, '[a-z]*:\/\/[^ >,;()]*')
+    let uri = matchstr(a:string, "[a-z]*:\/\/[^ >,;()']*")
     let uri = substitute(uri, '?', '\\?', '')
     let uri = shellescape(uri, 1)
     return uri

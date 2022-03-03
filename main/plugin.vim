@@ -82,6 +82,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'fladson/vim-kitty'
     Plug 'alker0/chezmoi.vim'
     Plug 'aklt/plantuml-syntax'
+    Plug 'vim-test/vim-test'
     " Plug '$HOME/.vim/hanleylee/vim-alternate'
     Plug '$HOME/.vim/hanleylee/vim-gitignore'
     Plug '$HOME/.vim/hanleylee/vim-markdown'

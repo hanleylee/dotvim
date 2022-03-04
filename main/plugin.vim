@@ -144,7 +144,6 @@ endif
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     Plug 'skywind3000/vim-dict'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理

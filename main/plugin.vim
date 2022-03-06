@@ -20,8 +20,20 @@
 " frozen            Do not update unless explicitly specified
 
 
-call plug#begin('$HOME/.vim/plugged')
 
+" 如果现在处于测试状态, 那么只加载需要测试的插件
+if !empty($VIMTEST)
+    call plug#begin('$HOME/.vim/plugged')
+
+    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
+    " Plug 'junegunn/fzf.vim'                             " 模糊搜索
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    call plug#end()
+    finish
+endif
+
+call plug#begin('$HOME/.vim/plugged')
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
 
 " MARK: level v0, load 0 plugin, only basic vim original configuration {{{

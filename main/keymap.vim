@@ -6,7 +6,8 @@
 " MARK
 " - 如果没有 vim 的默认键位功能, 如 gs, 则可以直接使用 gs 作为按键绑定
 " - 如果已经有默认的 vim 功能了, 如 fa, 那么就要
-"     - 添加 leader "   - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
+"    - 添加 leader "
+"    - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "=======================   Terminal Keycode   ============================
 call Source('$HOME/.vim/main/term_keycode.vim')
@@ -392,17 +393,18 @@ if hl#plug_loaded('coc.nvim')
 
     nmap <C-c>ac  <Plug>(coc-codeaction)
 
-    nnoremap <silent><nowait> <C-c>cl  :CocList<CR>
-    nnoremap <silent><nowait> <C-c>cd  :<C-u>CocList diagnostics<cr>
-    nnoremap <silent><nowait> <C-c>ce  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <C-c>cc  :<C-u>CocList commands<cr>
-    nnoremap <silent><nowait> <C-c>co  :<C-u>CocList outline<cr>
-    nnoremap <silent><nowait> <C-c>cs  :<C-u>CocList -I symbols<cr>
-    nnoremap <silent><nowait> <C-c>cy  :<C-u>CocList -A --normal yank<cr>
-    nnoremap <silent><nowait> <C-c>cr  :<C-u>CocListResume<CR>
+    nnoremap <silent><nowait> <C-c>l  :CocList<CR>
+    nnoremap <silent><nowait> <C-c>d  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent><nowait> <C-c>e  :<C-u>CocList extensions<cr>
+    nnoremap <silent><nowait> <C-c>c  :<C-u>CocList commands<cr>
+    nnoremap <silent><nowait> <M-c>   :<C-u>CocList commands<cr>
+    nnoremap <silent><nowait> <C-c>o  :<C-u>CocList outline<cr>
+    nnoremap <silent><nowait> <C-c>s  :<C-u>CocList -I symbols<cr>
+    nnoremap <silent><nowait> <C-c>y  :<C-u>CocList -A --normal yank<cr>
+    nnoremap <silent><nowait> <C-c>r  :<C-u>CocListResume<CR>
 
-    nnoremap <silent><nowait> <C-c>cn  :<C-u>CocNext<CR>
-    nnoremap <silent><nowait> <C-c>cp  :<C-u>CocPrev<CR>
+    nnoremap <silent><nowait> <C-c>n  :<C-u>CocNext<CR>
+    nnoremap <silent><nowait> <C-c>p  :<C-u>CocPrev<CR>
 
     " inoremap <silent><nowait><expr> <M-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
     " inoremap <silent><nowait><expr> <M-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"

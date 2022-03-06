@@ -4,8 +4,8 @@
     "coc.preferences.jumpCommand": "edit",
     "coc.preferences.promptInput": true,
     "coc.preferences.watchmanPath": "",
-    "coc.preferences.formatOnType": false,
     "coc.preferences.floatActions": true,
+    "coc.preferences.formatOnType": false,
     "coc.preferences.enableMarkdown": true,
     "coc.preferences.silentAutoupdate": true,
     "coc.preferences.snippetStatusText": "SNIP",
@@ -127,6 +127,7 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.completionItemKindLabels": {},
     "suggest.preferCompleteThanJumpPlaceholder": false,
+    "suggest.selection": "recentlyUsedByPrefix",
     "suggest.invalidInsertCharacters": [
         " ",
         ",",
@@ -148,13 +149,27 @@
     "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,
 
+    // semanticTokens
+    "semanticTokens.filetypes": [],
+    "semanticTokens.incrementTypes": [
+        "variable",
+        "string"
+    ],
+    "semanticTokens.highlightPriority": 2048,
+    "semanticTokens.combinedModifiers": [
+        "deprecated"
+    ],
+
+    // outline
     "outline.sortBy": "category",
     "outline.keepWindow": false,
     "outline.expandLevel": 1,
     "outline.splitCommand": "botright 30vs",
     "outline.followCursor": true,
     "outline.checkBufferSwitch": true,
+    "outline.showLineNumber": true,
 
+    // tree
     "tree.key.close": "<esc>",
     "tree.closedIcon": "+",
     "tree.openedIcon": "-",
@@ -188,6 +203,10 @@
         "txt",
         "help"
     ],
+    "workspace.ignoredFolders": [
+        "$HOME"
+    ],
+    "workspace.workspaceFolderFallbackCwd": true,
     "workspace.bottomUpFiletypes": [],
     "workspace.workspaceFolderCheckCwd": true,
 
@@ -209,6 +228,7 @@
     "dialog.floatHighlight": null,
     "dialog.pickerButtonShortcut": true,
     "dialog.floatBorderHighlight": null,
+    "dialog.shortcutHighlight": "MoreMsg",
 
     // hover
     "hover.target": "float",
@@ -330,6 +350,8 @@
     "snippets.priority": 100,
     "snippets.shortcut": "SNIP",
     "snippets.ultisnips.usePythonx": true,
+    "snippets.excludePatterns": [],
+    "snippets.loadVSCodeProjectSnippets": true,
     "snippets.ultisnips.pythonVersion": 3,
     "snippets.ultisnips.directories": [
         // "Ultisnips", // 这个会在 rtp 全局搜索 Ultisnips 文件夹, 因为不用 vim-snippets 了, 所以就不需要这个了
@@ -399,6 +421,13 @@
     // diagnostic
     "diagnostic.signPriority": 100,
     "diagnostic.floatConfig": {},
+    "diagnostic.signLevel": "hint",
+    "diagnostic.messageLevel": "hint",
+    "diagnostic.virtualTextLevel": "hint",
+    "diagnostic.highlightPriority": 4096,
+    "diagnostic.locationlistLevel": "hint",
+    "diagnostic.virtualTextWinCol": null,
+    "diagnostic.virtualTextAlignRight": false,
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
     "diagnostic.warningSign":         "⚠",
@@ -498,6 +527,7 @@
     "yaml.format.singleQuote": false,
     "yaml.format.bracketSpacing": true,
     "yaml.disableAdditionalProperties": false,
+    "yaml.statusText": "Yaml",
 
     // coc-clangd
     "clangd.enabled": true,
@@ -795,6 +825,7 @@
     "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
     "javascript.inlayHints.propertyDeclarationTypes.enabled": false,
     "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": false,
 
     // typescript
     "typescript.showUnused": true,
@@ -825,11 +856,11 @@
     "typescript.suggestionActions.enabled": true,
     "typescript.updateImportsOnFileMove.enable": true,
     "typescript.implementationsCodeLens.enable": true,
-    "typescript.preferences.jsxAttributeCompletionStyle":"auto",
+    "typescript.preferences.jsxAttributeCompletionStyle": "auto",
     "typescript.preferences.includePackageJsonAutoImports": "auto",
     "typescript.preferences.useAliasesForRenames": true,
     "typescript.preferences.quoteStyle": "auto",
-    "typescript.preferences.importModuleSpecifier":"shortest",
+    "typescript.preferences.importModuleSpecifier": "shortest",
     "typescript.preferences.importModuleSpecifierEnding": "auto",
     "typescript.format.enabled": true,
     "typescript.format.semicolons": "ignore",
@@ -849,6 +880,7 @@
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "typescript.referencesCodeLens.showOnAllFunctions": false,
 
     // css
     "css.enable": true,
@@ -926,7 +958,7 @@
     // "sh.enable": true,
     // "sh.commandPath": "",
     // "sh.globPattern": "",
-    // "sh.trace.server":"off",
+    // "sh.trace.server": "off",
     // "sh.explainshellEndpoint": "",
     // "sh.highlightParsingErrors": false,
 
@@ -975,7 +1007,7 @@
     "html.format.extraLiners": "head, body, /html",
     "html.format.wrapLineLength": 120,
     "html.format.endWithNewline": false,
-    "html.format.wrapAttributes":"auto",
+    "html.format.wrapAttributes": "auto",
     "html.format.indentInnerHtml": false,
     "html.format.preserveNewLines": true,
     "html.format.indentHandlebars": false,
@@ -987,6 +1019,7 @@
     "html.hover.references": true,
     "html.hover.documentation": true,
     "html.completion.attributeDefaultValue": "doublequotes",
+    "html.autoCreateQuotes": true,
 
 
     // vetur
@@ -1004,7 +1037,7 @@
         "i18n": "json"
     },
     "vetur.completion.autoImport": true,
-    "vetur.completion.tagCasing":"kebab",
+    "vetur.completion.tagCasing": "kebab",
     "vetur.completion.scaffoldSnippetSources": {
         "workspace": "💼",
         "user": "🗒️",
@@ -1049,7 +1082,7 @@
 
     // julia
     "julia.enabled": true,
-    "julia.trace.server":"off",
+    "julia.trace.server": "off",
     "julia.lint.run": true,
     "julia.lint.call": false,
     "julia.lint.iter": true,
@@ -1078,7 +1111,7 @@
     "flutter.trace.server": "off",
     "flutter.autoOpenDevLog": false,
     "flutter.autoHideDevLog": false,
-    "flutter.selectedDeviceId":"",
+    "flutter.selectedDeviceId": "",
     "flutter.sdk.path": "",
     "flutter.closingLabelPrefix": "// ",
     "flutter.sdk.searchPaths": [],
@@ -1088,7 +1121,7 @@
     "flutter.provider.hot-reload": true,
     "flutter.provider.enableSnippet": true,
     "flutter.runDevToolsAtStartup": false,
-    "flutter.devicesDefaultAction":"workspaceState",
+    "flutter.devicesDefaultAction": "workspaceState",
     "flutter.openDevLogSplitCommand": "",
     "flutter.workspaceFolder.ignore": [],
     "flutter.commands.devicesTimeout": 1,
@@ -1142,7 +1175,7 @@
     "Lua.completion.workspaceWord": true,
     "Lua.intelliSense.searchDepth": 0,
     "Lua.completion.displayContext": 6,
-    "Lua.completion.keywordSnippet":"Replace",
+    "Lua.completion.keywordSnippet": "Replace",
     "Lua.diagnostics.workspaceRate": 100,
     "Lua.runtime.nonstandardSymbol": [],
     "Lua.workspace.preloadFileSize": 100,
@@ -1267,7 +1300,7 @@
     "rust-analyzer.diagnostics.remapPrefix": {},
     "rust-analyzer.runnables.overrideCargo": null,
     "rust-analyzer.rustfmt.overrideCommand": null,
-    "rust-analyzer.assist.importGranularity":"crate",
+    "rust-analyzer.assist.importGranularity": "crate",
     "rust-analyzer.inlayHints.chainingHints": true,
     "rust-analyzer.runnables.cargoExtraArgs": [],
     "rust-analyzer.completion.postfix.enable": true,
@@ -1295,6 +1328,10 @@
     "rust-analyzer.completion.addCallArgumentSnippets": true,
     "rust-analyzer.debug.vimspector.configuration.name": "launch",
     "rust-analyzer.cargo.useRustcWrapperForBuildScripts": true,
+    "rust-analyzer.procMacro.ignored": {},
+    "rust-analyzer.assist.exprFillDefault": "todo",
+    "rust-analyzer.primeCaches.numThreads": 0,
+    "rust-analyzer.completion.privateEditable.enable": false,
 
     // list
     "list.height": 10,

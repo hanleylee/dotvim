@@ -99,6 +99,11 @@ inoremap <M-b>    <C-Left>
 cnoremap <M-b>    <C-Left>
 tnoremap <M-b>    <C-Left>
 
+" nnoremap <M-j> gj
+" nnoremap <M-k> gk
+" vnoremap <M-j> gj
+" vnoremap <M-k> gk
+
 " Movement on popup window
 nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
 nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
@@ -113,12 +118,22 @@ nnoremap <silent><M-j> :call hl#preview_scroll('j')<cr>
 nnoremap <expr> <M-B>  hl#move_any_char_to_left()
 inoremap <expr> <M-B>  hl#move_any_char_to_left()
 
+" quickly close all tabs
+nnoremap <silent><M-q>       :call hl#close_all()<CR>
+
+" add sign at the trailing
+inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
+nnoremap <M-;> m`A;<Esc>``
+inoremap <M-,> <C-o>m`<C-o>A,<C-o>``
+nnoremap <M-,> m`A,<Esc>``
+
 if hl#plug_loaded('fzf.vim')
     nnoremap <silent><M-x> :Commands<CR>
     nnoremap <silent><M-t> :Tags<CR>
     inoremap <silent><M-t> ⦿
     cnoremap <silent><M-t> ⦿
     tnoremap <silent><M-t> ⦿
+    nnoremap <M-m>       :FM<CR>
 endif
 
 if hl#plug_loaded('vim-commentary')
@@ -130,6 +145,7 @@ if hl#plug_loaded('asynctasks.vim')
     noremap <silent><D-r> :<C-u>call hl#async_task('file-build-run')<CR>
     noremap <silent><D-b> :<C-u>call hl#async_task('project-build')<CR>
     noremap <silent><D-.> :<C-u>AsyncStop<CR>
+    nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 
 if hl#plug_loaded('vim-quickui')
@@ -144,3 +160,11 @@ if hl#plug_loaded('vim-floaterm')
     nnoremap <silent><M-=>          :FloatermToggle<CR>
     tnoremap <silent><M-=>          <C-\><C-n>:FloatermToggle<CR>
 endif
+
+" cosco.vim {{{
+if hl#plug_loaded('cosco.vim')
+    nmap <silent> <M-;> <Plug>(cosco-commaOrSemiColon)
+    imap <silent> <M-;> <c-o><Plug>(cosco-commaOrSemiColon)
+endif
+" }}}
+

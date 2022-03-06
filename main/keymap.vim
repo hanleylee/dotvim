@@ -24,17 +24,12 @@ nmap <F5> :e!<CR>
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><C-Tab>     :tabnew<CR>
-nnoremap <silent><M-q>       :call hl#close_all()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " Ctrl-S 保存文件
 nnoremap <silent><C-s>       :update<CR>
 inoremap <silent><C-s>       <ESC>:update<CR>
 vnoremap <silent><C-s>       <ESC>:update<CR>
-inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
-nnoremap <M-;> m`A;<Esc>``
-inoremap <M-,> <C-o>m`<C-o>A,<C-o>``
-nnoremap <M-,> m`A,<Esc>``
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
@@ -60,10 +55,7 @@ nnoremap Y y$
 " jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-" nnoremap <M-j> gj
-" nnoremap <M-k> gk
-" vnoremap <M-j> gj
-" vnoremap <M-k> gk
+
 " 上下移动一行文字
 nnoremap <C-j> :m+<cr>
 nnoremap <C-k> :m-2<cr>
@@ -127,13 +119,6 @@ endif
 if hl#plug_loaded('vim-surround')
     nmap do) ds)db
     nmap do] ds]db
-endif
-" }}}
-
-" cosco.vim {{{
-if hl#plug_loaded('cosco.vim')
-    nmap <silent> <M-;> <Plug>(cosco-commaOrSemiColon)
-    imap <silent> <M-;> <c-o><Plug>(cosco-commaOrSemiColon)
 endif
 " }}}
 
@@ -281,7 +266,6 @@ if hl#plug_loaded('fzf.vim')
     nnoremap <Leader>f?  :GFiles?<CR>
     nnoremap <Leader>ft  :Tags<CR>
     nnoremap <Leader>fc  :Commits<CR>
-    nnoremap <M-m>       :FM<CR>
 endif
 "}}}
 
@@ -298,7 +282,6 @@ if hl#plug_loaded('asynctasks.vim')
     nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
     nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
     nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
-    nnoremap <silent><M-.> :AsyncStop<CR>
 endif
 "}}}
 

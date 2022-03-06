@@ -3,17 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-let g:hl_rootmarkers = [
-            \ '.svn', 
-            \ '.git', 
-            \ '.root', 
-            \ '.project', 
-            \ '.hg', 
-            \ '_darcs', 
-            \ 'build.xml',
-            \ 'Makefile',
-            \ 'CMakeLists.txt',
-            \ ]
+let g:hl_rootmarkers = split($ROOTMARKERS_STR, ' ')
 let g:snips_author = 'Hanley Lee'
 let g:is_in_macvim_gui = has('gui_macvim') && has('gui_running') " 位于 macvim 的gui 模式下
 let g:is_in_gui = empty($TERM) || g:is_in_macvim_gui

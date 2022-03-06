@@ -5,3 +5,5 @@
 
 setlocal norelativenumber
 setlocal colorcolumn=
+
+nmap <silent><buffer> <Space> -

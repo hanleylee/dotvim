@@ -27,11 +27,13 @@ nnoremap <silent><M-q>       :call hl#close_all()<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " Ctrl-S 保存文件
-nnoremap <silent><C-S>       :update<CR>
-inoremap <silent><C-S>       <ESC>:update<CR>
-vnoremap <silent><C-S>       <ESC>:update<CR>
-" inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
-" nnoremap <M-;> m`A;<Esc>``
+nnoremap <silent><C-s>       :update<CR>
+inoremap <silent><C-s>       <ESC>:update<CR>
+vnoremap <silent><C-s>       <ESC>:update<CR>
+inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
+nnoremap <M-;> m`A;<Esc>``
+inoremap <M-,> <C-o>m`<C-o>A,<C-o>``
+nnoremap <M-,> m`A,<Esc>``
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
@@ -43,6 +45,8 @@ nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 inoremap <silent><expr> <C-CR> hl#insert_map_for_ctrl_enter()
 " inoremap <silent> <C-CR> <C-g>u<CR>
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
+" 方便 dart 多参数传入
+imap <silent> <S-CR> <C-CR><Esc>==O
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 

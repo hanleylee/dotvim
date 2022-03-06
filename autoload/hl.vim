@@ -216,13 +216,16 @@ endfunction
 
 " 异步执行任务
 function! hl#async_task(mode)
-    let filename = expand('%:t')
-    if filename ==# 'Podfile'
+    let full_pathname = expand('%:p')
+    let repo_filename = expand('%')
+    let just_filename = expand('%:t')
+    if just_filename ==# 'Podfile'
         silent update | execute 'PodUpdate'
+    elseif repo_filename =~# 'lib/main.dart'
+        silent update | execute 'CocCommand flutter.run --no-sound-null-safety'
     elseif &filetype ==? 'vim'
         silent update | source %
     else
-        " execute "AsyncTask " . a:mode
         silent update | execute 'AsyncTask ' . a:mode
     endif
 endfunction

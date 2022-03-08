@@ -72,7 +72,7 @@ function! FernInit() abort
     nmap <buffer> p         <Plug>(fern-action-clipboard-paste)
     nmap <buffer> h         <Plug>(fern-action-collapse)
     nmap <buffer> fe        <Plug>(fern-action-exclude)
-    nmap <buffer> ?         <Plug>(fern-action-help)
+    nmap <buffer> g?        <Plug>(fern-action-help)
     nmap <buffer> I         <Plug>(fern-action-hidden:toggle)
     nmap <buffer> fi        <Plug>(fern-action-include)
     nmap <buffer> C         <Plug>(fern-action-enter)

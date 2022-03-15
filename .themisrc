@@ -1,0 +1,2 @@
+let g:assert = themis#helper('assert')
+

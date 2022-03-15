@@ -167,7 +167,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'rizzatti/dash.vim'
     Plug 'tyru/open-browser.vim'
     Plug 'weirongxu/plantuml-previewer.vim'
-    Plug 'junegunn/vader.vim'
+    Plug 'thinca/vim-themis'
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'

@@ -86,6 +86,9 @@ noremap  <silent><D-7> :tabn 7<cr>
 noremap  <silent><D-8> :tabn 8<cr>
 noremap  <silent><D-9> :tabn 9<cr>
 noremap  <silent><D-0> :tabn 10<cr>
+
+noremap <silent><D-u> :TestFile<CR>
+
 nnoremap <silent><M-H> <C-w>h
 nnoremap <silent><M-J> <C-w>j
 nnoremap <silent><M-K> <C-w>k

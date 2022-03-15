@@ -229,6 +229,16 @@ if hl#plug_loaded('vim-renamer')
 endif
 "}}}
 
+" vim-test {{{ "
+if hl#plug_loaded('vim-test')
+    nmap <silent> <leader>tn :TestNearest<CR>
+    nmap <silent> <leader>tf :TestFile<CR>
+    nmap <silent> <leader>ts :TestSuite<CR>
+    nmap <silent> <leader>tl :TestLast<CR>
+    nmap <silent> <leader>tv :TestVisit<CR>
+endif
+" }}} vim-test "
+
 " wilder.nvim {{{
 if hl#plug_loaded('wilder.nvim')
     cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
@@ -335,9 +345,6 @@ if hl#plug_loaded('vim-sandwich')
     omap am <Plug>(textobj-sandwich-literal-query-a)
 endif
 
-vnoremap <silent> <C-T> :<C-u>Ydv<CR>
-nnoremap <silent> <C-T> :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
 " coc.vim {{{
 if hl#plug_loaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"

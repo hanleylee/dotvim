@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" 是否加载了 plug{{{
+" 是否加载了 plug -> bool{{{
 function! hl#plug_loaded(name)
     if !exists('g:plugs')
         return 0
@@ -113,6 +113,9 @@ function! s:ReplaceSurgeRule(key,val)
 endfunction
 "}}}
 
+function! s:Test()
+    return 1
+endfunction
 "{{{
 function! hl#format_surge_rule() range
     let content = getline(a:firstline, a:lastline)

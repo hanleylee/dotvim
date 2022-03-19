@@ -8,7 +8,7 @@ if !hl#plug_loaded('asyncrun.vim')
 endif
 
 let g:asyncrun_exit = '' " define a script which will be executed after finished.
-" let g:asyncrun_exit = "silent call system('afplay ~/.vim/notify.wav &')"
+let g:asyncrun_exit = "silent call system('afplay ~/.vim/crystal.aiff &')"
 let g:asyncrun_mode = 0 " This option indicates how to start the job.
 let g:asyncrun_wrapper = '' " This can be used to setup a command prefix.
 let g:asyncrun_rootmarks = g:hl_rootmarkers

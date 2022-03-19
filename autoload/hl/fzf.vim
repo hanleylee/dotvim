@@ -43,8 +43,6 @@ function! hl#fzf#explore_current(...)
 endfunction
 "}}}
 
-
-
 function! hl#fzf#statusline_theme()
     " Override statusline as you like
     highlight fzf1 ctermfg=161 ctermbg=251

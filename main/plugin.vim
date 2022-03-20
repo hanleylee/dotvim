@@ -50,6 +50,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
     Plug 'lambdalisue/fern-git-status.vim'
+    Plug 'LumaKernel/fern-mapping-fzf.vim'
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
@@ -57,7 +58,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'voldikss/vim-floaterm'
     Plug 'mhinz/vim-startify'              " 首页显示
     Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
-    Plug 'LumaKernel/fern-mapping-fzf.vim'
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'

@@ -48,7 +48,11 @@ function! hl#markdown#Format() range
     " let regex_list = add(regex_list, '/\%(^\|\S\{-1,}\zs\s*\)\(`[^`]\+\n*[^`]\+`\)\s*\ze/ \1 /g')
 
     " 1. 为 inline code 添加左右空格
-    let regex_list = add(regex_list, '/\s*\(`[^`]\+\n*[^`]\+`\)\s*/ \1 /g')
+    " - \([^`]\|^\): 以非 ` 开头或 行首 开头
+    " - \zs ... \ze: 真正要进行替换的起点与终点
+    " - \s*\(`[^`]\_.\{-0,}`\)\s*: \_.\{-0,} 跨行代表非贪婪匹配, 整体含义为匹配以 ` 开头以 ` 结尾, 且内容为非 ` 字符必须超过一个的任意多个字符
+    let regex_list = add(regex_list, '/\([^`]\|^\)\zs\s*\(`[^`]\_.\{-0,}`\)\s*\ze/ \2 /g')
+
     " 2. 清除由上一步骤造成的副作用(行首单空格)
     let regex_list = add(regex_list, '/^\s`/`/g')
 

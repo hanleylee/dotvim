@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-setlocal shiftwidth=4
+setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Turn off syntax highlighting for large YAML files.
 if line('$') > 1000

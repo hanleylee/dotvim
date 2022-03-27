@@ -511,6 +511,8 @@
     "json.execArgv": [],
 
     // coc-yaml
+    "yaml.enable": true,
+    "yaml.disableDefaultProperties": false,
     "yaml.trace.server": "off",
     "yaml.schemaStore.enable":true,
     "yaml.hover": true,

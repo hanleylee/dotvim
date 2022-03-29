@@ -66,6 +66,9 @@ if hl#plug_loaded('fzf.vim')
                 \ }, <bang>0))
     command! -bang Args call fzf#run(fzf#wrap('args',
                 \ {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
+    command! -bang -nargs=* GGrep call fzf#vim#grep(
+                \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+                \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 endif
 
 if hl#plug_loaded('vim-floaterm')

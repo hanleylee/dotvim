@@ -45,12 +45,13 @@ augroup END
 "     au FileType * call hl#TrySetDictionary()
 " augroup END
 
-"HLHighlightKeyword{{{
-augroup HLHighlightKeyword
+" HLMarker{{{
+augroup HLMarker
     autocmd!
     " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
     " autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
-    " 这里要使用 matchadd 方法进行自定义词语的高亮, 因为它的优先级较高, 不会被 cursorLine 的背景色覆盖
+    " 这里要使用 matchadd 方法进行自定义词语的高亮, 因为它的优先级较高, 不会被 cursorLine 的背景色覆盖, 且所有文件类型都起作用
+    " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
 augroup end
 "}}}

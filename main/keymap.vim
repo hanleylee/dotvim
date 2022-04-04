@@ -508,3 +508,6 @@ if hl#plug_loaded('ale')
 endif
 "}}}
 
+if hl#plug_loaded('vim-which-key')
+    nnoremap <silent><Leader> :WhichKey '<Leader>'<CR>
+endif

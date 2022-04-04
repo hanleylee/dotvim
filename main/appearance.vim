@@ -6,15 +6,46 @@
 "███████████████████████   Appearance   ██████████████████████████
 
 function! OneDarkRevise()
-    call onedark#set_highlight('pythonBuiltinFunc', {'fg': onedark#GetColors()['cyan']})
-    " call onedark#set_highlight('CursorLineNr', {'fg': onedark#GetColors()['white'], 'bg': onedark#GetColors()['cursor_grey']})
+    let s:colors = onedark#GetColors()
+
+    let s:red = s:colors.red
+    let s:dark_red = s:colors.dark_red
+    let s:green = s:colors.green
+    let s:yellow = s:colors.yellow
+    let s:dark_yellow = s:colors.dark_yellow
+    let s:blue = s:colors.blue
+    let s:purple = s:colors.purple
+    let s:cyan = s:colors.cyan
+    let s:white = s:colors.white
+    let s:black = s:colors.black
+    let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
+    let s:comment_grey = s:colors.comment_grey
+    let s:gutter_fg_grey = s:colors.gutter_fg_grey
+    let s:cursor_grey = s:colors.cursor_grey
+    let s:visual_grey = s:colors.visual_grey
+    let s:menu_grey = s:colors.menu_grey
+    let s:special_grey = s:colors.special_grey
+    let s:vertsplit = s:colors.vertsplit
+    let s:orange = { "gui": "#FF8700", "cterm": "208", "cterm16": "11" }
+
+    let s:reverse = 'reverse' " reverse 会让主题色的优先级更高, 如果遇到颜色优先级问题, 可以尝试使用 reverse 解决(灵感来自 gruvbox)
+    let s:bold = 'bold'
+    let s:reverse_bold = 'reverse,bold'
+
+    call onedark#set_highlight('pythonBuiltinFunc', {'fg': s:cyan})
+    call onedark#set_highlight('Search', {'fg': s:yellow, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
+    call onedark#set_highlight('Todo', {'fg': s:orange, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
+    " highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
+    "}}}
 endfunction
+" @nihao: nihao
 
 function! HLColorScheme()
     " highlight {{{
     highlight Cursor        cterm=bold      ctermbg=black ctermfg=white  gui=bold     guifg=black     guibg=white
     highlight Visual        cterm=reverse,bold   ctermbg=NONE  ctermfg=NONE   gui=reverse,bold  guifg=NONE      guibg=NONE
     highlight QuickFixLine  cterm=NONE      ctermbg=238 ctermfg=145      gui=bold     guibg=#4B5263   guifg=#ABB2BF
+    " hi CursorLine ctermbg=black term=none cterm=none guifg=NONE guibg=NONE
     " highlight CursorLineNr guibg=green guifg=black
     " highlight LineNr ctermfg=grey ctermbg=white guibg=grey
     " highlight SignColumn ctermfg=grey ctermbg=white guibg=grey
@@ -24,8 +55,9 @@ function! HLColorScheme()
     " highlight CursorColumn  cterm=NONE      ctermbg=238 ctermfg=NONE  guibg=#444444   guifg=NONE
     " highlight PmenuSel      cterm=bold      ctermbg=green ctermfg=black guibg=#00ff00 guifg=black gui=bold
     " highlight Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold
-    " highlight Search        cterm=NONE      ctermbg=blue  ctermfg=grey  guibg=blue    guifg=grey
-    highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
+    " highlight Search         cterm=inverse  ctermbg=235  ctermfg=214  guibg=#282828    guifg=#fabd2f gui=inverse
+    " ['hi', 'Search', 'guifg=#fabd2f', 'ctermfg=214', 'guibg=#282828', 'ctermbg=235', 'gui=inverse', 'cterm=inverse']
+    " 
     highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178    gui=italic,bold    guibg=#d7af00    guifg=black
     "}}}
 

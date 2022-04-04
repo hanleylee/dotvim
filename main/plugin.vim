@@ -171,6 +171,9 @@ if s:vim_weight >= 3 || g:is_in_gui
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
+    Plug 'cweagans/vim-taskpaper'
+    " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+    Plug 'liuchengxu/vim-which-key'
 endif
 " }}}
 

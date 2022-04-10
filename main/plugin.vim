@@ -97,10 +97,9 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'vim-test/vim-test'
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
-    " Plug '$HL_REPO/vim/vim-alternate'
-    Plug '$HL_REPO/vim/vim-gitignore'
-    Plug '$HL_REPO/vim/vim-markdown'
-    " Plug '$HL_REPO/vim/potion'
+    Plug '$hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
+    Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
+    Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
 endif
 " }}}
 
@@ -144,8 +143,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-    Plug '$HL_REPO/vim/vim-renamer'                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug '$HL_REPO/vim/vim-t2s'
+    Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
@@ -171,7 +170,7 @@ if s:vim_weight >= 3 || g:is_in_gui
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
-    Plug '$HL_REPO/vim/vim-taskpaper'
+    Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
 endif
 " }}}
 

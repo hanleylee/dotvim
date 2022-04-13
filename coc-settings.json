@@ -1,6 +1,7 @@
 {
     // coc-preferences
     "coc.preferences.maxFileSize": "10MB",
+    "coc.preferences.snippetHighlight": false,
     "coc.preferences.jumpCommand": "edit",
     "coc.preferences.promptInput": true,
     "coc.preferences.watchmanPath": "",
@@ -90,6 +91,13 @@
     "codeLens.separator": "‣",
     "codeLens.subseparator": " ",
 
+    // links
+    "links.tooltip": false,
+
+    // documentHighlight
+    "documentHighlight.timeout": 300,
+    "documentHighlight.priority": -1,
+
     // suggest
     "suggest.languageSourcePriority": 98,
     "suggest.removeDuplicateItems": true,
@@ -97,7 +105,7 @@
     "suggest.detailField": "preview",
     "suggest.floatEnable": true,
     "suggest.snippetsSupport": true,
-
+    "suggest.triggerCompletionWait": 0,
     "suggest.noselect": false,
     "suggest.enablePreselect": true,
     // "suggest.noselect": false,
@@ -115,7 +123,7 @@
     "suggest.detailMaxLength": 50,
     "suggest.localityBonus": true,
     "suggest.labelMaxLength": 200,
-    "suggest.echodocSupport": false,
+    "suggest.ignoreRegexps": [],
     "suggest.acceptSuggestionOnCommitCharacter": false,
     "suggest.fixInsertedWord": true,
     "suggest.keepCompleteopt": false,
@@ -123,7 +131,6 @@
     "suggest.defaultSortMethod": "length",
     "suggest.disableMenuShortcut": false,
     "suggest.asciiCharactersOnly": false,
-    "suggest.triggerCompletionWait": 100,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.completionItemKindLabels": {},
     "suggest.preferCompleteThanJumpPlaceholder": false,
@@ -168,6 +175,11 @@
     "outline.followCursor": true,
     "outline.checkBufferSwitch": true,
     "outline.showLineNumber": true,
+    "outline.codeActionKinds": [
+        "",
+        "quickfix",
+        "refactor"
+    ],
 
     // tree
     "tree.key.close": "<esc>",
@@ -195,6 +207,7 @@
     "refactor.openCommand": "vsplit",
     "refactor.afterContext": 3,
     "refactor.beforeContext": 3,
+    "refactor.showMenu": "<Tab>",
 
     // workspace
     "workspace.ignoredFiletypes": [
@@ -215,7 +228,9 @@
     "http.proxy": "",
     "http.proxyCA": "",
     "http.proxyAuthorization": null,
+
     // cursors
+    "cursors.wrapscan": true,
     "cursors.nextKey": "<C-n>",
     "cursors.cancelKey": "<esc>",
     "cursors.previousKey": "<C-p>",
@@ -273,14 +288,12 @@
     "coc.source.around.enable": true,
     "coc.source.around.priority": 50,
     "coc.source.around.shortcut": "AR",
-    "coc.source.around.firstMatch": false,
     "coc.source.around.disableSyntaxes": [],
 
     // source-buffer
     "coc.source.buffer.enable": true,
     "coc.source.buffer.priority": 30,
     "coc.source.buffer.shortcut": "BF",
-    "coc.source.buffer.firstMatch": false,
     "coc.source.buffer.ignoreGitignore": true,
     "coc.source.buffer.disableSyntaxes": [],
 
@@ -352,10 +365,10 @@
     "snippets.ultisnips.enable": true,
     "snippets.priority": 100,
     "snippets.shortcut": "SNIP",
-    "snippets.ultisnips.usePythonx": true,
+    "snippets.snipmate.trace": false,
+    "snippets.ultisnips.trace": false,
     "snippets.excludePatterns": [],
     "snippets.loadVSCodeProjectSnippets": true,
-    "snippets.ultisnips.pythonVersion": 3,
     "snippets.ultisnips.directories": [
         // "Ultisnips", // 这个会在 rtp 全局搜索 Ultisnips 文件夹, 因为不用 vim-snippets 了, 所以就不需要这个了
         "~/.local/share/snippets"
@@ -373,7 +386,6 @@
     "snippets.autoTrigger": true,
     "snippets.snipmate.enable": false, // 如果为 true 会导致将每个 rtp 下的 snippets 文件夹的内容也作为 snippet 进行补全
     "snippets.snipmate.author": "hanleylee",
-    "snippets.enableStatusItem": true,
     "snippets.triggerCharacters": ["hl"],
     "snippets.loadFromExtensions": true,
     "snippets.editSnippetsCommand": "",
@@ -430,7 +442,6 @@
     "diagnostic.highlightPriority": 4096,
     "diagnostic.locationlistLevel": "hint",
     "diagnostic.virtualTextWinCol": null,
-    "diagnostic.virtualTextAlignRight": false,
     "diagnostic.infoSign":            "ღ",
     "diagnostic.hintSign":            "ஐ",
     "diagnostic.warningSign":         "⚠",
@@ -539,6 +550,8 @@
     "clangd.path": "clangd",
     "clangd.trace.file": "",
     "clangd.trace.server": "off",
+    "clangd.inlayHints.sep": "‣",
+    "clangd.inlayHints.enable": true,
     "clangd.arguments": [],
     "clangd.checkUpdates": false,
     "clangd.fallbackFlags": [],
@@ -1096,17 +1109,13 @@
     "julia.lint.modname": true,
     "julia.lint.pirates": true,
     "julia.lint.typeparam": true,
-    "julia.lint.missingrefs": true,
-    "julia.format.kw": true,
-    "julia.format.ops": true,
-    "julia.format.docs": true,
-    "julia.format.curly": true,
-    "julia.format.calls": true,
-    "julia.format.indent": 4,
-    "julia.format.tuples": true,
-    "julia.format.indents": true,
-    "julia.format.iterOps": true,
-    "julia.format.comments": true,
+    "julia.lint.datadecl": true,
+    "julia.lint.nothingcomp": true,
+    "julia.lint.disabledDirs": [
+        "docs",
+        "test"
+    ],
+    "julia.lint.useoffuncargs": true,
     "julia.environmentPath": null,
     "julia.executablePath": "",
 
@@ -1327,7 +1336,11 @@
     "rust-analyzer.diagnostics.enableExperimental": true,
     "rust-analyzer.assist.importEnforceGranularity": false,
     "rust-analyzer.notifications.cargoTomlNotFound": true,
-    "rust-analyzer.inlayHints.typeHintsWithVariable": true,
+    "rust-analyzer.inlayHints.renderColons": true,
+    "rust-analyzer.inlayHints.reborrowHints": false,
+    "rust-analyzer.inlayHints.closureReturnTypeHints": false,
+    "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": false,
     "rust-analyzer.inlayHints.chainingHintsSeparator": "‣",
     "rust-analyzer.assist.allowMergingIntoGlobImports": true,
     "rust-analyzer.completion.addCallArgumentSnippets": true,

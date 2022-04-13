@@ -33,7 +33,6 @@ let s:reverse_bold = 'reverse,bold'
 let s:underline = 'underline'
 let s:italic = 'italic'
 let s:strikethrough = 'strikethrough'
-let s:italic_strikethrough = 'italic,strikethrough'
 
 function! OneDarkRevise()
     call onedark#set_highlight('pythonBuiltinFunc', {'fg': s:cyan})
@@ -41,8 +40,8 @@ function! OneDarkRevise()
     call onedark#set_highlight('Todo', {'fg': s:orange, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
     call onedark#set_highlight('Error', {'fg': s:red, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
     call onedark#set_highlight('TaskPaperURL', {'fg': s:blue, 'gui': s:underline, 'cterm': s:underline})
-    call onedark#set_highlight('TaskPaperDone', {'fg': s:comment_grey, 'gui': s:italic_strikethrough, 'cterm': s:italic_strikethrough})
-    call onedark#set_highlight('TaskPaperCancelled', {'fg': s:comment_grey, 'gui': s:italic_strikethrough, 'cterm': s:italic_strikethrough})
+    call onedark#set_highlight('TaskPaperDone', {'fg': s:comment_grey, 'gui': s:strikethrough, 'cterm': s:strikethrough})
+    call onedark#set_highlight('TaskPaperCancelled', {'fg': s:comment_grey, 'gui': s:strikethrough, 'cterm': s:strikethrough})
 
     " highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
     "}}}

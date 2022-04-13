@@ -310,8 +310,11 @@
     "coc.source.omni.enable": false,
     "coc.source.omni.priority": 20,
     "coc.source.omni.shortcut": "OMNI",
-    "coc.source.omni.filetypes": null,
-    "coc.source.omni.triggerCharacters": [],
+    "coc.source.omni.filetypes": [
+        "ruby"
+    ],
+    "coc.source.omni.triggerCharacters": [
+    ],
     "coc.source.omni.disableSyntaxes": [],
 
     // coc-tabnine

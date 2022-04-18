@@ -82,6 +82,7 @@
     // ],
     // "pairs.alwaysPairCharacters": [],
 
+    "lists.disabledLists": [],
     "colors.filetypes": [],
     "colors.highlightPriority": 1000,
 

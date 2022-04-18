@@ -27,6 +27,7 @@ let g:coc_global_extensions = [
             \ 'coc-cmake',
             \ 'coc-css',
             \ 'coc-db',
+            \ 'coc-lists',
             \ 'coc-diagnostic',
             \ 'coc-dictionary',
             \ 'coc-emoji',

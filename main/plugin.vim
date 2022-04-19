@@ -25,9 +25,9 @@
 if !empty($VIMTEST)
     call plug#begin('$HOME/.vim/plugged')
 
-    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
-    " Plug 'junegunn/fzf.vim'                             " 模糊搜索
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
+    Plug 'junegunn/fzf.vim'                             " 模糊搜索
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     call plug#end()
     finish
@@ -156,8 +156,10 @@ endif
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '968e9a25e32e1cdb362a9894a96e038b3c1be0c9'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     Plug 'skywind3000/vim-dict'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能

@@ -22,18 +22,18 @@ augroup BufEnter1
     endif
 augroup END
 
-augroup BufEnter2
-    autocmd!
-    if hl#plug_loaded('fern.vim')
-        autocmd BufEnter * if &ft ==? 'fern' | call hl#fern#highlight_cusorline() | endif
-    endif
-augroup END
+" augroup BufEnter2
+"     autocmd!
+"     if hl#plug_loaded('fern.vim')
+"         autocmd BufEnter * if &ft ==? 'fern' | call hl#fern#highlight_cusorline() | endif
+"     endif
+" augroup END
 
-augroup BufLeave1
-    if hl#plug_loaded('fern.vim')
-        autocmd BufLeave * if &ft ==? 'fern' | call hl#fern#put_back_cusorline() | endif
-    endif
-augroup END
+" augroup BufLeave1
+"     if hl#plug_loaded('fern.vim')
+"         autocmd BufLeave * if &ft ==? 'fern' | call hl#fern#put_back_cusorline() | endif
+"     endif
+" augroup END
 
 " augroup ReadPost
 "     autocmd!

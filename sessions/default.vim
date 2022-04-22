@@ -441,7 +441,6 @@ nmap <silent> z% <Plug>(matchup-z%)
 nmap zuz <Plug>(FastFoldUpdate)
 vnoremap <silent> <Plug>(coc-snippets-select) :call coc#rpc#notify('doKeymap', ['snippets-select'])
 xnoremap <silent> <Plug>(coc-convert-snippet) :call coc#rpc#notify('doKeymap', ['convert-snippet'])
-nnoremap <SNR>274_: :=v:count ? v:count : ''
 noremap <M-Down> }
 noremap <D-Down> <C-End>
 noremap <M-Up> {
@@ -1247,7 +1246,6 @@ set cedit=<C-Y>
 set completeopt=longest,menuone,popup
 set completepopup=align:menu,border:off,highlight:WildMenu
 set confirm
-set cscopeprg=gtags-cscope
 set cscopequickfix=s+,c+,d+,i+,t+,e+,g+,f+,a+
 set dictionary=~/.vim/dict/all.dict
 set diffopt=vertical,filler,closeoff,context:3,internal,indent-heuristic,algorithm:histogram
@@ -1433,15 +1431,15 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/al/module/AKFaceRecognizer
+cd ~/Library/Containers/com.tencent.WeWorkMac/Data/Documents/Profiles/E6C6C4D7A9AE47926D5BC8E2F0D1480A/Caches/Files/2022-04/3cf85d4368910721871f7c77b2827750
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd AKFaceRecognizer.podspec
-edit AKFaceRecognizer.podspec
+$argadd 新建文本文档.txt
+edit 新建文本文档.txt
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -1458,9 +1456,6 @@ inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
 inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
 inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
-cmap <buffer> <C-R><C-F> <Plug><cfile>
-cmap <buffer> <SNR>264_<ctag> <Plug><ctag>
-cmap <buffer> <SNR>264_<cfile> <Plug><cfile>
 inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
 inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
 inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
@@ -1475,7 +1470,6 @@ inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
 noremap <buffer> <silent> <M-N> :call AutoPairsJump()
 noremap <buffer> <silent> <M-P> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
-cmap <buffer>  <Plug><cfile>
 inoremap <buffer> <silent>   =AutoPairsSpace()
 inoremap <buffer> <silent> " =AutoPairsInsert('"')
 inoremap <buffer> <silent> ' =AutoPairsInsert('''')
@@ -1507,8 +1501,8 @@ setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 set colorcolumn=+1
 setlocal colorcolumn=+1
-setlocal comments=b:#
-setlocal commentstring=#\ %s
+setlocal comments=fb:-,fb:*,n:>
+setlocal commentstring=
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=inc
 setlocal conceallevel=1
@@ -1521,13 +1515,13 @@ set cursorline
 setlocal cursorline
 setlocal cursorlineopt=both
 setlocal define=
-setlocal dictionary=~/.vim/dict/all.dict,~/.vim/plugged/vim-dict/dict/ruby.dict
+setlocal dictionary=~/.vim/dict/all.dict,~/.vim/plugged/vim-dict/dict/text.dict
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
+if &filetype != 'text'
+setlocal filetype=text
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -1543,19 +1537,19 @@ set foldnestmax=10
 setlocal foldnestmax=10
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=croql
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*[\\[({]\\?\\([0-9]\\+\\|[a-zA-Z]\\+\\)[\\]:.)}]\\s\\+\\|^\\s*[-���+o*���]\\s\\+
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=in\ ,=ensure,=rescue,==begin,==end,=private,=protected,=public
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=ri\ -T\ -f\ bs
+setlocal keywordprg=
 set linebreak
 setlocal linebreak
 setlocal nolisp
@@ -1573,8 +1567,8 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=.,/usr/include,,,~/repo/lang/c/foundation,~/repo/lang/cpp/foundation,~/repo/lang/objc/foundation,~/repo/lang/python/foundation,/opt/homebrew/Cellar/rbenv/1.2.0/rbenv.d/exec/gem-rehash,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0/arm64-darwin21,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby/3.0.0,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby/3.0.0/arm64-darwin21,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby,~/.rbenv/versions/3.0.2/lib/ruby/3.0.0,~/.rbenv/versions/3.0.2/lib/ruby/3.0.0/arm64-darwin21
+setlocal omnifunc=
+setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -1585,30 +1579,30 @@ setlocal norightleft
 setlocal rightleftcmd=search
 setlocal scrollbind
 setlocal scrolloff=-1
-setlocal shiftwidth=2
+setlocal shiftwidth=4
 setlocal noshortname
 setlocal showbreak=
 setlocal sidescrolloff=-1
 set signcolumn=yes
 setlocal signcolumn=yes
-setlocal nosmartindent
-setlocal softtabstop=2
+setlocal smartindent
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en,cjk
 setlocal spelloptions=
 setlocal statusline=%{lightline#link()}%#LightlineLeft_active_0#%(\ %{hl#lightline#LightlineMode()}\ %)%{hl#lightline#LightlineMode()!=#\"\"&&((&paste))?\"|\":\"\"}%(\ %{&paste?\"PASTE\":\"\"}\ %)%#LightlineLeft_active_0_1#%#LightlineLeft_active_1#%(\ %{hl#lightline#LightlineFugitive()}\ %)%{hl#lightline#LightlineFugitive()!=#\"\"&&(hl#lightline#LightlineReadonly()!=#\"\"||hl#lightline#FileNameWithIcon()!=#\"\"||(&modified||!&modifiable))?\"|\":\"\"}%(\ %{hl#lightline#LightlineReadonly()}\ %)%{hl#lightline#LightlineReadonly()!=#\"\"&&(hl#lightline#FileNameWithIcon()!=#\"\"||(&modified||!&modifiable))?\"|\":\"\"}%(\ %{hl#lightline#FileNameWithIcon()}\ %)%{hl#lightline#FileNameWithIcon()!=#\"\"&&((&modified||!&modifiable))?\"|\":\"\"}%(\ %M\ %)%#LightlineLeft_active_1_2#%#LightlineLeft_active_2#%(\ %{hl#lightline#BuffersCount()}\ %)%{hl#lightline#BuffersCount()!=#\"\"&&(hl#lightline#CocDiagnosticStatus1()!=#\"\"||gutentags#statusline()!=#\"\"||hl#lightline#GitDiffCount()!=#\"\")?\"|\":\"\"}%(\ %{hl#lightline#CocDiagnosticStatus1()}\ %)%{hl#lightline#CocDiagnosticStatus1()!=#\"\"&&(gutentags#statusline()!=#\"\"||hl#lightline#GitDiffCount()!=#\"\")?\"|\":\"\"}%(\ %{gutentags#statusline()}\ %)%{gutentags#statusline()!=#\"\"&&(hl#lightline#GitDiffCount()!=#\"\")?\"|\":\"\"}%(\ %{hl#lightline#GitDiffCount()}\ %)%#LightlineLeft_active_2_3#%#LightlineMiddle_active#%=%#LightlineRight_active_2_3#%#LightlineRight_active_2#%(\ %{&ff}\ %)%{1||1?\"|\":\"\"}%(\ %{&fenc!=#\"\"?&fenc:&enc}\ %)%{1?\"|\":\"\"}%(\ %{&ft!=#\"\"?&ft:\"no\ ft\"}\ %)%#LightlineRight_active_1_2#%#LightlineRight_active_1#%(\ %3p%%\ %)%#LightlineRight_active_0_1#%#LightlineRight_active_0#%(\ \ %3l:%-2v\ %)
-setlocal suffixesadd=.rb
+setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=200
-if &syntax != 'ruby'
-setlocal syntax=ruby
+if &syntax != 'text'
+setlocal syntax=text
 endif
 setlocal tabstop=4
 setlocal tagcase=
 setlocal tagfunc=
-setlocal tags=~/.cache/tags/Users-hanley-al-module-AKFaceRecognizer-.tags,./.tags;,./tags;,.tags,tags,/opt/homebrew/Cellar/rbenv/1.2.0/rbenv.d/exec/gem-rehash/tags,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0/tags,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby/3.0.0/arm64-darwin21/tags,~/.rbenv/versions/3.0.2/lib/ruby/site_ruby/tags,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby/3.0.0/tags,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby/3.0.0/arm64-darwin21/tags,~/.rbenv/versions/3.0.2/lib/ruby/vendor_ruby/tags,~/.rbenv/versions/3.0.2/lib/ruby/3.0.0/tags,~/.rbenv/versions/3.0.2/lib/ruby/3.0.0/arm64-darwin21/tags
+setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
@@ -1626,14 +1620,14 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 20) / 40)
+let s:l = 35 - ((34 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 025|
+keepjumps 35
+normal! 0
 tabnext 1
-badd +0 AKFaceRecognizer.podspec
+badd +0 新建文本文档.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

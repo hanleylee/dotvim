@@ -382,6 +382,10 @@ function hl#getfsize(file)
   return size . 'B'
 endfunction
 
+func hl#get_indent_level()
+    return indent('.') / &shiftwidth
+endfunction
+
 " 使用分隔符连接多行
 function hl#join(sep, bang) range
   if a:sep[0] == '\'
@@ -461,9 +465,27 @@ function hl#close_win(winnr)
   return 1
 endfunction
 
+" insert map for enter{{{
+function! hl#insert_map_for_enter()
+    if pumvisible()
+        " return coc#_select_confirm()
+        return "\<C-y>"
+    elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
+        return "\<C-g>u\<CR>\<Esc>O"
+    else
+        return "\<CR>"
+    endif
+endfunction
+"}}}
+
 " insert map for ctrl-enter{{{
 function! hl#insert_map_for_ctrl_enter()
-    return "\<C-g>u\<CR>\<C-u>"
+    " 如果当前光标已经位于行首了, 那么 c-u 会删除到上一行, 因此我们要针对有缩进的和没有缩进的进行区分
+    if hl#get_indent_level() > 0
+        return "\<C-g>u\<CR>\<C-u>"
+    else
+        return "\<C-g>u\<CR>"
+    endif
     " let current_syntax = synIDattr(synIDtrans(synID(line("."), col("$")-1, 1)), "name")
     " if current_syntax ==? 'Comment'
     "     return "\<C-g>u\<CR>\<C-u>"

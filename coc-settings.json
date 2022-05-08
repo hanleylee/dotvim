@@ -1,6 +1,7 @@
 {
     // coc-preferences
     "coc.preferences.maxFileSize": "10MB",
+    "coc.preferences.enableLinkedEditing": false,
     "coc.preferences.snippetHighlight": false,
     "coc.preferences.jumpCommand": "edit",
     "coc.preferences.promptInput": true,

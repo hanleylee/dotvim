@@ -8,19 +8,6 @@
 "     return !col || getline('.')[col - 1]  =~# '\s'
 " endfunction
 
-" insert map for enter{{{
-function! hl#coc#insert_map_for_enter()
-    if pumvisible()
-        " return coc#_select_confirm()
-        return "\<C-y>"
-    elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
-        return "\<C-g>u\<CR>\<Esc>O"
-    else
-        return "\<CR>"
-    endif
-endfunction
-"}}}
-
 " highlight current cursor{{{
 function hl#coc#highlight_current_cursor()
     let ft = &filetype

@@ -109,7 +109,8 @@ endif
 "}}}
 
 "=======================   Indent   ========================={{{
-set backspace=2 " Backspace 键是否可以删除字符
+" set backspace& " 重置 backspace 选项
+set backspace=indent,eol,start " Backspace 键可以删除的字符
 set autoindent " 自动缩进, 需要与 smartindent 配合使用才有效果
 set smartindent " 智能缩进, 在进行代码编写的时候会智能判断缩进距离, 与 autoindent 配合使用
 set smarttab

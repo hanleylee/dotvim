@@ -103,6 +103,9 @@ nnoremap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("
 vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 " }}}
 
+nnoremap <silent> <Leader>bl :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+nnoremap <silent> <Leader>bc :call clearmatches()<CR>
+
 let g:netrw_nogx = 1 " disable gx keymap
 nmap <silent>gx :silent call OpenInBrowser('n')<cr>
 vmap <silent>gx :<C-u>silent call OpenInBrowser('v')<cr>

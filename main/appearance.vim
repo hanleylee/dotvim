@@ -69,6 +69,7 @@ function! HLColorScheme()
     " ['hi', 'Search', 'guifg=#fabd2f', 'ctermfg=214', 'guibg=#282828', 'ctermbg=235', 'gui=inverse', 'cterm=inverse']
     " 
     highlight MatchParen    cterm=italic    ctermbg=black ctermfg=178    gui=italic,bold    guibg=#d7af00    guifg=black
+    highlight LineHighlight cterm=bold   ctermbg=235             gui=bold   guibg=#4e4e4e
     "}}}
 
     if hl#plug_loaded('vim-sneak')

@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
             \ 'coc-word',
             \ 'coc-yaml',
             \ 'coc-yank',
+            \ 'coc-ci',
             \ ]
 
 let g:coc_disable_file_types = []

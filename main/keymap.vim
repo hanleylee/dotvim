@@ -372,8 +372,10 @@ if hl#plug_loaded('coc.nvim')
     xmap <C-c>f  <Plug>(coc-format-selected)
     nmap <C-c>f  <Plug>(coc-format-selected)
 
-    xmap <C-c>a  <Plug>(coc-codeaction-selected)
-    nmap <C-c>a  <Plug>(coc-codeaction-selected)
+    nmap <silent> <C-c>w <Plug>(coc-ci-w)
+    nmap <silent> <C-c>b <Plug>(coc-ci-b)
+    xmap <silent> <C-c>a <Plug>(coc-codeaction-selected)
+    nmap <silent> <C-c>a <Plug>(coc-codeaction-selected)
 
     nmap <silent> <C-c>r <Plug>(coc-range-select)
     xmap <silent> <C-c>r <Plug>(coc-range-select)

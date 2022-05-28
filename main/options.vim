@@ -39,7 +39,8 @@ set cedit=<C-Y>
 
 " Ignore certain files and folders when globing
 set wildignore+=*.o,*.obj,*.dylib,*.bin,*.dll,*.exe
-set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
+" set wildignore+=*/.git/*,*/.svn/*,*/__pycache__/*,*/build/**
+set wildignore+=*/__pycache__/*,*/build/**
 set wildignore+=*.jpg,*.png,*.jpeg,*.bmp,*.gif,*.tiff,*.svg,*.ico
 set wildignore+=*.py[co],*.pkl
 set wildignore+=*.DS_Store,.*.swp

@@ -6,21 +6,21 @@
 if !g:is_in_macvim_gui " macvim 自带这些快捷键
     "map <D-v>      "+gP
     "cmap <D-v>     <C-R>+
-    vnoremap  <D-c>         "+y
-    vnoremap  <D-x>         "+x
-    tmap      <D-v>         <C-w>"+
-    nnoremap  <D-v>         "+p
-    vnoremap  <D-v>         "+p
-    inoremap  <D-v>         <C-r><C-o>+
-    cnoremap  <D-v>         <C-r><C-o>+
+    " vnoremap  <D-c>         "+y
+    " vnoremap  <D-x>         "+x
+    " tmap      <D-v>         <C-w>"+
+    " nnoremap  <D-v>         "+p
+    " vnoremap  <D-v>         "+p
+    " inoremap  <D-v>         <C-r><C-o>+
+    " cnoremap  <D-v>         <C-r><C-o>+
     noremap   <D-Left>      <Home>
     noremap!  <D-Left>      <Home>
     noremap   <D-Right>     <End>
     noremap!  <D-Right>     <End>
-    noremap   <D-Up>        <C-Home>
-    inoremap  <D-Up>        <C-Home>
-    noremap   <D-Down>      <C-End>
-    inoremap  <D-Down>      <C-End>
+    " noremap   <D-Up>        <C-Home>
+    " inoremap  <D-Up>        <C-Home>
+    " noremap   <D-Down>      <C-End>
+    " inoremap  <D-Down>      <C-End>
     inoremap  <D-BS>        <C-u>
     nnoremap  <D-w>         :x<cr>
     inoremap  <D-w>         <Esc>:x<cr>

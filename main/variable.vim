@@ -10,6 +10,7 @@ let g:is_in_gui = empty($TERM) || g:is_in_macvim_gui
 let g:is_in_term = !g:is_in_gui " 位于终端中
 let g:is_in_iterm = $TERM_PROGRAM ==? 'iTerm.app'
 let g:is_in_apple_term = $TERM_PROGRAM ==? 'Apple_Terminal'
+let g:is_in_xterm_kitty = $TERM ==? 'xterm-kitty'
 let g:is_in_nvim = has('nvim') " 位于 neovim 中
 let g:is_in_vim = !g:is_in_nvim " 位于 vim 中
 let g:is_win = (has('win32') || has('win64')) ? v:true : v:false

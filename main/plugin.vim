@@ -107,7 +107,9 @@ endif
 if s:vim_weight >= 2 || g:is_in_gui
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " marks 管理插件
-    Plug 'jiangmiao/auto-pairs'                         " 匹配括号
+    if !g:is_in_xterm_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
+        Plug 'jiangmiao/auto-pairs'                         " 匹配括号
+    endif
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite

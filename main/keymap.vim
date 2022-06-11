@@ -23,7 +23,6 @@ nmap <F5> :e!<CR>
 
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
-nnoremap <silent><C-Tab>     :tabnew<CR>
 nnoremap <silent><Backspace> :noh<CR>
 nnoremap <C-g>               :call EchoPath()<CR>
 " Ctrl-S 保存文件
@@ -89,11 +88,6 @@ cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
 "}}}
-
-noremap <silent><Tab>m :tabnew<cr>
-noremap <silent><Tab>c :tabclose<cr>
-noremap <silent><Tab>n :tabn<cr>
-noremap <silent><Tab>p :tabp<cr>
 
 " replace vim's built-in visual * and # behavior {{{
 xnoremap * :<C-u>call VisualStarSearchSet('/')<CR>/<C-R>=@/<CR><CR>
@@ -512,4 +506,8 @@ endif
 
 if hl#plug_loaded('vim-which-key')
     nnoremap <silent><Leader> :WhichKey '<Leader>'<CR>
+endif
+
+if hl#plug_loaded('vim-table-mode')
+    nnoremap <Leader>tr <Plug>(table-mode-realign)
 endif

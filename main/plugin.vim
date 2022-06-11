@@ -85,7 +85,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'vim-ruby/vim-ruby'
     Plug 'vim-python/python-syntax' " python 语法高亮
-    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'mityu/vim-applescript'    " for applescript
     Plug 'nathangrigg/vim-beancount'
@@ -97,7 +96,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'vim-test/vim-test'
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
-    Plug '$hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
+    Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
 endif
@@ -151,6 +150,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
     Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
+    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
 endif
 " }}}
 
@@ -163,8 +163,8 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     Plug 'skywind3000/vim-dict'
-    Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
+    Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'puremourning/vimspector'
     Plug 'tpope/vim-scriptease'
     Plug 'sillybun/vim-repl'
@@ -172,6 +172,8 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tyru/open-browser.vim'
     Plug 'weirongxu/plantuml-previewer.vim'
     Plug 'thinca/vim-themis'
+    " Plug 'vim-orgmode'
+    Plug 'dhruvasagar/vim-dotoo'
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
@@ -259,7 +261,6 @@ call plug#end()
 " Plug 'equalsraf/neovim-gui-shim'
 " Plug 'SirVer/ultisnips'                             " 自定义某些片段
 " Plug 'plasticboy/vim-markdown'
-" Plug 'vimwiki/vimwiki'
 " Plug 'tpope/vim-markdown'
 " Plug 'lfilho/cosco.vim'
 "}}}

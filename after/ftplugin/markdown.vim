@@ -10,9 +10,13 @@ endif
 setlocal conceallevel=2
 " 设置 gq 时判断的列表, 如果是列表的话会使用列表后的第一个字符的作为缩进距离
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*[-*+]\\s\\+\\\|^\\[^\\ze[^\\]]\\+\\]:
+"  允许对multi_byte字符换行（否则默认只能空格或者英文标点，详见set breakat=）
+setlocal formatoptions+=m
 " setlocal textwidth=0
 " setlocal foldmethod=expr
 " setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-
+
+noremap <silent><buffer> <Tab>  za
 
 noremap <silent><buffer> j   gj
 noremap <silent><buffer> k   gk

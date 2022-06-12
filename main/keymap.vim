@@ -509,5 +509,5 @@ if hl#plug_loaded('vim-which-key')
 endif
 
 if hl#plug_loaded('vim-table-mode')
-    nnoremap <Leader>tr <Plug>(table-mode-realign)
+    nmap <Leader>tr <Plug>(table-mode-realign)
 endif

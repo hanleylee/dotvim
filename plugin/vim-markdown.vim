@@ -7,7 +7,8 @@ if !hl#plug_loaded('vim-markdown')
     finish
 endif
 
-let g:vim_markdown_folding_disabled = 0 "太耗费性能
+" For preservim/vim-markdown {{{
+let g:vim_markdown_folding_disabled = 1 "太耗费性能
 let g:vim_markdown_folding_level = 3 "文件打开时显示的目录总级别
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_auto_insert_bullets = 0 "换行时自动插入项目符号
@@ -27,3 +28,22 @@ let g:vim_markdown_json_frontmatter = 1
 " let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_autowrite = 1
 " let g:vim_markdown_auto_extension_ext = 'txt'
+" }}}
+
+" For tpope/vim-markdown {{{
+" let g:markdown_fenced_languages = [
+"             \ 'html',
+"             \ 'python',
+"             \ 'bash=sh',
+"             \ 'c',
+"             \ 'cpp',
+"             \ 'swift',
+"             \ 'json',
+"             \ 'xml',
+"             \ 'ini=dosini',
+"             \ 'ruby',
+"             \ ]
+" let g:markdown_minlines = 100
+" let g:markdown_folding = 1
+" let g:markdown_syntax_conceal = 1
+" }}}

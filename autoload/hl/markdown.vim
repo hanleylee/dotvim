@@ -53,8 +53,11 @@ function! hl#markdown#Format() range
     " - \s*\(`[^`]\_.\{-0,}`\)\s*: \_.\{-0,} 跨行代表非贪婪匹配, 整体含义为匹配以 ` 开头以 ` 结尾, 且内容为非 ` 字符必须超过一个的任意多个字符
     let regex_list = add(regex_list, '/\([^`]\|^\)\zs\s*\(`[^`]\_.\{-0,}`\)\s*\ze/ \2 /g')
 
-    " 2. 清除由上一步骤造成的副作用(行首单空格)
+    " 2. 清除由 1 造成的副作用(行首单空格)
     let regex_list = add(regex_list, '/^\s`/`/g')
+
+    " 2. 清除由 1 造成的副作用(左括号后空格)
+    let regex_list = add(regex_list, '/(\zs\s`/`/g')
 
     " 3. 清除标点前的空格
     let regex_list = add(regex_list, '/\(\S\)\s\+\([:;,.\])]\)/\1\2/g')

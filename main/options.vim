@@ -215,7 +215,7 @@ if has('termguicolors')
     set termguicolors
 endif
 
-set synmaxcol=200  " Text after this column number is not highlighted
+set synmaxcol=500  " Text after this column number is not highlighted
 set nostartofline
 " set linespace=16 " 设置行间距
 " set showtabline=2 " 始终显示窗口上头的 tabline

@@ -99,6 +99,8 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
+    " Plug 'preservim/vim-markdown'
+    " Plug 'tpope/vim-markdown'
 endif
 " }}}
 
@@ -172,12 +174,9 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tyru/open-browser.vim'
     Plug 'weirongxu/plantuml-previewer.vim'
     Plug 'thinca/vim-themis'
-    " Plug 'vim-orgmode'
-    Plug 'dhruvasagar/vim-dotoo'
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
-    Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
 endif
 " }}}
 
@@ -206,7 +205,6 @@ call plug#end()
 " Plug 'skywind3000/vim-terminal-help'
 " Plug 'yianwillis/vimcdoc'
 " Plug 'elzr/vim-json'
-" Plug 'majutsushi/tagbar'        " 显示文档的层级
 " Plug 'jszakmeister/markdown2ctags'   " markdown 层级显示
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'Yggdroot/hiPairs'
@@ -263,4 +261,6 @@ call plug#end()
 " Plug 'plasticboy/vim-markdown'
 " Plug 'tpope/vim-markdown'
 " Plug 'lfilho/cosco.vim'
+" Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
+" Plug 'dhruvasagar/vim-dotoo'
 "}}}

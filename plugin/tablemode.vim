@@ -8,6 +8,14 @@ if !hl#plug_loaded('vim-table-mode')
 endif
 
 let g:table_mode_corner='|' "设置转角处为 `|`, 如果设为其他比如`+`, Markdown 语法不支持
+let g:table_mode_delimiter = ','
+let g:table_mode_align_char = ':'
+let g:table_mode_syntax = 1
+let g:table_mode_auto_align = 1
+let g:table_mode_update_time = 500
+let g:table_mode_disable_tableize_mappings = 0
+let g:table_mode_tableize_auto_border = 0
+let g:table_mode_ignore_align = 0
 
 " let g:table_mode_motion_up_map = '{<Bar>'
 " let g:table_mode_motion_down_map = '}<Bar>'

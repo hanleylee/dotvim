@@ -84,6 +84,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'vim-ruby/vim-ruby'
+    Plug 'keith/swift.vim'
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'mityu/vim-applescript'    " for applescript
@@ -189,7 +190,6 @@ call plug#end()
 " Plug 'Shougo/echodoc.vim'
 
 " Plug 'tpope/vim-apathy'
-" Plug 'keith/swift.vim'
 " Plug 'MFreidank/AnkiVim'
 " Plug 'wincent/terminus'         " 更好的终端
 " Plug 'gisphm/vim-gitignore'

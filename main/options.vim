@@ -10,11 +10,11 @@ set nocompatible " 关闭 vi 兼容模式, 必选
 
 if has('nvim')
     " 设置 viminfo, 必须放在 nocompatible 之后
-    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/Users/hanley/Desktop/t1,s10,n~/.vim/.nviminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/Users/hanley/Desktop/t1,s10,n~/.vim/.nviminfo
 else
     " 设置 viminfo, 必须放在 nocompatible 之后
     " 同时 viminfo 的默认位置是 ~/.viminfo, 这里为它赋予不同路径用来防止在 vim -u NONE 时原有的数据被覆盖
-    set viminfo='1000,f1,<500,:1000,@1000,/1000,h,r/private/tmp,s10,n~/.vim/.viminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,s10,n~/.vim/.viminfo
 endif
 
 filetype plugin indent on " 开启插件功能,必选

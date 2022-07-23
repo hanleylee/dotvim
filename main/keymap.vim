@@ -509,5 +509,6 @@ if hl#plug_loaded('vim-which-key')
 endif
 
 if hl#plug_loaded('vim-table-mode')
-    nmap <Leader>tr <Plug>(table-mode-realign)
+    " we can't use nmap <Leader>tr <Plug>(table-mode-realign), because it will raise error
+    nnoremap <silent><Leader>tr :TableModeRealign<CR>
 endif

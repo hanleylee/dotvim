@@ -70,7 +70,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'tpope/vim-unimpaired'
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-fugitive'       " git 插件
-    Plug 'tpope/vim-rhubarb'        " browse code on github
+    Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'junegunn/gv.vim'          " browse git log
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -97,6 +97,14 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'vim-test/vim-test'
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
+    Plug 'pboettch/vim-cmake-syntax'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'hail2u/vim-css3-syntax'
+    Plug 'othree/html5.vim'
+    Plug 'pangloss/vim-javascript'
+    Plug 'arzg/vim-rust-syntax-ext'
+    Plug 'HerringtonDarkholme/yats.vim' " for ts
+    Plug 'peterhoeg/vim-qml'
     Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
@@ -116,8 +124,9 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
     Plug 'tpope/vim-dadbod'                             " interactive database operation
+    Plug 'tpope/vim-speeddating'                        " use <C-A> / <C-X> quicky increase / decrease date
     Plug 'kristijanhusak/vim-dadbod-ui'
-    Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia
+    Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia, cxx, X, cxc
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
     Plug 'kana/vim-textobj-indent'                      " *ai, *ii
     Plug 'kana/vim-textobj-fold'                        " *az, *iz
@@ -154,6 +163,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'romainl/vim-qf'
     Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 endif
 " }}}
 
@@ -175,9 +185,11 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tyru/open-browser.vim'
     Plug 'weirongxu/plantuml-previewer.vim'
     Plug 'thinca/vim-themis'
+    Plug 'rhysd/vim-grammarous' " GrammarousCheck
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
+    Plug 'tomtom/tlib_vim'
 endif
 " }}}
 

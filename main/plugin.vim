@@ -105,9 +105,12 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'HerringtonDarkholme/yats.vim' " for ts
     Plug 'peterhoeg/vim-qml'
-    Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
-    Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
-    Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
+    " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
+    Plug 'hanleylee/vim-alternate'
+    " Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
+    Plug 'hanleylee/vim-gitignore'
+    " Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
+    Plug 'hanleylee/vim-markdown'
     " Plug 'preservim/vim-markdown'
     " Plug 'tpope/vim-markdown'
 endif
@@ -156,8 +159,9 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/vim-quickui'
-    Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
+    " Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug 'hanleylee/vim-renamer'                                                       " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
+    Plug 'hanleylee/vim-t2s', " {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'

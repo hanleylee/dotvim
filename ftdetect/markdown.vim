@@ -5,5 +5,5 @@
 
 augroup MarkdownDetect
     au!
-    au BufNewFile,BufRead */cheat/*	setf markdown
+    au BufNewFile,BufRead */.cheat/*	setf markdown
 augroup END

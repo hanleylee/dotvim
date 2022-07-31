@@ -12,3 +12,8 @@ iabbrev isntall install
 iabbrev cofnig config
 iabbrev toekn token
 iabbrev serach search
+
+# ignorecase
+iabbrev cocoapods CocoaPods
+iabbrev ios iOS
+iabbrev macos MacOS

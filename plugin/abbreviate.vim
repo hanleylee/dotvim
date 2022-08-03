@@ -13,7 +13,7 @@ iabbrev cofnig config
 iabbrev toekn token
 iabbrev serach search
 
-# ignorecase
+" ignorecase
 iabbrev cocoapods CocoaPods
 iabbrev ios iOS
 iabbrev macos MacOS

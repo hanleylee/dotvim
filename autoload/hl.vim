@@ -467,9 +467,10 @@ endfunction
 
 " insert map for enter{{{
 function! hl#insert_map_for_enter()
-    if pumvisible()
-        " return coc#_select_confirm()
-        return "\<C-y>"
+    " if pumvisible()
+    if coc#pum#visible()
+        return coc#pum#confirm()
+        " return "\<C-y>"
     elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
         return "\<C-g>u\<CR>\<Esc>O"
     else

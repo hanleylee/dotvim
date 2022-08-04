@@ -161,7 +161,10 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'skywind3000/vim-quickui'
     " Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
     Plug 'hanleylee/vim-renamer'                                                       " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug 'hanleylee/vim-t2s', " {'dir': '$HL_REPO/vim/vim-t2s'}
+    " Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
+    Plug 'hanleylee/vim-t2s'
+    Plug 'hanleylee/vim-cocoapods'
+    " Plug 'hanleylee/vim-cocoapods', {'dir': '$HL_REPO/vim/vim-cocoapods'}
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'

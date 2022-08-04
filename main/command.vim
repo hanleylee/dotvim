@@ -38,9 +38,6 @@ command CenterFull call hl#center_full()
 
 " iOS {{{
 command! MVXC silent call MVXC()
-command! PodUpdate call hl#cocoapods#execute('pod update')
-command! PodInstall call hl#cocoapods#execute('pod install')
-command! PodUpdateNoRepoUpdate call hl#cocoapods#execute('pod update --no-repo-update')
 " }}}
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')

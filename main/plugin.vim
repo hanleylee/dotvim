@@ -170,7 +170,6 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'romainl/vim-qf'
     Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
-    Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 endif
 " }}}
 
@@ -282,4 +281,5 @@ call plug#end()
 " Plug 'lfilho/cosco.vim'
 " Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
 " Plug 'dhruvasagar/vim-dotoo'
+" Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 "}}}

@@ -4,7 +4,7 @@
 " License:  MIT License
 
 " get formatted url string, return '' if it isn't url link
-function! hl#text#get_url_formatted_string(string)
+function! hl#text#url_formatted_string(string)
     " 确保 uri 中含有 '.', 且不以引号开头结尾
     let uri = matchstr(a:string, "[a-z]*:\/\/[^ >,;()']*")
     let uri = substitute(uri, '?', '\\?', '')
@@ -14,7 +14,7 @@ endfunction
 
 " get visual mode selected text
 " Why is this not a built-in Vim script function?!
-function! hl#text#get_visual_selection()
+function! hl#text#visual_selection()
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
     let lines = getline(line_start, line_end)
@@ -28,7 +28,7 @@ endfunction
 
 " get visual mode selected text 2
 " alternative to above
-function! hl#text#get_visual_selection2()
+function! hl#text#visual_selection2()
     try
         let a_save = @a
         normal! gv"ay
@@ -77,4 +77,72 @@ function! hl#text#xml_encode(str) abort
     let str = substitute(str,'"','\&quot;','g')
     let str = substitute(str,"'",'\&apos;','g')
     return str
+endfunction
+
+" replace surge rule {{{
+function! s:ReplaceSurgeRule(key,val)
+    let substitutedContent = substitute(a:val, ' =.*$', '', '')
+    return substitutedContent
+endfunction
+"}}}
+
+"{{{
+function! hl#text#format_surge_rule() range
+    let content = getline(a:firstline, a:lastline)
+
+    let mapedLine = map(content, function('s:ReplaceSurgeRule'))
+    let @0 = join(mapedLine, ',')
+endfunction
+"}}}
+
+" quick move bracket to backward when cursor is inside a pair of paris `(|)`
+function! hl#text#move_bracket_to_left() abort
+
+    let is_insert = mode() == 'i'
+    let current_pos = getpos('.')
+    " 是否为第一次在这个位置
+    let is_first_time_this_postion = current_pos != get(b:, 'assist_move_bracket_pos', [])
+    if is_first_time_this_postion " 如果是第一次, 那么就寻找左侧括号进行移动
+        let bracket_arr = ['{', '[', '(']
+        let current_char_shift = is_insert ? 2 : 1
+        let current_char = getline('.')[col('.') - current_char_shift]
+        let is_in_left_bracket = index(bracket_arr, current_char) >= 0
+        if is_in_left_bracket " 如果已经在左括号上了, 那么就不需要跳转了
+            let opeart = 'm`xbP``'
+        else " 如果没有在左括号上, 那么要跳到左括号上
+            let opeart = 'm`%xbP``'
+        endif
+    else " 如果不是第一次, 那么就寻找上次移动的那个位置, 再次递进左移
+        let opeart = 'm``.xbP``'
+    endif
+
+    let b:assist_move_bracket_pos = current_pos
+
+    let prefix = is_insert ? "\<Esc>" : ''
+    let suffix = is_insert ? 'a' : ''
+
+    return prefix . opeart . suffix
+endfunction
+
+" quick move any char to backward when cursor is behind that char in insert mode or on the char in normal mode
+function! hl#text#move_any_char_to_left() abort
+
+    let is_insert = mode() == 'i'
+    let current_pos = getpos('.')
+    " 是否为第一次在这个位置
+    let is_first_time_this_postion = current_pos != get(b:, 'assist_move_any_char_pos', [])
+    if is_first_time_this_postion " 如果是第一次, 那么就寻找左侧括号进行移动
+        let current_char_shift = is_insert ? 2 : 1
+        let current_char = getline('.')[col('.') - current_char_shift]
+        let opeart = 'm`xbP``'
+    else " 如果不是第一次, 那么就寻找上次移动的那个位置, 再次递进左移
+        let opeart = 'm``.xbP``'
+    endif
+
+    let b:assist_move_any_char_pos = current_pos
+
+    let prefix = is_insert ? "\<Esc>" : ''
+    let suffix = is_insert ? 'a' : ''
+
+    return prefix . opeart . suffix
 endfunction

@@ -11,6 +11,6 @@ function s:suite.test_plug_loaded()
 endfunction
 
 function s:suite.test_iso_time()
-    call s:expect(hl#iso_time(1647362029)).to_equal('2022-03-16 00:33:49+0800')
+    call s:expect(hl#get#iso_time(1647362029)).to_equal('2022-03-16 00:33:49+0800')
 endfunction
 

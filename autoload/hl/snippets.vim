@@ -5,6 +5,6 @@
 
 " make snippets surrounded by 'hl_'
 function! hl#snippets#make_hl(mode)
-    call hl#embedded_with_string(a:mode, 'hl_', '_hl')
+    call hl#operate#embedded_with_string(a:mode, 'hl_', '_hl')
 endfunction
 

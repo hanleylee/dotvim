@@ -24,7 +24,7 @@ nmap <F5> :e!<CR>
 " nnoremap <silent>-           :Explore<CR>
 nnoremap <silent><C-q>       :x<CR>
 nnoremap <silent><Backspace> :noh<CR>
-nnoremap <C-g>               :call EchoPath()<CR>
+nnoremap <C-g>               :call hl#util#EchoPath()<CR>
 " Ctrl-S 保存文件
 nnoremap <silent><C-s>       :update<CR>
 inoremap <silent><C-s>       <ESC>:update<CR>
@@ -45,7 +45,7 @@ imap <silent> <S-CR> <C-CR><Esc>==O
 " keeping it center
 " nnoremap n nzzzv
 " nnoremap N Nzzzv
-" nnoremap <silent> J :call hl#merge_line()<CR>
+nnoremap <silent> J :call hl#operate#merge_line()<CR>
 nnoremap Y y$
 
 " jumplist mutations
@@ -90,19 +90,19 @@ cnoremap <C-b>    <Left>
 "}}}
 
 " replace vim's built-in visual * and # behavior {{{
-xnoremap * :<C-u>call VisualStarSearchSet('/')<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call VisualStarSearchSet('?')<CR>?<C-R>=@/<CR><CR>
+xnoremap * :<C-u>call hl#util#VisualStarSearchSet('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call hl#util#VisualStarSearchSet('?')<CR>?<C-R>=@/<CR><CR>
 
 nnoremap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g') . '/ **'<CR>
-vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+vnoremap <leader>* :<C-u>call hl#util#VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 " }}}
 
 nnoremap <silent> <Leader>bl :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
 nnoremap <silent> <Leader>bc :call clearmatches()<CR>
 
 let g:netrw_nogx = 1 " disable gx keymap
-nmap <silent>gx :silent call OpenInBrowser('n')<cr>
-vmap <silent>gx :<C-u>silent call OpenInBrowser('v')<cr>
+nmap <silent>gx :silent call hl#external#OpenInBrowser('n')<cr>
+vmap <silent>gx :<C-u>silent call hl#external#OpenInBrowser('v')<cr>
 
 if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
@@ -166,8 +166,8 @@ endif
 
 " vim-autoformat {{{
 if hl#plug_loaded('vim-autoformat')
-    nnoremap <silent><Leader>af  :call hl#format_document('n')<CR>
-    vnoremap <silent><Leader>af  :call hl#format_document('v')<CR>
+    nnoremap <silent><Leader>af  :call hl#format#document('n')<CR>
+    vnoremap <silent><Leader>af  :call hl#format#document('v')<CR>
 endif
 "}}}
 
@@ -207,11 +207,11 @@ if hl#plug_loaded('vim-quickui')
     nnoremap <silent><Leader>qp          :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
+    vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection())<cr>
     nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
+    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection())<cr>
     nnoremap <silent>K                   :call hl#quickui#show_context(expand("<cword>"))<CR>
-    vnoremap <silent>K                   :<C-u>call hl#quickui#show_context(hl#visual_selection())<CR>
+    vnoremap <silent>K                   :<C-u>call hl#quickui#show_context(hl#text#visual_selection())<CR>
 endif
 "}}}
 
@@ -346,7 +346,7 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <CR> hl#insert_map_for_enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-    nnoremap <silent><Leader>K  :call hl#show_documentation()<CR>
+    nnoremap <silent><Leader>K  :call hl#ui#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
     nmap <silent>gy             <Plug>(coc-type-definition)
     nmap <silent>gm             <Plug>(coc-implementation)

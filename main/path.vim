@@ -12,7 +12,7 @@ let paths_arr = [
             \ $CPATH,
             \ $PYTHONPATH,
             \ ]
-call ExpandPathFromEnv(paths_arr)
+call hl#util#ExpandPathFromEnv(paths_arr)
 
 " let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
 " if isdirectory(s:llvm_path)

@@ -108,10 +108,10 @@ tnoremap <M-b>    <C-Left>
 " vnoremap <M-k> gk
 
 " Movement on popup window
-nnoremap <silent><M-u> :call hl#preview_scroll('u')<cr>
-nnoremap <silent><M-d> :call hl#preview_scroll('d')<cr>
-nnoremap <silent><M-k> :call hl#preview_scroll('k')<cr>
-nnoremap <silent><M-j> :call hl#preview_scroll('j')<cr>
+nnoremap <silent><M-u> :call hl#ui#preview_scroll('u')<cr>
+nnoremap <silent><M-d> :call hl#ui#preview_scroll('d')<cr>
+nnoremap <silent><M-k> :call hl#ui#preview_scroll('k')<cr>
+nnoremap <silent><M-j> :call hl#ui#preview_scroll('j')<cr>
 
 " quick move bracket to backward
 " nnoremap <expr> <M-B>  hl#move_bracket_to_left()
@@ -122,7 +122,7 @@ nnoremap <expr> <M-B>  hl#move_any_char_to_left()
 inoremap <expr> <M-B>  hl#move_any_char_to_left()
 
 " quickly close all tabs
-nnoremap <silent><M-q>       :call hl#close_all()<CR>
+nnoremap <silent><M-q>       :call hl#ui#close_all()<CR>
 
 " add sign at the trailing
 inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
@@ -154,9 +154,9 @@ endif
 if hl#plug_loaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><D-d>          :call hl#quickui#show_dict(expand("<cword>"))<cr>
-    vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#visual_selection())<cr>
+    vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection())<cr>
     nnoremap <silent><D-t>          :call hl#quickui#show_translate(expand("<cword>"))<cr>
-    vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#visual_selection())<cr>
+    vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection())<cr>
 endif
 
 if hl#plug_loaded('vim-floaterm')

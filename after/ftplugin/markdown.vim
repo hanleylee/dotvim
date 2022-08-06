@@ -3,9 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !exists('b:loaded_ft_markdown')
-    command! -range=% -nargs=0 FormatMarkdown let b:view = winsaveview() | silent! <line1>,<line2> call hl#markdown#Format() | call winrestview(b:view)
-endif
+command! -range=% -nargs=0 -buffer FormatMarkdown let b:view = winsaveview() | silent! <line1>,<line2> call hl#markdown#Format() | call winrestview(b:view)
 
 setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0
@@ -44,16 +42,22 @@ nnoremap <buffer> <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
 noremap <silent><buffer> gj  j
 noremap <silent><buffer> gk  k
 
+" make italic
+vnoremap <silent><buffer> <Leader>/ :<C-u>call hl#markdown#make_italic(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>/ :set operatorfunc=hl#markdown#make_italic<CR>g@
 " make bold
-vmap <silent><buffer> <Leader>/ :<c-u>call hl#markdown#make_italic(visualmode())<cr>
-nmap <silent><buffer> <Leader>/ :set operatorfunc=hl#markdown#make_italic<cr>g@
-vmap <silent><buffer> <Leader>b :<c-u>call hl#markdown#make_bold(visualmode())<cr>
-nmap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<cr>g@
+vnoremap <silent><buffer> <Leader>b :<C-u>call hl#markdown#make_bold(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<CR>g@
+
+" add level
+vnoremap <silent><buffer> <Leader>al <Cmd> call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
+nnoremap <silent><buffer> <Leader>al :call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
+" minus level
+vnoremap <silent><buffer> <Leader>dl <Cmd> call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+nnoremap <silent><buffer> <Leader>dl :call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
 
 " text object for code block
 vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
 onoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
 vnoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
 onoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
-
-let b:loaded_ft_markdown = 1

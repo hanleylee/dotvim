@@ -28,12 +28,13 @@ endfunction
 
 " use `J` to merge to line
 function! hl#operate#merge_line()
-    normal! mzJ`z
-    execute 'delmarks z'
+    let save_cursor = getcurpos()
+    normal! J
+    call setpos('.', save_cursor)
 endfunction
 
-" emebeded string with left_string and right_string
-function! hl#operate#embedded_with_string(mode, left_str, right_str)
+" emebeded string with left_string and right_string(use 'normal!')
+function! hl#operate#embedded_with_string_1(mode, left_str, right_str)
     if a:mode ==# 'v'
         execute 'normal `>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
     elseif a:mode ==# 'char'
@@ -43,6 +44,28 @@ function! hl#operate#embedded_with_string(mode, left_str, right_str)
     else
         return
     endif
+endfunction
+
+" emebeded string with left_string and right_string(use 'setline')
+function! hl#operate#embedded_with_string_2(mode, left_str, right_str)
+    let line_content = getline('.')
+    let line_num = line('.')
+    if a:mode ==# 'v'
+        let begin_char_pos = getcharpos("'<")[2] - 1 " 使用 getcharpos 获得以 1 为增幅的字符的位置
+        let end_char_pos = getcharpos("'>")[2]
+    elseif a:mode ==# 'char'
+        let begin_char_pos = getcharpos("'[")[2] - 1
+        let end_char_pos = getcharpos("']")[2]
+    else
+        echoerr "not support mode!"
+    endif
+
+    let first_part = strcharpart(line_content, 0, begin_char_pos)
+    let embedded_part = a:left_str . strcharpart(line_content, begin_char_pos, end_char_pos - begin_char_pos) . a:right_str
+    let last_part = strcharpart(line_content, end_char_pos)
+
+    let final_content = first_part . embedded_part . last_part
+    call setline(line_num, final_content)
 endfunction
 
 " 移除行尾空格

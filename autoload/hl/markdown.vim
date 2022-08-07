@@ -29,12 +29,12 @@ endfunction
 
 " make markdown text bold
 function! hl#markdown#make_bold(mode)
-    call hl#operate#embedded_with_string(a:mode, '**', '**')
+    call hl#operate#embedded_with_string_2(a:mode, '**', '**')
 endfunction
 
 " make markdown text italic
 function! hl#markdown#make_italic(mode)
-    call hl#operate#embedded_with_string(a:mode, '*', '*')
+    call hl#operate#embedded_with_string_2(a:mode, '*', '*')
 endfunction
 
 " format chinese{{{

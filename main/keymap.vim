@@ -35,7 +35,7 @@ vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
 nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> hl#insert_map_for_ctrl_enter()
+inoremap <silent><expr> <C-CR> hl#map#ctrl_enter()
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " 方便 dart 多参数传入
 imap <silent> <S-CR> <C-CR><Esc>==O
@@ -343,7 +343,7 @@ endif
 if hl#plug_loaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    inoremap <silent><expr> <CR> hl#insert_map_for_enter()
+    inoremap <silent><expr> <CR> hl#map#enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     nnoremap <silent><Leader>K  :call hl#ui#show_documentation()<CR>

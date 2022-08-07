@@ -55,7 +55,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
-    Plug 'voldikss/vim-floaterm'
     Plug 'mhinz/vim-startify'              " 首页显示
     Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
 
@@ -65,6 +64,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
+    Plug 'jszakmeister/vim-togglecursor'   " 改变 cursor 形状
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
@@ -73,13 +73,17 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'junegunn/gv.vim'          " browse git log
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'skywind3000/vim-preview'
-    Plug 'szw/vim-maximizer'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
     Plug 'ojroques/vim-oscyank'
-    Plug 'dstein64/vim-startuptime'
+    Plug 'othree/eregex.vim'
+    Plug 'rizzatti/dash.vim'
+    Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
+    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
+    Plug 'hanleylee/vim-alternate'
+    Plug 'liuchengxu/vista.vim'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -105,8 +109,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'HerringtonDarkholme/yats.vim' " for ts
     Plug 'peterhoeg/vim-qml'
-    " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
-    Plug 'hanleylee/vim-alternate'
     " Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-gitignore'
     " Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
@@ -146,30 +148,21 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
     Plug 'mg979/vim-visual-multi'                       " 多选
+    Plug 'rhysd/vim-grammarous' " GrammarousCheck
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
-    Plug 'jszakmeister/vim-togglecursor'   " 改变 cursor 形状
 
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " 显示修改历史
-    Plug 'liuchengxu/vista.vim'
     Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    Plug 'skywind3000/asyncrun.vim'                 " 异步执行
-    Plug 'skywind3000/asynctasks.vim'
-    Plug 'skywind3000/vim-quickui'
-    " Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}                 " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
-    Plug 'hanleylee/vim-renamer'                                                       " 批量修改文件的神器, 使用 :Ren 进行编辑与保存, 完成后退出即可
     " Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'hanleylee/vim-t2s'
-    Plug 'hanleylee/vim-cocoapods'
     " Plug 'hanleylee/vim-cocoapods', {'dir': '$HL_REPO/vim/vim-cocoapods'}
-    Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+    Plug 'hanleylee/vim-cocoapods'
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
-    Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
-    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
 endif
 " }}}
 
@@ -182,20 +175,32 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     Plug 'skywind3000/vim-dict'
-    Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
-    Plug 'puremourning/vimspector'
+    Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
+
+    " ============== Function ==============
+    " Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}
+    Plug 'hanleylee/vim-renamer'
+    Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'
+    Plug 'puremourning/vimspector'
+    Plug 'szw/vim-maximizer'
+
+    " ============== Run ==============
+    Plug 'skywind3000/asyncrun.vim'                 " 异步执行
+    Plug 'skywind3000/asynctasks.vim'
     Plug 'sillybun/vim-repl'
-    Plug 'rizzatti/dash.vim'
-    Plug 'tyru/open-browser.vim'
     Plug 'weirongxu/plantuml-previewer.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+    Plug 'voldikss/vim-floaterm'
+
+    " ============= Test ==============
     Plug 'thinca/vim-themis'
-    Plug 'rhysd/vim-grammarous' " GrammarousCheck
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
-    Plug 'tomtom/tlib_vim'
+    " Plug 'tomtom/tlib_vim'
 endif
 " }}}
 
@@ -282,4 +287,6 @@ call plug#end()
 " Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
 " Plug 'dhruvasagar/vim-dotoo'
 " Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
+" Plug 'dstein64/vim-startuptime'
+" Plug 'tyru/open-browser.vim'
 "}}}

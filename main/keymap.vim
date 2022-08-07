@@ -54,8 +54,8 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " 上下移动一行文字
 nnoremap <C-j> :m+<cr>
-nnoremap <C-k> :m-2<cr>
 vnoremap <C-j> :m'>+<cr>gv
+nnoremap <C-k> :m-2<cr>
 vnoremap <C-k> :m'<-2<cr>gv
 
 " nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>
@@ -468,6 +468,12 @@ if hl#plug_loaded('vim-oscyank')
     vnoremap <Leader>oy :OSCYank<CR>
 endif
 "}}}
+
+" eregex.vim {{{
+if hl#plug_loaded('eregex.vim')
+    nnoremap <leader>em :call eregex#toggle()<CR>
+endif
+" }}}
 
 " vim-fugitive {{{
 if hl#plug_loaded('vim-fugitive')

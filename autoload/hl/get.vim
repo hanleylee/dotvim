@@ -35,7 +35,7 @@ function! hl#get#GitBranch()
 endfunction
 
 " 获取可读的文件大小
-function hl#get#fsize(file)
+function hl#get#readble_fsize(file)
   let size = getfsize(a:file)
   if has('python3')
     try

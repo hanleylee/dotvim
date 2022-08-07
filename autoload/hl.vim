@@ -38,9 +38,9 @@ endfunction
 
 " 异步执行任务
 function! hl#async_task(mode)
-    let full_pathname = expand('%:p')
-    let repo_filename = expand('%')
-    let just_filename = expand('%:t')
+    let full_pathname = hl#util#GetFullPathName()
+    let repo_filename = FindRootDirectory()
+    let just_filename = hl#util#GetOnlyFileName()
     if just_filename ==# 'Podfile'
         silent update | execute 'PodUpdate'
     elseif repo_filename =~# 'lib/main.dart'

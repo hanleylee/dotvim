@@ -56,7 +56,6 @@ function! hl#format#document(mode) range
 endfunction
 
 function! hl#format#reindent_document()
-    " execute "normal mzgg=G`zmz"
     let v = winsaveview()
     keepjumps normal! gg=G
     call winrestview(v)

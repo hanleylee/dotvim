@@ -27,10 +27,8 @@ function! hl#util#ExpandPathFromEnv(paths_arr)
     endfor
 endfunction
 
-" makes * and # work on visual mode too.  global function so user mappings can call it.
-" specifying 'raw' for the second argument prevents escaping the result for vimgrep
-" TODO: there's a bug with raw mode.  since we're using @/ to return an unescaped
-" search string, vim's search highlight will be wrong.  Refactor plz.
+" makes * and # work on visual mode too.  global function so user mappings can call it. specifying 'raw' for the second argument prevents escaping the result for vimgrep
+" TODO: there's a bug with raw mode. since we're using @/ to return an unescaped search string, vim's search highlight will be wrong. Refactor plz.
 function! hl#util#VisualStarSearchSet(cmdtype,...)
     let temp = @"
     normal! gvy
@@ -44,6 +42,7 @@ function! hl#util#VisualStarSearchSet(cmdtype,...)
     let @" = temp
 endfunction
 
+" get path until directory
 func! hl#util#GetOnlyDirectory()
     " if &filetype ==# 'netrw'
     "     return getcwd()
@@ -52,6 +51,7 @@ func! hl#util#GetOnlyDirectory()
     " endif
 endfunc
 
+" get only file name
 func! hl#util#GetOnlyFileName()
     if &filetype ==# 'netrw'
         return ''
@@ -60,7 +60,12 @@ func! hl#util#GetOnlyFileName()
     endif
 endfunc
 
+" get full path
+func! hl#util#GetFullPathName()
+    return resolve(expand('%:p'))
+endfunction
+
 " echo path
 func! hl#util#EchoPath()
-    echo hl#util#GetOnlyDirectory() . '/' . hl#util#GetOnlyFileName()
+    echo hl#util#GetFullPathName()
 endfunc

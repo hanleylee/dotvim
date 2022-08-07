@@ -52,7 +52,7 @@ function! hl#operate#embedded_with_string_2(mode, left_str, right_str)
     let line_num = line('.')
     if a:mode ==# 'v'
         let begin_char_pos = getcharpos("'<")[2] - 1 " 使用 getcharpos 获得以 1 为增幅的字符的位置
-        let end_char_pos = getcharpos("'>")[2]
+        let end_char_pos = getcharpos("'>")[2] " 为什么 begin 位置需要 -1, 但是 end 不需要? 因为我们需要的是包裹, 包裹的位置在 begin 之前, 在 end 之后
     elseif a:mode ==# 'char'
         let begin_char_pos = getcharpos("'[")[2] - 1
         let end_char_pos = getcharpos("']")[2]
@@ -81,7 +81,7 @@ func! hl#operate#UnescapeJSON()
     " MARK: method 1: use sed
     " sed -e 's/\\\"/\"/g' -e 's/^.//g' -e 's/.$//g'
     " MARK: method 2: use vim regex
-    " %s/\\"/"/g 
+    " %s/\\"/"/g
     " %s/^.//g
     " %s/.$//g
     " Autoformat

@@ -14,8 +14,7 @@ func! hl#objc#map_match_bracket()
     let col  = col('.') - 1
     let before_cursor = strpart(line, 0, col)
 
-    " Only wrap past delimeters such as ";", "*", "return", etc.
-    " But ignore delimeters in function calls.
+    " Only wrap past delimeters such as ";", "*", "return", etc. But ignore delimeters in function calls.
     let functionPos = match(before_cursor, '\v(if|for|while)@!<\w+>\s*\(.{-}\)([;,|{}!])@!') + 1
     if functionPos
         let before_cursor = strpart(line, 0, functionPos)
@@ -28,13 +27,11 @@ func! hl#objc#map_match_bracket()
     let left_brack_count = hl#objc#map_count(before_cursor, '[') " Note the before_cursor!
     let right_brack_count = hl#objc#map_count(before_cursor, ']')
 
-    " Don't autocomplete if line is blank, if inside or directly outside
-    " string, or if inserting a matching bracket.
+    " Don't autocomplete if line is blank, if inside or directly outside string, or if inserting a matching bracket.
     if wrap_text == '' || wrap_text =~'@\=["'']\S*\s*\%'.col.'c'
                 \ || hl#objc#map_count(line, '[') > hl#objc#map_count(line, ']')
         return ']'
-        " Escape out of string when bracket is the next character, unless
-        " wrapping past a colon or equals sign, or inserting a closing bracket.
+        " Escape out of string when bracket is the next character, unless wrapping past a colon or equals sign, or inserting a closing bracket.
     elseif line[col] == ']' && wrap_text !~ '\v\k+:\s*\k+(\s+\k+)+$'
                 \ && (before_cursor !~ '\[.*\(=\)]'
                 \ || left_brack_count != right_brack_count + 1)
@@ -43,9 +40,7 @@ func! hl#objc#map_match_bracket()
         return ']'
     else
         " Only wrap past a colon, except for special keywords such as "@selector:".
-        " E.g., "foo: bar|" becomes "foo: [bar |]", and "[foo bar: baz bar|]"
-        " becomes "[foo bar: [baz bar]|]" but "[foo bar: baz bar]|" becomes
-        " "[[foo bar: baz bar] |]" (where | is the cursor).
+        " E.g., "foo: bar|" becomes "foo: [bar |]", and "[foo bar: baz bar|]" becomes "[foo bar: [baz bar]|]" but "[foo bar: baz bar]|" becomes "[[foo bar: baz bar] |]" (where | is the cursor).
         let colonPos = matchend(wrap_text, '^\v(\[\k+\s+)=\k+:\s*') + 1
         if colonPos && colonPos > matchend(wrap_text,
                     \ '\v.*\<\@(selector|operator|ope|control):')
@@ -58,8 +53,7 @@ func! hl#objc#map_match_bracket()
         if line[col] =~ '\s'
             let col -= 1
             let space =  ''
-            " Automatically append space if there is only 1 word.
-            " E.g., "foo" becomes "[foo ]", and "foo bar" becomes "[foo bar]"
+            " Automatically append space if there is only 1 word. E.g., "foo" becomes "[foo ]", and "foo bar" becomes "[foo bar]"
         else
             let space = line[col] == ']' || wrap_text !~ '^\s*\S\+\s\+' ? ' ' : ''
         endif

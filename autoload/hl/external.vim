@@ -14,7 +14,7 @@ function! hl#external#OpenInBrowser(mode)
 
     " open as vim-plug
     if &ft ==? 'vim'
-        let text = matchstr(getline('.'), '"*\s*Plug\s*''\zs.*\ze''')
+        let text = matchstr(getline('.'), '"*\s*Plug\s*''\zs.\{-}\ze''')
         if text != ''
             let final_url = shellescape('https://github.com/' . text, 1)
         else

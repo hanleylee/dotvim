@@ -8,4 +8,5 @@ if !hl#plug_loaded('vim-cocoapods')
 endif
 
 let s:json_file = expand('$HL_SECRET/bnc/pod_url.json')
-let g:POD_MODULE_URL = json_decode(join(readfile(s:json_file), ''))
+let g:PodModuleUrl = json_decode(join(readfile(s:json_file), ''))
+let g:CocoaPodsDefaultMap = 1

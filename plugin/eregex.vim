@@ -7,7 +7,7 @@ if !hl#plug_loaded('eregex.vim')
     finish
 endif
 
-let g:eregex_default_enable = -1
+let g:eregex_default_enable = 0
 
 let g:eregex_forward_delim = '/'
 let g:eregex_backward_delim = '?'

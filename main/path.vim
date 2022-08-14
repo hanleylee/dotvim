@@ -33,3 +33,5 @@ call hl#util#ExpandPathFromEnv(paths_arr)
 "     end
 
 " endif
+" set runtimepath^=/Users/hanley/repo/vim/coc-gitcomp
+

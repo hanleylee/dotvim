@@ -77,7 +77,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
     Plug 'ojroques/vim-oscyank'
-    Plug 'othree/eregex.vim'
     Plug 'rizzatti/dash.vim'
     Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
     Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
@@ -174,6 +173,8 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+    " Plug 'hanleylee/coc-gitcomp', {'dir': '$HL_REPO/vim/coc-gitcomp'}
+    Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install'}
     Plug 'skywind3000/vim-dict'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
@@ -289,4 +290,5 @@ call plug#end()
 " Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 " Plug 'dstein64/vim-startuptime'
 " Plug 'tyru/open-browser.vim'
+" Plug 'othree/eregex.vim'
 "}}}

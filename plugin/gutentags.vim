@@ -13,11 +13,13 @@ let g:gutentags_add_default_project_roots = 0
 let g:gutentags_exclude_project_root = ['/usr/local', '/opt/homebrew']
 let g:gutentags_background_update = 1
 let g:gutentags_exclude_filetypes = [
-            \'gitcommit', 
-            \'gitconfig', 
-            \'gitrebase', 
-            \'gitsendemail', 
-            \'git', 
+            \'gitcommit',
+            \'gitconfig',
+            \'gitrebase',
+            \'gitsendemail',
+            \'git',
+            \'javascript',
+            \'typescript',
             \'netrw',
             \]
 let g:gutentags_ctags_exclude = [

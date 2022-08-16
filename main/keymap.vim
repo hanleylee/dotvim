@@ -380,10 +380,10 @@ if hl#plug_loaded('coc.nvim')
     nmap <C-c>ac  <Plug>(coc-codeaction)
 
     nnoremap <silent><nowait> <C-c>l  :CocList<CR>
+    nnoremap <silent><nowait> <M-c>   :<C-u>CocList commands<cr>
+    nnoremap <silent><nowait> <C-c>c  :<C-u>CocList commands<cr>
     nnoremap <silent><nowait> <C-c>d  :<C-u>CocList diagnostics<cr>
     nnoremap <silent><nowait> <C-c>e  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <C-c>c  :<C-u>CocList commands<cr>
-    nnoremap <silent><nowait> <M-c>   :<C-u>CocList commands<cr>
     nnoremap <silent><nowait> <C-c>o  :<C-u>CocList outline<cr>
     nnoremap <silent><nowait> <C-c>s  :<C-u>CocList -I symbols<cr>
     nnoremap <silent><nowait> <C-c>y  :<C-u>CocList -A --normal yank<cr>

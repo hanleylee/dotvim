@@ -18,8 +18,6 @@ let g:gutentags_exclude_filetypes = [
             \'gitrebase',
             \'gitsendemail',
             \'git',
-            \'javascript',
-            \'typescript',
             \'netrw',
             \]
 let g:gutentags_ctags_exclude = [

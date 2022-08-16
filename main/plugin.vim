@@ -75,7 +75,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'junegunn/gv.vim'          " browse git log
     Plug 'skywind3000/vim-preview'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-    Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
     Plug 'ojroques/vim-oscyank'
     Plug 'rizzatti/dash.vim'
     Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
@@ -291,4 +290,5 @@ call plug#end()
 " Plug 'dstein64/vim-startuptime'
 " Plug 'tyru/open-browser.vim'
 " Plug 'othree/eregex.vim'
+" Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
 "}}}

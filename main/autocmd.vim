@@ -35,10 +35,10 @@ augroup END
 "     endif
 " augroup END
 
-" augroup ReadPost
-"     autocmd!
-"     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
-" augroup END
+augroup ReadPost1
+    autocmd!
+    au BufWinEnter * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
+augroup END
 
 " augroup SetDictionary
 "     autocmd!

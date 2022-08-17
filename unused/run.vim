@@ -40,5 +40,5 @@
 "elseif &filetype ==? 'markdown'
 "    silent MarkdownPreview
 "else
-"    echom 'Current filetype is not supported!'
+"    echoerr 'Current filetype is not supported!'
 "endif

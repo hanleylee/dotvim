@@ -81,7 +81,7 @@ function! hl#sync_task()
     elseif &filetype ==? 'go'
         !go build %<; time go run %
     else
-        echom 'Current filetype is not supported!'
+        echoerr 'Current filetype is not supported!'
     endif
 
 endfunction
@@ -122,7 +122,6 @@ function hl#LoadTemplate(read)
         normal ggdd
         setlocal nomodified
     else
-        echom fname
         sil exe 'tabedit '. fname
     endif
 endfunction

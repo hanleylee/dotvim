@@ -40,7 +40,7 @@ endfunction
 " format chinese{{{
 function! hl#markdown#Format() range
     " a:firstline,a:lastline call hl#Format_CN()
-    execute a:firstline . "," . a:lastline . " call hl#format_cn()"
+    execute a:firstline . "," . a:lastline . " call hl#format#cn()"
 
     let regex_list = []
     " 包裹的 content 添加左右两侧空格
@@ -71,8 +71,6 @@ function! hl#markdown#Format() range
     " 6. 清空所有一行以上的空行
     let regex_list = add(regex_list, '/^\n$//g')
 
-    " echom a:firstline
-    " echom a:lastline
     for pattern in regex_list
         execute a:firstline . "," . a:lastline . " substitute " . pattern
     endfor

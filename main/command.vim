@@ -15,7 +15,7 @@ command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前�
 "}}}
 
 " Format {{{
-" command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#Format_CN()
+" command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#format#cn()
 command! FormatObjectMapper silent! call hl#format#objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
 command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(b:view)

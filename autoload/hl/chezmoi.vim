@@ -59,7 +59,7 @@ function! hl#chezmoi#swap_between_target_and_source()
     else " now we are in the target path, so we should check this file have corresponding source file or not
         let target_path = system('chezmoi source-path ' . current_path)
         if v:shell_error != 0
-            echom 'Current file is not managed by chezmoi!!!'
+            echoerr 'Current file is not managed by chezmoi!!!'
         else
             exec 'edit ' . target_path
         endif

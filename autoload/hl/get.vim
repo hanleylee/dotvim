@@ -58,3 +58,12 @@ function hl#get#zh_date()
   return d
 endfunction
 
+func hl#get#current_syntax()
+    let current_syntax = synIDattr(synIDtrans(synID(line("."), col("$")-1, 1)), "name")
+    return current_syntax
+endfunction
+
+func hl#get#is_current_comment()
+    let current_syntax = hl#get#current_syntax()
+    return current_syntax ==? 'Comment'
+endfunction

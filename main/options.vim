@@ -10,11 +10,11 @@ set nocompatible " 关闭 vi 兼容模式, 必选
 
 if has('nvim')
     " 设置 viminfo, 必须放在 nocompatible 之后
-    set viminfo='1000,f1,<100,:100,@100,/100,h,r/Users/hanley/Desktop/t1,s10,n~/.vim/.nviminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/Users/hanley/Desktop/t1,r/Volumes,s10,n~/.vim/.nviminfo
 else
     " 设置 viminfo, 必须放在 nocompatible 之后
     " 同时 viminfo 的默认位置是 ~/.viminfo, 这里为它赋予不同路径用来防止在 vim -u NONE 时原有的数据被覆盖
-    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,s10,n~/.vim/.viminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,r/Volumes,s10,n~/.vim/.viminfo
 endif
 
 filetype plugin indent on " 开启插件功能,必选
@@ -192,7 +192,7 @@ if has('textprop') && has('quickfix')
 endif
 set cursorline " 突出光标所在行, 开启后速度变慢
 " set cursorcolumn " 突出光标所在列, 开启后速度变慢
-set scrolloff=5 " 设置光标距离最顶(底)部的距离不小于 5 行(一旦小于 5 行即触发位于下方的 scrolljump)
+set scrolloff=0 " 设置光标距离最顶(底)部的距离不小于 x 行(一旦小于 x 行即触发位于下方的 scrolljump)
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150

@@ -3,6 +3,11 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" echo path
+func! hl#util#EchoPath()
+    echo hl#get#FullPathName()
+endfunc
+
 " echo runtimepath
 func! hl#util#EchoRunPath()
     for I in split(&rtp, ',')
@@ -42,30 +47,3 @@ function! hl#util#VisualStarSearchSet(cmdtype,...)
     let @" = temp
 endfunction
 
-" get path until directory
-func! hl#util#GetOnlyDirectory()
-    " if &filetype ==# 'netrw'
-    "     return getcwd()
-    " else
-    return resolve(expand('%:p:h'))
-    " endif
-endfunc
-
-" get only file name
-func! hl#util#GetOnlyFileName()
-    if &filetype ==# 'netrw'
-        return ''
-    else
-        return resolve(expand('%:t'))
-    endif
-endfunc
-
-" get full path
-func! hl#util#GetFullPathName()
-    return resolve(expand('%:p'))
-endfunction
-
-" echo path
-func! hl#util#EchoPath()
-    echo hl#util#GetFullPathName()
-endfunc

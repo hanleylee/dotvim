@@ -111,21 +111,21 @@ function! hl#lightline#FileNameWithIcon() abort
     else
         if FindRootDirectory() == '' " when not inside a repo
             let git_dir = ''
-            let root_path = hl#util#GetOnlyDirectory() " /Users/hanley/test_dir
+            let root_path = hl#get#OnlyDirectory() " /Users/hanley/test_dir
             let modified_path = fnamemodify(root_path, ':~') " ~/test_dir
             let right_path = pathshorten(modified_path) " ~/t
         else " when inside a repo
             let root_path = FindRootDirectory() " /Users/hanley/repo/hkms
             let modified_path = fnamemodify(root_path, ':~') " ~/repo/hkms
             let git_dir = pathshorten(modified_path) " ~/r/hkms
-            let full_path = hl#util#GetOnlyDirectory()
+            let full_path = hl#get#OnlyDirectory()
             " avoid error: no previous substitute regular expression
             " https://github.com/Shougo/deoplete.nvim/commit/dfe7e189b17f28d9b93bda6cc1a64f61fdf5e206
             let escaped_root_path = escape(root_path, '~\.^$[]*')
             let right_path = substitute(full_path, escaped_root_path, '', 'e') " src
         endif
         let res_path = git_dir . right_path " ~/r/hkms/src/test.vim
-        let file_name = hl#util#GetOnlyFileName() == '' ? '' : '/' . hl#util#GetOnlyFileName()
+        let file_name = hl#get#OnlyFileName() == '' ? '' : '/' . hl#get#OnlyFileName()
         return WebDevIconsGetFileTypeSymbol() . ' ' . res_path . file_name "  ~/r/hkms/src/test.vim
     endif
 endfunction

@@ -90,6 +90,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'vim-python/python-syntax' " python 语法高亮
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'mityu/vim-applescript'    " for applescript
+    Plug 'vim-scripts/txt.vim'
     Plug 'nathangrigg/vim-beancount'
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'

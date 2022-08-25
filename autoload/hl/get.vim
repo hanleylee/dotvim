@@ -67,3 +67,26 @@ func hl#get#is_current_comment()
     let current_syntax = hl#get#current_syntax()
     return current_syntax ==? 'Comment'
 endfunction
+
+" get path until directory
+func! hl#get#OnlyDirectory()
+    " if &filetype ==# 'netrw'
+    "     return getcwd()
+    " else
+    return resolve(expand('%:p:h'))
+    " endif
+endfunc
+
+" get only file name
+func! hl#get#OnlyFileName()
+    if &filetype ==# 'netrw'
+        return ''
+    else
+        return resolve(expand('%:t'))
+    endif
+endfunc
+
+" get full path
+func! hl#get#FullPathName()
+    return resolve(expand('%:p'))
+endfunction

@@ -114,21 +114,23 @@ nnoremap <silent><M-k> :call hl#ui#preview_scroll('k')<cr>
 nnoremap <silent><M-j> :call hl#ui#preview_scroll('j')<cr>
 
 " quick move bracket to backward
-" nnoremap <expr> <M-B>  hl#move_bracket_to_left()
-" inoremap <expr> <M-B>  hl#move_bracket_to_left()
+" nnoremap <expr> <M-B>  hl#operate#move_bracket_to_left()
+" inoremap <expr> <M-B>  hl#operate#move_bracket_to_left()
 
 " quick move any character to backward
-nnoremap <expr> <M-B>  hl#move_any_char_to_left()
-inoremap <expr> <M-B>  hl#move_any_char_to_left()
+nnoremap <expr> <M-B>  hl#operate#move_any_char_to_left()
+inoremap <expr> <M-B>  hl#operate#move_any_char_to_left()
 
 " quickly close all tabs
 nnoremap <silent><M-q>       :call hl#ui#close_all()<CR>
 
 " add sign at the trailing
-inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
-nnoremap <M-;> m`A;<Esc>``
-inoremap <M-,> <C-o>m`<C-o>A,<C-o>``
-nnoremap <M-,> m`A,<Esc>``
+" inoremap <M-;> <C-o>m`<C-o>A;<C-o>``
+" nnoremap <M-;> m`A;<Esc>``
+inoremap <silent> <M-;> <C-o>:call hl#operate#append_text(';')<CR>
+nnoremap <silent> <M-;> :call hl#operate#append_text(';')<CR>
+inoremap <silent> <M-,> <C-o>:call hl#operate#append_text(',')<CR>
+nnoremap <silent> <M-,> :call hl#operate#append_text(',')<CR>
 
 if hl#plug_loaded('fzf.vim')
     nnoremap <silent><M-x> :Commands<CR>

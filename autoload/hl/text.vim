@@ -95,54 +95,7 @@ function! hl#text#format_surge_rule() range
 endfunction
 "}}}
 
-" quick move bracket to backward when cursor is inside a pair of paris `(|)`
-function! hl#text#move_bracket_to_left() abort
-
-    let is_insert = mode() == 'i'
-    let current_pos = getpos('.')
-    " 是否为第一次在这个位置
-    let is_first_time_this_postion = current_pos != get(b:, 'assist_move_bracket_pos', [])
-    if is_first_time_this_postion " 如果是第一次, 那么就寻找左侧括号进行移动
-        let bracket_arr = ['{', '[', '(']
-        let current_char_shift = is_insert ? 2 : 1
-        let current_char = getline('.')[col('.') - current_char_shift]
-        let is_in_left_bracket = index(bracket_arr, current_char) >= 0
-        if is_in_left_bracket " 如果已经在左括号上了, 那么就不需要跳转了
-            let opeart = 'm`xbP``'
-        else " 如果没有在左括号上, 那么要跳到左括号上
-            let opeart = 'm`%xbP``'
-        endif
-    else " 如果不是第一次, 那么就寻找上次移动的那个位置, 再次递进左移
-        let opeart = 'm``.xbP``'
-    endif
-
-    let b:assist_move_bracket_pos = current_pos
-
-    let prefix = is_insert ? "\<Esc>" : ''
-    let suffix = is_insert ? 'a' : ''
-
-    return prefix . opeart . suffix
-endfunction
-
-" quick move any char to backward when cursor is behind that char in insert mode or on the char in normal mode
-function! hl#text#move_any_char_to_left() abort
-
-    let is_insert = mode() == 'i'
-    let current_pos = getpos('.')
-    " 是否为第一次在这个位置
-    let is_first_time_this_postion = current_pos != get(b:, 'assist_move_any_char_pos', [])
-    if is_first_time_this_postion " 如果是第一次, 那么就寻找左侧括号进行移动
-        let current_char_shift = is_insert ? 2 : 1
-        let current_char = getline('.')[col('.') - current_char_shift]
-        let opeart = 'm`xbP``'
-    else " 如果不是第一次, 那么就寻找上次移动的那个位置, 再次递进左移
-        let opeart = 'm``.xbP``'
-    endif
-
-    let b:assist_move_any_char_pos = current_pos
-
-    let prefix = is_insert ? "\<Esc>" : ''
-    let suffix = is_insert ? 'a' : ''
-
-    return prefix . opeart . suffix
+function! hl#text#current_line_with_appending(text) abort
+    let current_line = getline('.')
+    return current_line . a:text
 endfunction

@@ -35,7 +35,8 @@ vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
 nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> hl#map#ctrl_enter()
+inoremap <silent><expr> <C-CR> hl#map#ctrl_enter(0)
+inoremap <silent><expr> <C-M-CR> hl#map#ctrl_enter(1)
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 " 方便 dart 多参数传入
 imap <silent> <S-CR> <C-CR><Esc>==O
@@ -69,7 +70,7 @@ vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 nnoremap <leader>ms :ChezmoiSwap<cr>
 nnoremap <leader>ma :ChezmoiApply<cr>
 
-nnoremap <leader>J ddpkJ
+nnoremap <leader>J :call hl#operate#revert_merge()<CR>
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv

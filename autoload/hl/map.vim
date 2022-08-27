@@ -19,7 +19,7 @@ endfunction
 
 " insert map for ctrl-enter{{{
 
-function! hl#map#ctrl_enter()
+function! hl#map#ctrl_enter(keep_comment)
     call coc#pum#close('cancel')
     " " 如果当前光标已经位于行首了, 那么 c-u 会删除到上一行, 因此我们要针对有缩进的和没有缩进的进行区分
     " if hl#get#indent_level() > 0
@@ -27,10 +27,14 @@ function! hl#map#ctrl_enter()
     " else
     "     return "\<CR>"
     " endif
-    if hl#get#is_current_comment()
-        return "\<CR>\<C-u>"
+    if a:keep_comment
+        if hl#get#is_current_comment()
+            return "\<CR>\<C-u>"
+        else
+            return "\<CR>"
+        endif
     else
-        return "\<CR>"
+            return "\<CR>"
     endif
 endfunction
 "}}}

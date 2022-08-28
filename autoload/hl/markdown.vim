@@ -37,6 +37,20 @@ function! hl#markdown#make_italic(mode)
     call hl#operate#embedded_with_string_2(a:mode, '*', '*')
 endfunction
 
+" convert '   moon                   # Moon phase' to '- `moon`: Moon phase'
+function! hl#markdown#convert_hash_key_to_list()
+    let current_line_num = line('.')
+    let current_line_content = getline(current_line_num)
+    let first_part_str = matchstr(current_line_content, '\s*\zs.\{-}\ze\s*\(#\|$\)')
+    let second_part_str = matchstr(current_line_content, '.*#\s*\zs.\{-}\ze\s*$')
+    if empty(second_part_str)
+        let final_content = '- `' . first_part_str . '`'
+    else
+        let final_content = '- `' . first_part_str . '`: ' . second_part_str
+    endif
+    call setline(current_line_num, final_content)
+endfunction
+
 " format chinese{{{
 function! hl#markdown#Format() range
     " a:firstline,a:lastline call hl#Format_CN()

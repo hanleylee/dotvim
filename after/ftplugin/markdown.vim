@@ -53,8 +53,12 @@ nnoremap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<CR>g
 vnoremap <silent><buffer> <Leader>al <Cmd> call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
 nnoremap <silent><buffer> <Leader>al :call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
 " minus level
-vnoremap <silent><buffer> <Leader>dl <Cmd> call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
-nnoremap <silent><buffer> <Leader>dl :call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+vnoremap <silent><buffer> <Leader>xl <Cmd> call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+nnoremap <silent><buffer> <Leader>xl :call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+
+" convert hash key '#' line to markdown list '-'
+noremap <silent> <Plug>(MarkdownConvertHashKeyToList)   :call hl#markdown#convert_hash_key_to_list()<Bar>silent! call repeat#set("\<lt>Plug>(MarkdownConvertHashKeyToList)")<CR>
+map <silent><buffer> <Leader>chl <Plug>(MarkdownConvertHashKeyToList)
 
 " text object for code block
 vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>

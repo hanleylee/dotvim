@@ -19,8 +19,9 @@ command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前�
 command! FormatObjectMapper silent! call hl#format#objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
 command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(b:view)
+command! -range=% -nargs=0 RmTrailingSpace let b:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(b:view)
+command! -range=% -nargs=0 RmEmptyLine let b:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(b:view)
 command! MergeMD silent! call hl#markdown#merge_md()
-command! TrimTrailingWhitespace call hl#operate#TrimTrailingWhitespace()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
 command! UnescapeJSON silent! call hl#operate#UnescapeJSON()

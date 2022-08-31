@@ -46,7 +46,6 @@ imap <silent> <S-CR> <C-CR><Esc>==O
 " keeping it center
 " nnoremap n nzzzv
 " nnoremap N Nzzzv
-nnoremap <silent> J :call hl#operate#merge_line()<CR>
 nnoremap Y y$
 
 " jumplist mutations
@@ -70,7 +69,11 @@ vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 nnoremap <leader>ms :ChezmoiSwap<cr>
 nnoremap <leader>ma :ChezmoiApply<cr>
 
-nnoremap <leader>J :call hl#operate#revert_merge()<CR>
+noremap <silent> <Plug>(MergeLine)   :call hl#operate#merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(MergeLine)")<CR>
+nnoremap <silent> J <Plug>(MergeLine)
+
+noremap <silent> <Plug>(RevertMergeLine)   :call hl#operate#revert_merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(RevertMergeLine)")<CR>
+nnoremap <silent> <leader>J <Plug>(RevertMergeLine)
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv

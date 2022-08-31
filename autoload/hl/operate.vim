@@ -33,6 +33,28 @@ function! hl#operate#merge_line()
     call setpos('.', save_cursor)
 endfunction
 
+function! hl#operate#revert_merge_line()
+    let current_buffer_number = bufnr('%')
+    let current_line_number = line('.')
+    let current_line_content = getline(current_line_number)
+    let next_line_number = current_line_number + 1
+    let next_line_content = getline(next_line_number)
+
+    let final_content = next_line_content . ' ' . current_line_content
+
+    call setline(current_line_number, final_content)
+    call deletebufline(current_buffer_number, next_line_number)
+endfunction
+
+" 移除行尾空格
+function! hl#operate#remove_trailing_space() range
+    execute 'keeppatterns:' . a:firstline . "," . a:lastline . 's/\s\+$//e'
+endfun
+
+function! hl#operate#remove_empty_line() range 
+    execute a:firstline . ',' . a:lastline . 'g/^\s*$/d'
+endfunction
+
 " emebeded string with left_string and right_string(use 'normal!')
 function! hl#operate#embedded_with_string_1(mode, left_str, right_str)
     if a:mode ==# 'v'
@@ -68,13 +90,6 @@ function! hl#operate#embedded_with_string_2(mode, left_str, right_str)
     call setline(line_num, final_content)
 endfunction
 
-" 移除行尾空格
-function! hl#operate#TrimTrailingWhitespace()
-    let l:save = winsaveview() " 保存当前 window 状态 (光标位置等)
-    keeppatterns %s/\s\+$//e " 不添加到查找历史记录中
-    call winrestview(l:save) " 恢复 window 窗口状态
-endfun
-
 " 对 JSON 数据进行转义
 func! hl#operate#UnescapeJSON()
     setf json
@@ -108,19 +123,6 @@ func! hl#operate#EscapeJSON()
 
 endfunc
 
-
-function! hl#operate#revert_merge()
-    let current_buffer_number = bufnr('%')
-    let current_line_number = line('.')
-    let current_line_content = getline(current_line_number)
-    let next_line_number = current_line_number + 1
-    let next_line_content = getline(next_line_number)
-
-    let final_content = next_line_content . ' ' . current_line_content
-
-    call setline(current_line_number, final_content)
-    call deletebufline(current_buffer_number, next_line_number)
-endfunction
 
 " quick move any char to backward when cursor is behind that char in insert mode or on the char in normal mode
 function! hl#operate#move_any_char_to_left() abort
@@ -174,12 +176,8 @@ function! hl#operate#move_bracket_to_left() abort
 endfunction
 
 function! hl#operate#append_text(text)
-    let l:save = winsaveview() " 保存当前 window 状态 (光标位置等)
     let line_num = line('.')
     let final_text = hl#text#current_line_with_appending(a:text)
 
     call setline(line_num, final_text)
-
-
-    call winrestview(l:save) " 恢复 window 窗口状态
 endfunction

@@ -32,6 +32,8 @@ setlocal formatoptions+=o2mbB1
 " undo break points
 inoremap <buffer> , ,<C-g>u
 inoremap <buffer> . .<C-g>u
+inoremap <buffer> : :<C-g>u
+inoremap <buffer> ; ;<C-g>u
 inoremap <buffer> ! !<C-g>u
 inoremap <buffer> ? ?<C-g>u
 

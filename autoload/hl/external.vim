@@ -12,26 +12,51 @@ function! hl#external#OpenInBrowser(mode)
         let selected_text = expand('<cWORD>')
     endif
 
-    " open as vim-plug
-    if &ft ==? 'vim'
-        let text = matchstr(getline('.'), '"*\s*Plug\s*''\zs.\{-}\ze''')
-        if text != ''
-            let final_url = shellescape('https://github.com/' . text, 1)
-        else
-            let suspect_url = hl#text#url_formatted_string(selected_text)
-            if suspect_url != "''" " 是个正常链接
-                let final_url = suspect_url
-            else " 如果是一个单词, 那么 google 它
-                let final_url = shellescape('https://google.com/search?q=' . hl#text#url_encode(selected_text), 1)
-            endif
+    let full_pathname = hl#get#FullPathName()
+    let repo_filename = FindRootDirectory()
+    let just_filename = hl#get#OnlyFileName()
+    if just_filename ==# 'Podfile' " open homepage of pod
+        if a:mode ==? 'v'
+            let pod = selected_text
+        elseif a:mode ==? 'n'
+            let pod = matchstr(getline('.'), '"*\s*Pod\s*''\zs.\{-}\ze''')
         endif
+        let pod_homepage_line = hl#external#GetOutput('!pod spec cat ' . pod . ' | grep homepage')
+        let final_url = matchstr(pod_homepage_line, ':\s*[''"]\zs.\{-}\ze[''"]')
+        " elseif &ft ==? 'vim' " open as vim-plug
+    elseif just_filename ==? 'plugin.vim' " open homepage of plug
+        if a:mode ==? 'v'
+            let plug = selected_text
+        elseif a:mode ==? 'n'
+            let plug = matchstr(getline('.'), '"*\s*Plug\s*''\zs.\{-}\ze''')
+        endif
+        if plug != ''
+            let final_url = shellescape('https://github.com/' . plug, 1)
+        endif
+    endif
+
+    if final_url != ''
+        exec "!open -a Safari " . final_url
+        :redraw!
     else
-        let suspect_url = hl#text#url_formatted_string(selected_text)
-        if suspect_url != "''" " 如果是一个链接
-            let final_url = suspect_url
-        else " 如果是一个单词, 那么 google 它
-            let final_url = shellescape('https://google.com/search?q=' . hl#text#url_encode(selected_text), 1)
-        endif
+        call hl#external#OpenInBrowserCommon(a:mode)
+    endif
+endfunction
+
+" 在浏览器中打开当前选择的链接
+function! hl#external#OpenInBrowserCommon(mode)
+    let final_url = ''
+    if a:mode ==? 'v' " visual 模式下, 打开选中的文字
+        let selected_text = hl#text#visual_selection()
+    elseif a:mode ==? 'n' " normal 模式下, 打开当前文字
+        let selected_text = expand('<cWORD>')
+    endif
+
+    let suspect_url = hl#text#url_formatted_string(selected_text)
+    if suspect_url != "''" " 如果是一个链接
+        let final_url = suspect_url
+    else " 如果是一个单词, 那么 google 它
+        let final_url = shellescape('https://google.com/search?q=' . hl#text#url_encode(selected_text), 1)
     endif
 
     exec "!open -a Safari " . final_url

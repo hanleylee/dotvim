@@ -100,7 +100,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
     Plug 'pboettch/vim-cmake-syntax'
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'hail2u/vim-css3-syntax'
     Plug 'othree/html5.vim'
     Plug 'pangloss/vim-javascript'

@@ -82,6 +82,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-alternate'
     Plug 'liuchengxu/vista.vim'
+    Plug 'skywind3000/vim-dict'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -174,7 +175,6 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'hanleylee/coc-gitcomp', {'dir': '$HL_REPO/vim/coc-gitcomp'}
     Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install'}
-    Plug 'skywind3000/vim-dict'
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
 
@@ -201,6 +201,15 @@ if s:vim_weight >= 3 || g:is_in_gui
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
     " Plug 'tomtom/tlib_vim'
+else
+    Plug 'skywind3000/vim-auto-popmenu'
+    " let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+    " source for dictionary, current or other loaded buffers, see ':help cpt'
+    set complete=.,k,w,b
+    " don't select the first item.
+    set completeopt=menu,menuone,noselect
+    " suppress annoy messages.
+    set shortmess+=c
 endif
 " }}}
 

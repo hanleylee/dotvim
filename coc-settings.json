@@ -85,6 +85,7 @@
     // session
     "session.directory": "",
     "session.saveOnVimLeave": true,
+    "session.restartOnSessionLoad": false,
 
     // codeLens
     "codeLens.enable": true,
@@ -151,6 +152,7 @@
         "\r",
         "\n"
     ],
+    "suggest.pumFloatConfig": null,
 
     // signature
     "signature.enable": true,
@@ -170,6 +172,24 @@
     "semanticTokens.combinedModifiers": [
         "deprecated"
     ],
+
+    // inlay
+    "inlayHint.filetypes": [
+        "*"
+    ],
+    "inlayHint.subSeparator": " ",
+    "inlayHint.typeSeparator": "",
+    "inlayHint.enableParameter": true,
+    "inlayHint.parameterSeparator": "",
+    "inlayHint.refreshOnInsertMode": false,
+
+    // floatFactory
+    "floatFactory.floatConfig": {},
+
+    "pullDiagnostic.onSave": false,
+    "pullDiagnostic.ignored": [],
+    "pullDiagnostic.onChange": true,
+    "pullDiagnostic.workspace": true,
 
     // outline
     "outline.sortBy": "category",
@@ -415,6 +435,13 @@
     "snippets.loadFromExtensions": true,
     "snippets.editSnippetsCommand": "",
     "snippets.textmateSnippetsRoots": [],
+    "snippets.massCode.host": "localhost",
+    "snippets.massCode.port": 3033,
+    "snippets.massCode.trace": false,
+    "snippets.massCode.enable": false,
+    "snippet.highlight": false,
+    "snippet.statusText": "SNIP",
+    "snippet.nextPlaceholderOnDelete": false,
 
     // coc-yank
     "yank.highlight.enable": true,
@@ -652,16 +679,16 @@
     "pyright.enable": true,
     "pyright.server": "",
     "pyright.completion.importSupport": true,
+    "pyright.completion.snippetSupport": true,
     "pyright.disableCompletion": false,
     "pyright.trace.server": "off",
     "pyright.disableDiagnostics": false,
-    "pyright.completion.snippetSupport": true,
     "pyright.organizeimports.provider": "pyright",
-    "pyright.inlayHints.enable": true,
     "pyright.disableDocumentation": false,
+    "pyright.inlayHints.enable": true,
     "pyright.inlayHints.variableTypes": true,
-    "pyright.disableProgressNotifications": false,
     "pyright.inlayHints.functionReturnTypes": true,
+    "pyright.disableProgressNotifications": false,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.logLevel": "Warning",
     "python.analysis.autoSearchPaths": true,
@@ -1045,6 +1072,7 @@
         "port": 7658
     },
     "solargraph.checkGemVersion": true,
+    "solargraph.shell": null,
 
     // html
     "html.enable": true,

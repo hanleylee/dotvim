@@ -67,7 +67,7 @@ function! HLColorScheme()
     " highlight Pmenu         cterm=bold      ctermbg=238   ctermfg=white guibg=#444444 guifg=white gui=bold
     " highlight Search         cterm=inverse  ctermbg=235  ctermfg=214  guibg=#282828    guifg=#fabd2f gui=inverse
     " ['hi', 'Search', 'guifg=#fabd2f', 'ctermfg=214', 'guibg=#282828', 'ctermbg=235', 'gui=inverse', 'cterm=inverse']
-    " 
+    "
     highlight MatchParen    cterm=italic    ctermfg=178 ctermbg=black     gui=italic,bold   guifg=black guibg=#d7af00
     highlight LineHighlight cterm=bold                  ctermbg=235       gui=bold                      guibg=#4e4e4e
     "}}}
@@ -94,7 +94,7 @@ function! HLColorScheme()
 
     " vim-floaterm {{{
     if hl#plug_loaded('vim-floaterm')
-        hi Floaterm                  ctermfg=white ctermbg=black                   guifg=#c6c6c6    guibg=#282C34   
+        hi Floaterm                  ctermfg=white ctermbg=black                   guifg=#c6c6c6    guibg=#282C34
         hi FloatermBorder cterm=bold ctermfg=235   ctermbg=170     gui=bold        guifg=#282C34    guibg=#C678DD
         if has('nvim')
             hi FloatermNC                                                                           guibg=gray

@@ -26,9 +26,6 @@ setlocal formatoptions+=o2mbB1
 " B   When joining lines, don't insert a space between two multibyte characters.  Overruled by the 'M' flag.
 " 1   Don't break a line after a one-letter word.  It's broken before it instead (if possible).
 
-" nnoremap <silent><buffer> <Tab>  za
-" nmap <silent><buffer> <S-Tab> zA
-
 " undo break points
 inoremap <buffer> , ,<C-g>u
 inoremap <buffer> . .<C-g>u

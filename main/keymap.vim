@@ -58,7 +58,7 @@ vnoremap <C-j> :m'>+<cr>gv
 nnoremap <C-k> :m-2<cr>
 vnoremap <C-k> :m'<-2<cr>gv
 
-nnoremap / /\v
+" nnoremap / /\v
 " nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
 " nnoremap <expr> OO printf('m`%sO<ESC>``', v:count1)

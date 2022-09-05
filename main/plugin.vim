@@ -203,13 +203,6 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'tomtom/tlib_vim'
 else
     Plug 'skywind3000/vim-auto-popmenu'
-    " let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
-    " source for dictionary, current or other loaded buffers, see ':help cpt'
-    set complete=.,k,w,b
-    " don't select the first item.
-    set completeopt=menu,menuone,noselect
-    " suppress annoy messages.
-    set shortmess+=c
 endif
 " }}}
 

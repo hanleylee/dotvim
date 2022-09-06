@@ -12,7 +12,7 @@ let g:vim_dict_dict = [
             \ ]
 
 " File type override
-let g:vim_dict_config = {'html':'html,javascript,css', 'markdown': 'text'}
+let g:vim_dict_config = {'html':'html,javascript,css', 'markdown': 'text', 'gitcommit': 'text'}
 
 " " Disable certain types
 " let g:vim_dict_config = {'text': ''}

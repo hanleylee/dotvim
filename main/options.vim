@@ -81,11 +81,15 @@ set tabpagemax=50
 "=======================   File   ======================={{{
 set fileformat=unix " 保存文件的格式为 unix
 set fileformats=unix,mac,dos
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set encoding=utf-8 " UTF-8 支持
+" When a file is read, Vim tries to use the first mentioned character encoding. If an error is detected, the next one in the list is tried.
+" When an encoding is found that works, 'fileencoding' is set to it.  If all fail, 'fileencoding' is set to an empty string, which means the value of 'encoding' is used.
+set fileencodings=utf-8,ucs-bom,gb2312,gb18030,gbk,cp936
+" 'fileencodings' is not used for a new file, the global value of 'fileencoding' is used instead.
+" IMPORTANT: When 'fileencoding' is different from 'encoding', conversion will be done when writing the file.
+setglobal fileencoding=utf-8 " 编码方式为 utf-8
 scriptencoding utf-8
 set termencoding=utf-8
-set fileencoding=utf-8 " 编码方式为 utf-8
 set updatetime=50 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite

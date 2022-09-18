@@ -76,23 +76,21 @@ endif
 
 nnoremap <silent><M-h> gT
 nnoremap <silent><M-l> gt
-noremap  <silent><D-1> :tabn 1<cr>
-noremap  <silent><D-2> :tabn 2<cr>
-noremap  <silent><D-3> :tabn 3<cr>
-noremap  <silent><D-4> :tabn 4<cr>
-noremap  <silent><D-5> :tabn 5<cr>
-noremap  <silent><D-6> :tabn 6<cr>
-noremap  <silent><D-7> :tabn 7<cr>
-noremap  <silent><D-8> :tabn 8<cr>
-noremap  <silent><D-9> :tabn 9<cr>
-noremap  <silent><D-0> :tabn 10<cr>
+nnoremap <silent><M-H> :tabm -1<CR>
+nnoremap <silent><M-L> :tabm +1<CR>
+
+noremap  <silent><D-1> :tabn 1<CR>
+noremap  <silent><D-2> :tabn 2<CR>
+noremap  <silent><D-3> :tabn 3<CR>
+noremap  <silent><D-4> :tabn 4<CR>
+noremap  <silent><D-5> :tabn 5<CR>
+noremap  <silent><D-6> :tabn 6<CR>
+noremap  <silent><D-7> :tabn 7<CR>
+noremap  <silent><D-8> :tabn 8<CR>
+noremap  <silent><D-9> :tabn 9<CR>
+noremap  <silent><D-0> :tabn 10<CR>
 
 noremap <silent><D-u> :TestFile<CR>
-
-nnoremap <silent><M-H> <C-w>h
-nnoremap <silent><M-J> <C-w>j
-nnoremap <silent><M-K> <C-w>k
-nnoremap <silent><M-L> <C-w>l
 
 " Text Movement
 inoremap <M-f>    <C-Right>

@@ -88,6 +88,7 @@ set fileencodings=utf-8,ucs-bom,gb2312,gb18030,gbk,cp936
 " 'fileencodings' is not used for a new file, the global value of 'fileencoding' is used instead.
 " IMPORTANT: When 'fileencoding' is different from 'encoding', conversion will be done when writing the file.
 setglobal fileencoding=utf-8 " 编码方式为 utf-8
+setglobal nofixendofline
 scriptencoding utf-8
 set termencoding=utf-8
 set updatetime=50 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight

@@ -189,6 +189,7 @@ set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏�
 set t_Co=256 " Vim 能显示的颜色数
 set shortmess-=S " 显示当前搜索的结果数量及当前位置
 set completeopt=longest,menuone " popup:展示补全列表的侧边窗口
+" set pumheight=20
 if has('textprop')
     set completeopt+=popup
 endif

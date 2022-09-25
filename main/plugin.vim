@@ -192,8 +192,11 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'sillybun/vim-repl'
     Plug 'weirongxu/plantuml-previewer.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'voldikss/vim-floaterm'
+    Plug 'tyru/open-browser.vim'
+    Plug 'tyru/open-browser-unicode.vim'
+    Plug 'tyru/open-browser-github.vim'
+    Plug 'tamago324/vim-browsersync' " preview html
 
     " ============= Test ==============
     Plug 'thinca/vim-themis'
@@ -290,7 +293,6 @@ call plug#end()
 " Plug 'dhruvasagar/vim-dotoo'
 " Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 " Plug 'dstein64/vim-startuptime'
-" Plug 'tyru/open-browser.vim'
 " Plug 'othree/eregex.vim'
 " Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
 "}}}

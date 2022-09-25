@@ -57,7 +57,7 @@ nnoremap <silent><buffer> <Leader>xl :call hl#keep_mode_cursor_execute('HeaderDe
 
 " convert hash key '#' line to markdown list '-'
 noremap <silent> <Plug>(MarkdownConvertHashKeyToList)   :call hl#markdown#convert_hash_key_to_list()<Bar>silent! call repeat#set("\<lt>Plug>(MarkdownConvertHashKeyToList)")<CR>
-map <silent><buffer> <Leader>chl <Plug>(MarkdownConvertHashKeyToList)
+map <silent><buffer> <Leader>htl <Plug>(MarkdownConvertHashKeyToList)
 
 " text object for code block
 vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>

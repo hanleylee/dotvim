@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
             \ 'coc-go',
             \ 'coc-highlight',
             \ 'coc-html',
+            \ 'coc-xml',
             \ 'coc-java',
             \ 'coc-json',
             \ 'coc-julia',

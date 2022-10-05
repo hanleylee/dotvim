@@ -619,7 +619,9 @@
     "yaml.execArgv": [],
     "yaml.validate": true,
     "yaml.completion": true,
-    "yaml.customTags": [],
+    "yaml.customTags": [
+
+    ],
     "yaml.format.enable": false,
     "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
     "yaml.format.proseWrap": "preserve",
@@ -1368,7 +1370,8 @@
     "sourcekit.sdkPath": "",
     "sourcekit.targetArch": "",
     // "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
-    "sourcekit.commandPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    // "sourcekit.commandPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
     // xcrun --toolchain swift --find sourcekit-lsp
     // "sourcekit.sdk": "iphonesimulator",
     // "sourcekit.targetArch": "x86_64-apple-ios14.3-simulator"

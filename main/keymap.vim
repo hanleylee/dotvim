@@ -29,6 +29,9 @@ nnoremap <C-g>               :call hl#util#EchoPath()<CR>
 nnoremap <silent><C-s>       :update<CR>
 inoremap <silent><C-s>       <ESC>:update<CR>
 vnoremap <silent><C-s>       <ESC>:update<CR>
+
+inoremap <silent> <C-j> <End><CR>
+
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
 nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
@@ -38,8 +41,7 @@ nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 inoremap <silent><expr> <C-CR> hl#map#ctrl_enter(0)
 inoremap <silent><expr> <C-M-CR> hl#map#ctrl_enter(1)
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
-" 方便 dart 多参数传入
-imap <silent> <S-CR> <C-CR><Esc>==O
+
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>
 
@@ -451,15 +453,15 @@ endif
 
 " vim-gitgutter {{{
 if hl#plug_loaded('vim-gitgutter')
-    nmap [h         <Plug>(GitGutterPrevHunk)
-    nmap ]h         <Plug>(GitGutterNextHunk)
+    nmap <Leader>hn <Plug>(GitGutterNextHunk)
+    nmap <Leader>hp <Plug>(GitGutterPrevHunk)
 
     omap ih         <Plug>(GitGutterTextObjectInnerPending)
     omap ah         <Plug>(GitGutterTextObjectOuterPending)
     xmap ih         <Plug>(GitGutterTextObjectInnerVisual)
     xmap ah         <Plug>(GitGutterTextObjectOuterVisual)
 
-    nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
+    nmap <Leader>hi <Plug>(GitGutterPreviewHunk)
     nmap <Leader>hs <Plug>(GitGutterStageHunk)
     nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 endif

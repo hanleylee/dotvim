@@ -102,6 +102,7 @@ if hl#plug_loaded('coc.nvim')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
         autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_type()
         autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_large_file()
+        autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_specific_pattern()
     augroup end
 endif
 

@@ -10,8 +10,11 @@ endif
 " gutentags 搜索工程目录的标志, 当前文件路径向上递归直到碰到这些文件/目录名
 let g:gutentags_project_root = g:hl_rootmarkers
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_exclude_project_root = ['/usr/local', '/opt/homebrew']
 let g:gutentags_background_update = 1
+let g:gutentags_exclude_project_root = [
+            \'/usr/local',
+            \'/opt/homebrew',
+            \]
 let g:gutentags_exclude_filetypes = [
             \'gitcommit',
             \'gitconfig',

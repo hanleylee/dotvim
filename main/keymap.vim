@@ -118,7 +118,7 @@ vmap <silent>gx :<C-u>silent call hl#external#OpenInBrowser('v')<cr>
 
 if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
-    nnoremap <silent> -    :Fern . -reveal=%<cr>
+    nnoremap <silent> -    :Fern . -reveal=% -wait<cr>
 endif
 
 " vim-surround {{{

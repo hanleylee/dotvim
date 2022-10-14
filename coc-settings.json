@@ -1365,15 +1365,14 @@
     // sourcekit
     "sourcekit.enable": true,
     "sourcekit.trace.server": "off",
-    "sourcekit.sdk": "",
+    // "sourcekit.sdk": "",
     "sourcekit.args": [],
     "sourcekit.sdkPath": "",
     "sourcekit.targetArch": "",
     // "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
-    // "sourcekit.commandPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-    "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
     // xcrun --toolchain swift --find sourcekit-lsp
-    // "sourcekit.sdk": "iphonesimulator",
+    "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
+    "sourcekit.sdk": "iphonesimulator",
     // "sourcekit.targetArch": "x86_64-apple-ios14.3-simulator"
     // arm64
 

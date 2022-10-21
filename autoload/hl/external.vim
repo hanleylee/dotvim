@@ -15,16 +15,16 @@ function! hl#external#OpenInBrowser(mode)
     let full_pathname = hl#get#FullPathName()
     let repo_filename = FindRootDirectory()
     let just_filename = hl#get#OnlyFileName()
-    if just_filename ==# 'Podfile' " open homepage of pod
-        if a:mode ==? 'v'
-            let pod = selected_text
-        elseif a:mode ==? 'n'
-            let pod = matchstr(getline('.'), '"*\s*Pod\s*''\zs.\{-}\ze''')
-        endif
-        let pod_homepage_line = hl#external#GetOutput('!pod spec cat ' . pod . ' | grep homepage')
-        let final_url = matchstr(pod_homepage_line, ':\s*[''"]\zs.\{-}\ze[''"]')
-        " elseif &ft ==? 'vim' " open as vim-plug
-    elseif just_filename ==? 'plugin.vim' " open homepage of plug
+    " if just_filename ==# 'Podfile' " open homepage of pod
+    "     if a:mode ==? 'v'
+    "         let pod = selected_text
+    "     elseif a:mode ==? 'n'
+    "         let pod = matchstr(getline('.'), '"*\s*Pod\s*''\zs.\{-}\ze''')
+    "     endif
+    "     let pod_homepage_line = hl#external#GetOutput('!pod spec cat ' . pod . ' | grep homepage')
+    "     let final_url = matchstr(pod_homepage_line, ':\s*[''"]\zs.\{-}\ze[''"]')
+    "     " elseif &ft ==? 'vim' " open as vim-plug
+    if just_filename ==? 'plugin.vim' " open homepage of plug
         if a:mode ==? 'v'
             let plug = selected_text
         elseif a:mode ==? 'n'

@@ -168,7 +168,8 @@ endif
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'tag': 'v0.0.82'}
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '968e9a25e32e1cdb362a9894a96e038b3c1be0c9'}
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}

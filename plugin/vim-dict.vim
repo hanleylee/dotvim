@@ -16,7 +16,7 @@ let g:vim_dict_config = {
             \ 'html':'html,javascript,css',
             \ 'markdown': 'text',
             \ 'plantuml': 'text',
-            \ 'gitcommit': 'text'
+            \ 'gitcommit': 'gitcommit,text'
             \ }
 
 " " Disable certain types

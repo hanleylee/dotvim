@@ -42,26 +42,26 @@ noremap <silent><buffer> gj  j
 noremap <silent><buffer> gk  k
 
 " make italic
-vnoremap <silent><buffer> <Leader>mi :<C-u>call hl#markdown#make_italic(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>mi :set operatorfunc=hl#markdown#make_italic<CR>g@
+vnoremap <silent><buffer> <Leader>i :<C-u>call hl#markdown#make_italic(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>i :set operatorfunc=hl#markdown#make_italic<CR>g@
 " make bold
-vnoremap <silent><buffer> <Leader>mb :<C-u>call hl#markdown#make_bold(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>mb :set operatorfunc=hl#markdown#make_bold<CR>g@
+vnoremap <silent><buffer> <Leader>b :<C-u>call hl#markdown#make_bold(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<CR>g@
 
 " make code
-vnoremap <silent><buffer> <Leader>mc :<C-u>call hl#markdown#make_code(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>mc :set operatorfunc=hl#markdown#make_code<CR>g@
+vnoremap <silent><buffer> <Leader>c :<C-u>call hl#markdown#make_code(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>c :set operatorfunc=hl#markdown#make_code<CR>g@
 
 " make deleted
-vnoremap <silent><buffer> <Leader>md :<C-u>call hl#markdown#make_deleted(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>md :set operatorfunc=hl#markdown#make_deleted<CR>g@
+vnoremap <silent><buffer> <Leader>d :<C-u>call hl#markdown#make_deleted(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>d :set operatorfunc=hl#markdown#make_deleted<CR>g@
 
 " increase level
-vnoremap <silent><buffer> <Leader>il <Cmd> call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
-nnoremap <silent><buffer> <Leader>il :call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
+vnoremap <silent><buffer> <Leader>al <Cmd> call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
+nnoremap <silent><buffer> <Leader>al :call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>
 " decrease level
-vnoremap <silent><buffer> <Leader>dl <Cmd> call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
-nnoremap <silent><buffer> <Leader>dl :call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+vnoremap <silent><buffer> <Leader>xl <Cmd> call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
+nnoremap <silent><buffer> <Leader>xl :call hl#keep_mode_cursor_execute('HeaderDecrease')<CR>
 
 " convert hash key '#' line to markdown list '-'
 noremap <silent> <Plug>(MarkdownConvertHashKeyToList)   :call hl#markdown#convert_hash_key_to_list()<Bar>silent! call repeat#set("\<lt>Plug>(MarkdownConvertHashKeyToList)")<CR>

@@ -42,8 +42,8 @@ noremap <silent><buffer> gj  j
 noremap <silent><buffer> gk  k
 
 " make italic
-vnoremap <silent><buffer> <Leader>i :<C-u>call hl#markdown#make_italic(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>i :set operatorfunc=hl#markdown#make_italic<CR>g@
+vnoremap <silent><buffer> <Leader>/ :<C-u>call hl#markdown#make_italic(visualmode())<CR>
+nnoremap <silent><buffer> <Leader>/ :set operatorfunc=hl#markdown#make_italic<CR>g@
 " make bold
 vnoremap <silent><buffer> <Leader>b :<C-u>call hl#markdown#make_bold(visualmode())<CR>
 nnoremap <silent><buffer> <Leader>b :set operatorfunc=hl#markdown#make_bold<CR>g@

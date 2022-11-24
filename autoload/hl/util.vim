@@ -5,7 +5,7 @@
 
 " echo path
 func! hl#util#EchoPath()
-    echo hl#get#FullPathName()
+    echo hl#fs#getFullPathName()
 endfunc
 
 " echo runtimepath

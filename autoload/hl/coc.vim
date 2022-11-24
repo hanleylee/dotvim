@@ -43,7 +43,7 @@ function! hl#coc#disable_for_large_file()
 endfunction
 
 function! hl#coc#disable_for_specific_pattern()
-    let file_name = hl#get#FullPathName()
+    let file_name = hl#fs#getFullPathName()
     if match(file_name, 'Rime/.\{-}.dict.yaml$') != -1
         let b:coc_enabled = 0
     endif

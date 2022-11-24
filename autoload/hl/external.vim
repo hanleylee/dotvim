@@ -12,9 +12,9 @@ function! hl#external#OpenInBrowser(mode)
         let selected_text = expand('<cWORD>')
     endif
 
-    let full_pathname = hl#get#FullPathName()
+    let full_pathname = hl#fs#getFullPathName()
     let repo_filename = FindRootDirectory()
-    let just_filename = hl#get#OnlyFileName()
+    let just_filename = hl#fs#getOnlyFileName()
     " if just_filename ==# 'Podfile' " open homepage of pod
     "     if a:mode ==? 'v'
     "         let pod = selected_text

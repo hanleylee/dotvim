@@ -54,11 +54,11 @@ nnoremap Y y$
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" 上下移动一行文字
-nnoremap <C-j> :m+<cr>
-vnoremap <C-j> :m'>+<cr>gv
-nnoremap <C-k> :m-2<cr>
-vnoremap <C-k> :m'<-2<cr>gv
+" 上下移动文字
+nnoremap <C-j> :call hl#operate#move_line('n', 'down')<CR>
+vnoremap <C-j> :call hl#operate#move_line('v', 'down')<CR>
+nnoremap <C-k> :call hl#operate#move_line('n', 'up')<CR>
+vnoremap <C-k> :call hl#operate#move_line('v', 'up')<CR>
 
 " nnoremap / /\v
 " nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>

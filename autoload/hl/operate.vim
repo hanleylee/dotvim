@@ -46,6 +46,34 @@ function! hl#operate#revert_merge_line()
     call deletebufline(current_buffer_number, next_line_number)
 endfunction
 
+function! hl#operate#move_line(mode, direction) range
+    let move_count = 0
+    if v:count != 0
+        let move_count = v:count - 1
+    endif
+    if a:mode ==# 'v'
+        if a:direction == 'up'
+            let dest_line = a:firstline - move_count - 2
+        else
+            let dest_line = a:lastline + move_count + 1
+        endif
+    else
+        let base_line = a:firstline
+        if a:direction == 'up'
+            let dest_line = a:firstline - move_count - 2
+        else
+            let dest_line = a:firstline + move_count + 1
+        endif
+    endif
+
+    " :5,7m 21
+    execute a:firstline . ',' . a:lastline . 'm' . dest_line
+
+    if a:mode ==# 'v'
+        normal! gv
+    endif
+endfunction
+
 " 移除行尾空格
 function! hl#operate#remove_trailing_space() range
     execute 'keeppatterns:' . a:firstline . "," . a:lastline . 's/\s\+$//e'

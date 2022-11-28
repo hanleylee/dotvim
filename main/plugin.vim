@@ -56,7 +56,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-startify'              " 首页显示
-    Plug 'ryanoasis/vim-devicons'        " 显示文件类型图标
+    Plug 'ryanoasis/vim-devicons'          " 显示文件类型图标
 
     " ============= Appearance ============
     Plug 'joshdick/onedark.vim'
@@ -64,7 +64,8 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号
-    Plug 'jszakmeister/vim-togglecursor'   " 改变 cursor 形状
+    Plug 'hanleylee/vim-togglecursor'    " 改变 cursor 形状
+    " Plug 'hanleylee/vim-togglecursor', {'dir': '$HL_REPO/vim/vim-togglecursor'}
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'

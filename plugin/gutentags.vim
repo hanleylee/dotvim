@@ -19,7 +19,6 @@ let al_projects = hl#fs#getDirs('$HOME/al/project')
 call extend(g:gutentags_exclude_project_root, al_projects)
 let al_modules = hl#fs#getDirs('$HOME/al/module')
 call extend(g:gutentags_exclude_project_root, al_modules)
-echom g:gutentags_exclude_project_root
 
 let g:gutentags_exclude_filetypes = [
             \'gitcommit',

@@ -3,18 +3,20 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-setlocal norelativenumber
-setlocal colorcolumn=
+if &diff
+    set norelativenumber
+    set colorcolumn=
 
-nnoremap <buffer>dgl   :diffget LOCAL<CR>
-xnoremap <buffer>dgl   :diffget LOCAL<CR>
+    nnoremap dgl   :diffget LOCAL<CR>
+    xnoremap dgl   :diffget LOCAL<CR>
 
-nnoremap <buffer>dgb   :diffget BASE<CR>
-xnoremap <buffer>dgb   :diffget BASE<CR>
+    nnoremap dgb   :diffget BASE<CR>
+    xnoremap dgb   :diffget BASE<CR>
 
-nnoremap <buffer>dgr   :diffget REMOTE<CR>
-xnoremap <buffer>dgr   :diffget REMOTE<CR>
+    nnoremap dgr   :diffget REMOTE<CR>
+    xnoremap dgr   :diffget REMOTE<CR>
 
-nnoremap <buffer>adgl  :%diffget LOCAL<CR>
-nnoremap <buffer>adgb  :%diffget BASE<CR>
-nnoremap <buffer>adgr  :%diffget REMOTE<CR>
+    nnoremap adgl  :%diffget LOCAL<CR>
+    nnoremap adgb  :%diffget BASE<CR>
+    nnoremap adgr  :%diffget REMOTE<CR>
+endif

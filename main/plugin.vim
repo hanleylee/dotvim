@@ -159,8 +159,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     " Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'hanleylee/vim-t2s'
-    Plug 'hanleylee/vim-cocoapods', {'dir': '$HL_REPO/vim/vim-cocoapods'}
-    " Plug 'hanleylee/vim-cocoapods'
+    " Plug 'hanleylee/vim-cocoapods', {'dir': '$HL_REPO/vim/vim-cocoapods'}
+    Plug 'hanleylee/vim-cocoapods'
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
 endif
@@ -185,6 +185,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'hanleylee/vim-renamer'
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'
+    Plug 'tpope/vim-characterize'
     Plug 'puremourning/vimspector'
     Plug 'szw/vim-maximizer'
 

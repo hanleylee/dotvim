@@ -62,7 +62,7 @@ function! hl#markdown#convert_hash_key_to_list()
 endfunction
 
 " format chinese{{{
-function! hl#markdown#Format() range
+function! hl#markdown#format() range
     " a:firstline,a:lastline call hl#Format_CN()
     execute a:firstline . "," . a:lastline . " call hl#format#cn()"
 

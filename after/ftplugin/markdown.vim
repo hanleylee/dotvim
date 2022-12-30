@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-command! -range=% -nargs=0 -buffer FormatMarkdown let b:view = winsaveview() | silent! <line1>,<line2> call hl#markdown#Format() | call winrestview(b:view)
+command! -range=% -nargs=0 -buffer FormatMarkdown let b:view = winsaveview() | silent! <line1>,<line2> call hl#markdown#format() | call winrestview(b:view)
 
 setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0

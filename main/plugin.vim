@@ -69,11 +69,12 @@ if s:vim_weight >= 1 || g:is_in_gui
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
-    Plug 'tpope/vim-fugitive'       " git 插件
+    Plug 'tpope/vim-commentary'     " 快速注释, gcc
     Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'junegunn/gv.vim'          " browse git log
+    Plug 'tpope/vim-fugitive'       " git 插件
+    Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     Plug 'ojroques/vim-oscyank'

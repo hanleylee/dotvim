@@ -21,7 +21,7 @@ let g:conflict_marker_highlight_group = ''
 " let g:conflict_marker_begin = '^<<<<<<< .*$'
 " let g:conflict_marker_end   = '^>>>>>>> .*$'
 
-let g:conflict_marker_enable_mappings = 0 " [x and ]x mappings are defined as default, ct for theirs, co for ours, cn for none and cb for both
+let g:conflict_marker_enable_mappings = 1 " [x and ]x mappings are defined as default, ct for theirs, co for ours, cn for none and cb for both
 let g:conflict_marker_enable_matchit = 1 " % mapping is extended by matchit.vim
 
 highlight ConflictMarkerBegin guibg=#2f7366
@@ -38,11 +38,6 @@ augroup HLConflictMarkerDetect
 augroup END
 
 function! s:on_detected()
-    nmap <buffer><leader>cn <Plug>(conflict-marker-next-hunk)
-    nmap <buffer><leader>cp <Plug>(conflict-marker-prev-hunk)
-    nmap <buffer>ct <Plug>(conflict-marker-themselves)
-    nmap <buffer>co <Plug>(conflict-marker-ourselves)
-    nmap <buffer>cn <Plug>(conflict-marker-none)
-    nmap <buffer>cb <Plug>(conflict-marker-both)
-    nmap <buffer>cB <Plug>(conflict-marker-both-rev)
+    nunmap [xx
+    nunmap ]xx
 endfunction

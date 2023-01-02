@@ -454,8 +454,10 @@ endif
 
 " vim-gitgutter {{{
 if hl#plug_loaded('vim-gitgutter')
-    nmap <Leader>hn <Plug>(GitGutterNextHunk)
-    nmap <Leader>hp <Plug>(GitGutterPrevHunk)
+    nmap [h  <Plug>(GitGutterPrevHunk)
+    nmap [gh <Plug>(GitGutterPrevHunk)
+    nmap ]h  <Plug>(GitGutterNextHunk)
+    nmap ]gh <Plug>(GitGutterNextHunk)
 
     omap ih         <Plug>(GitGutterTextObjectInnerPending)
     omap ah         <Plug>(GitGutterTextObjectOuterPending)

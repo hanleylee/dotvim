@@ -69,21 +69,14 @@ if s:vim_weight >= 1 || g:is_in_gui
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-commentary'     " 快速注释, gcc
+    Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
-    Plug 'junegunn/gv.vim'          " browse git log
-    Plug 'tpope/vim-fugitive'       " git 插件
     Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
-    Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-    Plug 'ojroques/vim-oscyank'
-    Plug 'rizzatti/dash.vim'
-    Plug 'Konfekt/FastFold'     " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
-    Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    Plug 'ojroques/vim-oscyank', {'branch': 'main'}
     " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-alternate'
-    Plug 'liuchengxu/vista.vim'
     Plug 'skywind3000/vim-dict'
 
     "============== Language ==============
@@ -99,7 +92,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'fladson/vim-kitty'
     Plug 'alker0/chezmoi.vim'
     Plug 'aklt/plantuml-syntax'
-    Plug 'vim-test/vim-test'
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
     Plug 'pboettch/vim-cmake-syntax'
@@ -126,6 +118,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     if !g:is_in_xterm_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
         Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     endif
+    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
     Plug 'tpope/vim-repeat'                             " 支持重复
     Plug 'tpope/vim-surround'                           " 包围符号
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
@@ -188,7 +181,8 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tpope/vim-scriptease'
     Plug 'tpope/vim-characterize'
     Plug 'puremourning/vimspector'
-    Plug 'szw/vim-maximizer'
+    Plug 'vim-test/vim-test'
+    Plug 'liuchengxu/vista.vim'
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
@@ -299,4 +293,10 @@ call plug#end()
 " Plug 'dstein64/vim-startuptime'
 " Plug 'othree/eregex.vim'
 " Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
+" Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
+" Plug 'szw/vim-maximizer'
+" Plug 'rizzatti/dash.vim'
+" Plug 'junegunn/gv.vim'          " browse git log
+    " Plug 'Konfekt/FastFold'         " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
+    " Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
 "}}}

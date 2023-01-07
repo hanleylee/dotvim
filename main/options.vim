@@ -202,7 +202,9 @@ set scrolloff=0 " 设置光标距离最顶(底)部的距离不小于 x 行(一�
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
 set signcolumn=yes
 set textwidth=150
-set viewoptions=folds,options,cursor,curdir,slash,unix
+" set viewoptions=folds,cursor,curdir,slash,unix
+" set viewoptions-=options
+set viewoptions=folds,cursor,curdir
 set colorcolumn=+1
 
 if has('arabic')

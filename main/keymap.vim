@@ -65,7 +65,8 @@ vnoremap <silent><C-k> :call hl#operate#move_line('v', 'up')<CR>
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
 " nnoremap <expr> OO printf('m`%sO<ESC>``', v:count1)
 
-nmap <Space> za
+nnoremap <Space> za
+vnoremap <Space> zf
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 

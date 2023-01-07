@@ -61,6 +61,15 @@ augroup ColorSchemeSet
     autocmd ColorScheme * call HLColorScheme()
 augroup END
 
+" Autosave & Load Views.
+augroup AutoSaveRestoreView
+    autocmd!
+    " autocmd BufWritePost,BufLeave,WinLeave,VimLeave ?* if hl#util#ShouldMakeView() | mkview | endif
+    " autocmd BufWinEnter ?* if hl#util#ShouldMakeView() | silent loadview | endif
+    autocmd BufWritePost ?* if hl#util#ShouldMakeView() | mkview | endif
+    autocmd BufReadPost ?* if hl#util#ShouldMakeView() | silent loadview | endif
+augroup end
+
 if hl#plug_loaded('onedark.vim')
     augroup OneDarkRevise
         autocmd!

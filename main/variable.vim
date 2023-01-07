@@ -16,6 +16,9 @@ let g:is_in_vim = !g:is_in_nvim " 位于 vim 中
 let g:is_win = (has('win32') || has('win64')) ? v:true : v:false
 let g:is_linux = (has('unix') && !has('macunix')) ? v:true : v:false
 let g:is_mac = has('macunix') ? v:true : v:false
+let g:skipview_files = [
+            \ '[EXAMPLE PLUGIN BUFFER]'
+            \ ]
 
 if has('nvim')
     lua vim.g["system_name"] = vim.loop.os_uname().sysname

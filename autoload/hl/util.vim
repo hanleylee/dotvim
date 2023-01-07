@@ -47,3 +47,42 @@ function! hl#util#VisualStarSearchSet(cmdtype,...)
     let @" = temp
 endfunction
 
+function! hl#util#ShouldMakeView()
+    if has('quickfix') && &buftype =~ 'nofile'
+        " Buffer is marked as not a file
+        return 0
+    endif
+    if empty(glob(expand('%:p')))
+        " File does not exist on disk
+        return 0
+    endif
+    if len($TEMP) && expand('%:p:h') == $TEMP
+        " We're in a temp dir
+        return 0
+    endif
+    if len($TMP) && expand('%:p:h') == $TMP
+        " Also in temp dir
+        return 0
+    endif
+    if index(g:skipview_files, expand('%')) >= 0
+        " File is in skip list
+        return 0
+    endif
+    return 1
+endfunction
+
+" Permanently delete views created by 'mkview'
+function! hl#util#DeleteView()
+    let path = fnamemodify(bufname('%'), ':p')
+    " vim's odd =~ escaping for /
+    let path = substitute(path, '=', '==', 'g')
+    if empty($HOME)
+    else
+        let path = substitute(path, '^' . $HOME, '\~', '')
+    endif
+    let path = substitute(path, '/', '=+', 'g') . '='
+    " view directory
+    let path = &viewdir . '/' . path
+    call delete(path)
+    echo "Deleted: " . path
+endfunction

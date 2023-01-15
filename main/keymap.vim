@@ -78,6 +78,8 @@ nnoremap <silent> J <Plug>(MergeLine)
 
 noremap <silent> <Plug>(RevertMergeLine)   :call hl#operate#revert_merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(RevertMergeLine)")<CR>
 nnoremap <silent> <leader>J <Plug>(RevertMergeLine)
+
+nnoremap <Leader>W :w !sudo tee % > /dev/null
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -364,7 +366,7 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(0) : "\<C-p>"
     nnoremap <silent><Leader>K  :call hl#ui#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
-    nmap <silent>gy             <Plug>(coc-type-definition)
+    nmap <silent>gD             <Plug>(coc-type-definition)
     nmap <silent>gm             <Plug>(coc-implementation)
     nmap <silent>gr             <Plug>(coc-references)
 

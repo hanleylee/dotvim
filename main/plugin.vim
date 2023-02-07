@@ -143,6 +143,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
     Plug 'mg979/vim-visual-multi'                       " 多选
     Plug 'rhysd/vim-grammarous' " GrammarousCheck
+    Plug 'bootleq/vim-cycle'
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态

@@ -156,6 +156,8 @@ set formatlistpat+=^\\s*[-–+o*•]\\s\\+      " Bullet points
 " (2) An item with punctuation preceding and following it
 " •   An item consisting of leading punctuation
 
+set nrformats+=unsigned " ignore sign of number when increase or decrease
+
 " diff options
 set diffopt=
 set diffopt+=vertical  " show diff in vertical position

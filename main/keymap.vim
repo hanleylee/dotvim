@@ -132,6 +132,11 @@ if hl#plug_loaded('vim-surround')
 endif
 " }}}
 
+if hl#plug_loaded('vim-cycle')
+    silent! nmap <silent> <unique> <Leader><C-a> <Plug>CycleNext
+    silent! vmap <silent> <unique> <Leader><C-a> <Plug>CycleNext
+endif
+
 " nerdtree {{{
 if hl#plug_loaded('nerdtree')
     nnoremap <F1> :call hl#nerdtree#toggle_vcs_focus_current()<cr>

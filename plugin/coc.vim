@@ -41,6 +41,7 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-julia',
             \ 'coc-lua',
+            \ 'coc-sh',
             \ 'coc-markdownlint',
             \ 'coc-omni',
             \ 'coc-pyright',

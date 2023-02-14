@@ -3,19 +3,23 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-let g:hl_rootmarkers = split($ROOTMARKERS_STR, ' ')
+" let $VIM_CONFIG=expand('$HOME/.vim')
+let $HKMS=expand('$HOME/repo/hkms')
 let g:snips_author = 'Hanley Lee'
+let g:hl_rootmarkers = split($ROOTMARKERS_STR, ' ')
+
 let g:is_in_macvim_gui = has('gui_macvim') && has('gui_running') " 位于 macvim 的gui 模式下
 let g:is_in_gui = empty($TERM) || g:is_in_macvim_gui
 let g:is_in_term = !g:is_in_gui " 位于终端中
 let g:is_in_iterm = $TERM_PROGRAM ==? 'iTerm.app'
 let g:is_in_apple_term = $TERM_PROGRAM ==? 'Apple_Terminal'
 let g:is_in_xterm_kitty = $TERM ==? 'xterm-kitty'
+let g:is_in_origin_vim = !has('nvim') " 位于 vim 中
 let g:is_in_nvim = has('nvim') " 位于 neovim 中
-let g:is_in_vim = !g:is_in_nvim " 位于 vim 中
 let g:is_win = (has('win32') || has('win64')) ? v:true : v:false
 let g:is_linux = (has('unix') && !has('macunix')) ? v:true : v:false
 let g:is_mac = has('macunix') ? v:true : v:false
+
 let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'
             \ ]
@@ -31,6 +35,3 @@ else
         let g:system_name = 'Linux'
     endif
 endif
-
-" let $VIM_CONFIG=expand('$HOME/.vim')
-let $HKMS=expand('$HOME/repo/hkms')

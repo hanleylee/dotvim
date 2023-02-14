@@ -3,7 +3,7 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !g:is_in_macvim_gui " macvim 自带这些快捷键
+if !g:is_in_macvim_gui " macvim 自带这些快捷键, 不需要额外设置
     "map <D-v>      "+gP
     "cmap <D-v>     <C-R>+
     " vnoremap  <D-c>         "+y

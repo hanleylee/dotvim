@@ -4,7 +4,7 @@
 " License:  MIT License
 
 
-if g:is_in_term && g:is_in_vim
+if g:is_in_origin_vim
 
     for index in range(26)
         " <M-A> ~ <M-Z>
@@ -66,59 +66,57 @@ if g:is_in_term && g:is_in_vim
     " nmap <lt>D-e> <D-e>
 endif
 
-if g:is_in_term " 在终端中
-    " wrong!!!
-    " execute "set <D-z>=\ez"
-    " 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
-    " execute "nmap \ed-r <D-r>"
-    nmap  <lt>D-1>          <D-1>
-    nmap  <lt>D-2>          <D-2>
-    nmap  <lt>D-3>          <D-3>
-    nmap  <lt>D-4>          <D-4>
-    nmap  <lt>D-5>          <D-5>
-    nmap  <lt>D-6>          <D-6>
-    nmap  <lt>D-7>          <D-7>
-    nmap  <lt>D-8>          <D-8>
-    nmap  <lt>D-9>          <D-9>
-    nmap  <lt>D-0>          <D-0>
-    nmap  <lt>D-/>          <D-/>
-    map   <lt>D-r>          <D-r>
-    map   <lt>D-b>          <D-b>
-    vmap  <lt>D-c>          <D-c>
-    vmap  <lt>D-x>          <D-x>
-    tmap  <lt>D-v>          <D-v>
-    nmap  <lt>D-v>          <D-v>
-    vmap  <lt>D-v>          <D-v>
-    imap  <lt>D-v>          <D-v>
-    cmap  <lt>D-v>          <D-v>
-    map   <lt>D-Left>       <D-Left>
-    map!  <lt>D-Left>       <D-Left>
-    map   <lt>D-Right>      <D-Right>
-    map!  <lt>D-Right>      <D-Right>
-    map   <lt>D-Up>         <D-Up>
-    imap  <lt>D-Up>         <D-Up>
-    map   <lt>D-Down>       <D-Down>
-    imap  <lt>D-Down>       <D-Down>
-    imap  <lt>D-BS>         <D-BS>
-    nmap  <lt>D-w>          <D-w>
-    imap  <lt>D-w>          <D-w>
-    nmap  <lt>D-s>          <D-s>
-    map   <lt>D-s>          <D-s>
-    vmap  <lt>D-s>          <D-s>
-    imap  <lt>D-s>          <D-s>
-    imap  <lt>D-z>          <D-z>
-    map   <lt>S-D-z>        <S-D-z>
-    map   <lt>D-z>          <D-z>
-    imap  <lt>S-D-z>        <S-D-z>
-    map   <lt>D-a>          <D-a>
-    imap  <lt>D-a>          <D-a>
-    cmap  <lt>D-a>          <D-a>
-    omap  <lt>D-a>          <D-a>
-    smap  <lt>D-a>          <D-a>
-    xmap  <lt>D-a>          <D-a>
-    map   <lt>D-d>          <D-d>
-    map   <lt>D-t>          <D-t>
-endif
+" wrong!!!
+" execute "set <D-z>=\ez"
+" 改变思路, 从 `term keycode -> vim keycode` 到 `term keycode -> vim keystroke`
+" execute "nmap \ed-r <D-r>"
+nmap  <lt>D-1>          <D-1>
+nmap  <lt>D-2>          <D-2>
+nmap  <lt>D-3>          <D-3>
+nmap  <lt>D-4>          <D-4>
+nmap  <lt>D-5>          <D-5>
+nmap  <lt>D-6>          <D-6>
+nmap  <lt>D-7>          <D-7>
+nmap  <lt>D-8>          <D-8>
+nmap  <lt>D-9>          <D-9>
+nmap  <lt>D-0>          <D-0>
+nmap  <lt>D-/>          <D-/>
+map   <lt>D-r>          <D-r>
+map   <lt>D-b>          <D-b>
+vmap  <lt>D-c>          <D-c>
+vmap  <lt>D-x>          <D-x>
+tmap  <lt>D-v>          <D-v>
+nmap  <lt>D-v>          <D-v>
+vmap  <lt>D-v>          <D-v>
+imap  <lt>D-v>          <D-v>
+cmap  <lt>D-v>          <D-v>
+map   <lt>D-Left>       <D-Left>
+map!  <lt>D-Left>       <D-Left>
+map   <lt>D-Right>      <D-Right>
+map!  <lt>D-Right>      <D-Right>
+map   <lt>D-Up>         <D-Up>
+imap  <lt>D-Up>         <D-Up>
+map   <lt>D-Down>       <D-Down>
+imap  <lt>D-Down>       <D-Down>
+imap  <lt>D-BS>         <D-BS>
+nmap  <lt>D-w>          <D-w>
+imap  <lt>D-w>          <D-w>
+nmap  <lt>D-s>          <D-s>
+map   <lt>D-s>          <D-s>
+vmap  <lt>D-s>          <D-s>
+imap  <lt>D-s>          <D-s>
+imap  <lt>D-z>          <D-z>
+map   <lt>S-D-z>        <S-D-z>
+map   <lt>D-z>          <D-z>
+imap  <lt>S-D-z>        <S-D-z>
+map   <lt>D-a>          <D-a>
+imap  <lt>D-a>          <D-a>
+cmap  <lt>D-a>          <D-a>
+omap  <lt>D-a>          <D-a>
+smap  <lt>D-a>          <D-a>
+xmap  <lt>D-a>          <D-a>
+map   <lt>D-d>          <D-d>
+map   <lt>D-t>          <D-t>
 
 " " 1 ~ =
 " map ¡  <M-1>

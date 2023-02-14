@@ -10,10 +10,14 @@
 "    - 添加与该插件命名有关的组合前缀键, 如 <C-c> 是 coc
 
 "=======================   Terminal Keycode   ============================
-call Source('$HOME/.vim/main/term_keycode.vim')
+if g:is_in_term
+    call Source('$HOME/.vim/main/term_keycode.vim')
+endif
 
 "=======================   GUI Keycode   ============================
-call Source('$HOME/.vim/main/gui_keymap.vim')"
+if g:is_in_gui
+    call Source('$HOME/.vim/main/gui_keymap.vim')"
+endif
 
 "███████████████████████   KeyMapping   ██████████████████████████
 " Main map {{{
@@ -31,8 +35,8 @@ inoremap <silent><C-s>       <ESC>:update<CR>
 vnoremap <silent><C-s>       <ESC>:update<CR>
 
 inoremap <silent> <C-j> <End><CR>
-
-cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%' "%% 自动扩展为当前目录
+"%% 自动扩展为当前目录
+cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
 nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>

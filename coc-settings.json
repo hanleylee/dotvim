@@ -1071,12 +1071,12 @@
     "go.checkForUpdates": "disabled",
 
     // // sh
-    "sh.enable": true,
-    "sh.commandPath": "",
-    "sh.globPattern": "",
-    "sh.trace.server": "off",
-    "sh.explainshellEndpoint": "",
-    "sh.highlightParsingErrors": false,
+    // "sh.enable": true,
+    // "sh.commandPath": "",
+    // "sh.globPattern": "",
+    // "sh.trace.server": "off",
+    // "sh.explainshellEndpoint": "",
+    // "sh.highlightParsingErrors": false,
 
     // solargraph
     "solargraph.hover": true,
@@ -1724,12 +1724,13 @@
     "wxss.lint.unknownVendorSpecificProperties": "ignore",
 
     "languageserver": {
-        // "bash": {
-        //     "command": "bash-language-server",
-        //     "args": ["start"],
-        //     "filetypes": ["sh", "zsh"],
-        //     "ignoredRootPaths": ["~"]
-        // },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh", "zsh"],
+            "trace.server": "verbose",
+            "ignoredRootPaths": ["~"]
+        },
         "efm": {
             "command": "efm-langserver",
             "args": [],

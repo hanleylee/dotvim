@@ -1796,5 +1796,6 @@
             "trace.server": "verbose",
             "initializationOptions": {}
         }
-    }
+    },
+    "snippets.ultisnips.pythonPrompt": false
 }

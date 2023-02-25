@@ -15,9 +15,7 @@ if g:is_in_term
 endif
 
 "=======================   GUI Keycode   ============================
-if g:is_in_gui
-    call Source('$HOME/.vim/main/gui_keymap.vim')"
-endif
+call Source('$HOME/.vim/main/gui_keymap.vim')"
 
 "███████████████████████   KeyMapping   ██████████████████████████
 " Main map {{{

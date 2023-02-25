@@ -25,6 +25,9 @@ set tags=./.tags;,./tags;,.tags,tags
 set dictionary+=~/.vim/dict/all.dict " 加载全局 dict, filetype 的 dict 由 vim-dict 插件负责
 set splitbelow " 设置新的垂直分割窗口在下侧
 set splitright " 设置新的垂直分割窗口在右侧
+if has('patch-9.0.0667')
+    set splitkeep=screen " 水平分割视图时, 其中一个视图关闭能保证其余视图相对于屏幕位置不变
+endif
 set modeline
 set modelines=5
 set history=10000 " 历史命令最大记录数

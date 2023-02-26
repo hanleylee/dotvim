@@ -13,7 +13,7 @@ if g:is_in_origin_vim
         call MapMetaCode(nr2char(97 + index))
     endfor
 
-    # There is issue in vim, https://github.com/wez/wezterm/issues/1917, we have to unset '<M-P>' here
+    " There is issue in vim, https://github.com/wez/wezterm/issues/1917, we have to unset '<M-P>' here
     execute "set <M-P>="
     " set <M-P>=
 

@@ -184,6 +184,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'puremourning/vimspector'
     Plug 'vim-test/vim-test'
     Plug 'liuchengxu/vista.vim'
+    Plug 'chrisbra/Colorizer'
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行

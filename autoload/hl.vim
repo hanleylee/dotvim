@@ -117,12 +117,12 @@ function hl#LoadTemplate(read)
     endif
 
     if a:read == 0 
-        sil exe 'keepalt read ' . fname
+        silent execute 'keepalt read ' . fname
         " 删除空行
         normal ggdd
         setlocal nomodified
     else
-        sil exe 'tabedit '. fname
+        silent execute 'tabedit '. fname
     endif
 endfunction
 
@@ -131,9 +131,9 @@ function hl#copy_to_newtab()
   let temp = tempname()
   try
     let nr = bufnr('%')
-    exec "mkview" temp
+    execute "mkview" temp
     tabnew
-    silent exec "source" temp
+    silent execute "source" temp
   finally
     call delete(temp)
   endtry

@@ -376,6 +376,7 @@
     "coc.source.dictionary.filetypes": null,
     "coc.source.dictionary.disableSyntaxes": [],
 
+    "markdown-preview-enhanced.enableScriptExecution": true,
     // source-tag
     "coc.source.tag.enable": true,
     "coc.source.tag.priority": 40,

@@ -19,6 +19,8 @@ let g:is_in_nvim = has('nvim') " 位于 neovim 中
 let g:is_win = (has('win32') || has('win64')) ? v:true : v:false
 let g:is_linux = (has('unix') && !has('macunix')) ? v:true : v:false
 let g:is_mac = has('macunix') ? v:true : v:false
+let g:is_work = match(hostname(), 'work') != -1
+let g:is_home = match(hostname(), 'home') != -1
 
 let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'

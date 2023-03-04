@@ -110,6 +110,7 @@ vnoremap <leader>* :<C-u>call hl#util#VisualStarSearchSet('/')<CR>:execute 'noau
 " }}}
 
 nmap <leader>tmp :tab drop ~/.cache/tmp.md<CR>
+nmap <leader>ctt :CopyToTempTab<CR>
 " replace vim's built-in search and replace behavior {{{
 " nnoremap / /\v
 " cnoremap s/ s/\v

@@ -8,12 +8,14 @@ command! CDF silent call hl#external#CDF()
 command! OFD silent call hl#external#OFD()
 command! CDIT silent call hl#external#CDIT()
 command! -nargs=0 OpenInBrowser silent call hl#external#OpenInBrowser()
+command! ChezmoiApply !chezmoi apply --source-path "%"
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
-command! LoadTemplate call hl#LoadTemplate(0)
-command! Template call hl#LoadTemplate(1)
-command Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+command! CopyToTempTab call hl#copy_to_temp_tab()
+command! -bang LoadTemplate call hl#LoadTemplate("<bang>")
+command! -nargs=1 -complete=file NewTemplate call hl#NewTemplate(<q-args>)
+command! Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
 " # Command Delview (and it's abbreviation 'delview')
-command DelView call hl#util#DeleteView()
+command! DelView call hl#util#DeleteView()
 " Lower-case user commands: http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delview')<CR>
 "}}}
@@ -33,12 +35,11 @@ command! EscapeJSON silent! call hl#operate#EscapeJSON()
 " }}}
 
 " Command {{{
-command! ChezmoiApply !chezmoi apply --source-path "%"
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir silent call hl#external#Redir(<q-args>)
 " 某个 pattern 出现的次数
-command -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
-command CenterFull call hl#ui#center_full()
+command! -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
+command! CenterFull call hl#ui#center_full()
 " }}}
 
 " iOS {{{
@@ -66,11 +67,8 @@ if hl#plug_loaded('fzf.vim')
     command! -bang FM call fzf#run(fzf#wrap({'source': 'cat $FZF_MARKS_FILE | grep "^[^#]" | sed "s/.*: \(.*\)$/\1/"',
                 \ 'options': "-m --preview 'tree -N -C -l -L 1 {} | head -500'"
                 \ }, <bang>0))
-    command! -bang Args call fzf#run(fzf#wrap('args',
-                \ {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
-    command! -bang -nargs=* GGrep call fzf#vim#grep(
-                \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-                \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+    command! -bang Args call fzf#run(fzf#wrap('args', {'source': map([argidx()]+(argidx()==0?[]:range(argc())[0:argidx()-1])+range(argc())[argidx()+1:], 'argv(v:val)')}, <bang>0))
+    command! -bang -nargs=* GGrep call fzf#vim#grep('git grep --line-number -- '.shellescape(<q-args>), 0, fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 endif
 
 if hl#plug_loaded('vim-floaterm')

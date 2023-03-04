@@ -52,16 +52,17 @@ set wildignorecase  " ignore file and dir name cases in cmd-completion
 
 let s:undo_dir = has('nvim') ? expand('$HOME/.cache/nvim/undo') : expand('$HOME/.cache/vim/undo')
 let s:backup_dir = has('nvim') ? expand('$HOME/.cache/nvim/backup') : expand('$HOME/.cache/vim/backup')
-let s:cache_dir = has('nvim') ? expand('$HOME/.cache/nvim/swp') : expand('$HOME/.cache/vim/swp')
+" let s:swap_dir = has('nvim') ? expand('$HOME/.cache/nvim/swp') : expand('$HOME/.cache/vim/swp')
 
 call GuardExistDirectory(s:undo_dir)
 let &undodir=s:undo_dir
 call GuardExistDirectory(s:backup_dir)
 let &backupdir=s:backup_dir
-call GuardExistDirectory(s:cache_dir)
-let &directory=s:cache_dir
-" Skip backup for patterns in option wildignore
 let &backupskip=&wildignore
+set noswapfile " for personal use, I don't want use swap file
+" call GuardExistDirectory(s:swap_dir)
+" let &directory=s:swap_dir
+" Skip backup for patterns in option wildignore
 " execute 'set directory=' . s:cache_dir
 
 " set signcolumn=number
@@ -94,7 +95,7 @@ setglobal fileencoding=utf-8 " 编码方式为 utf-8
 setglobal nofixendofline
 scriptencoding utf-8
 set termencoding=utf-8
-set updatetime=50 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
+set updatetime=500 " 如果在此时间内没有操作, 则会在磁盘上写入 swap 文件, 默认为 4000(时间越短越卡); 也会影响到 coc 的 highlight
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
 let filetype_m='objc'

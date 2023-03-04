@@ -94,48 +94,44 @@ function! hl#try_set_dictionary()
 endfunction
 "}}}
 
-function hl#LoadTemplate(read)
-    " read 指示是新文件还是在读取文件
-    " 1: new file
-    " 2: current file
-
-    " 另作处理的文件类型
-    if expand("%:t") =~ '\.h$'
-        return
-    endif
-
+function s:TemplateContent(type)
     if g:is_win
         let templatePrefix = '$VIM/vimfiles/templates/template.'
     else
         let templatePrefix = '~/.vim/templates/template.'
     endif
-    let fname = templatePrefix . &ft
-    let fname = expand(fname)
+    let fname = expand(templatePrefix . a:type)
 
-    if !filereadable(fname)
-        return
-    endif
+    let content = hl#get#file_content(fname)
 
-    if a:read == 0 
-        silent execute 'keepalt read ' . fname
-        " 删除空行
-        normal ggdd
-        setlocal nomodified
+    return content
+endfunction
+
+function hl#NewTemplate(filename)
+    silent execute 'tabnew ' . a:filename
+    call hl#LoadTemplate('!')
+    setlocal nomodified
+endfunction
+
+function hl#LoadTemplate(bang)
+
+    let content = s:TemplateContent(&ft)
+
+    if a:bang == '!'  " clear all then load template contents
+        1,$d " or %d
+        call setline(1, content)
     else
-        silent execute 'tabedit '. fname
+        call append(line('.'), content)
     endif
 endfunction
 
 " 复制缓冲区到新标签页
-function hl#copy_to_newtab()
-  let temp = tempname()
-  try
-    let nr = bufnr('%')
-    execute "mkview" temp
-    tabnew
-    silent execute "source" temp
-  finally
-    call delete(temp)
-  endtry
+function hl#copy_to_temp_tab()
+    let temp_file = tempname()
+    let alltext = hl#get#current_file_content()
+
+    execute 'tabnew ' . temp_file
+
+    call setline('.', alltext)
 endfunction
 

@@ -36,15 +36,15 @@ endfunction
 
 " 获取可读的文件大小
 function hl#get#readble_fsize(file)
-  let size = getfsize(a:file)
-  if has('python3')
-    try
-      py3 from myutils import filesize
-      return py3eval('filesize('.size.')')
-    catch /.*/
-    endtry
-  endif
-  return size . 'B'
+    let size = getfsize(a:file)
+    if has('python3')
+        try
+            py3 from myutils import filesize
+            return py3eval('filesize('.size.')')
+        catch /.*/
+        endtry
+    endif
+    return size . 'B'
 endfunction
 
 func hl#get#indent_level()
@@ -53,9 +53,9 @@ endfunction
 
 " 返回当前日期的中文表示
 function hl#get#zh_date()
-  let d = strftime("%Y年%m月%d日")
-  let d = substitute(d, '[年月]\@<=0', '', 'g')
-  return d
+    let d = strftime("%Y年%m月%d日")
+    let d = substitute(d, '[年月]\@<=0', '', 'g')
+    return d
 endfunction
 
 func hl#get#current_syntax()
@@ -68,3 +68,18 @@ func hl#get#is_current_comment()
     return current_syntax ==? 'Comment'
 endfunction
 
+" 返回值为数组
+func hl#get#file_content(file_name)
+    if !filereadable(a:file_name)
+        echoerr "File" . a:file_name . " is not existed!"
+    endif
+    " let content = join(readfile(a:file_name), "\n")
+    let content = readfile(a:file_name)
+    return content
+endfunction
+
+" 返回值为数组
+func hl#get#current_file_content()
+    let alltext = getline(1, '$')
+    return alltext
+endfunction

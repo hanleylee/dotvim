@@ -40,9 +40,9 @@ if hl#plug_loaded('onedark.vim')
         call onedark#set_highlight('Search', {'fg': s:yellow, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
         call onedark#set_highlight('Todo', {'fg': s:orange, 'gui': s:bold, 'cterm': s:bold})
         call onedark#set_highlight('Error', {'fg': s:red, 'bg': s:black, 'gui': s:reverse_bold, 'cterm': s:reverse_bold})
-        call onedark#set_highlight('TaskPaperURL', {'fg': s:blue, 'gui': s:underline, 'cterm': s:underline})
-        call onedark#set_highlight('TaskPaperDone', {'fg': s:comment_grey, 'gui': s:strikethrough, 'cterm': s:strikethrough})
-        call onedark#set_highlight('TaskPaperCancelled', {'fg': s:comment_grey, 'gui': s:strikethrough, 'cterm': s:strikethrough})
+        call onedark#set_highlight('HLNote', {'fg': s:blue, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('HLWarning', {'fg': s:orange, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('HLError', {'fg': s:red, 'gui': s:bold, 'cterm': s:bold})
 
         " highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
         "}}}

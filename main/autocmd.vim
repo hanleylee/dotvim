@@ -48,11 +48,14 @@ augroup END
 " HLMarker{{{
 augroup HLMarker
     autocmd!
-    " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
+    autocmd Syntax * syntax keyword HLNote MARK TODO NOTE CHANGED containedin=.*Comment,vimCommentTitle,cCommentL
+    autocmd Syntax * syntax keyword HLWarning FIXME WARNING containedin=.*Comment,vimCommentTitle,cCommentL
+    autocmd Syntax * syntax keyword HLError ERROR BUG containedin=.*Comment,vimCommentTitle,cCommentL
     " autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
     " 这里要使用 matchadd 方法进行自定义词语的高亮, 因为它的优先级较高, 不会被 cursorLine 的背景色覆盖, 且所有文件类型都起作用
     " autocmd Syntax * syntax keyword NoteMarker NOTE TODO MARK containedin=.*Comment,vimCommentTitle,cCommentL
-    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|BUG\)')
+    " autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|WARNING\|BUG\)')
+    " autocmd Syntax * call matchadd('Error',  '\W\zs\(TODO\|FIXME\|XXX\|MARK\|CHANGED\|NOTE\|WARNING\|BUG\)')
 augroup end
 "}}}
 

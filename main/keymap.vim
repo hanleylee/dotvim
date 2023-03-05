@@ -90,6 +90,18 @@ nnoremap <Leader>W :w !sudo tee % > /dev/null
 " nnoremap <leader>k :m .-2<CR>==
 " nnoremap <leader>j :m .+1<CR>==
 
+" quick switch between tab
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<CR>
+
 " Emac like map in insert mode & command line mode
 inoremap <C-e>    <End>
 cnoremap <C-e>    <End>

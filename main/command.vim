@@ -40,6 +40,7 @@ command! -nargs=+ -complete=command Redir silent call hl#external#Redir(<q-args>
 " 某个 pattern 出现的次数
 command! -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
 command! CenterFull call hl#ui#center_full()
+command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
 " }}}
 
 " iOS {{{

@@ -135,3 +135,38 @@ function hl#copy_to_temp_tab()
     call setline('.', alltext)
 endfunction
 
+" Wrapper around man.vim's Man command
+function! hl#Superman(...)
+    if exists(":Man") != 2 " No :Man command defined
+        source $VIMRUNTIME/ftplugin/man.vim
+    endif
+
+    " Build and pass off arguments to Man command
+    execute 'Man' join(a:000, ' ')
+
+    " Quit with error code if there is only one line in the buffer (i.e., manpage not found)
+    if line('$') == 1 | cquit | endif
+
+    let s:is_vman_from_term = get(g:, 'is_vman_from_term', '0')
+    if s:is_vman_from_term
+        silent only
+    endif
+
+    " Set options appropriate for viewing manpages
+    " setlocal readonly
+    setlocal nomodifiable
+    setlocal noswapfile
+
+    setlocal noexpandtab
+    setlocal tabstop=4
+    setlocal softtabstop=4
+    setlocal shiftwidth=4
+    setlocal nolist
+    if exists('+colorcolumn')
+        setlocal colorcolumn=0
+    endif
+
+    " To make us behave more like less
+    noremap <buffer> q :q<CR>
+endfunction
+

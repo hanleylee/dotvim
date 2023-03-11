@@ -76,7 +76,7 @@ nnoremap <leader>ms :ChezmoiSwap<cr>
 nnoremap <leader>ma :ChezmoiApply<cr>
 
 noremap <silent> <Plug>(MergeLine)   :call hl#operate#merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(MergeLine)")<CR>
-nnoremap <silent> J <Plug>(MergeLine)
+" nnoremap <silent> J <Plug>(MergeLine)
 
 noremap <silent> <Plug>(RevertMergeLine)   :call hl#operate#revert_merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(RevertMergeLine)")<CR>
 nnoremap <silent> <leader>J <Plug>(RevertMergeLine)

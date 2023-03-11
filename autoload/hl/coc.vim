@@ -20,12 +20,12 @@ endfunction
 "}}}
 
 function! hl#coc#disable_for_type()
-  " if index(g:coc_filetypes_enable, &filetype) == -1
-  "   :silent! CocDisable
-  " else
-  "   :silent! CocEnable
-  " endif
-  	if index(g:coc_disable_file_types, &filetype) != -1
+    " if index(g:coc_filetypes_enable, &filetype) == -1
+    "   :silent! CocDisable
+    " else
+    "   :silent! CocEnable
+    " endif
+    if index(g:coc_disable_file_types, &filetype) != -1
         let b:coc_enabled = 0
     endif
 endfunction
@@ -44,7 +44,10 @@ endfunction
 
 function! hl#coc#disable_for_specific_pattern()
     let file_name = hl#fs#getFullPathName()
-    if match(file_name, 'Rime/.\{-}.dict.yaml$') != -1
-        let b:coc_enabled = 0
-    endif
+    for pattern in g:coc_disbale_file_patterns
+        if match(file_name, pattern) != -1
+            let b:coc_enabled = 0
+            break
+        endif
+    endfor
 endfunction

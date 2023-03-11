@@ -62,6 +62,7 @@ let g:coc_global_extensions = [
             \ ]
 
 let g:coc_disable_file_types = []
+let g:coc_disbale_file_patterns = ['Rime/.\{-}.dict.yaml$', '.zsh_history']
 let g:coc_max_acceptable_line = 10000
 let g:coc_max_acceptable_column = 10000
 let g:coc_max_acceptable_size = 1024 * 1024 " 单位为 byte, 该处表示 1 MB

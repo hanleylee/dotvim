@@ -25,6 +25,14 @@ call Source('$HOME/.vim/main/function.vim')
 "=======================   Path   ============================
 call Source('$HOME/.vim/main/path.vim')
 
+"=======================   Terminal Keycode   ============================
+if g:is_in_term
+    call Source('$HOME/.vim/main/term_keycode.vim')
+endif
+
+"=======================   GUI Keycode   ============================
+call Source('$HOME/.vim/main/gui_keymap.vim')"
+
 "=======================   Keymap   ============================
 call Source('$HOME/.vim/main/keymap.vim')
 
@@ -35,5 +43,5 @@ call Source('$HOME/.vim/main/command.vim')
 call Source('$HOME/.vim/main/autocmd.vim')
 
 "=======================   Appearance   ============================
-call Source('$HOME/.vim/main/appearance.vim')"
+call Source('$HOME/.vim/main/appearance.vim')
 "}}}

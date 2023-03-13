@@ -110,10 +110,11 @@ set smartcase " 搜索时只有输入大写字母时才会强制符合大小写,
 set showmatch " 匹配括号
 
 " External program to use for grep command
-set grepprg=grep\ -nH\ $*
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-  set grepformat=%f:%l:%c:%m
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepformat=%f:%l:%c:%m
+else
+    set grepprg=grep\ -nH\ $*
 endif
 
 "}}}
@@ -215,7 +216,7 @@ set viewoptions=folds,cursor,curdir
 set colorcolumn=+1
 
 if has('arabic')
-  set noarabicshape
+    set noarabicshape
 endif
 
 if has('nvim')

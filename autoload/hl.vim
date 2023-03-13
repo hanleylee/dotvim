@@ -31,7 +31,7 @@ function! hl#grep_operator(type)
         return
     endif
 
-    silent execute "grep! -R " . shellescape(@@) . " ."
+    silent execute "grep! " . shellescape(@@) . " ."
     copen
     let @@ = saved_unnamed_register
 endfunction

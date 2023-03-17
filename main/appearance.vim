@@ -105,6 +105,7 @@ function! HLColorScheme()
     " coc.nvim {{{
     if hl#plug_loaded('coc.nvim')
         highlight CocHighlightText  cterm=bold ctermbg=238  ctermfg=NONE gui=bold guibg=#444444 guifg=NONE
+        highlight HighlightedyankRegion cterm=bold ctermbg=0 ctermfg=none gui=bold guibg=#13354A guifg=#C6C6C6
         highlight CocFloating       cterm=bold ctermbg=238  ctermfg=251  gui=NONE guibg=#363B48 guifg=#C6C6C6
         highlight CocMenuSel        cterm=bold ctermbg=20   ctermfg=NONE gui=bold guibg=#444C5D guifg=NONE
         highlight CocPumSearch      cterm=bold ctermbg=20   ctermfg=NONE gui=NONE guibg=NONE    guifg=#3e9831

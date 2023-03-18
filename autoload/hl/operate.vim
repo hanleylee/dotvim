@@ -74,18 +74,21 @@ function! hl#operate#move_line(mode, direction) range
     endif
 endfunction
 
-function hl#operate#connect_block() range
-    let current_count = line('.')
+" paste copied block(already stored in register) to the end of current area
+function hl#operate#tail_paste_block()
+    let current_line = line('.')
     let copied_contents = split(@", "\n")
 
-    for index in 0..len(copied_contents)
-    endfor
+    for index in range(0, len(copied_contents) - 1)
+        let res = getline(current_line + index) . copied_contents[index]
 
-    if true
-        call setline(1, content)
-    else
-        call append(line('.'), content)
-    endif
+        let target_line = current_line + index
+        if target_line <= line('$')
+            call setline(target_line, res)
+        else
+            call append(target_line - 1, res)
+        endif
+    endfor
 endfunction
 
 " 移除行尾空格

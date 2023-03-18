@@ -67,13 +67,14 @@ vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 nnoremap <leader>ms :ChezmoiSwap<cr>
 nnoremap <leader>ma :ChezmoiApply<cr>
 
-noremap <silent> <Plug>(MergeLine)   :call hl#operate#merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(MergeLine)")<CR>
+" noremap <silent> <Plug>(MergeLine)   :call hl#operate#merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(MergeLine)")<CR>
 " nnoremap <silent> J <Plug>(MergeLine)
 
 noremap <silent> <Plug>(RevertMergeLine)   :call hl#operate#revert_merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(RevertMergeLine)")<CR>
 nnoremap <silent> <leader>J <Plug>(RevertMergeLine)
 
-nnoremap <Leader>W :w !sudo tee % > /dev/null
+nnoremap <Leader>tp :call hl#operate#tail_paste_block()<CR>
+nnoremap <Leader>W :w !sudo tee % > /dev/null<CR>
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -209,19 +210,19 @@ endif
 if hl#plug_loaded('vim-floaterm')
     nnoremap <silent><F3>          :FloatermToggle<CR>
     tnoremap <silent><F3>          <C-\><C-n>:FloatermToggle<CR>
-    nnoremap <silent><Leader>tw    :FloatermNew<CR>
-    tnoremap <silent><Leader>tw    <C-\><C-n>:FloatermNew<CR>
-    nnoremap <silent><Leader>tp    :FloatermPrev<CR>
-    tnoremap <silent><Leader>tp    <C-\><C-n>:FloatermPrev<CR>
     nnoremap <silent><Leader>tn    :FloatermNext<CR>
     tnoremap <silent><Leader>tn    <C-\><C-n>:FloatermNext<CR>
-    nnoremap <silent><Leader>ts    :FloatermFirst<CR>
-    tnoremap <silent><Leader>ts    <C-\><C-n>:FloatermFirst<CR>
-    nnoremap <silent><Leader>te    :FloatermLast<CR>
-    tnoremap <silent><Leader>te    <C-\><C-n>:FloatermLast<CR>
     nnoremap <silent><Leader>tk    :FloatermKill<CR>
     tnoremap <silent><Leader>tk    <C-\><C-n>:FloatermKill<CR>
     nnoremap <silent><Leader>tcd   :FloatermSend cd %:p:h<CR>
+    " nnoremap <silent><Leader>tw    :FloatermNew<CR>
+    " tnoremap <silent><Leader>tw    <C-\><C-n>:FloatermNew<CR>
+    " nnoremap <silent><Leader>tp    :FloatermPrev<CR>
+    " tnoremap <silent><Leader>tp    <C-\><C-n>:FloatermPrev<CR>
+    " nnoremap <silent><Leader>ts    :FloatermFirst<CR>
+    " tnoremap <silent><Leader>ts    <C-\><C-n>:FloatermFirst<CR>
+    " nnoremap <silent><Leader>te    :FloatermLast<CR>
+    " tnoremap <silent><Leader>te    <C-\><C-n>:FloatermLast<CR>
 
     nnoremap <silent><Leader>lf    :FloatermNew lf<CR>
     nnoremap <silent><C-l>         :FloatermNew lf<CR>

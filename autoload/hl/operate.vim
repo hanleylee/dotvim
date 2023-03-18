@@ -5,25 +5,25 @@
 
 " 使用分隔符连接多行
 function hl#operate#join(sep, bang) range
-  if a:sep[0] == '\'
-    let sep = strpart(a:sep, 1)
-  else
-    let sep = a:sep
-  endif
-  let lines = getline(a:firstline, a:lastline)
-  if a:firstline == 1 && a:lastline == line('$')
-    let dellast = 1
-  else
-    let dellast = 0
-  endif
-  exe a:firstline . ',' . a:lastline . 'd_'
-  if a:bang != '!'
-    call map(lines, "substitute(v:val, '^\\s\\+\\|\\s\\+$', '', 'g')")
-  endif
-  call append(a:firstline-1, join(lines, sep))
-  if dellast
-    $d_
-  endif
+    if a:sep[0] == '\'
+        let sep = strpart(a:sep, 1)
+    else
+        let sep = a:sep
+    endif
+    let lines = getline(a:firstline, a:lastline)
+    if a:firstline == 1 && a:lastline == line('$')
+        let dellast = 1
+    else
+        let dellast = 0
+    endif
+    exe a:firstline . ',' . a:lastline . 'd_'
+    if a:bang != '!'
+        call map(lines, "substitute(v:val, '^\\s\\+\\|\\s\\+$', '', 'g')")
+    endif
+    call append(a:firstline-1, join(lines, sep))
+    if dellast
+        $d_
+    endif
 endfunction
 
 " use `J` to merge to line
@@ -71,6 +71,20 @@ function! hl#operate#move_line(mode, direction) range
 
     if a:mode ==# 'v'
         normal! gv
+    endif
+endfunction
+
+function hl#operate#connect_block() range
+    let current_count = line('.')
+    let copied_contents = split(@", "\n")
+
+    for index in 0..len(copied_contents)
+    endfor
+
+    if true
+        call setline(1, content)
+    else
+        call append(line('.'), content)
     endif
 endfunction
 

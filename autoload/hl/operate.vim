@@ -75,12 +75,18 @@ function! hl#operate#move_line(mode, direction) range
 endfunction
 
 " paste copied block(already stored in register) to the end of current area
-function hl#operate#tail_paste_block()
+function hl#operate#block_paste(direct)
     let current_line = line('.')
     let copied_contents = split(@", "\n")
 
     for index in range(0, len(copied_contents) - 1)
-        let res = getline(current_line + index) . copied_contents[index]
+        if a:direct == 'head' " head
+            let res = copied_contents[index] . getline(current_line + index)
+        elseif a:direct == 'tail' " tail
+            let res = getline(current_line + index) . copied_contents[index]
+        else
+            let res = ''
+        endif
 
         let target_line = current_line + index
         if target_line <= line('$')

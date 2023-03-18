@@ -73,7 +73,8 @@ nnoremap <leader>ma :ChezmoiApply<cr>
 noremap <silent> <Plug>(RevertMergeLine)   :call hl#operate#revert_merge_line()<Bar>silent! call repeat#set("\<lt>Plug>(RevertMergeLine)")<CR>
 nnoremap <silent> <leader>J <Plug>(RevertMergeLine)
 
-nnoremap <Leader>tp :call hl#operate#tail_paste_block()<CR>
+nnoremap <Leader>bp :call hl#operate#block_paste('tail')<CR>
+nnoremap <Leader>bP :call hl#operate#block_paste('head')<CR>
 nnoremap <Leader>W :w !sudo tee % > /dev/null<CR>
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv

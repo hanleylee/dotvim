@@ -499,7 +499,10 @@ endif
 
 " vim-oscyank {{{
 if hl#plug_loaded('vim-oscyank')
-    vnoremap <Leader>oy :OSCYank<CR>
+    " vnoremap <Leader>oy :OSCYank<CR>
+    nmap <Leader>oy <Plug>OSCYankOperator
+    nmap <Leader>cc <leader>c_
+    vmap <Leader>oy <Plug>OSCYankVisual
 endif
 "}}}
 

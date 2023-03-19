@@ -317,7 +317,8 @@
     "coc.source.word.enable": true,
     "coc.source.word.priority":20,
     "coc.source.word.shortcut": "10K",
-    "coc.source.word.filetypes": ["markdown"],
+    // "coc.source.word.filetypes": ["markdown"],
+    "coc.source.word.filetypes": null, // enable for all filetypes
     "coc.source.word.disableSyntaxes": [],
 
     // source-emoji
@@ -417,9 +418,9 @@
     "snippets.loadVSCodeProjectSnippets": true,
     "snippets.ultisnips.directories": [
         // "Ultisnips", // 这个会在 rtp 全局搜索 Ultisnips 文件夹, 因为不用 vim-snippets 了, 所以就不需要这个了
-        "~/.local/share/snippets"
+        "$HL_SNIPPETS/vim"
     ],
-    "snippets.userSnippetsDirectory": "~/.local/share/snippets",
+    "snippets.userSnippetsDirectory": "$HL_SNIPPETS/vim",
     "snippets.trace": "error",
     "snippets.extends": {
         // "cpp": ["c"],

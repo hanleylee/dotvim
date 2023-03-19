@@ -16,6 +16,8 @@ let g:vim_dict_config = {
             \ 'html':'html,javascript,css',
             \ 'markdown': 'text',
             \ 'plantuml': 'text',
+            \ 'bash': 'bash,sh',
+            \ 'zsh': 'zsh,sh',
             \ 'gitcommit': 'gitcommit,text'
             \ }
 

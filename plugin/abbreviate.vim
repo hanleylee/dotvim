@@ -12,8 +12,12 @@ iabbrev isntall install
 iabbrev cofnig config
 iabbrev toekn token
 iabbrev serach search
+iabbrev adn and
+iabbrev heigth height
+iabbrev k8s Kubernetes
 
 " ignorecase
 iabbrev cocoapods CocoaPods
 iabbrev ios iOS
 iabbrev macos MacOS
+iabbrev android Android

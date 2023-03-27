@@ -95,8 +95,15 @@ function! hl#markdown#format() range
     " 6. 清空所有一行以上的空行
     let regex_list = add(regex_list, '/^\n$//g')
 
-    for pattern in regex_list
-        execute a:firstline . "," . a:lastline . " substitute " . pattern
+    for line_num in range(a:firstline, a:lastline)
+        let cursor_syntax = map(synstack(line_num, 1), 'synIDattr(v:val,"name")')
+        " 如果是 codeBlock 内容则不进行格式化
+        let isCodeBlock = indexof(cursor_syntax, { e -> match(v:val, 'mkdSnippet') >= 0 }) >= 0
+        if !isCodeBlock
+            for pattern in regex_list
+                execute line_num . " substitute " . pattern
+            endfor
+        endif
     endfor
 
 endfunction

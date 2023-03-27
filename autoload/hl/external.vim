@@ -5,7 +5,6 @@
 
 " 在浏览器中打开当前选择的链接
 function! hl#external#OpenInBrowser(mode)
-    let final_url = ''
     if a:mode ==? 'v' " visual 模式下, 打开选中的文字
         let selected_text = hl#text#visual_selection()
     elseif a:mode ==? 'n' " normal 模式下, 打开当前文字
@@ -15,15 +14,6 @@ function! hl#external#OpenInBrowser(mode)
     let full_pathname = hl#fs#getFullPathName()
     let repo_filename = FindRootDirectory()
     let just_filename = hl#fs#getOnlyFileName()
-    " if just_filename ==# 'Podfile' " open homepage of pod
-    "     if a:mode ==? 'v'
-    "         let pod = selected_text
-    "     elseif a:mode ==? 'n'
-    "         let pod = matchstr(getline('.'), '"*\s*Pod\s*''\zs.\{-}\ze''')
-    "     endif
-    "     let pod_homepage_line = hl#external#GetOutput('!pod spec cat ' . pod . ' | grep homepage')
-    "     let final_url = matchstr(pod_homepage_line, ':\s*[''"]\zs.\{-}\ze[''"]')
-    "     " elseif &ft ==? 'vim' " open as vim-plug
     if just_filename ==? 'plugin.vim' " open homepage of plug
         if a:mode ==? 'v'
             let plug = selected_text
@@ -33,11 +23,10 @@ function! hl#external#OpenInBrowser(mode)
         if plug != ''
             let final_url = shellescape('https://github.com/' . plug, 1)
         endif
-    endif
-
-    if final_url != ''
-        exec "!open -a Safari " . final_url
-        :redraw!
+        if final_url != ''
+            exec "!open -a Safari " . final_url
+            :redraw!
+        endif
     else
         call hl#external#OpenInBrowserCommon(a:mode)
     endif

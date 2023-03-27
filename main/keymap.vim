@@ -76,6 +76,10 @@ nnoremap <silent> <leader>J <Plug>(RevertMergeLine)
 nnoremap <Leader>bp :call hl#operate#block_paste('tail')<CR>
 nnoremap <Leader>bP :call hl#operate#block_paste('head')<CR>
 nnoremap <Leader>W :w !sudo tee % > /dev/null<CR>
+
+nnoremap <silent><Leader>af  :call hl#format#document('n')<CR>
+vnoremap <silent><Leader>af  :call hl#format#document('v')<CR>
+
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
@@ -122,7 +126,7 @@ nmap <leader>ctt :CopyToTempTab<CR>
 " cnoremap s/ s/\v
 " }}}
 
-nnoremap <silent> <Leader>hl :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+nnoremap <silent> <Leader>hl :call matchadd('LineHighlight', '\%' . line('.') . 'l')<CR>
 nnoremap <silent> <Leader>hc :call clearmatches()<CR>
 
 let g:netrw_nogx = 1 " disable gx keymap
@@ -191,13 +195,6 @@ endif
 if hl#plug_loaded('FastFold')
     nmap zuz <Plug>(FastFoldUpdate)
     command! -nargs=0 FDM :echo w:lastfdm
-endif
-"}}}
-
-" vim-autoformat {{{
-if hl#plug_loaded('vim-autoformat')
-    nnoremap <silent><Leader>af  :call hl#format#document('n')<CR>
-    vnoremap <silent><Leader>af  :call hl#format#document('v')<CR>
 endif
 "}}}
 

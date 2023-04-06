@@ -69,6 +69,10 @@ set noswapfile " for personal use, I don't want use swap file
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
 set mouse+=a " mouse enable for all modes
+if g:is_in_origin_vim
+    set ttymouse=sgr
+    set balloonevalterm
+endif
 set mousemodel=popup  " Set the behaviour of mouse
 set visualbell " 错误时不发出声音, 只显示在屏幕上
 set noerrorbells  " Do not use errorbells
@@ -161,7 +165,9 @@ set formatlistpat+=^\\s*[-–+o*•]\\s\\+      " Bullet points
 " (2) An item with punctuation preceding and following it
 " •   An item consisting of leading punctuation
 
+" if has('patch-7.4.754')
 set nrformats+=unsigned " ignore sign of number when increase or decrease
+" endif
 
 " diff options
 set diffopt=
@@ -224,10 +230,54 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+" MARK: These settings must be placed before setting the colorscheme. It is also important that the value of the vim term variable is not changed after these settings.
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
+" Focus tracking
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+if g:is_in_origin_vim
+    execute "set <FocusGained>=\<Esc>[I"
+    execute "set <FocusLost>=\<Esc>[O"
+endif
+" Window title
+let &t_ST = "\e[22;2t"
+let &t_RT = "\e[23;2t"
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce. This causes incorrect background rendering when
+" using a color theme with a background color in terminals such as
+" kitty that do not support background color erase.
+let &t_ut=''
+let &t_ut = '' " Adapt for kitty
 if has('termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    let &t_ut = '' " Adapt for kitty
     set termguicolors
 endif
 

@@ -7,6 +7,7 @@ if !hl#plug_loaded('fern.vim')
     finish
 endif
 
+let g:fern_disable_startup_warnings = 1
 let g:fern#disable_default_mappings = 1
 let g:fern#renderer#default#leading = "   "
 let g:fern#renderer#default#root_symbol = "┬ "

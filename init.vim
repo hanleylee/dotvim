@@ -10,11 +10,11 @@ exec 'source ' . expand('$HOME/.vim/main/preinit.vim')
 
 "███████████████████████   Source Load File   ██████████████████████████{{{
 
-"=======================   Options   ============================
-call Source('$HOME/.vim/main/options.vim')
-
 "=======================   Variable   ============================
 call Source('$HOME/.vim/main/variable.vim')
+
+"=======================   Options   ============================
+call Source('$HOME/.vim/main/options.vim')
 
 "=======================   Plugin   ============================
 call Source('$HOME/.vim/main/plugin.vim')

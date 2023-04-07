@@ -4,7 +4,7 @@
 " License:  MIT License
 
 
-if g:is_in_origin_vim
+if g:is_in_vim
 
     for index in range(26)
         " <M-A> ~ <M-Z>

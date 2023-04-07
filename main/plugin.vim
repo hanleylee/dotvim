@@ -59,8 +59,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'ryanoasis/vim-devicons'          " 显示文件类型图标
 
     " ============= Appearance ============
-    Plug 'joshdick/onedark.vim'
-    " Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
     Plug 'Yggdroot/indentLine'           " 显示缩进线
     Plug 'andymass/vim-matchup'          " 高亮括号

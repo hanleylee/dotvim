@@ -19,9 +19,6 @@ call Source('$HOME/.vim/main/options.vim')
 "=======================   Plugin   ============================
 call Source('$HOME/.vim/main/plugin.vim')
 
-"=======================   Function   ============================
-call Source('$HOME/.vim/main/function.vim')
-
 "=======================   Path   ============================
 call Source('$HOME/.vim/main/path.vim')
 

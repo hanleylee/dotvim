@@ -18,3 +18,6 @@ func! GuardExistDirectory(dir)
 endfunc
 "}}}
 
+func! MapMetaCode(key)
+    exec "set <M-" . a:key . ">=\e" . a:key
+endfunc

@@ -1,0 +1,33 @@
+" Author: Hanley Lee
+" Website: https://www.hanleylee.com
+" GitHub: https://github.com/hanleylee
+" License:  MIT License
+
+exec 'source ' . expand('$HOME/.vim/main/preinit.vim')
+
+"███████████████████████   Source Load File   ██████████████████████████{{{
+
+"=======================   Variable   ============================
+silent! call Source('$HOME/.vim/main/variable.vim')
+
+"=======================   Options   ============================
+silent! call Source('$HOME/.vim/main/options.vim')
+
+"=======================   Terminal Keycode   ============================
+if g:is_in_term
+    silent! call Source('$HOME/.vim/main/term_keycode.vim')
+endif
+
+"=======================   Appearance   ============================
+silent! call Source('$HOME/.vim/main/appearance.vim')
+
+"=======================   Main   =================================={{{
+set nomodifiable " Only in version 6.0
+set readonly
+
+"=======================   Keymap   ============================={{{
+nnoremap <C-q> :q!<cr>
+nnoremap q :q!<cr>
+"}}}
+
+" vim:set ft=vim sw=4 ts=4 tw=150:

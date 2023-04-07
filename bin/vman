@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+emulate -LR zsh
+set -e
+# set -x
+
+# ref: https://github.com/jez/vim-superman
+
+if [ $# -eq 0 ]; then
+    echo "What manual page do you want?"
+    exit 0
+elif ! man -w "$@" >/dev/null; then
+    # Check that manpage exists to prevent visual noise.
+    exit 1
+else
+    ${EDITOR:-vim} -c "let g:is_vman_from_term = v:true | Superman $*"
+fi
+

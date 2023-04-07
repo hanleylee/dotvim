@@ -8,7 +8,7 @@
 " Enter{{{
 augroup Enter
     autocmd!
-    au VimEnter * call Enter()
+    au VimEnter * if g:is_in_gui | cd $HKMS | endif
 augroup END
 "}}}
 
@@ -59,11 +59,6 @@ augroup HLMarker
 augroup end
 "}}}
 
-augroup ColorSchemeSet
-    autocmd!
-    autocmd ColorScheme * call HLColorScheme()
-augroup END
-
 " Autosave & Load Views.
 augroup AutoSaveRestoreView
     autocmd!
@@ -72,13 +67,6 @@ augroup AutoSaveRestoreView
     autocmd BufWritePost ?* if hl#util#ShouldMakeView() | mkview | endif
     autocmd BufReadPost ?* if hl#util#ShouldMakeView() | silent loadview | endif
 augroup end
-
-if hl#plug_loaded('onedark.vim')
-    augroup OneDarkRevise
-        autocmd!
-        autocmd ColorScheme * call OneDarkRevise()
-    augroup END
-endif
 
 
 if hl#plug_loaded('vim-quickui')

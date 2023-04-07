@@ -69,7 +69,7 @@ set noswapfile " for personal use, I don't want use swap file
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
 set mouse+=a " mouse enable for all modes
-if g:is_in_origin_vim
+if g:is_in_vim
     set ttymouse=sgr
     set balloonevalterm
 endif
@@ -165,9 +165,9 @@ set formatlistpat+=^\\s*[-–+o*•]\\s\\+      " Bullet points
 " (2) An item with punctuation preceding and following it
 " •   An item consisting of leading punctuation
 
-" if has('patch-7.4.754')
-set nrformats+=unsigned " ignore sign of number when increase or decrease
-" endif
+if has('patch-8.2.0860')
+    set nrformats+=unsigned " ignore sign of number when increase or decrease
+endif
 
 " diff options
 set diffopt=
@@ -263,7 +263,7 @@ let &t_VS = "\e[?12l"
 " Focus tracking
 let &t_fe = "\e[?1004h"
 let &t_fd = "\e[?1004l"
-if g:is_in_origin_vim
+if g:is_in_vim
     execute "set <FocusGained>=\<Esc>[I"
     execute "set <FocusLost>=\<Esc>[O"
 endif

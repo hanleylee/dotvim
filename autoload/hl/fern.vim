@@ -3,13 +3,16 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" make cursor line highlight when in fern appearance
-function! hl#fern#highlight_cusorline()
-    " highlight CursorLine    cterm=bold      ctermbg=170     ctermfg=235     gui=bold guibg=#C678DD guifg=#282C34
-    highlight CursorLine    cterm=reverse,bold      ctermbg=NONE     ctermfg=NONE     gui=reverse,bold guibg=NONE guifg=NONE
-endfunction
+function! hl#fern#init_map()
+    nmap <buffer> fsf <Plug>(fern-action-fzf-files)
+    nmap <buffer> fsd <Plug>(fern-action-fzf-dirs)
+    nmap <buffer> fsa <Plug>(fern-action-fzf-both)
 
-" put cursor line color back
-function! hl#fern#put_back_cusorline()
-    highlight CursorLine    cterm=NONE      ctermbg=236     ctermfg=NONE     gui=NONE guibg=#2C323C guifg=NONE
+    nmap <buffer> frf <Plug>(fern-action-fzf-root-files)
+    nmap <buffer> frd <Plug>(fern-action-fzf-root-dirs)
+    nmap <buffer> fra <Plug>(fern-action-fzf-root-both)
+
+    nmap <buffer> ff <Plug>(fern-action-fzf-root-files)
+    nmap <buffer> fd <Plug>(fern-action-fzf-root-dirs)
+    nmap <buffer> fa <Plug>(fern-action-fzf-root-both)
 endfunction

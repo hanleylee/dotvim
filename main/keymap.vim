@@ -32,8 +32,8 @@ vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
 nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
 " 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> hl#map#ctrl_enter(0)
-inoremap <silent><expr> <C-M-CR> hl#map#ctrl_enter(1)
+inoremap <silent><expr> <C-CR> hl#operate#ctrl_enter(0)
+inoremap <silent><expr> <C-M-CR> hl#operate#ctrl_enter(1)
 nnoremap <silent><expr> <C-CR> "o\<C-u>"
 
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
@@ -370,7 +370,7 @@ endif
 if hl#plug_loaded('coc.nvim')
     " inoremap <silent><expr> <CR>  pumvisible() && !empty(v:completed_item) ? "\<C-y>" : "\<C-g>u\<CR>"
     " inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-    inoremap <silent><expr> <CR> hl#map#enter()
+    inoremap <silent><expr> <CR> hl#operate#enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(0) : "\<C-n>"

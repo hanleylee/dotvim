@@ -62,24 +62,3 @@ func hl#get#current_syntax()
     let current_syntax = synIDattr(synIDtrans(synID(line("."), col("$")-1, 1)), "name")
     return current_syntax
 endfunction
-
-func hl#get#is_current_comment()
-    let current_syntax = hl#get#current_syntax()
-    return current_syntax ==? 'Comment'
-endfunction
-
-" 返回值为数组
-func hl#get#file_content(file_name)
-    if !filereadable(a:file_name)
-        echoerr "File" . a:file_name . " is not existed!"
-    endif
-    " let content = join(readfile(a:file_name), "\n")
-    let content = readfile(a:file_name)
-    return content
-endfunction
-
-" 返回值为数组
-func hl#get#current_file_content()
-    let alltext = getline(1, '$')
-    return alltext
-endfunction

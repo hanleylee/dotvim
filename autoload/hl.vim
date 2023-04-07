@@ -101,8 +101,7 @@ function s:TemplateContent(type)
         let templatePrefix = '~/.vim/templates/template.'
     endif
     let fname = expand(templatePrefix . a:type)
-
-    let content = hl#get#file_content(fname)
+    let content = readfile(fname)
 
     return content
 endfunction
@@ -128,7 +127,7 @@ endfunction
 " 复制缓冲区到新标签页
 function hl#copy_to_temp_tab()
     let temp_file = tempname()
-    let alltext = hl#get#current_file_content()
+    let alltext = getline(1, '$')
 
     execute 'tabnew ' . temp_file
 

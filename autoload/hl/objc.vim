@@ -5,9 +5,6 @@
 
 " Automatically inserts matching bracket, TextMate style!{{{
 func! hl#objc#map_match_bracket()
-    " if pumvisible() " Close popup menu if it's visible.
-    "     call feedkeys("\<C-g>u")
-    " endif
 
     let line = getline('.')
     let lnum = line('.')
@@ -28,13 +25,10 @@ func! hl#objc#map_match_bracket()
     let right_brack_count = hl#objc#map_count(before_cursor, ']')
 
     " Don't autocomplete if line is blank, if inside or directly outside string, or if inserting a matching bracket.
-    if wrap_text == '' || wrap_text =~'@\=["'']\S*\s*\%'.col.'c'
-                \ || hl#objc#map_count(line, '[') > hl#objc#map_count(line, ']')
+    if wrap_text == '' || wrap_text =~'@\=["'']\S*\s*\%'.col.'c' || hl#objc#map_count(line, '[') > hl#objc#map_count(line, ']')
         return ']'
         " Escape out of string when bracket is the next character, unless wrapping past a colon or equals sign, or inserting a closing bracket.
-    elseif line[col] == ']' && wrap_text !~ '\v\k+:\s*\k+(\s+\k+)+$'
-                \ && (before_cursor !~ '\[.*\(=\)]'
-                \ || left_brack_count != right_brack_count + 1)
+    elseif line[col] == ']' && wrap_text !~ '\v\k+:\s*\k+(\s+\k+)+$' && (before_cursor !~ '\[.*\(=\)]' || left_brack_count != right_brack_count + 1)
         " "]" has to be returned here or the "." command breaks.
         call setline(lnum, substitute(line, '\%'.(col + 1).'c.', '', ''))
         return ']'
@@ -42,9 +36,7 @@ func! hl#objc#map_match_bracket()
         " Only wrap past a colon, except for special keywords such as "@selector:".
         " E.g., "foo: bar|" becomes "foo: [bar |]", and "[foo bar: baz bar|]" becomes "[foo bar: [baz bar]|]" but "[foo bar: baz bar]|" becomes "[[foo bar: baz bar] |]" (where | is the cursor).
         let colonPos = matchend(wrap_text, '^\v(\[\k+\s+)=\k+:\s*') + 1
-        if colonPos && colonPos > matchend(wrap_text,
-                    \ '\v.*\<\@(selector|operator|ope|control):')
-                    \ && left_brack_count != right_brack_count
+        if colonPos && colonPos > matchend(wrap_text, '\v.*\<\@(selector|operator|ope|control):') && left_brack_count != right_brack_count
             let delimPos += colonPos - 1
         endif
 

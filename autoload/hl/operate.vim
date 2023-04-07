@@ -3,6 +3,35 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" insert map for enter{{{
+function! hl#operate#enter()
+    " if pumvisible()
+    if coc#pum#visible()
+        return coc#pum#confirm()
+        " return "\<C-y>"
+    elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
+        return "\<C-g>u\<CR>\<Esc>O"
+    else
+        return "\<CR>"
+    endif
+endfunction
+"}}}
+
+" insert map for ctrl-enter{{{
+function! hl#operate#ctrl_enter(keep_comment)
+    call coc#pum#close('cancel')
+    if a:keep_comment
+        if hl#get#current_syntax() ==? 'Comment'
+            return "\<CR>\<C-u>"
+        else
+            return "\<CR>"
+        endif
+    else
+            return "\<CR>"
+    endif
+endfunction
+"}}}
+
 " 使用分隔符连接多行
 function hl#operate#join(sep, bang) range
     if a:sep[0] == '\'
@@ -228,7 +257,7 @@ endfunction
 
 function! hl#operate#append_text(text)
     let line_num = line('.')
-    let final_text = hl#text#current_line_with_appending(a:text)
+    let final_text = getline('.') . a:text
 
     call setline(line_num, final_text)
 endfunction

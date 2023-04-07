@@ -22,8 +22,7 @@ function! hl#netrw#remove_recursive()
         normal mf
 
         " Show the prompt to enter the command
-        " In here you either press Enter to confirm
-        " or press ctrl + c to abort.
+        " In here you either press Enter to confirm or press ctrl + c to abort.
         " Don't do anything else!
         try
             normal mx

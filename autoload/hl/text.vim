@@ -94,8 +94,3 @@ function! hl#text#format_surge_rule() range
     let @0 = join(mapedLine, ',')
 endfunction
 "}}}
-
-function! hl#text#current_line_with_appending(text) abort
-    let current_line = getline('.')
-    return current_line . a:text
-endfunction

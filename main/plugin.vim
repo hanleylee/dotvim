@@ -113,7 +113,7 @@ endif
 if s:vim_weight >= 2 || g:is_in_gui
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " marks 管理插件
-    if !g:is_in_xterm_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
+    if !g:is_in_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
         Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     endif
     Plug 'tpope/vim-commentary'                         " 快速注释, gcc
@@ -261,7 +261,6 @@ call plug#end()
 " Plug 'machakann/vim-sandwich'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'lifepillar/vim-solarized8'
-" Plug 'navarasu/onedark.nvim'
 " Plug 'sainnhe/edge'
 " Plug 'sainnhe/sonokai'
 " Plug 'shaunsingh/nord.nvim'

@@ -88,7 +88,6 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
     Plug 'chrisbra/csv.vim'
     Plug 'fladson/vim-kitty'
-    Plug 'alker0/chezmoi.vim'
     Plug 'aklt/plantuml-syntax'
     Plug 'udalov/kotlin-vim'
     Plug 'cespare/vim-toml'
@@ -184,6 +183,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'liuchengxu/vista.vim'
     Plug 'chrisbra/Colorizer'
     Plug 'markonm/traces.vim'
+    Plug 'alker0/chezmoi.vim'
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行

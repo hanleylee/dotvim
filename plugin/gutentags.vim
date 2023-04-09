@@ -31,7 +31,7 @@ let g:gutentags_exclude_filetypes = [
 let g:gutentags_ctags_exclude = [
             \  '*.git', '*.svn', '*.hg',
             \  'cache', 'build', 'dist', 'bin', 'node_modules', 'bower_components',
-            \  'plugged', 'Pods',
+            \  'plugged', 'Pods', '.packages',
             \  'Podfile',
             \  '*-lock.json',  '*.lock',
             \  '*.min.*',

@@ -177,7 +177,10 @@ if has('patch-8.1.2289')
     set diffopt+=closeoff  " turn off diff when one file window is closed
 endif
 set diffopt+=context:3  " context for diff
-set diffopt+=internal,indent-heuristic,algorithm:histogram
+try
+    set diffopt+=internal,indent-heuristic,algorithm:histogram
+catch /.*/
+endtry
 "}}}
 
 "=======================   Appearance   ============================{{{

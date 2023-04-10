@@ -76,6 +76,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'hanleylee/vim-alternate'
     Plug 'skywind3000/vim-dict'
+    Plug 'voldikss/vim-floaterm'
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -191,7 +192,6 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'sillybun/vim-repl'
     Plug 'weirongxu/plantuml-previewer.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    Plug 'voldikss/vim-floaterm'
     Plug 'tyru/open-browser.vim'
     Plug 'tyru/open-browser-unicode.vim'
     Plug 'tyru/open-browser-github.vim'

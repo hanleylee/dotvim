@@ -137,8 +137,4 @@ augroup END
 " endif
 
 set background=dark
-if s:colorscheme == 'onedark'
-    colorscheme onedark
-elseif s:colorscheme == 'gruvbox'
-    colorscheme gruvbox
-endif
+exec 'colorscheme ' . s:colorscheme

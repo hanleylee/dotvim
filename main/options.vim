@@ -179,7 +179,8 @@ endif
 set diffopt+=context:3  " context for diff
 try
     set diffopt+=internal,indent-heuristic,algorithm:histogram
-catch /.*/
+catch
+    echom 'diffopt not full support'
 endtry
 "}}}
 

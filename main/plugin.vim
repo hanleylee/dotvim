@@ -60,7 +60,9 @@ if s:vim_weight >= 1 || g:is_in_gui
 
     " ============= Appearance ============
     Plug 'itchyny/lightline.vim'         " 显示底部导航栏
-    Plug 'Yggdroot/indentLine'           " 显示缩进线
+    if has('conceal')
+        Plug 'Yggdroot/indentLine'           " 显示缩进线
+    endif
     Plug 'andymass/vim-matchup'          " 高亮括号
     Plug 'hanleylee/vim-togglecursor'    " 改变 cursor 形状
     " Plug 'hanleylee/vim-togglecursor', {'dir': '$HL_REPO/vim/vim-togglecursor'}

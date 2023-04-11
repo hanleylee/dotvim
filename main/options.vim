@@ -145,7 +145,9 @@ set foldlevel=3
 
 
 "=======================   Format   ============================{{{
-set formatoptions-=croql
+" default value in vim8 is: tcq
+" default value in neovim is: tcqj
+set formatoptions=tcroqlj
 set formatlistpat=^\\s*                     " Optional leading whitespace
 set formatlistpat+=[                        " Start character class
 set formatlistpat+=\\[({]\\?                " |  Optionally match opening punctuation

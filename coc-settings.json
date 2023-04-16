@@ -28,7 +28,6 @@
         ".git",
         ".hg",
         ".project",
-        "Makefile",
         "CMakeLists.txt"
     ],
 

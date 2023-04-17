@@ -1053,7 +1053,7 @@
     "solargraph.formatting": false,
     "solargraph.references": true,
     "solargraph.commandPath": "solargraph",
-    "solargraph.useBundler": false,
+    "solargraph.useBundler": false, // require solargraph declared in Gemfile
     "solargraph.bundlerPath": "bundle",
     "solargraph.diagnostics": false,
     "solargraph.definitions": true,
@@ -1063,7 +1063,7 @@
         "host": "localhost",
         "port": 7658
     },
-    "solargraph.checkGemVersion": true,
+    "solargraph.checkGemVersion": false,
     "solargraph.shell": null,
 
     // html

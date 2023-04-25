@@ -1317,7 +1317,8 @@
     "sourcekit.targetArch": "",
     // "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
     // xcrun --toolchain swift --find sourcekit-lsp
-    "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
+    // "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
+    "sourcekit.commandPath": "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp",
     "sourcekit.sdk": "iphonesimulator",
     // "sourcekit.targetArch": "x86_64-apple-ios14.3-simulator"
     // arm64

@@ -65,8 +65,13 @@ set noswapfile " for personal use, I don't want use swap file
 " Skip backup for patterns in option wildignore
 " execute 'set directory=' . s:cache_dir
 
-" set signcolumn=number
-" set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/Current/Python
+" By default, MacVim's pythonthreedll points to '/opt/homebrew/Frameworks/Python.framework/Versions/3.10/Python',
+" because MacVim is built against that version. In order to have a working Python 3 interface, you can either:
+" - install Python 3.10 via homebrew,
+" - or point pythonthreedll to a valid path.
+" set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/3.11/lib/libpython3.11.dylib
+let &pythonthreedll = trim(system("pyenv which python"))
+" 如果仅是下载并解压程序包(而不是进行安装), 那么同时需要设置 pythonthreehome 选项
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
 set mouse+=a " mouse enable for all modes
 if g:is_in_vim
@@ -220,6 +225,7 @@ set cursorline " 突出光标所在行, 开启后速度变慢
 set scrolloff=0 " 设置光标距离最顶(底)部的距离不小于 x 行(一旦小于 x 行即触发位于下方的 scrolljump)
 " set smoothscroll " local to window
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
+" set signcolumn=number
 set signcolumn=yes
 set textwidth=150
 " set viewoptions=folds,cursor,curdir,slash,unix

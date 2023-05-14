@@ -93,13 +93,6 @@ if hl#plug_loaded('coc.nvim')
     augroup end
 endif
 
-if hl#plug_loaded('fern.vim')
-    augroup fern-custom
-        autocmd!
-        autocmd FileType fern call FernInit()
-    augroup END
-endif
-
 if hl#plug_loaded('fern-git-status.vim')
     augroup my-glyph-palette
         autocmd!

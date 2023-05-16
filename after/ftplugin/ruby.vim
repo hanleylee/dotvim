@@ -4,6 +4,7 @@
 " License:  MIT License
 
 setlocal shiftwidth=2
+setlocal foldmethod=marker
 
 " nmap <silent><buffer> <Leader>pb  <Plug>(CocoaPodsEditBranch)
 " nmap <silent><buffer> <Leader>pt  <Plug>(CocoaPodsEditTag)

@@ -3,6 +3,10 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+if !hl#plug_loaded('vim-dotoo')
+    finish
+endif
+
 let g:dotoo#agenda#files = ['/Users/hanley/repo/hkms/*.dotoo']
 let g:dotoo#capture#refile = expand('~/repo/hkms/refile.dotoo')
 

@@ -204,6 +204,8 @@ if s:vim_weight >= 3 || g:is_in_gui
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
+    Plug 'hanleylee/vim-taskpaper'
+    " Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
     " Plug 'tomtom/tlib_vim'
 else
     Plug 'skywind3000/vim-auto-popmenu'
@@ -289,7 +291,6 @@ call plug#end()
 " Plug 'plasticboy/vim-markdown'
 " Plug 'tpope/vim-markdown'
 " Plug 'lfilho/cosco.vim'
-" Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
 " Plug 'dhruvasagar/vim-dotoo'
 " Plug 'AndrewRadev/splitjoin.vim' " gS to split a one-liner into multiple lines, gJ to join a block into a single-line statement
 " Plug 'dstein64/vim-startuptime'

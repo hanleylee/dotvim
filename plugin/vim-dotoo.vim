@@ -10,15 +10,16 @@ endif
 let g:dotoo#agenda#files = ['/Users/hanley/repo/hkms/*.dotoo']
 let g:dotoo#capture#refile = expand('~/repo/hkms/refile.dotoo')
 
-let g:dotoo_headline_highlight_colors = [
-            \ 'Title',
-            \ 'Constant',
+let g:dotoo_heading_highlight_colors = [
             \ 'Identifier',
+            \ 'Constant',
+            \ 'Title',
             \ 'Statement',
             \ 'PreProc',
             \ 'Type',
-            \ 'Special']
-let g:dotoo_headline_shade_leading_stars = 1
+            \ 'Special'
+            \ ]
+let g:dotoo_heading_shade_leading_stars = 0
 let g:dotoo_todo_keyword_faces = [
             \ ['TODO', [':foreground 160', ':weight bold']],
             \ ['NEXT', [':foreground 27', ':weight bold']],
@@ -39,43 +40,44 @@ let g:dotoo#parser#todo_keywords = [
             \ 'MEETING',
             \ '|',
             \ 'CANCELLED',
-            \ 'DONE']
+            \ 'DONE'
+            \ ]
 let g:dotoo#agenda#warning_days = '30d'
 let g:dotoo#time#time_ago_short = 0
 let g:dotoo#capture#clock = 1
 let g:dotoo#capture#templates = {
             \ 't': {
-                \   'description': 'Todo',
-                \   'lines': [
-                    \     '* TODO %?',
-                    \     'DEADLINE: [%(strftime(g:dotoo#time#datetime_format))]'
-                    \   ],
-                    \  'target': 'refile'
-                    \ },
-                    \ 'n': {
-                        \   'description': 'Note',
-                        \   'lines': ['* %? :NOTE:'],
-                        \ },
-                        \ 'm': {
-                            \   'description': 'Meeting',
-                            \   'lines': ['* MEETING with %? :MEETING:'],
-                            \ },
-                            \ 'p': {
-                                \   'description': 'Phone call',
-                                \   'lines': ['* PHONE %? :PHONE:'],
-                                \ },
-                                \ 'h': {
-                                    \   'description': 'Habit',
-                                    \   'lines': [
-                                        \     '* NEXT %?',
-                                        \     'SCHEDULED: [%(strftime(g:dotoo#time#date_day_format)) +1m]',
-                                        \     ':PROPERTIES:',
-                                        \     ':STYLE: habit',
-                                        \     ':REPEAT_TO_STATE: NEXT',
-                                        \     ':END:'
-                                        \   ]
-                                        \ }
-                                        \}
+            \   'description': 'Todo',
+            \   'lines': [
+            \     '* TODO %?',
+            \     'DEADLINE: [%(strftime(g:dotoo#time#datetime_format))]'
+            \   ],
+            \  'target': 'refile'
+            \ },
+            \ 'n': {
+            \   'description': 'Note',
+            \   'lines': ['* %? :NOTE:'],
+            \  },
+            \ 'm': {
+            \   'description': 'Meeting',
+            \   'lines': ['* MEETING with %? :MEETING:'],
+            \  },
+            \ 'p': {
+            \   'description': 'Phone call',
+            \   'lines': ['* PHONE %? :PHONE:'],
+            \  },
+            \ 'h': {
+            \   'description': 'Habit',
+            \   'lines': [
+            \     '* NEXT %?',
+            \     'SCHEDULED: [%(strftime(g:dotoo#time#date_day_format)) +1m]',
+            \     ':PROPERTIES:',
+            \     ':STYLE: habit',
+            \     ':REPEAT_TO_STATE: NEXT',
+            \     ':END:'
+            \   ]
+            \  }
+            \}
 " let g:dotoo#capture#templates = {
 "             \ 't': {
 "                 \   'target': 'refile-personal:Todos'

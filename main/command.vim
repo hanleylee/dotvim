@@ -11,6 +11,8 @@ command! -nargs=0 OpenInBrowser silent call hl#external#OpenInBrowser()
 command! ChezmoiApply !chezmoi apply --source-path "%"
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
 command! CopyToTempTab call hl#copy_to_temp_tab()
+command! EditTemp :tab drop ~/.cache/tmp.md<CR>
+nmap <leader>ctt :CopyToTempTab<CR>
 command! -bang LoadTemplate call hl#LoadTemplate("<bang>")
 command! -nargs=1 -complete=file NewTemplate call hl#NewTemplate(<q-args>)
 command! Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif

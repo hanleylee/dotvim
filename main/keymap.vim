@@ -119,8 +119,6 @@ nnoremap <leader>* :execute 'noautocmd vimgrep /\V' . substitute(escape(expand("
 vnoremap <leader>* :<C-u>call hl#util#VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
 " }}}
 
-nmap <leader>tmp :tab drop ~/.cache/tmp.md<CR>
-nmap <leader>ctt :CopyToTempTab<CR>
 " replace vim's built-in search and replace behavior {{{
 " nnoremap / /\v
 " cnoremap s/ s/\v

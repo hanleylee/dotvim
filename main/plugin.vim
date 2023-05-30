@@ -19,8 +19,6 @@
 " for               On-demand loading: File types
 " frozen            Do not update unless explicitly specified
 
-
-
 " 如果现在处于测试状态, 那么只加载需要测试的插件
 if !empty($VIMTEST)
     call plug#begin('$HOME/.vim/plugged')
@@ -32,6 +30,15 @@ if !empty($VIMTEST)
     call plug#end()
     finish
 endif
+
+func s:load_debug_plug(name, load_local, ...)
+    let args = a:0 > 1 ? a:1 : {}
+
+    if a:load_local
+        let args['dir'] = g:vim_debug_root . a:name
+    endif
+    Plug a:name, args
+endfunction
 
 call plug#begin('$HOME/.vim/plugged')
 let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
@@ -64,8 +71,7 @@ if s:vim_weight >= 1 || g:is_in_gui
         Plug 'Yggdroot/indentLine'           " 显示缩进线
     endif
     Plug 'andymass/vim-matchup'          " 高亮括号
-    Plug 'hanleylee/vim-togglecursor'    " 改变 cursor 形状
-    " Plug 'hanleylee/vim-togglecursor', {'dir': '$HL_REPO/vim/vim-togglecursor'}
+    Plug 'hanleylee/vim-togglecursor' ", {'dir': '$HL_REPO/vim/vim-togglecursor'}
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'
@@ -75,8 +81,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
-    " Plug 'hanleylee/vim-alternate', {'dir': '$HL_REPO/vim/vim-alternate'}
-    Plug 'hanleylee/vim-alternate'
+    Plug 'hanleylee/vim-alternate' " , {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'skywind3000/vim-dict'
     Plug 'voldikss/vim-floaterm'
 
@@ -102,10 +107,9 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'HerringtonDarkholme/yats.vim' " for ts
     Plug 'peterhoeg/vim-qml'
-    " Plug 'hanleylee/vim-gitignore', {'dir': '$HL_REPO/vim/vim-gitignore'}
-    Plug 'hanleylee/vim-gitignore'
-    " Plug 'hanleylee/vim-markdown', {'dir': '$HL_REPO/vim/vim-markdown'}
-    Plug 'hanleylee/vim-markdown'
+    Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}
+    Plug 'hanleylee/vim-taskpaper' , {'dir': '$HL_REPO/vim/vim-taskpaper'}
+    Plug 'hanleylee/vim-markdown' " , {'dir': '$HL_REPO/vim/vim-markdown'}
     " Plug 'preservim/vim-markdown'
     " Plug 'tpope/vim-markdown'
 endif
@@ -152,10 +156,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'simnalamburt/vim-mundo'                   " 显示修改历史
     Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    " Plug 'hanleylee/vim-t2s', {'dir': '$HL_REPO/vim/vim-t2s'}
-    Plug 'hanleylee/vim-t2s'
-    " Plug 'hanleylee/vim-cocoapods', {'dir': '$HL_REPO/vim/vim-cocoapods'}
-    Plug 'hanleylee/vim-cocoapods'
+    Plug 'hanleylee/vim-t2s' " , {'dir': '$HL_REPO/vim/vim-t2s'}
+    Plug 'hanleylee/vim-cocoapods' " , {'dir': '$HL_REPO/vim/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
 endif
@@ -176,8 +178,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
 
     " ============== Function ==============
-    " Plug 'hanleylee/vim-renamer', {'dir': '$HL_REPO/vim/vim-renamer'}
-    Plug 'hanleylee/vim-renamer'
+    Plug 'hanleylee/vim-renamer', " {'dir': '$HL_REPO/vim/vim-renamer'}
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'
     Plug 'tpope/vim-characterize'
@@ -204,8 +205,6 @@ if s:vim_weight >= 3 || g:is_in_gui
 
     " ============= Else ==============
     Plug 'skanehira/christmas.vim'
-    Plug 'hanleylee/vim-taskpaper'
-    " Plug 'hanleylee/vim-taskpaper', {'dir': '$HL_REPO/vim/vim-taskpaper'}
     " Plug 'tomtom/tlib_vim'
 else
     Plug 'skywind3000/vim-auto-popmenu'

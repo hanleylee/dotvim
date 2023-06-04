@@ -59,6 +59,7 @@ vnoremap <silent><C-k> :silent! call hl#operate#move_line('v', 'up')<CR>
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)
 " nnoremap <expr> OO printf('m`%sO<ESC>``', v:count1)
 
+nnoremap <C-BS> :echom 123<cr>
 nnoremap <Space> za
 vnoremap <Space> zf
 " add fold include top and bottom extra 1 line

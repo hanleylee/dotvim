@@ -21,8 +21,19 @@ let g:fzf_preview_window = ['right:50%:hidden:nowrap', '?']
 let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
             \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit'
+            \ 'ctrl-v': 'vsplit',
+            \ 'alt-s': 'FzfFilesWithFilePath',
+            \ 'ó': 'FzfFilesWithFilePath',
+            \ 'alt-bs': 'FzfPreLevel',
             \}
+
+
+func s:enter_file_root(file)
+    " call fzf#run(fzf#wrap('ls', {'source': 'ls', 'dir': '/Users/hanley/.vim'}))
+    let dir = fnamemodify(a:file, ':p:h')
+    call fzf#vim#files(dir, fzf#vim#with_preview())
+endfunction
+
 if has('popupwin') || has('nvim')
     " let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'relative': v:true } }
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }

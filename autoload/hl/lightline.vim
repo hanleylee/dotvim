@@ -106,8 +106,8 @@ function! s:get_gutentags_status(mods) abort
 endfunction
 
 function! hl#lightline#FileNameWithIcon() abort
-    if &filetype ==? 'fern'
-        return WebDevIconsGetFileTypeSymbol() . ' ' . expand('%') "  ~/r/hkms/src/test.vim
+    if &filetype ==? 'fern' || &filetype ==? 'fugitive'
+        return WebDevIconsGetFileTypeSymbol() . ' ' . resolve(expand('%')) "  ~/r/hkms/src/test.vim
     else
         if FindRootDirectory() == '' " when not inside a repo
             let git_dir = ''

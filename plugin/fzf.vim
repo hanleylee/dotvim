@@ -22,8 +22,7 @@ let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit',
-            \ 'alt-s': 'FzfFilesWithFilePath',
-            \ 'ó': 'FzfFilesWithFilePath',
+            \ 'ctrl-s': 'FzfFilesWithFilePath',
             \ 'alt-bs': 'FzfPreLevel',
             \}
 

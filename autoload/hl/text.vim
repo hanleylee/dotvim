@@ -84,13 +84,11 @@ function! s:ReplaceSurgeRule(key,val)
     let substitutedContent = substitute(a:val, ' =.*$', '', '')
     return substitutedContent
 endfunction
-"}}}
 
-"{{{
 function! hl#text#format_surge_rule() range
     let content = getline(a:firstline, a:lastline)
 
-    let mapedLine = map(content, function('s:ReplaceSurgeRule'))
-    let @0 = join(mapedLine, ',')
+    let mapedLines = map(content, function('s:ReplaceSurgeRule'))
+    let @0 = join(mapedLines, ',')
 endfunction
 "}}}

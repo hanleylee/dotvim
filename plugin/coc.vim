@@ -49,7 +49,6 @@ let g:coc_global_extensions = [
             \ 'coc-rust-analyzer',
             \ 'coc-snippets',
             \ 'coc-solargraph',
-            \ 'coc-sourcekit',
             \ 'coc-syntax',
             \ 'coc-tag',
             \ 'coc-tsserver',

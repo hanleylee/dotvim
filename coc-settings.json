@@ -1308,6 +1308,20 @@
     "tsserver.disableAutomaticTypeAcquisition": false,
     "tsserver.implicitProjectConfig.experimentalDecorators": false,
 
+    // sourcekit
+    "sourcekit.enable": true,
+    "sourcekit.trace.server": "off",
+    "sourcekit.args": [],
+    "sourcekit.commandPath": "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp",
+    // "sourcekit.sdk": "iphonesimulator",
+    // "sourcekit.sdkPath": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs",
+    "sourcekit.sdkPath": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+    // "sourcekit.targetArch": "",
+    // "sourcekit.commandPath": "/usr/bin/sourcekit-lsp",
+    // xcrun --toolchain swift --find sourcekit-lsp
+    // "sourcekit.commandPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/sourcekit-lsp",
+    // "sourcekit.commandPath": "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp",
+
     // r
     "r.trace.server": "off",
     "r.lsp.use_stdio": false,

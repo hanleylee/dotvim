@@ -83,7 +83,9 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
     Plug 'hanleylee/vim-alternate' " , {'dir': '$HL_REPO/vim/vim-alternate'}
     Plug 'skywind3000/vim-dict'
-    Plug 'voldikss/vim-floaterm'
+    if has('terminal')
+        Plug 'voldikss/vim-floaterm'
+    endif
 
     "============== Language ==============
     Plug 'octol/vim-cpp-enhanced-highlight'

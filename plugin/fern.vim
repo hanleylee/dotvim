@@ -18,7 +18,7 @@ let g:fern#mark_symbol = '*'
 
 let g:fern#profile = 0
 let g:fern#logfile = v:null
-let g:fern#loglevel = g:fern#ERROR
+" let g:fern#loglevel = g:fern#ERROR
 let g:fern#opener = 'edit'
 let g:fern#hide_cursor = 1
 let g:fern#keepalt_on_edit = 0

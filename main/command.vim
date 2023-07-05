@@ -3,6 +3,20 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
+" -nargs=0: no argument allowed(default)
+" -nargs=1: one argument is required
+" -nargs=*: any number of arguments allowed
+" -nargs=?: 0 or 1 argument allowed
+" -nargs=+: one argument or more are required
+
+" special strings
+" %: relative path of the current file
+" <cword>: word under the cursor
+" <cWORD>: WORD under the cursor
+" <cfile>: filepath under the cursor
+" <afile>: file open in the buffer when executing autocommands
+" <sfile>: filename of sourced file when used with command ':source'
+
 " For File Manipulate {{{
 command! CDF silent call hl#external#CDF()
 command! OFD silent call hl#external#OFD()

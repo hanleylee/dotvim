@@ -75,13 +75,13 @@ function! hl#markdown#format() range
     " - \([^`]\|^\): 以非 ` 开头或 行首 开头
     " - \zs ... \ze: 真正要进行替换的起点与终点
     " - \s*\(`[^`]\_.\{-0,}`\)\s*: \_.\{-0,} 跨行代表非贪婪匹配, 整体含义为匹配以 ` 开头以 ` 结尾, 且内容为非 ` 字符必须超过一个的任意多个字符
-    let regex_list = add(regex_list, '/\([^`]\|^\)\zs\s*\(`[^`]\_.\{-0,}`\)\s*\ze/ \2 /g')
+    " let regex_list = add(regex_list, '/\([^`]\|^\)\zs\s*\(`[^`]\_.\{-0,}`\)\s*\ze/ \2 /g')
 
     " 2. 清除由 1 造成的副作用(行首单空格)
-    let regex_list = add(regex_list, '/^\s`/`/g')
+    " let regex_list = add(regex_list, '/^\s`/`/g')
 
     " 2. 清除由 1 造成的副作用(左括号后空格)
-    let regex_list = add(regex_list, '/(\zs\s`/`/g')
+    " let regex_list = add(regex_list, '/(\zs\s`/`/g')
 
     " 3. 清除标点前的空格
     let regex_list = add(regex_list, '/\(\S\)\s\+\([:;,.\])]\)/\1\2/g')
@@ -99,6 +99,7 @@ function! hl#markdown#format() range
         let cursor_syntax = map(synstack(line_num, 1), 'synIDattr(v:val,"name")')
         " 如果是 codeBlock 内容则不进行格式化
         let isCodeBlock = indexof(cursor_syntax, { e -> match(v:val, 'mkdSnippet') >= 0 }) >= 0
+        " echom 'isCodeBlock: ' . isCodeBlock .  'line_num: ' . line_num . 'syntax: ' . join(cursor_syntax, ',')
         if !isCodeBlock
             for pattern in regex_list
                 execute line_num . " substitute " . pattern

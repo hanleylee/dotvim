@@ -74,8 +74,8 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'hanleylee/vim-togglecursor' ", {'dir': '$HL_REPO/vim/vim-togglecursor'}
 
     " ============== Function ==============
-    Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-fugitive'       " git 插件
+    Plug 'tpope/vim-unimpaired'     " useful keymaps
+    Plug 'tpope/vim-fugitive'       " git operation
     Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'rhysd/conflict-marker.vim'
@@ -88,27 +88,27 @@ if s:vim_weight >= 1 || g:is_in_gui
     endif
 
     "============== Language ==============
-    Plug 'octol/vim-cpp-enhanced-highlight'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'keith/swift.vim'
-    Plug 'vim-python/python-syntax' " python 语法高亮
-    Plug 'dart-lang/dart-vim-plugin'
-    Plug 'mityu/vim-applescript'    " for applescript
-    Plug 'nathangrigg/vim-beancount'
-    Plug 'neoclide/jsonc.vim' " 设置 jsonc 格式, 可以添加注释
-    Plug 'chrisbra/csv.vim'
-    Plug 'fladson/vim-kitty'
-    Plug 'aklt/plantuml-syntax'
-    Plug 'udalov/kotlin-vim'
-    Plug 'cespare/vim-toml'
-    Plug 'pboettch/vim-cmake-syntax'
+    Plug 'octol/vim-cpp-enhanced-highlight' " cpp
+    Plug 'vim-ruby/vim-ruby'        " ruby
+    Plug 'keith/swift.vim'          " swift
+    Plug 'vim-python/python-syntax' " python
+    Plug 'dart-lang/dart-vim-plugin' " dart
+    Plug 'mityu/vim-applescript'    " applescript
+    " Plug 'nathangrigg/vim-beancount'
+    Plug 'neoclide/jsonc.vim' " jsonc
+    Plug 'chrisbra/csv.vim'   " csv
+    Plug 'fladson/vim-kitty'  " kitty
+    Plug 'aklt/plantuml-syntax' " plantuml
+    Plug 'udalov/kotlin-vim'  " kotlin
+    Plug 'cespare/vim-toml'   " toml
+    Plug 'pboettch/vim-cmake-syntax' " cmake
     " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'othree/html5.vim'
-    Plug 'pangloss/vim-javascript'
-    Plug 'arzg/vim-rust-syntax-ext'
+    Plug 'hail2u/vim-css3-syntax'       " for css
+    Plug 'othree/html5.vim'             " for html
+    Plug 'pangloss/vim-javascript'      " for javascript
+    Plug 'arzg/vim-rust-syntax-ext'     " for rust
     Plug 'HerringtonDarkholme/yats.vim' " for ts
-    Plug 'peterhoeg/vim-qml'
+    " Plug 'peterhoeg/vim-qml'
     Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-taskpaper' , {'dir': '$HL_REPO/vim/vim-taskpaper'}
     Plug 'hanleylee/vim-markdown' " , {'dir': '$HL_REPO/vim/vim-markdown'}
@@ -124,9 +124,9 @@ if s:vim_weight >= 2 || g:is_in_gui
     if !g:is_in_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
         Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     endif
-    Plug 'tpope/vim-commentary'                         " 快速注释, gcc
-    Plug 'tpope/vim-repeat'                             " 支持重复
-    Plug 'tpope/vim-surround'                           " 包围符号
+    Plug 'tpope/vim-commentary'                         " comment code quickly, gcc
+    Plug 'tpope/vim-repeat'                             " repeat last operation
+    Plug 'tpope/vim-surround'                           " operate surrounding characters
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
     Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'tpope/vim-speeddating'                        " use <C-A> / <C-X> quicky increase / decrease date
@@ -148,14 +148,13 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
     Plug 'mg979/vim-visual-multi'                       " 多选
-    Plug 'rhysd/vim-grammarous' " GrammarousCheck
-    Plug 'bootleq/vim-cycle'
+    Plug 'bootleq/vim-cycle'                            " yes => no => yes, January => February => March, trUe => faLse, ' => '', <em>important</em> => <strong>important</strong>
 
     " ============= Appearance ============
     Plug 'airblade/vim-gitgutter'          " 栏侧显示每行的 git 修改状态
 
     " ============== Function ==============
-    Plug 'simnalamburt/vim-mundo'                   " 显示修改历史
+    Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
     Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     Plug 'hanleylee/vim-t2s' " , {'dir': '$HL_REPO/vim/vim-t2s'}
@@ -182,14 +181,13 @@ if s:vim_weight >= 3 || g:is_in_gui
     " ============== Function ==============
     Plug 'hanleylee/vim-renamer', " {'dir': '$HL_REPO/vim/vim-renamer'}
     Plug 'skywind3000/vim-quickui'
-    Plug 'tpope/vim-scriptease'
-    Plug 'tpope/vim-characterize'
-    Plug 'puremourning/vimspector'
-    Plug 'vim-test/vim-test'
-    Plug 'liuchengxu/vista.vim'
-    Plug 'chrisbra/Colorizer'
-    Plug 'markonm/traces.vim'
-    Plug 'alker0/chezmoi.vim'
+    Plug 'tpope/vim-scriptease'   " tool for script expert
+    Plug 'tpope/vim-characterize' " enhance ga
+    Plug 'puremourning/vimspector' " for debug
+    Plug 'liuchengxu/vista.vim' " display symbols in sidebar on the right
+    Plug 'chrisbra/Colorizer' " highlight color for css / html filetype
+    Plug 'markonm/traces.vim' " pattern preview for 'substitute', 'global', 'vglobal', 'sort'
+    Plug 'alker0/chezmoi.vim' " chezmoi syntax and keymap
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
@@ -203,10 +201,11 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tamago324/vim-browsersync' " preview html
 
     " ============= Test ==============
+    Plug 'vim-test/vim-test'
     Plug 'thinca/vim-themis'
 
     " ============= Else ==============
-    Plug 'skanehira/christmas.vim'
+    " Plug 'skanehira/christmas.vim'
     " Plug 'tomtom/tlib_vim'
 else
     Plug 'skywind3000/vim-auto-popmenu'
@@ -303,4 +302,5 @@ call plug#end()
 " Plug 'junegunn/gv.vim'          " browse git log
     " Plug 'Konfekt/FastFold'         " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
     " Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+    " Plug 'rhysd/vim-grammarous' " GrammarousCheck
 "}}}

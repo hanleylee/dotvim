@@ -24,6 +24,7 @@ let g:formatdef_hl_sqlformat = '"sqlformat --keywords upper -"'
 let g:formatdef_hl_swiftformat = '"swiftformat --quiet"'
 let g:formatdef_hl_autopep8 = '"autopep8 - --global-config ~/.config/autopep8/pystyle.toml"'
 let g:formatdef_hl_gofmt = '"gofmt"'
+let g:formatdef_hl_tsfmt = '"prettier --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")." --tab-width=".shiftwidth()'
 let g:formatdef_hl_rustfmt = '"rustfmt --edition 2018"'
 let g:formatdef_hl_cmake_format = '"cmake-format - -c ~/.config/cmake-format/cmake-format.yaml"'
 let g:formatdef_hl_rubocop = "'rubocop --auto-correct -o /dev/null -s '.bufname('%').' \| sed -n 2,\\$p'"
@@ -39,6 +40,7 @@ let g:formatters_objcpp = ['hl_c']
 let g:formatters_json = ['hl_jq']
 let g:formatters_jsonc = ['hl_jq']
 let g:formatters_javascript = ['hl_js_beautify']
+let g:formatters_typescript = ['hl_tsfmt']
 let g:formatters_html = ['hl_html_beautify']
 let g:formatters_xml = ['hl_html_beautify']
 let g:formatters_xhtml = ['hl_html_beautify']

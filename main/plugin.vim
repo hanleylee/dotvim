@@ -107,6 +107,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'othree/html5.vim'             " for html
     Plug 'pangloss/vim-javascript'      " for javascript
     Plug 'arzg/vim-rust-syntax-ext'     " for rust
+    Plug 'compnerd/arm64asm-vim'        " for arm64
     Plug 'HerringtonDarkholme/yats.vim' " for ts
     " Plug 'peterhoeg/vim-qml'
     Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}

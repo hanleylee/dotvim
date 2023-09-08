@@ -230,6 +230,7 @@ set signcolumn=yes
 set textwidth=150
 " set viewoptions=folds,cursor,curdir,slash,unix
 " set viewoptions-=options
+set maxmempattern=5000
 set viewoptions=folds,cursor,curdir
 set colorcolumn=+1
 

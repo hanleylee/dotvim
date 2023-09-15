@@ -19,7 +19,7 @@ endfunction
 
 " insert map for ctrl-enter{{{
 function! hl#operate#ctrl_enter(keep_comment)
-    call coc#pum#close('cancel')
+    " call coc#pum#close('cancel')
     if a:keep_comment
         if hl#get#current_syntax() ==? 'Comment'
             return "\<CR>\<C-u>"
@@ -27,7 +27,7 @@ function! hl#operate#ctrl_enter(keep_comment)
             return "\<CR>"
         endif
     else
-            return "\<CR>"
+        return "\<CR>"
     endif
 endfunction
 "}}}

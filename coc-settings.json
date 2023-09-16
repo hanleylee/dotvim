@@ -1654,6 +1654,16 @@
             "trace.server": "verbose",
             "ignoredRootPaths": ["~", "~/.zsh/.zsh_history"]
         },
+        // "cmake": {
+        //     "command": "cmake-language-server",
+        //     "filetypes": ["cmake"],
+        //     "rootPatterns": [
+        //         "build/"
+        //     ],
+        //     "initializationOptions": {
+        //         "buildDirectory": "build"
+        //     }
+        // },
         "efm": {
             "command": "efm-langserver",
             "args": [],

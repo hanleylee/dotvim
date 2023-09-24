@@ -72,7 +72,7 @@ endfunction
 
 " change to the explorer interface of current path of Xcode
 func! hl#external#MVXC()
-    let l:path = system("pfxc")
+    let l:path = system("pfxc_file")
     exec 'tabnew '. l:path
 endfunction
 

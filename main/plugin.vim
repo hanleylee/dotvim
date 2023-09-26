@@ -131,6 +131,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
     Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'tpope/vim-speeddating'                        " use <C-A> / <C-X> quicky increase / decrease date
+    " Plug 'machakann/vim-sandwich'
     Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia, cxx, X, cxc
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
@@ -263,7 +264,6 @@ call plug#end()
 " Plug 'rbgrouleff/bclose.vim'
 " Plug 'ap/vim-css-color'              " 显示 css 颜色
 " Plug 'RRethy/vim-hexokinase'
-" Plug 'machakann/vim-sandwich'
 " Plug 'ajmwagar/vim-deus'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'sainnhe/edge'

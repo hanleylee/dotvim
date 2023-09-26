@@ -27,23 +27,27 @@ function! hl#markdown#CodeBlockTextObj(type) abort
     execute 'normal! `<V`>'
 endfunction
 
-" make markdown text bold
-function! hl#markdown#make_bold(mode)
+" mark markdown text bold
+function! hl#markdown#mark_bold(mode)
     call hl#operate#embedded_with_string_2(a:mode, '**', '**')
 endfunction
 
-" make markdown text italic
-function! hl#markdown#make_italic(mode)
+function! hl#markdown#extract_bold()
+    call hl#operate#extract_with_string('\*\*', '\*\*')
+endfunction
+
+" mark markdown text italic
+function! hl#markdown#mark_italic(mode)
     call hl#operate#embedded_with_string_2(a:mode, '*', '*')
 endfunction
 
-" make markdown text code
-function! hl#markdown#make_code(mode)
+" mark markdown text code
+function! hl#markdown#mark_code(mode)
     call hl#operate#embedded_with_string_2(a:mode, '`', '`')
 endfunction
 
-" make markdown text deleted
-function! hl#markdown#make_deleted(mode)
+" mark markdown text deleted
+function! hl#markdown#mark_deleted(mode)
     call hl#operate#embedded_with_string_2(a:mode, '~~', '~~')
 endfunction
 

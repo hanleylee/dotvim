@@ -140,8 +140,6 @@ function! hl#operate#embedded_with_string_1(mode, left_str, right_str)
     if a:mode ==# 'v'
         execute 'normal `>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
     elseif a:mode ==# 'char'
-        " execute 'normal `]a' . a:right_str . "\<ESC>`[" . 'i' . a:left_str . "\<ESC>"
-        " execute "normal `[v`]" . 'S*'
         execute "normal `[v`]\<ESC>`" . '>a' . a:right_str . "\<ESC>`<" . 'i' . a:left_str . "\<ESC>"
     else
         return
@@ -167,6 +165,20 @@ function! hl#operate#embedded_with_string_2(mode, left_str, right_str)
     let last_part = strcharpart(line_content, end_char_pos)
 
     let final_content = first_part . embedded_part . last_part
+    call setline(line_num, final_content)
+endfunction
+
+" extract string with left_string and right_string(use 'setline')
+function! hl#operate#extract_with_string(left_str, right_str)
+    let line_content = getline('.')
+    let line_num = line('.')
+    let cur_col = col('.')
+    let first_part = strcharpart(line_content, 0, cur_col)
+    let last_part = strcharpart(line_content, cur_col)
+    let new_first_part = substitute(first_part, '.*\zs' . a:left_str, '', '')
+    let new_last_part = substitute(last_part, '.*\zs' . a:right_str, '', '')
+
+    let final_content = new_first_part . new_last_part
     call setline(line_num, final_content)
 endfunction
 

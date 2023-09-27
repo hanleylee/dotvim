@@ -41,35 +41,35 @@ nnoremap <buffer> <expr> j (v:count > 5 ? "m'" . v:count : "") . 'gj'
 noremap <silent><buffer> gj  j
 noremap <silent><buffer> gk  k
 
-" mark italic
-vnoremap <silent><buffer> <Leader>m/ :<C-u>call hl#markdown#mark_italic(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>m/ :set operatorfunc=hl#markdown#mark_italic<CR>g@
+" add italic mark '* *'
+vnoremap <silent><buffer> Mi :<C-u>call hl#markdown#mark_italic(visualmode())<CR>
+nnoremap <silent><buffer> ymi :set operatorfunc=hl#markdown#mark_italic<CR>g@
 
-" Extract italic
-nmap <silent><buffer> <Leader>d/ ds*
+" delete italic mark '* *'
+nmap <silent><buffer> dmi ds*
 
-" mark bold
-vnoremap <silent><buffer> <Leader>mb :<C-u>call hl#markdown#mark_bold(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>mb :set operatorfunc=hl#markdown#mark_bold<CR>g@
+" add bold mark '** **'
+vnoremap <silent><buffer> Mb :<C-u>call hl#markdown#mark_bold(visualmode())<CR>
+nnoremap <silent><buffer> ymb :set operatorfunc=hl#markdown#mark_bold<CR>g@
 
-" Extract bold
-" nmap <silent><buffer> <Leader>db :<C-u>call hl#markdown#extract_bold()<CR>
-noremap <silent> <Plug>(MarkdownExtractBold) :<C-u>call hl#markdown#extract_bold()<Bar>silent! call repeat#set("\<lt>Plug>(MarkdownExtractBold)")<CR>
-nmap <silent><buffer> <Leader>db <Plug>(MarkdownExtractBold)
+" delete bold mark '** **'
+" noremap <silent> <Plug>(MarkdownExtractBold) :<C-u>call hl#markdown#extract_bold()<Bar>silent! call repeat#set("\<lt>Plug>(MarkdownExtractBold)")<CR>
+" nmap <silent><buffer> dmb <Plug>(MarkdownExtractBold)
+nnoremap <silent><buffer> dmb :call hl#markdown#extract_bold()<CR>
 
-" mark code
-vnoremap <silent><buffer> <Leader>mc :<C-u>call hl#markdown#mark_code(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>mc :set operatorfunc=hl#markdown#mark_code<CR>g@
+" add code mark '` `'
+vnoremap <silent><buffer> Mc :<C-u>call hl#markdown#mark_code(visualmode())<CR>
+nnoremap <silent><buffer> ymc :set operatorfunc=hl#markdown#mark_code<CR>g@
 
-" Extract code
-nmap <silent><buffer> <Leader>dc ds`
+" delete code mark '` `'
+nmap <silent><buffer> dmc ds`
 
-" mark deleted
-vnoremap <silent><buffer> <Leader>md :<C-u>call hl#markdown#mark_deleted(visualmode())<CR>
-nnoremap <silent><buffer> <Leader>md :set operatorfunc=hl#markdown#mark_deleted<CR>g@
+" add deleted mark '~~ ~~'
+vnoremap <silent><buffer> Md :<C-u>call hl#markdown#mark_deleted(visualmode())<CR>
+nnoremap <silent><buffer> ymd :set operatorfunc=hl#markdown#mark_deleted<CR>g@
 
-" Extract deleted
-nmap <silent><buffer> <Leader>dd ds~.
+" delete deleted mark '~~ ~~'
+nnoremap <silent><buffer> dmd :call hl#markdown#extract_deleted()<CR>
 
 " increase level
 vnoremap <silent><buffer> <Leader>al <Cmd> call hl#keep_mode_cursor_execute('HeaderIncrease')<CR>

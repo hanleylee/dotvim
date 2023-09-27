@@ -33,7 +33,9 @@ function! hl#markdown#mark_bold(mode)
 endfunction
 
 function! hl#markdown#extract_bold()
-    call hl#operate#extract_with_string('\*\*', '\*\*')
+    " call hl#operate#extract_with_string('\*\*', '\*\*')
+    normal ds*ds*
+    call repeat#set(":call hl#markdown#extract_bold()\<CR>")
 endfunction
 
 " mark markdown text italic
@@ -49,6 +51,13 @@ endfunction
 " mark markdown text deleted
 function! hl#markdown#mark_deleted(mode)
     call hl#operate#embedded_with_string_2(a:mode, '~~', '~~')
+endfunction
+
+function! hl#markdown#extract_deleted()
+    " call hl#operate#extract_with_string('\*\*', '\*\*')
+    normal ds~ds~
+
+    call repeat#set(":call hl#markdown#extract_deleted()\<CR>")
 endfunction
 
 " convert '   moon                   # Moon phase' to '- `moon`: Moon phase'

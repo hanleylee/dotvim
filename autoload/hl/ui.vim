@@ -37,9 +37,10 @@ endfunction
 function! hl#ui#show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
+    elseif CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
     else
+        " call feedkeys('K', 'in')
         execute '!' . &keywordprg . " " . expand('<cword>')
     endif
 endfunction

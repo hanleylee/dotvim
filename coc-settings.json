@@ -22,16 +22,6 @@
     "coc.preferences.messageLevel": "warning",
     "coc.preferences.extensionUpdateCheck": "never",
     "coc.preferences.useQuickfixForLocations": true,
-    "coc.preferences.rootPatterns": [
-        ".svn",
-        ".git",
-        ".root",
-        ".project",
-        ".hg",
-        "_darcs",
-        "build.xml",
-        ".idea"
-    ],
 
     "callHierarchy.openCommand": "edit",
     "callHierarchy.splitCommand": "botright 30vs",
@@ -132,12 +122,10 @@
     "suggest.highPrioritySourceLimit": 20,
     "suggest.lowPrioritySourceLimit": 20,
     "suggest.floatConfig": {},
-    "suggest.detailMaxLength": 50,
     "suggest.localityBonus": true,
     "suggest.labelMaxLength": 200,
     "suggest.ignoreRegexps": [],
     "suggest.acceptSuggestionOnCommitCharacter": false,
-    "suggest.fixInsertedWord": true,
     "suggest.snippetIndicator": "~",
     "suggest.defaultSortMethod": "length",
     "suggest.asciiCharactersOnly": false,
@@ -194,7 +182,7 @@
     "signature.triggerSignatureWait": 500,
 
     // semanticTokens
-    "semanticTokens.filetypes": [],
+    "semanticTokens.enable": false,
     "semanticTokens.incrementTypes": [
         "variable",
         "string"
@@ -264,6 +252,16 @@
     ],
     "workspace.ignoredFolders": [
         "$HOME"
+    ],
+    "workspace.rootPatterns": [
+        ".svn",
+        ".git",
+        ".root",
+        ".project",
+        ".hg",
+        "_darcs",
+        "build.xml",
+        ".idea"
     ],
     "workspace.workspaceFolderFallbackCwd": true,
     "workspace.bottomUpFiletypes": [],
@@ -445,7 +443,7 @@
 
     // coc-yank
     "yank.highlight.enable": true,
-    "yank.highlight.duration": 200,
+    "yank.highlight.duration": 600,
     "yank.enableCompletion": true,
     "yank.priority": 20,
     "yank.limit": 20,
@@ -510,7 +508,6 @@
     "diagnostic.filetypeMap": {},
     "diagnostic.messageDelay": 200,
     "diagnostic.displayByAle": false,
-    "diagnostic.highlighLimit": 1000,
     "diagnostic.enableMessage": "always",
     "diagnostic.messageTarget": "float",
     "diagnostic.showDeprecated": true,
@@ -921,7 +918,6 @@
     "typescript.suggest.classMemberSnippets.enabled": true,
     "typescript.suggest.paths": true,
     "typescript.suggest.autoImports": true,
-    "typescript.suggest.importStatements": true,
     "typescript.suggest.includeCompletionsWithSnippetText": true,
     "typescript.suggest.includeCompletionsForImportStatements": true,
     "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
@@ -1299,7 +1295,7 @@
     "tsserver.npm": "",
     "tsserver.log": "off",
     "tsserver.tsdk": "",
-    "tsserver.locale": null,
+    "tsserver.locale": "auto",
     "tsserver.pluginPaths": [],
     "tsserver.tsconfigPath": "tsconfig.json",
     "tsserver.watchOptions": {},
@@ -1646,6 +1642,10 @@
     "list.source.diagnostics.defaultAction": "",
     "list.source.diagnostics.defaultOptions": [],
 
+    "inlayHint.enable": true,
+    "inlayHint.display": true,
+    "inlayHint.enableParameter": true,
+    "inlayHint.refreshOnInsertMode": false,
     "languageserver": {
         "bash": {
             "command": "bash-language-server",

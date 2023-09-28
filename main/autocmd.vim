@@ -5,6 +5,11 @@
 
 "███████████████████████  autocmd  ██████████████████████████
 
+augroup ColorSchemePatch
+    autocmd!
+    autocmd ColorScheme * call ColorSchemePatch()
+augroup END
+
 " Enter{{{
 augroup Enter
     autocmd!
@@ -82,7 +87,7 @@ if hl#plug_loaded('coc.nvim')
         " autocmd CursorMoved * silent call s:ThrottleFnTrailing.call('highlight')
         " autocmd CursorMoved * silent call s:ThrottleFnLeading.call('highlight')
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-        " autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd CursorHold * silent call CocActionAsync('highlight')
         " autocmd CursorHold * silent call hl#coc#highlight_current_cursor()
         autocmd CursorMoved * silent call hl#coc#highlight_current_cursor()
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')

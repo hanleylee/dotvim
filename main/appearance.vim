@@ -59,18 +59,6 @@ function! ColorSchemePatch()
     endif
     "}}}
 
-    " coc.nvim {{{
-    if hl#plug_loaded('coc.nvim')
-        highlight CocHighlightText  cterm=bold ctermbg=238  ctermfg=NONE gui=bold guibg=#444444 guifg=NONE
-        highlight HighlightedyankRegion cterm=bold ctermbg=0 ctermfg=none gui=bold guibg=#13354A guifg=#C6C6C6
-        highlight CocFloating       cterm=bold ctermbg=238  ctermfg=251  gui=NONE guibg=#363B48 guifg=#C6C6C6
-        highlight CocMenuSel        cterm=bold ctermbg=20   ctermfg=NONE gui=bold guibg=#444C5D guifg=NONE
-        highlight CocPumSearch      cterm=bold ctermbg=20   ctermfg=NONE gui=NONE guibg=NONE    guifg=#3e9831
-        highlight CocListLine        cterm=bold ctermbg=20  ctermfg=NONE gui=bold guibg=#444C5D guifg=NONE
-        highlight CocListSearch      cterm=bold ctermbg=20  ctermfg=NONE gui=NONE guibg=NONE    guifg=#3e9831
-    endif
-    "}}}
-
     " vim-matchup {{{
     if hl#plug_loaded('vim-matchup')
         highlight MatchWord     cterm=bold,underline ctermbg=238    gui=bold,underline   guibg=#444444
@@ -100,13 +88,11 @@ function! ColorSchemePatch()
     "}}}
     if s:colorscheme == 'onedark'
         call hl#onedark#patch()
+    elseif s:colorscheme == 'gruvbox'
+        call hl#gruvbox#patch()
     endif
 endfunction
 
-augroup ColorSchemePatch
-    autocmd!
-    autocmd ColorScheme * call ColorSchemePatch()
-augroup END
 " MARK: On the latest versions of Vim and Neovim, fzf will start in a terminal buffer. If you find the default ANSI colors to be different, consider
 " configuring the colors using g:terminal_ansi_colors in regular Vim or g:terminal_color_x in Neovim.
 

@@ -42,5 +42,18 @@ function! hl#onedark#patch()
     call onedark#set_highlight('HLWarning', {'fg': s:orange, 'gui': s:bold, 'cterm': s:bold})
     call onedark#set_highlight('HLError', {'fg': s:red, 'gui': s:bold, 'cterm': s:bold})
 
+    " coc.nvim {{{
+    if hl#plug_loaded('coc.nvim')
+        call onedark#set_highlight('CocHighlightText', {'bg': s:vertsplit, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('HighlightedyankRegion', {'fg': s:black, 'bg': s:green, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('CocFloating', {'fg': s:white, 'bg': s:visual_grey})
+        call onedark#set_highlight('CocMenuSel', {'bg': s:background, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('CocPumSearch', {'fg': s:green})
+        call onedark#set_highlight('CocListLine', {'bg': s:background, 'gui': s:bold, 'cterm': s:bold})
+        call onedark#set_highlight('CocListSearch', {'fg': s:green})
+        call onedark#set_highlight('CocInlayHint', {'fg': s:comment_grey, 'gui': s:italic, 'cterm': s:italic})
+    endif
+    "}}}
+
     " highlight Todo                          ctermbg=208 ctermfg=black    gui=bold      guibg=#ff8700    guifg=black
 endfunction

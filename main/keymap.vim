@@ -376,8 +376,8 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(0) : "\<C-p>"
     nnoremap <silent><Leader>K  :call hl#ui#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
-    nmap <silent>gD             <Plug>(coc-type-definition)
-    nmap <silent>gm             <Plug>(coc-implementation)
+    nmap <silent>gy             <Plug>(coc-type-definition)
+    nmap <silent>gi             <Plug>(coc-implementation)
     nmap <silent>gr             <Plug>(coc-references)
 
 

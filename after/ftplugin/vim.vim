@@ -7,3 +7,6 @@ setlocal foldmethod=marker
 setlocal foldmarker={{{,}}}
 
 nnoremap <buffer><silent>gb :PlugBrowse<cr>
+nnoremap <buffer><silent>gX :silent call hl#external#OpenVimPluginHomepage('n')<cr>
+vnoremap <buffer><silent>gX :<C-u>silent call hl#external#OpenVimPluginHomepage('v')<cr>
+

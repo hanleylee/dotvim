@@ -129,10 +129,10 @@ nnoremap <silent> <Leader>hl :call matchadd('LineHighlight', '\%' . line('.') . 
 nnoremap <silent> <Leader>hc :call clearmatches()<CR>
 
 let g:netrw_nogx = 1 " disable gx keymap
-" nmap <silent>gx :silent call hl#external#OpenInBrowser('n')<cr>
-" vmap <silent>gx :<C-u>silent call hl#external#OpenInBrowser('v')<cr>
+nmap <silent>gx :silent call hl#external#OpenInBrowser('n')<cr>
+xmap <silent>gx :<C-u>silent call hl#external#OpenInBrowser('v')<cr>
 
-nnoremap <silent> gx :call hl#external#OpenInBrowser2()<CR>
+" nnoremap <silent> gx :call hl#external#OpenInBrowser2()<CR>
 
 if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>

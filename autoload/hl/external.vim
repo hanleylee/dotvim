@@ -28,23 +28,45 @@ function! hl#external#OpenVimPluginHomepage(mode)
     endif
 endfunction
 
+" get open command over different system
+function! hl#external#opener()
+    if has("macunix") && executable('open')
+        let cmd = "open"
+    elseif has("unix") && executable('xdg-open')
+        let cmd = "xdg-open"
+    elseif has("win64") && has("win32") || has("win32unix")
+        let cmd = 'start'
+    else
+        echohl Error
+        echomsg "Can't find proper opener for an URL!"
+        echohl None
+        return
+    endif
+    return cmd
+endfunction
+
 " 在浏览器中打开当前选择的链接
 function! hl#external#OpenInBrowser(mode)
     let final_url = ''
     if a:mode ==? 'v' " visual 模式下, 打开选中的文字
         let selected_text = hl#text#visual_selection()
     elseif a:mode ==? 'n' " normal 模式下, 打开当前文字
-        let selected_text = expand('<cWORD>')
+        let selected_text = expand('<cfile>')
     endif
 
-    let suspect_url = hl#text#url_formatted_string(selected_text)
+    let suspect_url = matchstr(selected_text, "[a-z]*:\/\/[^ >,;()']*")
+    " let suspect_url = hl#text#url_formatted_string(selected_text)
+    " let suspect_url = selected_text
     if suspect_url != "''" " 如果是一个链接
-        let final_url = suspect_url
+        let final_url = escape(suspect_url, '#%!')
     else " 如果是一个单词, 那么 google 它
         let final_url = shellescape('https://google.com/search?q=' . hl#text#url_encode(selected_text), 1)
     endif
 
-    exec "!open -a Safari " . final_url
+    let opener = hl#external#opener()
+    " exec "!open -a Safari '" . final_url "'"
+    " exec ':silent !' . opener . " '" . final_url . "'"
+    exec ':silent ! ' . opener . ' "' . final_url . '"'
     :redraw!
 endfunction
 
@@ -54,76 +76,42 @@ endfunction
 " - html links <a href="https://news.ycombinator.com">Hacker news</a>;
 " - and usual barebone urls https://news.ycombinator.com.
 function! hl#external#OpenInBrowser2()
-    if has("macunix") && executable('open')
-        let cmd = ":silent !open"
-    elseif has("unix") && executable('xdg-open')
-        let cmd = ":silent !xdg-open"
-    elseif has("win64") && has("win32") || has("win32unix")
-        let cmd = ':silent !start'
-    elseif exists("$WSLENV")
-        lcd /mnt/c
-        let cmd = ":silent !cmd.exe /C start"
-    else
-        echohl Error
-        echomsg "Can't find proper opener for an URL!"
-        echohl None
-        return
-    endif
+    let opener = hl#external#opener()
 
     " URL regexes
-    let rx_base = '\%(\%(http\|ftp\|irc\)s\?\|file\)://\S'
-    let rx_bare = rx_base . '\+'
-    let rx_embd = rx_base . '\{-}'
+    let url_base_regex = '\%(\%(http\|ftp\|irc\)s\?\|file\)://\S'
+    let url_bare_regex = url_base_regex . '\+'
+    let url_embd_regex = url_base_regex . '\{-}'
 
     let URL = ""
 
-    " markdown URL [link text](http://ya.ru 'yandex search')
     try
         let save_view = winsaveview()
         if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
-            let URL = matchstr(getline('.')[col('.')-1:], '\[.\{-}\](\zs'.rx_embd.'\ze\(\s\+.\{-}\)\?)')
+            " markdown URL [link text](http://ya.ru 'yandex search')
+            let URL = matchstr(getline('.')[col('.')-1:], '\[.\{-}\](\zs' . url_embd_regex .'\ze\(\s\+.\{-}\)\?)')
+        elseif searchpair(url_bare_regex . '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
+            " asciidoc URL http://yandex.ru[yandex search]
+            let URL = matchstr(getline('.')[col('.')-1:], '\S\{-}\ze[')
+        elseif searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
+            " HTML URL <a href='http://www.python.org'>Python is here</a>
+            "          <a href="http://www.python.org"/>
+            let URL = matchstr(getline('.')[col('.')-1:], 'href=["' . "'" . ']\?\zs\S\{-}\ze["' . "'" . ']\?/\?>')
         endif
     finally
         call winrestview(save_view)
     endtry
 
-    " asciidoc URL http://yandex.ru[yandex search]
-    if empty(URL)
-        try
-            let save_view = winsaveview()
-            if searchpair(rx_bare . '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
-                let URL = matchstr(getline('.')[col('.')-1:], '\S\{-}\ze[')
-            endif
-        finally
-            call winrestview(save_view)
-        endtry
-    endif
-
-    " HTML URL <a href='http://www.python.org'>Python is here</a>
-    "          <a href="http://www.python.org"/>
-    if empty(URL)
-        try
-            let save_view = winsaveview()
-            if searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
-                let URL = matchstr(getline('.')[col('.')-1:], 'href=["'."'".']\?\zs\S\{-}\ze["'."'".']\?/\?>')
-            endif
-        finally
-            call winrestview(save_view)
-        endtry
-    endif
-
     " barebone URL http://google.com
     if empty(URL)
-        let URL = matchstr(expand("<cfile>"), rx_bare)
+        let URL = matchstr(expand("<cfile>"), url_bare_regex)
     endif
 
     if empty(URL)
         return
     endif
 
-    exe cmd . ' "' . escape(URL, '#%!')  . '"'
-
-    if exists("$WSLENV") | lcd - | endif
+    exec ':silent ! ' . opener . ' "' . escape(URL, '#%!')  . '"'
 endfunction
 
 " open frontmost vim path in mac finder

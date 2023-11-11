@@ -109,6 +109,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'arzg/vim-rust-syntax-ext'     " for rust
     Plug 'compnerd/arm64asm-vim'        " for arm64
     Plug 'HerringtonDarkholme/yats.vim' " for ts
+    Plug 'guns/vim-sexp'
     " Plug 'peterhoeg/vim-qml'
     Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-taskpaper' , {'dir': '$HL_REPO/vim/vim-taskpaper'}
@@ -131,6 +132,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
     Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'tpope/vim-speeddating'                        " use <C-A> / <C-X> quicky increase / decrease date
+    Plug 'tpope/vim-sexp-mappings-for-regular-people'   " support 'dsf', 'cse(', 'cse)', 'cseb', 'cse[', 'cse]', 'cse{', 'cse}', '<M-h>', '<M-l>', '>f', '<f', '>e', '<e', '>)', '<)', '>(', '<(', '<I', '>I'
     " Plug 'machakann/vim-sandwich'
     Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia, cxx, X, cxc

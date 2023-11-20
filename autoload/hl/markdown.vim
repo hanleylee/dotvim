@@ -77,7 +77,7 @@ endfunction
 " format chinese{{{
 function! hl#markdown#format() range
     " a:firstline,a:lastline call hl#Format_CN()
-    execute a:firstline . "," . a:lastline . " call hl#format#cn()"
+    " execute a:firstline . "," . a:lastline . " call hl#format#cn()"
 
     let regex_list = []
     " 包裹的 content 添加左右两侧空格
@@ -114,6 +114,7 @@ function! hl#markdown#format() range
         let isCodeBlock = indexof(cursor_syntax, { e -> match(v:val, 'mkdSnippet') >= 0 }) >= 0
         " echom 'isCodeBlock: ' . isCodeBlock .  'line_num: ' . line_num . 'syntax: ' . join(cursor_syntax, ',')
         if !isCodeBlock
+            execute line_num . " call hl#format#cn()"
             for pattern in regex_list
                 execute line_num . " substitute " . pattern
             endfor

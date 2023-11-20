@@ -14,7 +14,7 @@ if has('nvim')
 else
     " 设置 viminfo, 必须放在 nocompatible 之后
     " 同时 viminfo 的默认位置是 ~/.viminfo, 这里为它赋予不同路径用来防止在 vim -u NONE 时原有的数据被覆盖
-    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,r/Volumes,s10,n~/.vim/.viminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,r/private/var,r/Volumes,s10,n~/.vim/.viminfo
 endif
 
 filetype plugin indent on " 开启插件功能,必选

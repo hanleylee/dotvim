@@ -32,6 +32,30 @@ augroup ReadPost1
     au BufWinEnter * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
 augroup END
 
+" vim -b : edit binary using xxd-format!
+augroup Binary
+    autocmd!
+    autocmd BufReadPre  *.bin set binary
+    autocmd BufReadPost *.bin
+                \ if &binary
+                \ |   execute "silent %!xxd -c 32"
+                \ |   set filetype=xxd
+                \ |   redraw
+                \ | endif
+    autocmd BufWritePre *.bin
+                \ if &binary
+                \ |   let s:view = winsaveview()
+                \ |   execute "silent %!xxd -r -c 32"
+                \ | endif
+    autocmd BufWritePost *.bin
+                \ if &binary
+                \ |   execute "silent %!xxd -c 32"
+                \ |   set nomodified
+                \ |   call winrestview(s:view)
+                \ |   redraw
+                \ | endif
+augroup END
+
 " augroup SetDictionary
 "     autocmd!
 "     au FileType * call hl#TrySetDictionary()

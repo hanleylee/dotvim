@@ -9,24 +9,6 @@ function! hl#markdown#merge_md()
     %s /\([\.\,]$\)\n\(\S\)/\1 \2/g
 endfunction
 
-function! hl#markdown#CodeBlockTextObj(type) abort
-    " the parameter type specify whether it is inner text objects or arround text objects.
-    normal! $
-    let start_row = searchpos('\s*```', 'bn')[0]
-    let end_row = searchpos('\s*```', 'n')[0]
-
-    let buf_num = bufnr()
-    if a:type ==# 'i'
-        let start_row += 1
-        let end_row -= 1
-    endif
-    " echo a:type start_row end_row
-
-    call setpos("'<", [buf_num, start_row, 1, 0])
-    call setpos("'>", [buf_num, end_row, 1, 0])
-    execute 'normal! `<V`>'
-endfunction
-
 " mark markdown text bold
 function! hl#markdown#mark_bold(mode)
     call hl#operate#embedded_with_string_2(a:mode, '**', '**')

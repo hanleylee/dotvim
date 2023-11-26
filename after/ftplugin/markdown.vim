@@ -4,6 +4,7 @@
 " License:  MIT License
 
 command! -range=% -nargs=0 -buffer FormatMarkdown let b:view = winsaveview() | silent! <line1>,<line2> call hl#markdown#format() | call winrestview(b:view)
+command! -nargs=0 -range -buffer MarkdownEditBlock :<line1>,<line2>call hl#markdown_codeblock#EditBlock()
 
 setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0
@@ -83,7 +84,10 @@ noremap <silent> <Plug>(MarkdownConvertHashKeyToList)   :call hl#markdown#conver
 map <silent><buffer> <Leader>htl <Plug>(MarkdownConvertHashKeyToList)
 
 " text object for code block
-vnoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
-onoremap <buffer> <silent> ic :<C-U>call hl#markdown#CodeBlockTextObj('i')<CR>
-vnoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
-onoremap <buffer> <silent> ac :<C-U>call hl#markdown#CodeBlockTextObj('a')<CR>
+vnoremap <buffer> <silent> ic :<C-U>call hl#markdown_codeblock#TextObj('i')<CR>
+onoremap <buffer> <silent> ic :<C-U>call hl#markdown_codeblock#TextObj('i')<CR>
+vnoremap <buffer> <silent> ac :<C-U>call hl#markdown_codeblock#TextObj('a')<CR>
+onoremap <buffer> <silent> ac :<C-U>call hl#markdown_codeblock#TextObj('a')<CR>
+
+nnoremap <buffer> <silent> <leader>ec :call hl#markdown_codeblock#EditBlock('n')<CR>
+vnoremap <buffer> <silent> <leader>ec :call hl#markdown_codeblock#EditBlock('v')<CR>

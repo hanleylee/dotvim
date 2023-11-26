@@ -476,10 +476,10 @@ if hl#plug_loaded('vim-gitgutter')
     nmap ]h  <Plug>(GitGutterNextHunk)
     nmap ]gh <Plug>(GitGutterNextHunk)
 
-    omap ih         <Plug>(GitGutterTextObjectInnerPending)
-    omap ah         <Plug>(GitGutterTextObjectOuterPending)
-    xmap ih         <Plug>(GitGutterTextObjectInnerVisual)
-    xmap ah         <Plug>(GitGutterTextObjectOuterVisual)
+    omap ih  <Plug>(GitGutterTextObjectInnerPending)
+    omap ah  <Plug>(GitGutterTextObjectOuterPending)
+    xmap ih  <Plug>(GitGutterTextObjectInnerVisual)
+    xmap ah  <Plug>(GitGutterTextObjectOuterVisual)
 
     nmap <Leader>hi <Plug>(GitGutterPreviewHunk)
     nmap <Leader>hs <Plug>(GitGutterStageHunk)
@@ -521,13 +521,6 @@ endif
 " vista {{{
 if hl#plug_loaded('vista')
     nnoremap <F4>                :Vista!!<CR>
-endif
-"}}}
-
-" inline_edit.vim {{{
-if hl#plug_loaded('inline_edit.vim')
-    nnoremap <leader>ie :InlineEdit<cr>
-    xnoremap <leader>ie :InlineEdit<cr>
 endif
 "}}}
 

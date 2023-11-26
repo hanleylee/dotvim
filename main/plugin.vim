@@ -159,7 +159,6 @@ if s:vim_weight >= 2 || g:is_in_gui
 
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
-    Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
     Plug 'hanleylee/vim-t2s' " , {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'hanleylee/vim-cocoapods' " , {'dir': '$HL_REPO/vim/vim-cocoapods'}
@@ -303,7 +302,9 @@ call plug#end()
 " Plug 'szw/vim-maximizer'
 " Plug 'rizzatti/dash.vim'
 " Plug 'junegunn/gv.vim'          " browse git log
-    " Plug 'Konfekt/FastFold'         " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
-    " Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
-    " Plug 'rhysd/vim-grammarous' " GrammarousCheck
+" Plug 'Konfekt/FastFold'         " 在编辑中尽可能的减少折叠次数(通过修改 set local foldmethod=munual 实现)
+" Plug 'tmhedberg/SimpylFold'     " 帮助折叠 python 文件
+" Plug 'rhysd/vim-grammarous' " GrammarousCheck
+" Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
+" Plug 'Chandlercjy/vim-markdown-edit-code-block'              " 可以在 markdown 内编写代码片段
 "}}}

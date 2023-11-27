@@ -51,7 +51,7 @@ function! hl#markdown_codeblock#EditBlock(mode) range abort
             endif
         endfor
     elseif a:mode == 'v'
-        let code_block = s:RangeCodeBlock(a:firstline, a:lastline)
+        let code_block = s:ManualSelectedCodeBlock(a:firstline, a:lastline)
     endif
 
     if code_block['from'] == 0 || code_block['to'] == 0
@@ -60,19 +60,24 @@ function! hl#markdown_codeblock#EditBlock(mode) range abort
     endif
 
     if has_key(g:filetype_extension_dic, code_block['language'])
-        let code_block['file_extension'] = g:filetype_extension_dic[code_block['language']]
+        let file_extension = g:filetype_extension_dic[code_block['language']]
     else
-        let code_block['file_extension'] = '.' . code_block['language']
+        let file_extension = '.' . code_block['language']
     endif
-    let code_block['tmp_file_path'] = tempname() . code_block['file_extension']
-    let code_content = getline(code_block['from'], code_block['to'])
+    let tmp_file_path = tempname() . file_extension
+    let code_content = code_block['content']
     let unindent_code_content = s:UnindentBlock(code_content, code_block['indentation'])
 
     let bufname = bufname()
 
-    call writefile(unindent_code_content, code_block['tmp_file_path'])
+    call writefile(unindent_code_content, tmp_file_path)
 
-    execute 'vsplit ' . code_block['tmp_file_path']
+    execute 'vsplit ' . tmp_file_path
+
+    let proxy_position = copy(code_block['origin_position'])
+    let proxy_position[1] = proxy_position[1] - code_block['from'] + 1
+
+    cal setpos('.', proxy_position)
 
     let b:markdown_temporary_buffer = 1
     " autocmd BufWritePost <buffer> call s:UpdateOriginCodeBlock()
@@ -92,10 +97,11 @@ endfunction
 function! s:DetectFencedCodeBlock(current_line, start_delimiter, end_delimiter)
     let code_block = {'from': 0, 'to': 0, 'language': 'txt', 'indentation': '', 'surround': 0}
     let initial_position = getpos('.')
-    let search_position = copy(initial_position)
-    let search_position[1] = a:current_line
-    let search_position[2] = 0
-    cal setpos('.', search_position)
+
+    let search_start_position = copy(initial_position)
+    let search_start_position[1] = a:current_line
+    let search_start_position[2] = 0
+    cal setpos('.', search_start_position)
 
     let start_code_block_backward = search(a:start_delimiter, 'cbnW')
     let end_code_block_forward = search(a:end_delimiter, 'cnW')
@@ -107,20 +113,22 @@ function! s:DetectFencedCodeBlock(current_line, start_delimiter, end_delimiter)
     if valid_code_block
         let code_block['language'] = s:ExtractLanguage(start_code_block_backward, a:start_delimiter)
         let code_block['indentation'] = s:ExtractIndentation(start_code_block_backward)
-        let code_block['back_to_position'] = initial_position
+        let code_block['origin_position'] = initial_position
         let code_block['from'] = start_code_block_backward + 1
         let code_block['to'] = end_code_block_forward - 1
+        let code_block['content'] = getline(code_block['from'], code_block['to'])
     endif
     return code_block
 endfunction
 
-function! s:RangeCodeBlock(from, to)
+function! s:ManualSelectedCodeBlock(from, to)
     let code_block = {'from': 0, 'to': 0, 'language': 'txt', 'indentation': '', 'surround': 0}
     if a:to >= a:from
+        let code_block['language'] = 'markdown'
+        let code_block['origin_position'] = getpos('.')
         let code_block['from'] = a:from
         let code_block['to'] = a:to
-        let code_block['back_to_position'] = getpos('.')
-        let code_block['language'] = 'markdown'
+        let code_block['content'] = getline(code_block['from'], code_block['to'])
 
         if a:from == a:to && getline(a:from) =~ '^\s*$'
             let code_block['surround'] = 1
@@ -145,19 +153,21 @@ endfunction
 
 function! s:UpdateOriginCodeBlock()
 
-    call deletebufline(b:origin_bufname, b:origin_code_block['from'], b:origin_code_block['to'])
-    " let code_content = readfile(b:origin_code_block['tmp_file_path'])
-    let code_content = getline(1, '$')
-    let indented_code_content = s:IndentBlock(code_content, b:origin_code_block['indentation'])
-    call appendbufline(b:origin_bufname, b:origin_code_block['from'] - 1, indented_code_content)
-    call setpos('.', b:origin_code_block['back_to_position'])
+    " let code_content = tmp_file_path
+    let final_code_content = getline(1, '$')
+    if final_code_content != b:origin_code_block['content']
+        call deletebufline(b:origin_bufname, b:origin_code_block['from'], b:origin_code_block['to'])
+        let indented_code_content = s:IndentBlock(final_code_content, b:origin_code_block['indentation'])
+        call appendbufline(b:origin_bufname, b:origin_code_block['from'] - 1, indented_code_content)
+        " call setpos('.', b:origin_code_block['origin_position'])
+    endif
 
-    let back_to_position = b:origin_code_block["back_to_position"]
-    call win_execute(bufwinid(bufnr(b:origin_bufname)), ['call setpos(".", back_to_position)', 'redraw'])
+    let origin_position = b:origin_code_block["origin_position"]
+    call win_execute(bufwinid(bufnr(b:origin_bufname)), ['call setpos(".", origin_position)', 'redraw'])
 
-    execute 'w'
-    call delete(b:origin_code_block['tmp_file_path'])
-    execute 'silent bwipeout! ' . b:origin_code_block['tmp_file_path']
+    " execute 'w'
+    call delete(expand('%:p'))
+    execute 'silent bwipeout!'
     " execute 'bwipeout'
 endfunction
 

@@ -194,7 +194,7 @@ endtry
 "=======================   Appearance   ============================{{{
 syntax on " 设置语法高亮
 set number " 显示行号
-set relativenumber
+" set relativenumber
 try
     set matchpairs+=<:>,(:),{:},[:],【:】,《:》,〈:〉,［:］,（:）,「:」,『:』,‘:’,“:” " Set matching pairs of characters and highlight matching brackets
 catch /^Vim\%((\a\+)\)\=:E474/

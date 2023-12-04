@@ -83,7 +83,7 @@ function! hl#markdown_codeblock#EditBlock(mode) range abort
     let b:markdown_temporary_buffer = 1
     autocmd BufWritePost <buffer> call s:UpdateOriginCodeBlock()
     " autocmd WinClosed <buffer> call s:UpdateOriginCodeBlock()
-    " autocmd WinClosed <buffer> call s:RemoveTrack()
+    autocmd WinClosed <buffer> call s:RemoveTrack()
     let b:origin_bufname = bufname
     let b:origin_code_block = code_block
 endfunction
@@ -169,7 +169,11 @@ function! s:UpdateOriginCodeBlock()
     call win_execute(bufwinid(bufnr(b:origin_bufname)), ['call setpos(".", origin_position)', 'redraw'])
 
     " execute 'w'
-    call delete(expand('%:p'))
+    " call delete(expand('%:p'))
     " execute 'silent bwipeout!'
     " execute 'bwipeout'
+endfunction
+
+function s:RemoveTrack()
+    call delete(expand('%:p'))
 endfunction

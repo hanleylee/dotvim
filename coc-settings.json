@@ -121,7 +121,10 @@
     "suggest.maxCompleteItemCount": 20,
     "suggest.highPrioritySourceLimit": 20,
     "suggest.lowPrioritySourceLimit": 20,
-    "suggest.floatConfig": {},
+    "suggest.floatConfig": {
+        "border": false,
+        "rounded": false,
+    },
     "suggest.localityBonus": true,
     "suggest.labelMaxLength": 200,
     "suggest.ignoreRegexps": [],

@@ -38,7 +38,6 @@ endfunction
 function! hl#markdown#extract_deleted()
     " call hl#operate#extract_with_string('\*\*', '\*\*')
     normal ds~ds~
-
     call repeat#set(":call hl#markdown#extract_deleted()\<CR>")
 endfunction
 

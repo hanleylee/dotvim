@@ -73,7 +73,7 @@ function! hl#markdown_codeblock#EditBlock(mode) range abort
     call writefile(unindent_code_content, tmp_file_path)
 
     execute 'vsplit ' . tmp_file_path
-    setlocal nobuflisted bufhidden=wipe noswapfile " buftype=nofile
+    setlocal nobuflisted noswapfile " buftype=nofile bufhidden=delete 
 
     let proxy_position = copy(code_block['origin_position'])
     let proxy_position[1] = proxy_position[1] - code_block['from'] + 1
@@ -83,7 +83,7 @@ function! hl#markdown_codeblock#EditBlock(mode) range abort
     let b:markdown_temporary_buffer = 1
     autocmd BufWritePost <buffer> call s:UpdateOriginCodeBlock()
     " autocmd WinClosed <buffer> call s:UpdateOriginCodeBlock()
-    autocmd WinClosed <buffer> call s:RemoveTrack()
+    " autocmd WinClosed <buffer> call s:RemoveTrack()
     let b:origin_bufname = bufname
     let b:origin_code_block = code_block
 endfunction
@@ -174,6 +174,6 @@ function! s:UpdateOriginCodeBlock()
     " execute 'bwipeout'
 endfunction
 
-function s:RemoveTrack()
-    call delete(expand('%:p'))
-endfunction
+" function s:RemoveTrack()
+"     call delete(expand('%:p'))
+" endfunction

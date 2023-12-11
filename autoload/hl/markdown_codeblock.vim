@@ -156,7 +156,7 @@ function! s:UpdateOriginCodeBlock()
 
     " let code_content = tmp_file_path
     let final_code_content = getline(1, '$')
-    if final_code_content != b:origin_code_block['content']
+    if final_code_content !=# b:origin_code_block['content']
         call deletebufline(b:origin_bufname, b:origin_code_block['from'], b:origin_code_block['to'])
         let indented_code_content = s:IndentBlock(final_code_content, b:origin_code_block['indentation'])
         call appendbufline(b:origin_bufname, b:origin_code_block['from'] - 1, indented_code_content)

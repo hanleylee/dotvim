@@ -134,31 +134,31 @@
     "suggest.asciiCharactersOnly": false,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.completionItemKindLabels": {
-        "constructor": "\ufb25", // ﬥ
-        "keyword": "\uf1de", // 
-        "variable": "\ue79b", // 
-        "value": "\uf89f", // 
-        "operator": "\u03a8", // Ψ
-        "function": "\u0192", // ƒ
-        "reference": "\ufa46", // 渚
-        "constant": "\uf8fe", // 
-        "method": "\uf09a", // 
-        "struct": "\ufb44", // פּ
-        "class": "\uf0e8", // 
-        "interface": "\uf417", // 
-        "text": "\ue612", // 
-        "enum": "\uf435", // 
-        "enumMember": "\uf02b", // 
-        "module": "\uf40d", // 
-        "color": "\ue22b", // 
-        "property": "\ue624", // 
-        "field": "\uf9be", // 料
-        "unit": "\uf475", // 
-        "event": "\ufacd", // 鬒
-        "file": "\uf723", // 
-        "folder": "\uf114", // 
-        "snippet": "\ue60b", // 
-        "typeParameter": "\uf728", // 
+        "constructor": "\uFB25", // ﬥ
+        "keyword": "\uF1DE", // 
+        "variable": "\uE79B", // 
+        "value": "\u24E5", // ⓥ
+        "operator": "\uEB64", // 
+        "function": "\uF09A", // 
+        "method": "\uEA8C", // 
+        "reference": "\uFA46", // 渚
+        "constant": "\uF8FE", // 
+        "struct": "\uEA91", // 
+        "class": "\uF0E8", // 
+        "interface": "\uF417", // 
+        "text": "\uE612", // 
+        "enum": "\uF435", // 
+        "enumMember": "\uF02B", // 
+        "module": "\uF0573", // 󰕳
+        "color": "\uE22B", // 
+        "property": "\uE624", // 
+        "field": "\uE624", // 
+        "unit": "\uF475", // 
+        "event": "\uEA86", // 
+        "file": "\uF15B", // 
+        "folder": "\uE5FF", // 
+        "snippet": "\uE60B", // 
+        "typeParameter": "\uF728", // 
         "default": " "
     },
     "suggest.preferCompleteThanJumpPlaceholder": false,

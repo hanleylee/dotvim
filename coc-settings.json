@@ -872,7 +872,10 @@
     "python.analysis.diagnosticSeverityOverrides": {},
     "python.analysis.typeCheckingMode": "off", // 关闭 pyright 的类型检查
     "python.analysis.useLibraryCodeForTypes": true,
-    "python.analysis.extraPaths": [],
+    "python.analysis.extraPaths": [
+        "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python", // for lldb
+        "/opt/homebrew/opt/chisel/libexec" // for chisel
+    ],
     "python.pythonPath": "python3",
     "python.venvPath": "~/.pyenv/versions",
     "python.formatting.provider": "autopep8",

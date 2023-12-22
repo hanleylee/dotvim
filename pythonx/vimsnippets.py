@@ -6,6 +6,15 @@ import string
 import vim
 import re
 
+# use like this:
+#
+# py3 << EOF
+# import vim
+# import vimsnippets
+# vimsnippets.print_hello()
+# EOF
+def print_hello():
+    print("hello")
 
 def complete(tab, opts):
     """

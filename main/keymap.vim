@@ -62,6 +62,7 @@ vnoremap <silent><C-k> :silent! call hl#operate#move_line('v', 'up')<CR>
 nnoremap <C-BS> :echom 123<cr>
 nnoremap <Space> za
 vnoremap <Space> zf
+nnoremap <Tab> za
 " add fold include top and bottom extra 1 line
 vmap ZF :<C-u>execute "normal! '<O\<lt>ESC>'>o\<lt>ESC>V'<kzf"<CR>
 
@@ -489,11 +490,30 @@ endif
 
 " vim-easymotion {{{
 if hl#plug_loaded('vim-easymotion')
-    nmap <Leader><Space>          <Plug>(easymotion-bd-w)
-    vmap <Leader><Space>          <Plug>(easymotion-bd-w)
-    " Move to line
-    map <Leader>L <Plug>(easymotion-bd-jk)
-    nmap <Leader>L <Plug>(easymotion-overwin-line)
+    nmap <Space><Space>     <Plug>(easymotion-bd-w)
+
+    " <Leader>f{char} to move to {char}
+    map  <Space>f           <Plug>(easymotion-bd-f)
+    " nmap <Leader>f          <Plug>(easymotion-overwin-f)
+
+    " s{char}{char} to move to {char}{char}
+    nmap <Space>2f           <Plug>(easymotion-bd-f2)
+    " nmap <Space>2f           <Plug>(easymotion-overwin-f2)
+
+    map <Space>l            <Plug>(easymotion-lineforward)
+    map <Space>j            <Plug>(easymotion-j)
+    map <Space>k            <Plug>(easymotion-k)
+    map <Space>h            <Plug>(easymotion-linebackward)
+    map <Space>L            <Plug>(easymotion-bd-jk)
+    " nmap <Leader>L          <Plug>(easymotion-overwin-line)
+
+    " nmap <Space>s           <Plug>(easymotion-s)
+    nmap <Space>2s           <Plug>(easymotion-s2)
+    nmap <Space>t           <Plug>(easymotion-t)
+    nmap <Space>2t           <Plug>(easymotion-t2)
+
+    nmap <Space>p          <Plug>(easymotion-prev)
+    nmap <Space>n          <Plug>(easymotion-next)
 endif
 "}}}
 

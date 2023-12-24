@@ -164,6 +164,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     Plug 'hanleylee/vim-cocoapods' " , {'dir': '$HL_REPO/vim/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
+    Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
 endif
 " }}}
 
@@ -298,7 +299,6 @@ call plug#end()
 " Plug 'dstein64/vim-startuptime'
 " Plug 'othree/eregex.vim'
 " Plug 'zhimsel/vim-stay'         " 恢复之前的光标折叠等
-" Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
 " Plug 'szw/vim-maximizer'
 " Plug 'rizzatti/dash.vim'
 " Plug 'junegunn/gv.vim'          " browse git log

@@ -507,10 +507,10 @@ if hl#plug_loaded('vim-easymotion')
     map <Space>L            <Plug>(easymotion-bd-jk)
     " nmap <Leader>L          <Plug>(easymotion-overwin-line)
 
-    " nmap <Space>s           <Plug>(easymotion-s)
-    nmap <Space>2s           <Plug>(easymotion-s2)
+    nmap <Space>s           <Plug>(easymotion-s)
+    nmap <Space>2s          <Plug>(easymotion-s2)
     nmap <Space>t           <Plug>(easymotion-t)
-    nmap <Space>2t           <Plug>(easymotion-t2)
+    nmap <Space>2t          <Plug>(easymotion-t2)
 
     nmap <Space>p          <Plug>(easymotion-prev)
     nmap <Space>n          <Plug>(easymotion-next)

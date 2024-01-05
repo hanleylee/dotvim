@@ -226,8 +226,8 @@ if hl#plug_loaded('vim-floaterm')
     " nnoremap <silent><Leader>te    :FloatermLast<CR>
     " tnoremap <silent><Leader>te    <C-\><C-n>:FloatermLast<CR>
 
-    nnoremap <silent><Leader>lf    :FloatermNew lf<CR>
-    nnoremap <silent><C-l>         :FloatermNew lf<CR>
+    nnoremap <silent><Leader>lf    :FloatermNew --opener=edit lf<CR>
+    nnoremap <silent><C-l>         :FloatermNew --opener=edit lf<CR>
     nnoremap <silent><Leader>lg    :FloatermNew lazygit<CR>
 
 endif

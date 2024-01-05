@@ -7,6 +7,7 @@ if !hl#plug_loaded('asynctasks.vim')
     finish
 endif
 
+" let g:asynctasks_term_pos = 'bottom' " 只有 output 为 terminal, 这里的 term_pos 才有用
 let g:asynctasks_term_pos = 'quickfix' " 只有 output 为 terminal, 这里的 term_pos 才有用
 let g:asynctasks_term_reuse = 1
 let g:asynctasks_term_focus = 0

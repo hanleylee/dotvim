@@ -78,7 +78,7 @@ endfunction
 
 func! hl#quickui#show_context(content)
     let content = [
-                \ ["Get D&ocumentation\t\\K", 'call hl#show_documentation()'],
+                \ ["Get D&ocumentation\t\\K", 'call hl#ui#show_documentation()'],
                 \ ["&Peek Definition\t\\qp", 'call quickui#tools#preview_tag("")'],
                 \ ["--", ],
                 \ ["Goto &Definition(Coc)\tgd", "call CocActionAsync('jumpDefinition')"],

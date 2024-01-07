@@ -86,6 +86,17 @@ function! ColorSchemePatch()
         " highlight GitGutterChangeDelete guifg=#e03131 ctermfg=1
     endif
     "}}}
+
+    " vim-easymotion {{{
+    if hl#plug_loaded('vim-easymotion')
+        highlight link EasyMotionTarget WarningMsg
+        highlight link EasyMotionShade Comment
+        highlight link EasyMotionTarget2First WarningMsg
+        highlight link EasyMotionTarget2Second WarningMsg
+        highlight link EasyMotionMoveHL WarningMsg
+        highlight link EasyMotionIncSearch WarningMsg
+    endif
+    " }}}
     if s:colorscheme == 'onedark'
         call hl#onedark#patch()
     elseif s:colorscheme == 'gruvbox'

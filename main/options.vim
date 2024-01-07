@@ -14,7 +14,7 @@ if has('nvim')
 else
     " 设置 viminfo, 必须放在 nocompatible 之后
     " 同时 viminfo 的默认位置是 ~/.viminfo, 这里为它赋予不同路径用来防止在 vim -u NONE 时原有的数据被覆盖
-    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,r/private/var,r/Volumes,s10,n~/.vim/.viminfo
+    set viminfo='1000,f1,<100,:100,@100,/100,h,r/private/tmp,r/private/var,r/Applications,r/Volumes,s10,n~/.vim/.viminfo
 endif
 
 filetype plugin indent on " 开启插件功能,必选
@@ -108,6 +108,7 @@ set updatetime=200 " 如果在此时间内没有操作, 则会在磁盘上写入
 " set autochdir " 自动将当前编辑文件的路径变为工作目录(比如用于 args 批量操作)
 " set autowriteall " 类似 autowrite, 但是在文件关闭, 切换等场景上会自动触发保存, 本项设置后相当于开启了 autowrite
 let filetype_m='objc'
+let filetype_mm='objcpp'
 " let filetype_mm='objc'
 "}}}
 

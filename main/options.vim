@@ -201,6 +201,7 @@ try
 catch /^Vim\%((\a\+)\)\=:E474/
 endtry
 set wildmenu " 输入部分命令按下 tab 键可以弹出符合的命令列表
+set wildoptions=pum
 set wildmode=full
 set showcmd " 右下角显示正在操作的命令
 " set cmdheight=2

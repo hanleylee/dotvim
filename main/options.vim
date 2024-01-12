@@ -225,7 +225,7 @@ endif
 set cursorline " 突出光标所在行, 开启后速度变慢
 " set cursorcolumn " 突出光标所在列, 开启后速度变慢
 set scrolloff=0 " 设置光标距离最顶(底)部的距离不小于 x 行(一旦小于 x 行即触发位于下方的 scrolljump)
-" set smoothscroll " local to window
+set smoothscroll " 避免一行太长超出一屏情况下上下移动光标导致内容不可见
 " set scrolljump=5 " 光标移动到底部时自动向下翻动 5 行
 " set signcolumn=number
 set signcolumn=yes

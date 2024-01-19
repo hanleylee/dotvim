@@ -7,13 +7,16 @@ if !hl#plug_loaded('vim-autoformat')
     finish
 endif
 
+" MARK: Config {{{
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 1
 let g:autoformat_remove_trailing_spaces = 1
 let g:autoformat_verbosemode=1
+" }}}
 
-" let g:formatdef_hl_c='"clang-format -style=\"{BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, PointerAlignment: Right, ColumnLimit: 150, SpacesBeforeTrailingComments: 1}\""' "指定格式化的方式, 使用配置参数
-let g:formatdef_hl_c='"clang-format -style=file:$HOME/.clang-format"' "指定格式化的文件, 从项目路径依次向上查找
+" MARK: Declare Formatter {{{
+" let g:formatdef_hl_clang='"clang-format -style=\"{BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, PointerAlignment: Right, ColumnLimit: 150, SpacesBeforeTrailingComments: 1}\""' "指定格式化的方式, 使用配置参数
+let g:formatdef_hl_clang='"clang-format -style=file:$HOME/.clang-format"' "指定格式化的文件, 从项目路径依次向上查找
 let g:formatdef_hl_shfmt='"shfmt -i=4"'
 let g:formatdef_hl_js_beautify='"js-beautify --config ~/.config/js-beautify/.jsbeautifyrc"'
 let g:formatdef_hl_html_beautify='"html-beautify --config ~/.config/js-beautify/.jsbeautifyrc"'
@@ -32,11 +35,13 @@ let g:formatdef_hl_rubocop = "'rubocop --auto-correct -o /dev/null -s '.bufname(
 let g:formatdef_hl_dartfmt = '"dart format"'
 let g:formatdef_hl_perltidy = '"perltidy"'
 let g:formatdef_hl_latexindent = '"latexindent"'
+" }}}
 
-let g:formatters_c = ['hl_c']
-let g:formatters_cpp = ['hl_c']
-let g:formatters_objc = ['hl_c']
-let g:formatters_objcpp = ['hl_c']
+" MARK: Declare Language {{{
+let g:formatters_c = ['hl_clang']
+let g:formatters_cpp = ['hl_clang']
+let g:formatters_objc = ['hl_clang']
+let g:formatters_objcpp = ['hl_clang']
 let g:formatters_json = ['hl_jq']
 let g:formatters_jsonc = ['hl_jq']
 let g:formatters_javascript = ['hl_prettier']
@@ -61,3 +66,4 @@ let g:formatters_perl = ['hl_perltidy']
 let g:formatters_latex = ['hl_latexindent']
 
 let g:formatters_markdown = ['']
+" }}}

@@ -240,8 +240,8 @@ if hl#plug_loaded('vim-quickui')
     vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection())<cr>
     nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
     vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection())<cr>
-    nnoremap <silent>K                   :call hl#quickui#show_context(expand("<cword>"))<CR>
-    vnoremap <silent>K                   :<C-u>call hl#quickui#show_context(hl#text#visual_selection())<CR>
+    nnoremap <silent><Leader>K           :call hl#quickui#show_context(expand("<cword>"))<CR>
+    vnoremap <silent><Leader>K           :<C-u>call hl#quickui#show_context(hl#text#visual_selection())<CR>
 endif
 "}}}
 
@@ -378,7 +378,7 @@ if hl#plug_loaded('coc.nvim')
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(0) : "\<C-n>"
     inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(0) : "\<C-p>"
-    nnoremap <silent><Leader>K  :call hl#ui#show_documentation()<CR>
+    nnoremap <silent>K          :call hl#ui#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
     nmap <silent>gy             <Plug>(coc-type-definition)
     nmap <silent>gi             <Plug>(coc-implementation)

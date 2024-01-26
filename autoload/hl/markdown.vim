@@ -78,7 +78,7 @@ function! hl#markdown#format() range
     " let regex_list = add(regex_list, '/(\zs\s`/`/g')
 
     " 3. 清除标点前的空格
-    let regex_list = add(regex_list, '/\(\S\)\s\+\([:;,.\])]\)/\1\2/g')
+    " let regex_list = add(regex_list, '/\(\S\)\s\+\([:;,.\])]\)/\1\2/g')
 
     " 4. 清除某些标点后(如 '(' '[' )的空格
     " let regex_list = add(regex_list, '/\([(\[]\)\s\+/\1/g')

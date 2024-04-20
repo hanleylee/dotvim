@@ -213,6 +213,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'tomtom/tlib_vim'
 else
     Plug 'skywind3000/vim-auto-popmenu'
+    Plug 'skywind3000/vim-gpt-commit'
 endif
 " }}}
 

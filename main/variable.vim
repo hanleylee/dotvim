@@ -23,6 +23,8 @@ let g:is_work = match(hostname(), 'work') != -1
 let g:is_home = match(hostname(), 'home') != -1
 let g:is_hanley = match(hostname(), 'hanley') != -1
 
+let g:SECRET_CONFIG = json_decode(join(readfile(expand('$HL_SECRET/config.json')), ''))
+
 let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'
             \ ]

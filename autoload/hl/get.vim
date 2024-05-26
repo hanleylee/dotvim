@@ -25,15 +25,6 @@ function! hl#get#iso_time(timestamp) abort
     return strftime('%Y-%m-%d %H:%M:%S%z')
 endfunction
 
-function! hl#get#GitBranch()
-    let l:res = systemlist('git rev-parse --abbrev-ref HEAD')[0]
-    if match(l:res, 'fatal') != -1
-        return ''
-    else
-        return l:res
-    endif
-endfunction
-
 " 获取可读的文件大小
 function hl#get#readble_fsize(file)
     let size = getfsize(a:file)
@@ -62,3 +53,12 @@ func hl#get#current_syntax()
     let current_syntax = synIDattr(synIDtrans(synID(line("."), col("$")-1, 1)), "name")
     return current_syntax
 endfunction
+
+let s:secret_config = ''
+func hl#get#secret_config()
+    if empty(s:secret_config)
+        let s:secret_config = json_decode(join(readfile(expand('$HL_SECRET/config.json')), ''))
+    endif
+    return s:secret_config
+endfunction
+

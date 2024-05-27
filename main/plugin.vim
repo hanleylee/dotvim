@@ -110,6 +110,8 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'compnerd/arm64asm-vim'        " for arm64
     Plug 'HerringtonDarkholme/yats.vim' " for ts
     Plug 'guns/vim-sexp'
+    Plug 'martinda/Jenkinsfile-vim-syntax' " for Jenkinsfile
+    Plug 'thecodesmith/vim-groovy'      " for groovy
     " Plug 'peterhoeg/vim-qml'
     Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}
     Plug 'hanleylee/vim-taskpaper' , {'dir': '$HL_REPO/vim/vim-taskpaper'}

@@ -15,8 +15,8 @@ let g:floaterm_width = 0.9
 let g:floaterm_height = 0.8
 let g:floaterm_borderchars = '─│─│┌┐┘└'
 let g:floaterm_rootmarkers = g:hl_rootmarkers
-" let g:floaterm_opener = 'tabe'
-let g:floaterm_opener = 'edit'
+let g:floaterm_opener = 'tabe' " opener can be configured by command 'FloatermNew --opener=tabe lf'
+" let g:floaterm_opener = 'edit'
 let g:floaterm_autoclose = 1
 let g:floaterm_autohide = 1
 let g:floaterm_autoinsert = v:true

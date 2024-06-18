@@ -77,7 +77,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'tpope/vim-unimpaired'     " useful keymaps
     Plug 'tpope/vim-fugitive'       " git operation
     Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
-    Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
+    " Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
@@ -162,7 +162,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    Plug 'hanleylee/vim-t2s' " , {'dir': '$HL_REPO/vim/vim-t2s'}
+    Plug 'hanleylee/vim-t2s', { 'on': ['T2S', 'S2T'] } " , {'dir': '$HL_REPO/vim/vim-t2s'}
     Plug 'hanleylee/vim-cocoapods' " , {'dir': '$HL_REPO/vim/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'

@@ -57,7 +57,10 @@ endfunction
 let s:secret_config = ''
 func hl#get#secret_config()
     if empty(s:secret_config)
-        let s:secret_config = json_decode(join(readfile(expand('$HL_SECRET/config.json')), ''))
+        let file = expand('$HL_SECRET/config.json')
+        if filereadable(file)
+            let s:secret_config = json_decode(join(readfile(expand('$HL_SECRET/config.json')), ''))
+        endif
     endif
     return s:secret_config
 endfunction

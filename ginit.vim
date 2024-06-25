@@ -46,6 +46,8 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     set transparency=0
     " 释放 <D-t>
     macm File.New\ Tab key=<nop>
+    macm Edit.Font.Bigger key=<nop>
+    macm Edit.Font.Smaller key=<nop>
     "     let macvim_skip_cmd_opt_movement = 1
     "   " This removes the Cmd-P binding from 'Print':
     "   macmenu &File.Print key=<nop>

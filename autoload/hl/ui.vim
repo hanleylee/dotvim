@@ -112,3 +112,41 @@ function hl#ui#clean_bufs()
   endfor
 endfunction
 
+function! hl#ui#UpdateGuiFontSize(type)
+    let l:current_font = &guifont
+    let l:current_size = matchstr(l:current_font, ':h\zs\d\+')
+    " 如果找不到字体大小, 设置默认值为16
+    if l:current_size == ''
+        let l:current_size = 16
+    else
+        let l:current_size = str2nr(l:current_size)
+    endif
+
+    let l:new_size = a:type == 'up' ? l:current_size + 1 : l:current_size - 1
+    let l:new_font = substitute(l:current_font, ':h\d\+', ':h' . l:new_size, '')
+
+    exec 'set guifont=' . fnameescape(l:new_font)
+endfunction
+
+function! hl#ui#UpdateGuiFontWideSize(type)
+    let l:current_font = &guifontwide
+    let l:current_size = matchstr(l:current_font, ':h\zs\d\+')
+    " 如果找不到字体大小, 设置默认值为16
+    if l:current_size == ''
+        let l:current_size = 16
+    else
+        let l:current_size = str2nr(l:current_size)
+    endif
+
+    let l:new_size = a:type == 'up' ? l:current_size + 1 : l:current_size - 1
+    let l:new_font = substitute(l:current_font, ':h\d\+', ':h' . l:new_size, '')
+
+    echom l:new_font
+    exec 'set guifontwide=' . fnameescape(l:new_font)
+endfunction
+
+function! hl#ui#UpdateFontSize(type)
+    call hl#ui#UpdateGuiFontSize(a:type)
+    call hl#ui#UpdateGuiFontWideSize(a:type)
+endfunction
+

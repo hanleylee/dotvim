@@ -1666,6 +1666,11 @@
         //         "buildDirectory": "build"
         //     }
         // },
+        // "swift": {
+        //     // "command": "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp",
+        //     "command": "xcrun --toolchain swift sourcekit-lsp",
+        //     "filetypes": ["swift"]
+        // },
         "efm": {
             "command": "efm-langserver",
             "args": [],

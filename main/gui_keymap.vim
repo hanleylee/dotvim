@@ -89,6 +89,8 @@ noremap  <silent><D-7> :tabn 7<CR>
 noremap  <silent><D-8> :tabn 8<CR>
 noremap  <silent><D-9> :tabn 9<CR>
 noremap  <silent><D-0> :tabn 10<CR>
+nnoremap <silent><D-=> :call hl#ui#UpdateFontSize('up')<CR>
+nnoremap <silent><D--> :call hl#ui#UpdateFontSize('down')<CR>
 
 noremap <silent><D-u> :TestFile<CR>
 

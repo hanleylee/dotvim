@@ -54,6 +54,13 @@ vnoremap <silent><C-j> :silent! call hl#operate#move_line('v', 'down')<CR>
 nnoremap <silent><C-k> :silent! call hl#operate#move_line('n', 'up')<CR>
 vnoremap <silent><C-k> :silent! call hl#operate#move_line('v', 'up')<CR>
 
+if hl#plug_loaded('vim-move')
+    vmap <silent><A-j> <Plug>MoveBlockDown
+    vmap <silent><A-k> <Plug>MoveBlockUp
+    vmap <silent><A-h> <Plug>MoveBlockLeft
+    vmap <silent><A-l> <Plug>MoveBlockRight
+endif
+
 " nnoremap / /\v
 " nnoremap <silent> \d :<C-U>bprevious <bar> bdelete #<CR>
 " nnoremap <expr> oo printf('m`%so<ESC>``', v:count1)

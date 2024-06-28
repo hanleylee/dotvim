@@ -149,6 +149,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
+    Plug 'matze/vim-move'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
@@ -189,11 +190,13 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'   " tool for script expert
     Plug 'tpope/vim-characterize' " enhance ga
-    Plug 'puremourning/vimspector' " for debug
+    " Plug 'puremourning/vimspector' " for debug
+    Plug 'vim-scripts/DrawIt', {'for': 'asciiart'} " for debug
     Plug 'liuchengxu/vista.vim' " display symbols in sidebar on the right
     Plug 'chrisbra/Colorizer' " highlight color for css / html filetype
     Plug 'markonm/traces.vim' " pattern preview for 'substitute', 'global', 'vglobal', 'sort'
     Plug 'alker0/chezmoi.vim' " chezmoi syntax and keymap
+    " Plug 'gyim/vim-boxdraw' 
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行

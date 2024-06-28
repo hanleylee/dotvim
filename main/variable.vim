@@ -53,6 +53,7 @@ let g:filetype_extension_dic = {
             \ 'arc': '.arc',
             \ 'arduino': '.ino',
             \ 'asciidoc': '.asciidoc',
+            \ 'asciiart': '.asciiart',
             \ 'assembly': '.asm',
             \ 'augeas': '.aug',
             \ 'autohotkey': '.ahk',

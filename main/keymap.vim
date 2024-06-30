@@ -53,6 +53,8 @@ nnoremap <silent><C-j> :silent! call hl#operate#move_line('n', 'down')<CR>
 vnoremap <silent><C-j> :silent! call hl#operate#move_line('v', 'down')<CR>
 nnoremap <silent><C-k> :silent! call hl#operate#move_line('n', 'up')<CR>
 vnoremap <silent><C-k> :silent! call hl#operate#move_line('v', 'up')<CR>
+" vnoremap <C-j> :m '>+1<CR>gv=gv
+" vnoremap <C-k> :m '<-2<CR>gv=gv
 
 if hl#plug_loaded('vim-move')
     vmap <silent><A-j> <Plug>MoveBlockDown

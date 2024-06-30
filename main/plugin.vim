@@ -174,7 +174,7 @@ endif
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
 if s:vim_weight >= 3 || g:is_in_gui
     " ============= Completion ===========
-    Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'b4735a634aa397491fd6adcebd7deff501592f62'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Plug 'neoclide/coc.nvim', {'tag': 'v0.0.82', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '968e9a25e32e1cdb362a9894a96e038b3c1be0c9'}
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
@@ -186,17 +186,18 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
 
     " ============== Function ==============
-    Plug 'hanleylee/vim-renamer', " {'dir': '$HL_REPO/vim/vim-renamer'}
+    Plug 'hanleylee/vim-renamer' ", {'dir': '$HL_REPO/vim/vim-renamer'}
+    Plug 'hanleylee/vim-asciiart' ", {'dir': '$HL_REPO/vim/vim-asciiart'}
+    " Plug 'vim-scripts/DrawIt', {'for': 'asciiart'} " for debug
+    " Plug 'gyim/vim-boxdraw' 
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'   " tool for script expert
     Plug 'tpope/vim-characterize' " enhance ga
     " Plug 'puremourning/vimspector' " for debug
-    Plug 'vim-scripts/DrawIt', {'for': 'asciiart'} " for debug
     Plug 'liuchengxu/vista.vim' " display symbols in sidebar on the right
     Plug 'chrisbra/Colorizer' " highlight color for css / html filetype
     Plug 'markonm/traces.vim' " pattern preview for 'substitute', 'global', 'vglobal', 'sort'
     Plug 'alker0/chezmoi.vim' " chezmoi syntax and keymap
-    " Plug 'gyim/vim-boxdraw' 
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行

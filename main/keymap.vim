@@ -48,17 +48,16 @@ nnoremap Y y$
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" 上下移动文字
-nnoremap <silent><C-j> :silent! call hl#operate#move_line('n', 'down')<CR>
-vnoremap <silent><C-j> :silent! call hl#operate#move_line('v', 'down')<CR>
-nnoremap <silent><C-k> :silent! call hl#operate#move_line('n', 'up')<CR>
-vnoremap <silent><C-k> :silent! call hl#operate#move_line('v', 'up')<CR>
-" vnoremap <C-j> :m '>+1<CR>gv=gv
-" vnoremap <C-k> :m '<-2<CR>gv=gv
-
-if hl#plug_loaded('vim-move')
-    vmap <silent><A-j> <Plug>MoveBlockDown
+if hl#plug_loaded('vim-blockmove')
+    " 上下移动文字
+    " vnoremap <C-j> :m '>+1<CR>gv=gv
+    " vnoremap <C-k> :m '<-2<CR>gv=gv
+    nmap <C-k> <Plug>MoveLineUp
+    vmap <C-k> <Plug>MoveLineUp
+    nmap <C-j> <Plug>MoveLineDown
+    vmap <C-j> <Plug>MoveLineDown
     vmap <silent><A-k> <Plug>MoveBlockUp
+    vmap <silent><A-j> <Plug>MoveBlockDown
     vmap <silent><A-h> <Plug>MoveBlockLeft
     vmap <silent><A-l> <Plug>MoveBlockRight
 endif

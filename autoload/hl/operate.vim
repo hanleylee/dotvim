@@ -8,7 +8,7 @@ function! hl#operate#enter()
     " if pumvisible()
     if coc#pum#visible()
         return coc#pum#confirm()
-        " return "\<C-y>"
+    " return "\<C-y>"
     elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
         return "\<C-g>u\<CR>\<Esc>O"
     else
@@ -73,34 +73,6 @@ function! hl#operate#revert_merge_line()
 
     call setline(current_line_number, final_content)
     call deletebufline(current_buffer_number, next_line_number)
-endfunction
-
-function! hl#operate#move_line(mode, direction) range
-    let move_count = 0
-    if v:count != 0
-        let move_count = v:count - 1
-    endif
-    if a:mode ==# 'v'
-        if a:direction == 'up'
-            let dest_line = a:firstline - move_count - 2
-        else
-            let dest_line = a:lastline + move_count + 1
-        endif
-    else
-        let base_line = a:firstline
-        if a:direction == 'up'
-            let dest_line = a:firstline - move_count - 2
-        else
-            let dest_line = a:firstline + move_count + 1
-        endif
-    endif
-
-    " :5,7m 21
-    execute a:firstline . ',' . a:lastline . 'm' . dest_line
-
-    if a:mode ==# 'v'
-        normal! gv
-    endif
 endfunction
 
 " paste copied block(already stored in register) to the end of current area

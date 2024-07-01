@@ -149,7 +149,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
-    Plug 'matze/vim-move'
+    Plug 'hanleylee/vim-blockmove' " , {'dir': '$HL_REPO/vim/vim-blockmove'}
+    " Plug 'matze/vim-move'
     " Plug 'atweiden/vim-dragvisuals'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法

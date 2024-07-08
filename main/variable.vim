@@ -5,6 +5,7 @@
 
 " let $VIM_CONFIG=expand('$HOME/.vim')
 let $HKMS=expand('$HOME/repo/hkms')
+let $HANLEY_VIMS=expand('$HOME/.vim/hanleylee')
 let g:snips_author = 'Hanley Lee'
 let g:hl_rootmarkers = split($ROOTMARKERS_STR, ' ')
 

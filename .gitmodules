@@ -1,0 +1,33 @@
+[submodule "hanleylee/coc-gitcomp"]
+	path = hanleylee/coc-gitcomp
+	url = /Users/hanley/.vim/hanleylee/coc-gitcomp
+[submodule "hanleylee/vim-alternate"]
+	path = hanleylee/vim-alternate
+	url = /Users/hanley/.vim/hanleylee/vim-alternate
+[submodule "hanleylee/vim-asciiart"]
+	path = hanleylee/vim-asciiart
+	url = /Users/hanley/.vim/hanleylee/vim-asciiart
+[submodule "hanleylee/vim-blockmove"]
+	path = hanleylee/vim-blockmove
+	url = /Users/hanley/.vim/hanleylee/vim-blockmove
+[submodule "hanleylee/vim-cocoapods"]
+	path = hanleylee/vim-cocoapods
+	url = /Users/hanley/.vim/hanleylee/vim-cocoapods
+[submodule "hanleylee/vim-gitignore"]
+	path = hanleylee/vim-gitignore
+	url = /Users/hanley/.vim/hanleylee/vim-gitignore
+[submodule "hanleylee/vim-markdown"]
+	path = hanleylee/vim-markdown
+	url = /Users/hanley/.vim/hanleylee/vim-markdown
+[submodule "hanleylee/vim-renamer"]
+	path = hanleylee/vim-renamer
+	url = /Users/hanley/.vim/hanleylee/vim-renamer
+[submodule "hanleylee/vim-t2s"]
+	path = hanleylee/vim-t2s
+	url = /Users/hanley/.vim/hanleylee/vim-t2s
+[submodule "hanleylee/vim-taskpaper"]
+	path = hanleylee/vim-taskpaper
+	url = /Users/hanley/.vim/hanleylee/vim-taskpaper
+[submodule "hanleylee/vim-togglecursor"]
+	path = hanleylee/vim-togglecursor
+	url = /Users/hanley/.vim/hanleylee/vim-togglecursor

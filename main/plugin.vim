@@ -71,7 +71,7 @@ if s:vim_weight >= 1 || g:is_in_gui
         Plug 'Yggdroot/indentLine'           " 显示缩进线
     endif
     Plug 'andymass/vim-matchup'          " 高亮括号
-    Plug 'hanleylee/vim-togglecursor' ", {'dir': '$HL_REPO/vim/vim-togglecursor'}
+    Plug 'hanleylee/vim-togglecursor', {'dir': '$HANLEY_VIMS/vim-togglecursor'}
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'     " useful keymaps
@@ -81,7 +81,7 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
-    Plug 'hanleylee/vim-alternate' " , {'dir': '$HL_REPO/vim/vim-alternate'}
+    Plug 'hanleylee/vim-alternate', {'dir': '$HANLEY_VIMS/vim-alternate'}
     Plug 'skywind3000/vim-dict'
     if has('terminal')
         Plug 'voldikss/vim-floaterm'
@@ -113,9 +113,9 @@ if s:vim_weight >= 1 || g:is_in_gui
     Plug 'martinda/Jenkinsfile-vim-syntax' " for Jenkinsfile
     Plug 'thecodesmith/vim-groovy'      " for groovy
     " Plug 'peterhoeg/vim-qml'
-    Plug 'hanleylee/vim-gitignore' " , {'dir': '$HL_REPO/vim/vim-gitignore'}
-    Plug 'hanleylee/vim-taskpaper' , {'dir': '$HL_REPO/vim/vim-taskpaper'}
-    Plug 'hanleylee/vim-markdown' " , {'dir': '$HL_REPO/vim/vim-markdown'}
+    Plug 'hanleylee/vim-gitignore', {'dir': '$HANLEY_VIMS/vim-gitignore'}
+    Plug 'hanleylee/vim-taskpaper', {'dir': '$HANLEY_VIMS/vim-taskpaper'}
+    Plug 'hanleylee/vim-markdown', {'dir': '$HANLEY_VIMS/vim-markdown'}
     " Plug 'preservim/vim-markdown'
     " Plug 'tpope/vim-markdown'
 endif
@@ -149,7 +149,7 @@ if s:vim_weight >= 2 || g:is_in_gui
     " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
-    Plug 'hanleylee/vim-blockmove'  , {'dir': '$HL_REPO/vim/vim-blockmove'}
+    Plug 'hanleylee/vim-blockmove'  , {'dir': '$HANLEY_VIMS/vim-blockmove'}
     " Plug 'matze/vim-move'
     " Plug 'atweiden/vim-dragvisuals'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
@@ -165,8 +165,8 @@ if s:vim_weight >= 2 || g:is_in_gui
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    Plug 'hanleylee/vim-t2s', { 'on': ['T2S', 'S2T'] } " , {'dir': '$HL_REPO/vim/vim-t2s'}
-    Plug 'hanleylee/vim-cocoapods' " , {'dir': '$HL_REPO/vim/vim-cocoapods'}
+    Plug 'hanleylee/vim-t2s', { 'on': ['T2S', 'S2T'], 'dir': '$HANLEY_VIMS/vim-t2s'}
+    Plug 'hanleylee/vim-cocoapods', {'dir': '$HANLEY_VIMS/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
@@ -182,14 +182,13 @@ if s:vim_weight >= 3 || g:is_in_gui
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-    " Plug 'hanleylee/coc-gitcomp', {'dir': '$HL_REPO/vim/coc-gitcomp'}
-    Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install'}
+    Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install', 'dir': '$HANLEY_VIMS/coc-gitcomp'}
     Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
 
     " ============== Function ==============
-    Plug 'hanleylee/vim-renamer' ", {'dir': '$HL_REPO/vim/vim-renamer'}
-    Plug 'hanleylee/vim-asciiart' ", {'dir': '$HL_REPO/vim/vim-asciiart'}
+    Plug 'hanleylee/vim-renamer', {'dir': '$HANLEY_VIMS/vim-renamer'}
+    Plug 'hanleylee/vim-asciiart', {'dir': '$HANLEY_VIMS/vim-asciiart'}
     " Plug 'vim-scripts/DrawIt', {'for': 'asciiart'} " for debug
     " Plug 'gyim/vim-boxdraw' 
     Plug 'skywind3000/vim-quickui'

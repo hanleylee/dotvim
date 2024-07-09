@@ -31,3 +31,4 @@
 [submodule "hanleylee/vim-togglecursor"]
 	path = hanleylee/vim-togglecursor
 	url = /Users/hanley/.vim/hanleylee/vim-togglecursor
+; vim:set noexpandtab tabstop=4 shiftwidth=4 tw=150:

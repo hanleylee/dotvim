@@ -1,34 +1,34 @@
 [submodule "hanleylee/coc-gitcomp"]
 	path = hanleylee/coc-gitcomp
-	url = /Users/hanley/.vim/hanleylee/coc-gitcomp
+	url = git@github.com:hanleylee/coc-gitcomp.git
 [submodule "hanleylee/vim-alternate"]
 	path = hanleylee/vim-alternate
-	url = /Users/hanley/.vim/hanleylee/vim-alternate
+	url = git@github.com:hanleylee/vim-alternate.git
 [submodule "hanleylee/vim-asciiart"]
 	path = hanleylee/vim-asciiart
-	url = /Users/hanley/.vim/hanleylee/vim-asciiart
+	url = git@github.com:hanleylee/vim-asciiart.git
 [submodule "hanleylee/vim-blockmove"]
 	path = hanleylee/vim-blockmove
-	url = /Users/hanley/.vim/hanleylee/vim-blockmove
+	url = git@github.com:hanleylee/vim-blockmove.git
 [submodule "hanleylee/vim-cocoapods"]
 	path = hanleylee/vim-cocoapods
-	url = /Users/hanley/.vim/hanleylee/vim-cocoapods
+	url = git@github.com:hanleylee/vim-cocoapods.git
 [submodule "hanleylee/vim-gitignore"]
 	path = hanleylee/vim-gitignore
-	url = /Users/hanley/.vim/hanleylee/vim-gitignore
+	url = git@github.com:hanleylee/vim-gitignore.git
 [submodule "hanleylee/vim-markdown"]
 	path = hanleylee/vim-markdown
-	url = /Users/hanley/.vim/hanleylee/vim-markdown
+	url = git@github.com:hanleylee/vim-markdown.git
 [submodule "hanleylee/vim-renamer"]
 	path = hanleylee/vim-renamer
-	url = /Users/hanley/.vim/hanleylee/vim-renamer
+	url = git@github.com:hanleylee/vim-renamer.git
 [submodule "hanleylee/vim-t2s"]
 	path = hanleylee/vim-t2s
-	url = /Users/hanley/.vim/hanleylee/vim-t2s
+	url = git@github.com:hanleylee/vim-t2s.git
 [submodule "hanleylee/vim-taskpaper"]
 	path = hanleylee/vim-taskpaper
-	url = /Users/hanley/.vim/hanleylee/vim-taskpaper
+	url = git@github.com:hanleylee/vim-taskpaper.git
 [submodule "hanleylee/vim-togglecursor"]
 	path = hanleylee/vim-togglecursor
-	url = /Users/hanley/.vim/hanleylee/vim-togglecursor
+	url = git@github.com:hanleylee/vim-togglecursor.git
 ; vim:set noexpandtab tabstop=4 shiftwidth=4 tw=150:

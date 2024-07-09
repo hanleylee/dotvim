@@ -51,13 +51,13 @@ endif
 " MARK: level v1, only for fast browse {{{
 if s:vim_weight >= 1 || g:is_in_gui
     " ============= File Management =============
-    Plug 'lambdalisue/fern.vim', { 'on': 'Fern' }
-    Plug 'lambdalisue/fern-hijack.vim', { 'on': 'Fern' }
-    Plug 'lambdalisue/nerdfont.vim', { 'on': 'Fern' }
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/fern-hijack.vim'
+    Plug 'lambdalisue/nerdfont.vim'
     Plug 'lambdalisue/glyph-palette.vim'
-    Plug 'lambdalisue/fern-renderer-nerdfont.vim', { 'on': 'Fern' }
-    Plug 'lambdalisue/fern-git-status.vim', { 'on': 'Fern' }
-    Plug 'LumaKernel/fern-mapping-fzf.vim', { 'on': 'Fern' }
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    Plug 'lambdalisue/fern-git-status.vim'
+    Plug 'LumaKernel/fern-mapping-fzf.vim'
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索

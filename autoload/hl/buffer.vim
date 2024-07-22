@@ -51,3 +51,16 @@ function! hl#buffer#frontmostFilePath()
     echoerr 'invalid buffers'
     return 'invalid buffers'
 endfunction
+
+function! hl#buffer#openFileInNewTab(path)
+    execute 'tabnew ' . a:path
+    call hl#buffer#HideCurrentTerm()
+endfunction
+
+function! hl#buffer#HideCurrentTerm()
+  if &buftype ==# 'terminal' && &filetype ==# 'floaterm'
+      execute "FloatermHide"
+  else
+    " Not a terminal buffer, do nothing
+  endif
+endfunction

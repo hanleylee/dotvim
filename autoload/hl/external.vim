@@ -6,7 +6,7 @@
 " 在浏览器中打开当前选择的链接
 function! hl#external#OpenVimPluginHomepage(mode)
     if a:mode ==? 'v' " visual 模式下, 打开选中的文字
-        let selected_text = hl#text#visual_selection()
+        let selected_text = hl#text#visual_selection(visualmode())
     elseif a:mode ==? 'n' " normal 模式下, 打开当前文字
         let selected_text = expand('<cWORD>')
     endif
@@ -49,7 +49,7 @@ endfunction
 function! hl#external#OpenInBrowser(mode)
     let final_url = ''
     if a:mode ==? 'v' " visual 模式下, 打开选中的文字
-        let selected_text = hl#text#visual_selection()
+        let selected_text = hl#text#visual_selection(visualmode())
     elseif a:mode ==? 'n' " normal 模式下, 打开当前文字
         let selected_text = expand('<cfile>')
     endif

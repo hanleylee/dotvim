@@ -165,9 +165,9 @@ endif
 if hl#plug_loaded('vim-quickui')
     " nnoremap <silent><F1>                :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><D-d>          :call hl#quickui#show_dict(expand("<cword>"))<cr>
-    vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection())<cr>
+    vnoremap <silent><D-d>          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection(visualmode()))<cr>
     nnoremap <silent><D-t>          :call hl#quickui#show_translate(expand("<cword>"))<cr>
-    vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection())<cr>
+    vnoremap <silent><D-t>          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection(visualmode()))<cr>
 endif
 
 if hl#plug_loaded('vim-floaterm')

@@ -214,6 +214,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     " ============= Test ==============
     Plug 'vim-test/vim-test'
     Plug 'thinca/vim-themis'
+    Plug 'AndrewRadev/whatif.vim'
 
     " ============= Else ==============
     " Plug 'skanehira/christmas.vim'

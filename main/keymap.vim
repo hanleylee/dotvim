@@ -245,11 +245,11 @@ if hl#plug_loaded('vim-quickui')
     nnoremap <silent><Leader>qp          :call quickui#tools#preview_tag('')<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection())<cr>
+    vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection(visualmode()))<cr>
     nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection())<cr>
+    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection(visualmode()))<cr>
     nnoremap <silent><Leader>K           :call hl#quickui#show_context(expand("<cword>"))<CR>
-    vnoremap <silent><Leader>K           :<C-u>call hl#quickui#show_context(hl#text#visual_selection())<CR>
+    vnoremap <silent><Leader>K           :<C-u>call hl#quickui#show_context(hl#text#visual_selection(visualmode()))<CR>
 endif
 "}}}
 

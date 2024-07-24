@@ -12,19 +12,49 @@
 "     return uri
 " endfunction
 
-" get visual mode selected text
-" Why is this not a built-in Vim script function?!
-function! hl#text#visual_selection()
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
+" " get visual mode selected text
+" " Why is this not a built-in Vim script function?!
+" function! hl#text#visual_selection()
+"     let [line_start, column_start] = getpos("'<")[1:2]
+"     let [line_end, column_end] = getpos("'>")[1:2]
+"     let lines = getline(line_start, line_end)
+"     if len(lines) == 0
+"         return ''
+"     endif
+"     let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+"     let lines[0] = lines[0][column_start - 1:]
+"     return join(lines, "\n")
+" endfunction
+
+"----------------------------------------------------------------------
+" get visual selection: unicode compliance
+"----------------------------------------------------------------------
+function! hl#text#visual_selection(mode)
+    " call with visualmode() as the argument
+    let [line_start, column_start] = [line("'<"), charcol("'<")]
+    let [line_end, column_end]     = [line("'>"), charcol("'>")]
     let lines = getline(line_start, line_end)
-    if len(lines) == 0
+    let inclusive = (&selection == 'inclusive')? 1 : 2
+    if a:mode ==# 'v'
+        " Must trim the end before the start, the beginning will shift left.
+        let lines[-1] = strcharpart(lines[-1], 0, column_end - inclusive + 1)
+        let lines[0] = strcharpart(lines[0], column_start - 1)
+    elseif  a:mode ==# 'V'
+    " Line mode no need to trim start or end
+    elseif  a:mode == "\<c-v>" || a:mode == 'b'
+        " Block mode, trim every line
+        let new_lines = []
+        let i = 0
+        for line in lines
+            let w = column_end - inclusive + 2 - column_start
+            let lines[i] = strcharpart(line, column_start - 1, w)
+            let i = i + 1
+        endfor
+    else
         return ''
     endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
-endfunction
+endfunc
 
 " get visual mode selected text 2
 " alternative to above

@@ -52,12 +52,12 @@ function! hl#buffer#frontmostFilePath()
     return 'invalid buffers'
 endfunction
 
-function! hl#buffer#openFileInNewTab(path)
-    execute 'tabnew ' . a:path
-    call hl#buffer#HideCurrentTerm()
+function! hl#buffer#openFile(open_type, path)
+    call hl#buffer#HideFloaterm()
+    execute a:open_type .  ' ' . a:path
 endfunction
 
-function! hl#buffer#HideCurrentTerm()
+function! hl#buffer#HideFloaterm()
   if &buftype ==# 'terminal' && &filetype ==# 'floaterm'
       execute "FloatermHide"
   else

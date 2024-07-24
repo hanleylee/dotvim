@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+open_type="$1"
+file="$2"
+# echo "hl#buffer#openFile('$open_type', '$file')"
+# mvim --remote-expr "hl#buffer#HideFloaterm()"
+mvim --remote-expr "hl#buffer#openFile('$open_type', '$file')"

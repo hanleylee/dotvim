@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+mvim --remote-expr "hl#buffer#HideFloaterm()"

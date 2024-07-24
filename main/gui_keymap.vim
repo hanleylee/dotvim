@@ -113,6 +113,15 @@ nnoremap <silent><M-d> :call hl#ui#preview_scroll('d')<cr>
 nnoremap <silent><M-k> :call hl#ui#preview_scroll('k')<cr>
 nnoremap <silent><M-j> :call hl#ui#preview_scroll('j')<cr>
 
+noremap <silent><M-K> :call hl#ui#previous_win_scroll(0)<cr>
+noremap <silent><M-J> :call hl#ui#previous_win_scroll(1)<cr>
+" noremap <silent><S-M-[> :call hl#ui#previous_win_scroll(2)<cr>
+" noremap <silent><S-M-]> :call hl#ui#previous_win_scroll(3)<cr>
+noremap <silent><M-{> :call hl#ui#previous_win_scroll(4)<cr>
+noremap <silent><M-}> :call hl#ui#previous_win_scroll(5)<cr>
+noremap <silent><M-U> :call hl#ui#previous_win_scroll(6)<cr>
+noremap <silent><M-D> :call hl#ui#previous_win_scroll(7)<cr>
+
 " quick move bracket to backward
 " nnoremap <expr> <M-B>  hl#operate#move_bracket_to_left()
 " inoremap <expr> <M-B>  hl#operate#move_bracket_to_left()

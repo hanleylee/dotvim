@@ -180,6 +180,7 @@
     "signature.enable": true,
     "signature.hideOnTextChange": true,
     "signature.target": "float",
+    // "signature.target": "echo",
     "signature.floatConfig": {},
     "signature.preferShownAbove": false,
     "signature.triggerSignatureWait": 500,

@@ -59,6 +59,7 @@ let g:coc_global_extensions = [
             \ 'coc-yaml',
             \ 'coc-yank',
             \ 'coc-ci',
+            \ '@yaegassy/coc-marksman',
             \ ]
 
 let g:coc_disable_file_types = []

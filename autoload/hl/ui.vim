@@ -34,33 +34,35 @@ function! hl#ui#preview_scroll(direction)
 endfunction
 
 " 0: up, 1: down, 2:pgup, 3:pgdown, 4: top, 5: bottom
-function! hl#ui#previous_win_scroll(mode)
-    if winnr('$') < 1
+function! hl#ui#previous_win_scroll(direction)
+    let pre_win_nr = winnr('#')
+    if pre_win_nr <= 0
+        echoerr 'Previous window not found!'
         return
     endif
-    noautocmd silent! wincmd p
-    if a:mode == 0
-        exec "normal! \<c-y>"
-    elseif a:mode == 1
-        exec "normal! \<c-e>"
-    elseif a:mode == 2
-        exec "normal! " . winheight('.') . "\<c-y>"
-    elseif a:mode == 3
-        exec "normal! " . winheight('.') . "\<c-e>"
-    elseif a:mode == 4
-        normal! gg
-    elseif a:mode == 5
-        normal! G
-    elseif a:mode ==6
-        exec "normal! \<c-u>"
-    elseif a:mode == 7
-        exec "normal! \<c-d>"
-    elseif a:mode == 8
-        exec "normal! k"
-    elseif a:mode == 9
-        exec "normal! j"
+    let pre_win_id = win_getid(pre_win_nr)
+    if a:direction == 'k'
+        let cmd = "normal! \<c-y>"
+    elseif a:direction == 'j'
+        let cmd = "normal! \<c-e>"
+    elseif a:direction == 'gg'
+        let cmd = "normal! gg"
+    elseif a:direction == 'G'
+        let cmd = "normal! G"
+    elseif a:direction =='u'
+        let cmd = "normal! \<c-u>"
+    elseif a:direction == 'd'
+        let cmd = "normal! \<c-d>"
+    " elseif a:direction == 2
+    "     let cmd = "normal! " . winheight('.') . "\<c-y>"
+    " elseif a:direction == 3
+    "     let cmd = "normal! " . winheight('.') . "\<c-e>"
+    " elseif a:direction == 8
+    "     let cmd = "normal! k"
+    " elseif a:direction == 9
+    "     let cmd = "normal! j"
     endif
-    noautocmd silent! wincmd p
+    call win_execute(pre_win_id, cmd)
 endfunction
 
 " show document{{{

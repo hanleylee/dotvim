@@ -76,19 +76,19 @@ endif
 
 nnoremap <silent><M-h> gT
 nnoremap <silent><M-l> gt
-nnoremap <silent><M-H> :tabm -1<CR>
-nnoremap <silent><M-L> :tabm +1<CR>
+nnoremap <silent><M-H> :tabmove -1<CR>
+nnoremap <silent><M-L> :tabmove +1<CR>
 
-noremap  <silent><D-1> :tabn 1<CR>
-noremap  <silent><D-2> :tabn 2<CR>
-noremap  <silent><D-3> :tabn 3<CR>
-noremap  <silent><D-4> :tabn 4<CR>
-noremap  <silent><D-5> :tabn 5<CR>
-noremap  <silent><D-6> :tabn 6<CR>
-noremap  <silent><D-7> :tabn 7<CR>
-noremap  <silent><D-8> :tabn 8<CR>
-noremap  <silent><D-9> :tabn 9<CR>
-noremap  <silent><D-0> :tabn 10<CR>
+noremap  <silent><D-1> :tabnext 1<CR>
+noremap  <silent><D-2> :tabnext 2<CR>
+noremap  <silent><D-3> :tabnext 3<CR>
+noremap  <silent><D-4> :tabnext 4<CR>
+noremap  <silent><D-5> :tabnext 5<CR>
+noremap  <silent><D-6> :tabnext 6<CR>
+noremap  <silent><D-7> :tabnext 7<CR>
+noremap  <silent><D-8> :tabnext 8<CR>
+noremap  <silent><D-9> :tabnext 9<CR>
+noremap  <silent><D-0> :tabnext 10<CR>
 nnoremap <silent><D-=> :call hl#ui#UpdateFontSize('up')<CR>
 nnoremap <silent><D--> :call hl#ui#UpdateFontSize('down')<CR>
 

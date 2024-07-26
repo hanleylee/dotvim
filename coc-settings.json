@@ -460,6 +460,12 @@
     "markdownlint.onChange": true,
     "markdownlint.config": {},
 
+    // coc-markdown
+    "marksman.enable": true,
+    "marksman.trace.server": "off",
+    "marksman.customCommand": "",
+    "marksman.customCommandDir": "",
+
     // coc-db
     "coc.source.db.enable": true,
     "coc.source.db.shortcut": "DB",

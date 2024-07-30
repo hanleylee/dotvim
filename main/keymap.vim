@@ -48,6 +48,14 @@ nnoremap Y y$
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
+if has('patch-9.1.0375')
+    import autoload 'dist/comment.vim'
+    nnoremap <silent> <expr> gc comment.Toggle()
+    xnoremap <silent> <expr> gc comment.Toggle()
+    nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
+endif
+
+
 if hl#plug_loaded('vim-blockmove')
     " 上下移动文字
     " vnoremap <C-j> :m '>+1<CR>gv=gv

@@ -41,7 +41,12 @@ func s:load_debug_plug(name, load_local, ...)
 endfunction
 
 call plug#begin('$HOME/.vim/plugged')
-let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
+
+if g:is_in_gui
+    let s:vim_weight = 999 " give gui most powerful
+else
+    let s:vim_weight = get(g:, 'vim_weight', '1') " 默认值给1, 当使用 vim 直接进入时就是( vim = v1 )
+endif
 
 " MARK: level v0, load 0 plugin, only basic vim original configuration {{{
 if s:vim_weight >= 0
@@ -49,7 +54,12 @@ endif
 " }}}
 
 " MARK: level v1, only for fast browse {{{
-if s:vim_weight >= 1 || g:is_in_gui
+if s:vim_weight == 1
+    Plug 'skywind3000/vim-auto-popmenu'
+    " Plug 'skywind3000/vim-gpt-commit'
+endif
+
+if s:vim_weight >= 1
     " ============= File Management =============
     Plug 'lambdalisue/fern.vim'
     Plug 'lambdalisue/fern-hijack.vim'
@@ -122,7 +132,7 @@ endif
 " }}}
 
 " MARK: level v2, edit {{{
-if s:vim_weight >= 2 || g:is_in_gui
+if s:vim_weight >= 2
     " ============= Edit ===========
     Plug 'kshenoy/vim-signature'                        " marks 管理插件
     if !g:is_in_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
@@ -174,7 +184,7 @@ endif
 " }}}
 
 " MARK: level3, heaviest, add completion & debugger on previous feature {{{
-if s:vim_weight >= 3 || g:is_in_gui
+if s:vim_weight >= 3
     " ============= Completion ===========
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Plug 'neoclide/coc.nvim', {'tag': 'v0.0.82', 'do': 'yarn install --frozen-lockfile'}
@@ -211,6 +221,7 @@ if s:vim_weight >= 3 || g:is_in_gui
     Plug 'tyru/open-browser-unicode.vim'
     Plug 'tyru/open-browser-github.vim'
     Plug 'tamago324/vim-browsersync' " preview html
+    Plug 'thosakwe/vim-flutter' " execute `run`, `hotreload`, `hotrestart`, etc.
 
     " ============= Test ==============
     Plug 'vim-test/vim-test'
@@ -220,9 +231,6 @@ if s:vim_weight >= 3 || g:is_in_gui
     " ============= Else ==============
     " Plug 'skanehira/christmas.vim'
     " Plug 'tomtom/tlib_vim'
-else
-    Plug 'skywind3000/vim-auto-popmenu'
-    Plug 'skywind3000/vim-gpt-commit'
 endif
 " }}}
 

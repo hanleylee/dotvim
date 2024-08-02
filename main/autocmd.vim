@@ -138,6 +138,26 @@ if hl#plug_loaded('vim-gutentags')
     augroup end
 endif
 
+if hl#plug_loaded('vim-gitgutter')
+    function! DisableGitgutterForLargeFile()
+        let total_line = line('$')
+        let total_column = col('$')
+        let file_size = getfsize(expand('%'))
+
+        if (total_line > g:gitgutter_max_acceptable_line)
+                    \ || (total_column > g:gitgutter_max_acceptable_column)
+                    \ || (file_size> g:gitgutter_max_acceptable_size || file_size == -2)
+            execute 'GitGutterBufferDisable'
+        endif
+    endfunction
+    augroup DisableGitGutterForLargeFile
+        autocmd!
+        " autocmd BufWritePost,BufLeave,WinLeave,VimLeave ?* if hl#util#ShouldMakeView() | mkview | endif
+        " autocmd BufWinEnter ?* if hl#util#ShouldMakeView() | silent loadview | endif
+        autocmd BufReadPost ?* call DisableGitgutterForLargeFile()
+    augroup end
+endif
+
 if hl#plug_loaded('emmet-vim')
     augroup EmmetInstall
         autocmd!

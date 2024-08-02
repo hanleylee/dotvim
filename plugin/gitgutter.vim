@@ -46,3 +46,9 @@ let g:gitgutter_terminal_reports_focus = 1
 "    return printf('+%d ~%d -%d', a, m, r)
 "endfunction
 "set statusline+=%{GitStatus()}
+
+" Custom variable {{{
+let g:gitgutter_max_acceptable_line = 10000
+let g:gitgutter_max_acceptable_column = 10000
+let g:gitgutter_max_acceptable_size = 1024 * 1024 " 单位为 byte, 该处表示 1 MB
+" }}}

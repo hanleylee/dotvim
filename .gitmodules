@@ -22,9 +22,9 @@
 [submodule "hanleylee/vim-renamer"]
 	path = hanleylee/vim-renamer
 	url = git@github.com:hanleylee/vim-renamer.git
-[submodule "hanleylee/vim-t2s"]
-	path = hanleylee/vim-t2s
-	url = git@github.com:hanleylee/vim-t2s.git
+[submodule "hanleylee/vim-stconvert"]
+	path = hanleylee/vim-stconvert
+	url = git@github.com:hanleylee/vim-stconvert.git
 [submodule "hanleylee/vim-taskpaper"]
 	path = hanleylee/vim-taskpaper
 	url = git@github.com:hanleylee/vim-taskpaper.git

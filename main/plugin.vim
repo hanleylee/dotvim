@@ -175,7 +175,7 @@ if s:vim_weight >= 2
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    Plug 'hanleylee/vim-t2s', { 'on': ['T2S', 'S2T'], 'dir': '$HANLEY_VIMS/vim-t2s'}
+    Plug 'hanleylee/vim-t2s', {'dir': '$HANLEY_VIMS/vim-t2s'}
     Plug 'hanleylee/vim-cocoapods', {'dir': '$HANLEY_VIMS/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'

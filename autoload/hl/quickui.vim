@@ -59,12 +59,13 @@ func! hl#quickui#show_dict(word)
         endif
     endfor
     if is_alpha
-        let tool = 'ecdict'
+        let mdx_dictionary = "/Users/hanley/Library/Eudb_en/牛津高阶英汉双解词典.mdx"
     else
-        let tool = 'sdcv'
+        let mdx_dictionary = "/Users/hanley/Library/Eudb_en/现汉7.mdx"
     endif
-    let command = tool . ' ' . a:word
-    let opts = {"close":"button", "title": tool . ' -> ' . a:word}
+    let command = 'mdict -q ' . a:word . ' ' . mdx_dictionary . ' | pandoc -f html -t plain --wrap=auto --columns=150'
+    " let command = tool . ' ' . a:word
+    let opts = {"close":"button", "title": 'mdict -> ' . mdx_dictionary . ' : ' . a:word}
     call quickui#textbox#command(command, opts)
 endfunction
 

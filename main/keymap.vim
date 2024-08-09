@@ -152,6 +152,11 @@ xmap <silent>gx :<C-u>silent call hl#external#OpenInBrowser('v')<cr>
 
 vnoremap ;rv c<C-O>:set revins<CR><C-R>"<Esc>:set norevins<CR>
 
+" vnoremap ik 0o$h
+" onoremap ik :normal vik<cr>
+" vnoremap ak 0o$
+" onoremap ak :normal vak<cr>
+
 if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=% -wait<cr>

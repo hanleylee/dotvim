@@ -76,9 +76,9 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+pxl']
 "如果使用 universal ctags 需要增加下面一行, 老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags'] 
 let g:gutentags_auto_add_gtags_cscope = 0 " 禁用 gutentags 自动加载 gtags 数据库的行为
-let g:gutentags_generate_on_new = 1
-let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_write = 0
 let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_define_advanced_commands = 1
 " let g:gutentags_trace = 1 "将此选项打开, 发生错误后再使用 messages 查看出错的原因

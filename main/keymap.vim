@@ -49,7 +49,7 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 if has('patch-9.1.0375')
-    import autoload 'dist/comment.vim'
+    packadd comment
     nnoremap <silent> <expr> gc comment.Toggle()
     xnoremap <silent> <expr> gc comment.Toggle()
     nnoremap <silent> <expr> gcc comment.Toggle() .. '_'

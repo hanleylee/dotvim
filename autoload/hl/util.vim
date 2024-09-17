@@ -86,3 +86,27 @@ function! hl#util#DeleteView()
     call delete(path)
     echo "Deleted: " . path
 endfunction
+
+let g:lv_restore_last_im = 0
+
+function! hl#util#AutoIM(event)
+	let is_abc = system('is_abc') != ''
+
+	let need_switch_im = 0
+	if a:event == 'leave'
+		if !is_abc
+			let g:lv_restore_last_im = 1
+			let need_switch_im = 1
+		else
+			let g:lv_restore_last_im = 0
+		end
+	else " a:event == 'enter'
+		if is_abc && g:lv_restore_last_im
+			let need_switch_im = 1
+		end
+	end
+
+	if need_switch_im 
+		silent !simulate_ctrl_space
+	end
+endfunction

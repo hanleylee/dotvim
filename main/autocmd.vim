@@ -84,6 +84,13 @@ augroup AutoSaveRestoreView
     autocmd BufReadPost ?* if hl#util#ShouldMakeView() | silent loadview | endif
 augroup end
 
+if v:false " use xkbswitch plugin
+    augroup AutoIM
+        autocmd!
+        autocmd InsertEnter * call hl#util#AutoIM("enter")
+        autocmd InsertLeave * call hl#util#AutoIM("leave")
+    augroup end
+endif
 
 if hl#plug_loaded('vim-quickui')
     augroup QuickUIPreview

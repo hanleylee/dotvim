@@ -150,10 +150,8 @@ if hl#plug_loaded('fzf.vim')
     nnoremap <M-m>       :FM<CR>
 endif
 
-if hl#plug_loaded('vim-commentary')
-    nmap <D-/> gcc
-    vmap <D-/> gc
-endif
+nmap <D-/> gcc
+vmap <D-/> gc
 
 if hl#plug_loaded('asynctasks.vim')
     noremap <silent><D-r> :<C-u>call hl#async_task('file-build-run')<CR>

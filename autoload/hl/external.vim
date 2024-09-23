@@ -114,23 +114,35 @@ function! hl#external#OpenInBrowser2()
     exec ':silent ! ' . opener . ' "' . escape(URL, '#%!')  . '"'
 endfunction
 
-" open frontmost vim path in mac finder
-func! hl#external#OFD()
-    execute "![ -f \"%:p\" ] && open -R \"%:p\" || open \"%:p:h\""
+" Finder {{{
+func! s:current_finder_directory()
+    let l:path = system("pfd")
+    return l:path
+endfunction
+func! s:current_finder_selected()
+    let l:path = system("pfs")
+    return l:path
 endfunction
 
-" change to the explorer interface of current path of mac finder
-func! hl#external#CDF()
-    let l:path = system("osascript -e 'tell application \"Finder\" to POSIX path of (target of window 1 as alias)'")
-    " let l:final_path = substitute(l:path, '[\x0]', '', 'g')
-    exec 'e '. l:path
+" interact with Finder
+func! hl#external#interact_finder(type)
+    if a:type == 'cd' " change vim's directory to the current directory of Finder 
+        exec 'cd '. s:current_finder_directory()
+    elseif a:type == 'edit' " edit current Finder's selected file(or directory) in vim
+        exec 'edit '. s:current_finder_selected()
+    elseif a:type == 'open' " open current vim's file in Finder app
+        exec "![ -f \"%:p\" ] && open -R \"%:p\" || open \"%:p:h\""
+    else
+        echoerr "unknown type " . a:type
+    endif
 endfunction
+" }}}
 
 " change to the explorer interface of current path of iterm2
-func! hl#external#CDIT()
-    let l:path = system("pfit")
-    exec 'e '. l:path
-endfunction
+" func! hl#external#CDIT()
+"     let l:path = system("pfit")
+"     exec 'edit '. l:path
+" endfunction
 
 " change to the explorer interface of current path of Xcode
 func! hl#external#MVXC()

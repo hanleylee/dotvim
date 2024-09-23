@@ -18,9 +18,13 @@
 " <sfile>: filename of sourced file when used with command ':source'
 
 " For File Manipulate {{{
-command! CDF silent call hl#external#CDF()
-command! OFD silent call hl#external#OFD()
-command! CDIT silent call hl#external#CDIT()
+command! MVXC silent call hl#external#MVXC()
+" Finder {{{
+command! MVFD silent call hl#external#interact_finder('edit')
+command! CDFD  silent call hl#external#interact_finder('cd')
+command! OFD silent call hl#external#interact_finder('open')
+" }}}
+" command! CDIT silent call hl#external#CDIT()
 command! -nargs=0 OpenInBrowser silent call hl#external#OpenInBrowser()
 command! ChezmoiApply !chezmoi apply --source-path "%"
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
@@ -57,10 +61,6 @@ command! -nargs=+ -complete=command Redir silent call hl#external#Redir(<q-args>
 command! -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
 command! CenterFull call hl#ui#center_full()
 command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
-" }}}
-
-" iOS {{{
-command! MVXC silent call hl#external#MVXC()
 " }}}
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')

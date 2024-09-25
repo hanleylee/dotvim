@@ -11,7 +11,7 @@ endif
 let g:barbaric_ime = 'macos'
 
 " The input method for Normal mode (as defined by `xkbswitch -g`, `ibus engine`, or `xkb-switch -p`)
-let g:barbaric_default = 2
+let g:barbaric_default = 0
 
 " The scope where alternate input methods persist (buffer, window, tab, global)
 let g:barbaric_scope = 'buffer'

@@ -21,8 +21,8 @@
 command! MVXC silent call hl#external#MVXC()
 " Finder {{{
 command! MVFD silent call hl#external#interact_finder('edit')
-command! CDFD  silent call hl#external#interact_finder('cd')
-command! OFD silent call hl#external#interact_finder('open')
+command! CDFD silent call hl#external#interact_finder('cd')
+command! OFD  silent call hl#external#interact_finder('open')
 " }}}
 " command! CDIT silent call hl#external#CDIT()
 command! -nargs=0 OpenInBrowser silent call hl#external#OpenInBrowser()

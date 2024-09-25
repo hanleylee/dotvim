@@ -129,7 +129,7 @@ func! hl#external#interact_finder(type)
     if a:type == 'cd' " change vim's directory to the current directory of Finder 
         exec 'cd '. s:current_finder_directory()
     elseif a:type == 'edit' " edit current Finder's selected file(or directory) in vim
-        exec 'edit '. s:current_finder_selected()
+        exec 'tabnew '. s:current_finder_selected()
     elseif a:type == 'open' " open current vim's file in Finder app
         exec "![ -f \"%:p\" ] && open -R \"%:p\" || open \"%:p:h\""
     else

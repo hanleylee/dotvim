@@ -58,9 +58,9 @@ function! hl#buffer#openFile(open_type, path)
 endfunction
 
 function! hl#buffer#HideFloaterm()
-  if &buftype ==# 'terminal' && &filetype ==# 'floaterm'
-      execute "FloatermHide"
-  else
-    " Not a terminal buffer, do nothing
-  endif
+    if &buftype ==# 'terminal' && &filetype ==# 'floaterm'
+        execute "FloatermHide"
+    else
+        " Not a terminal buffer, do nothing
+    endif
 endfunction

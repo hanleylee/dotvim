@@ -91,6 +91,7 @@ if s:vim_weight >= 1
     Plug 'rhysd/conflict-marker.vim'
     Plug 'skywind3000/vim-preview'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+    Plug 'hanleylee/hlvimlib', {'dir': '$HANLEY_VIMS/hlvimlib'}
     Plug 'hanleylee/vim-alternate', {'dir': '$HANLEY_VIMS/vim-alternate'}
     Plug 'skywind3000/vim-dict'
     if has('terminal')

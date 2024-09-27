@@ -32,3 +32,6 @@
 	path = hanleylee/vim-togglecursor
 	url = git@github.com:hanleylee/vim-togglecursor.git
 ; vim:set noexpandtab tabstop=4 shiftwidth=4 tw=150:
+[submodule "hanleylee/hlvimlib"]
+	path = hanleylee/hlvimlib
+	url = git@github.com:hanleylee/hlvimlib.git

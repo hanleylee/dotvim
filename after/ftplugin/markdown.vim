@@ -9,7 +9,7 @@ command! -nargs=0 -range -buffer MarkdownEditBlock :<line1>,<line2>call hl#markd
 setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0
 " setlocal wrapmargin=20 " used for hard wrap
-setlocal breakat=''
+" setlocal breakat=" ^I!@*-+;:,./?"
 setlocal breakindent
 " setlocal foldmethod=expr
 " setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-

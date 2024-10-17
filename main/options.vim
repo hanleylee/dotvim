@@ -208,7 +208,7 @@ set showcmd " 右下角显示正在操作的命令
 set list " 设置显示行尾, 换行, 制表符等隐藏字符
 set listchars=tab:▸-,eol:↲,trail:-,extends:❯,precedes:❮,nbsp:␣,space:⋅ " 自定义换行, 制表符等显示格式
 set linebreak " Break line at predefined characters
-" set nowrap  " do no wrap
+" set nowrap  " do not wrap
 set showbreak=↪ " Character to show before the lines that have been soft-wrapped
 set laststatus=2 " 必须设置, 否则 lightline 不能正确显示
 set noshowmode " 隐藏vim 的默认提示当前状态信息, eg. 在状态栏下显示'insert', 'replace'等信息

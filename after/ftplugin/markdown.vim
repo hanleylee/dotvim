@@ -10,6 +10,10 @@ setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0
 " setlocal wrapmargin=20 " used for hard wrap
 " setlocal breakat=" ^I!@*-+;:,./?"
+" make vim can break at any unicode character. However, the English words are also broken into two lines, which is also annoying.
+" ref https://github.com/vim/vim/issues/2579#issuecomment-689252035
+" Hoping https://github.com/vim/vim/issues/6911 will be fixed in the future
+setlocal breakat=
 setlocal breakindent
 " setlocal foldmethod=expr
 " setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-

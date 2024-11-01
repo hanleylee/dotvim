@@ -18,9 +18,9 @@ endfunction
 "}}}
 
 " insert map for ctrl-enter{{{
-function! hl#operate#ctrl_enter(keep_comment)
+function! hl#operate#insert_new_line(remove_comment)
     " call coc#pum#close('cancel')
-    if a:keep_comment
+    if a:remove_comment
         if hl#get#current_syntax() ==? 'Comment'
             return "\<CR>\<C-u>"
         else

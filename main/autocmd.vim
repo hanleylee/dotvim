@@ -168,7 +168,7 @@ endif
 if hl#plug_loaded('emmet-vim')
     augroup EmmetInstall
         autocmd!
-        autocmd FileType html,css EmmetInstall
+        autocmd FileType html,css,markdown EmmetInstall
     augroup end
 endif
 

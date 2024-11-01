@@ -195,6 +195,7 @@ if s:vim_weight >= 3
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
     Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install', 'dir': '$HANLEY_VIMS/coc-gitcomp'}
+    " Plug 'github/copilot.vim'
     " Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     " Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'mhinz/vim-lookup'                             " Jump to the definition of variables or functions in VimL code.

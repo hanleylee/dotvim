@@ -31,10 +31,12 @@ nnoremap ge :set operatorfunc=hl#grep_operator<cr>g@
 vnoremap ge :<c-u>call hl#grep_operator(visualmode())<cr>
 nnoremap cd :lcd %:p:h<CR>:echo expand('%:p:h')<CR>
 nnoremap <silent><S-F2> :call hl#sync_task()<CR>
-" 确保没有注释跟随, 且不选中补全
-inoremap <silent><expr> <C-CR> hl#operate#ctrl_enter(0)
-inoremap <silent><expr> <C-M-CR> hl#operate#ctrl_enter(1)
-nnoremap <silent><expr> <C-CR> "o\<C-u>"
+" insert newline, *with* comment prefix
+inoremap <silent><expr> <C-CR> hl#operate#insert_new_line(0)
+" insert newline, *without* comment prefix
+inoremap <silent><expr> <C-M-CR> hl#operate#insert_new_line(1)
+" insert newline but keep cursor still
+inoremap <silent><expr> <M-CR> "\<Esc>O"
 
 " nnoremap <Leader>rp          :call plug#load('')<LEFT><LEFT>
 " nnoremap gx :silent execute "!open " . shellescape("<cWORD>")<CR>

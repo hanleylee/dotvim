@@ -117,9 +117,13 @@ if s:vim_weight >= 1
     Plug 'hail2u/vim-css3-syntax'       " for css
     Plug 'othree/html5.vim'             " for html
     Plug 'pangloss/vim-javascript'      " for javascript
+    Plug 'leafgarland/typescript-vim'   " for typescript
+    Plug 'MaxMEllon/vim-jsx-pretty'     " for working with JSX
+    Plug 'peitalin/vim-jsx-typescript'  " for working with TSX
     Plug 'arzg/vim-rust-syntax-ext'     " for rust
     Plug 'compnerd/arm64asm-vim'        " for arm64
-    Plug 'HerringtonDarkholme/yats.vim' " for ts
+    " Plug 'HerringtonDarkholme/yats.vim' " for ts
+    Plug 'jparise/vim-graphql'          " for graphql
     Plug 'guns/vim-sexp'
     Plug 'martinda/Jenkinsfile-vim-syntax' " for Jenkinsfile
     Plug 'thecodesmith/vim-groovy'      " for groovy

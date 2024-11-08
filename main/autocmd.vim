@@ -32,6 +32,12 @@ augroup ReadPost1
     au BufWinEnter * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
 augroup END
 
+augroup JSHighlight
+    autocmd!
+    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+augroup END
+
 " vim -b : edit binary using xxd-format!
 augroup Binary
     autocmd!

@@ -186,6 +186,8 @@ if s:vim_weight >= 2
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
+    Plug 'editorconfig/editorconfig-vim'
+    " packadd! editorconfig
 endif
 " }}}
 
@@ -332,4 +334,5 @@ call plug#end()
 " Plug 'rhysd/vim-grammarous' " GrammarousCheck
 " Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
 " Plug 'Chandlercjy/vim-markdown-edit-code-block'              " 可以在 markdown 内编写代码片段
+" Plug 'girishji/vimsuggest'
 "}}}

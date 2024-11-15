@@ -51,7 +51,7 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 if has('patch-9.1.0375')
-    packadd comment
+    packadd! comment
     nnoremap <silent> <expr> gc comment.Toggle()
     xnoremap <silent> <expr> gc comment.Toggle()
     nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
@@ -119,7 +119,7 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<CR>
 
-" Emac like map in insert mode & command line mode
+" Emacs like map in insert mode & command line mode
 inoremap <C-e>    <End>
 cnoremap <C-e>    <End>
 inoremap <C-a>    <Home>
@@ -128,6 +128,10 @@ inoremap <C-f>    <Right>
 cnoremap <C-f>    <Right>
 inoremap <C-b>    <Left>
 cnoremap <C-b>    <Left>
+inoremap <C-p>    <Up>
+cnoremap <C-p>    <Up>
+inoremap <C-n>    <Down>
+cnoremap <C-n>    <Down>
 "}}}
 
 " replace vim's built-in visual * and # behavior {{{
@@ -400,8 +404,8 @@ if hl#plug_loaded('coc.nvim')
     inoremap <silent><expr> <CR> hl#operate#enter()
     " inoremap <silent><expr> <CR> "\<C-y>"
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-    inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(0) : "\<C-n>"
-    inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(0) : "\<C-p>"
+    inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(0) : "\<Down>"
+    inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(0) : "\<Up>"
     nnoremap <silent>K          :call hl#ui#show_documentation()<CR>
     nmap <silent>gd             <Plug>(coc-definition)
     nmap <silent>gy             <Plug>(coc-type-definition)

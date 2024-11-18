@@ -37,7 +37,7 @@ function! hl#grep_operator(type)
 endfunction
 
 " 异步执行任务
-function! hl#async_task(mode)
+function! hl#async_file_run()
     let full_pathname = hl#fs#getFullPathName()
     let repo_filename = FindRootDirectory()
     let just_filename = hl#fs#getOnlyFileName()
@@ -47,8 +47,10 @@ function! hl#async_task(mode)
         silent update | execute 'CocCommand flutter.run --no-sound-null-safety'
     elseif &filetype ==? 'vim'
         silent update | source %
+    elseif index(['html', 'xhtml', 'markdown', 'plantuml'], &filetype) != -1
+        silent update | execute 'AsyncTask file-run-outside'
     else
-        silent update | execute 'AsyncTask ' . a:mode
+        silent update | execute 'AsyncTask file-run-inside'
     endif
 endfunction
 

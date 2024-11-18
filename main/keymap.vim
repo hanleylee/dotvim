@@ -340,10 +340,10 @@ endif
 " asynctasks.vim {{{
 if hl#plug_loaded('asynctasks.vim')
     " nnoremap <silent><F2> :AsyncTask! file-build-run<CR>
-    nnoremap <silent><F2> :call hl#async_task('file-build-run')<CR>
-    nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
-    nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
-    nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
+    nnoremap <silent><F2> :call hl#async_file_run()<CR>
+    " nnoremap <silent><F6> :call hl#async_task('project-build-run')<CR>
+    " nnoremap <silent><F7> :call hl#async_task('project-build')<CR>
+    " nnoremap <silent><F8> :call hl#async_task('project-run')<CR>
 endif
 "}}}
 

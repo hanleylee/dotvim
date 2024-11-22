@@ -53,7 +53,8 @@ endfunction
 
 func! hl#quickui#show_dict(word)
     let is_alpha = v:true
-    for char in split(a:word, '\zs')
+    let l:word = tolower(a:word)
+    for char in split(l:word, '\zs')
         if char2nr(char) > 127
             let is_alpha = v:false
         endif
@@ -63,9 +64,9 @@ func! hl#quickui#show_dict(word)
     else
         let mdx_dictionary = "/Users/hanley/Library/Eudb_en/现汉7.mdx"
     endif
-    let command = 'mdict -q ' . a:word . ' ' . mdx_dictionary . ' | pandoc -f html -t plain --wrap=auto --columns=150'
+    let command = 'mdict -q ' . l:word . ' ' . mdx_dictionary . ' | pandoc -f html -t plain --wrap=auto --columns=150'
     " let command = tool . ' ' . a:word
-    let opts = {"close":"button", "title": 'mdict -> ' . mdx_dictionary . ' : ' . a:word}
+    let opts = {"close":"button", "title": 'mdict -> ' . mdx_dictionary . ' : ' . l:word}
     call quickui#textbox#command(command, opts)
 endfunction
 

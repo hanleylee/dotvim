@@ -87,6 +87,22 @@ function! hl#util#DeleteView()
     echo "Deleted: " . path
 endfunction
 
+function! hl#util#SearchMatchCount()
+    " 获取当前搜索模式
+    let l:pattern = @/
+    " 如果搜索模式为空，返回空字符串
+    if empty(l:pattern)
+        return ''
+    endif
+
+    let l:search_res = searchcount({'maxcount': 0})
+    let l:current = l:search_res.current
+    let l:total = l:search_res.total
+
+    " 返回匹配数
+    echo l:current . '/' . l:total
+endfunction
+
 let g:lv_restore_last_im = 0
 
 function! hl#util#AutoIM(event)

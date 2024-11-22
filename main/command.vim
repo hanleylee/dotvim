@@ -36,6 +36,7 @@ command! -nargs=1 -complete=file NewTemplate call hl#NewTemplate(<q-args>)
 command! Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
 " # Command Delview (and it's abbreviation 'delview')
 command! DelView call hl#util#DeleteView()
+command! MatchCount call hl#util#SearchMatchCount()
 " Lower-case user commands: http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delview')<CR>
 "}}}

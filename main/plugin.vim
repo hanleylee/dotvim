@@ -186,7 +186,7 @@ if s:vim_weight >= 2
     Plug 'mattn/emmet-vim'
     Plug 'romainl/vim-qf'
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
-    Plug 'editorconfig/editorconfig-vim'
+    " Plug 'editorconfig/editorconfig-vim'
     " packadd! editorconfig
 endif
 " }}}

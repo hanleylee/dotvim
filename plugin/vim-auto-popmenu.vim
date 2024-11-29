@@ -9,6 +9,7 @@ endif
 
 let g:apc_enable_ft = {'*': 1}
 " let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+let g:apc_cr_confirm = 1 " type <CR> to use the current keyword
 " source for dictionary, current or other loaded buffers, see ':help cpt'
 set complete=.,k,w,b
 " don't select the first item.

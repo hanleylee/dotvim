@@ -169,7 +169,7 @@ if s:vim_weight >= 2
     " Plug 'atweiden/vim-dragvisuals'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     " Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
-    Plug 'rlue/vim-barbaric'
+    " Plug 'rlue/vim-barbaric'
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
     Plug 'mg979/vim-visual-multi'                       " 多选

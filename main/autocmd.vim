@@ -16,19 +16,6 @@ augroup Enter
     au VimEnter * if g:is_in_gui | cd $HKMS | endif
 augroup END
 "}}}
-augroup InputMethod
-    autocmd!
-    " 退出插入模式时切换到英文输入法
-    autocmd InsertLeave *
-                \ let b:pre_insert_im = system('xkbswitch -g')
-                \ | silent call system('xkbswitch -se ABC')
-    " 恢复插入模式前的输入法
-    autocmd InsertEnter *
-                \ if exists('b:pre_insert_im')
-                \ | silent call system('xkbswitch -s ' . b:pre_insert_im)
-                \ | endif
-augroup END
-
 augroup BufEnter1
     autocmd!
     if hl#plug_loaded('nerdtree')
@@ -102,7 +89,7 @@ augroup AutoSaveRestoreView
     autocmd BufReadPost ?* if hl#util#ShouldMakeView() | silent loadview | endif
 augroup end
 
-if v:false " use xkbswitch plugin
+if g:enable_auto_im
     augroup AutoIM
         autocmd!
         autocmd InsertEnter * call hl#util#AutoIM("enter")

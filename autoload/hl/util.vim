@@ -103,26 +103,22 @@ function! hl#util#SearchMatchCount()
     echo l:current . '/' . l:total
 endfunction
 
-let g:lv_restore_last_im = 0
-
 function! hl#util#AutoIM(event)
-	let is_abc = system('is_abc') != ''
+    let is_abc = system('is_abc') != ''
 
-	let need_switch_im = 0
-	if a:event == 'leave'
-		if !is_abc
-			let g:lv_restore_last_im = 1
-			let need_switch_im = 1
-		else
-			let g:lv_restore_last_im = 0
-		end
-	else " a:event == 'enter'
-		if is_abc && g:lv_restore_last_im
-			let need_switch_im = 1
-		end
-	end
+    " let need_switch_im = 0
+    if a:event == 'leave'
+        if !is_abc
+            let b:pre_insert_im = system('xkbswitch -g')
+            silent call system('xkbswitch -se ABC')
+        end
+    else " a:event == 'enter'
+        if exists('b:pre_insert_im')
+            silent call system('xkbswitch -s ' . b:pre_insert_im)
+        endif
+    end
 
-	if need_switch_im 
-		silent !simulate_ctrl_space
-	end
+    " if need_switch_im 
+    "     silent !simulate_ctrl_space
+    " end
 endfunction

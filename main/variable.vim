@@ -24,6 +24,7 @@ let g:is_work = match(hostname(), 'work') != -1
 let g:is_home = match(hostname(), 'home') != -1
 let g:is_hanley = match(hostname(), 'hanley') != -1
 let g:is_in_gitcommit = exists('$GIT_EDITOR') || exists('$GIT_PREFIX')
+let g:enable_auto_im = g:is_mac
 
 let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'

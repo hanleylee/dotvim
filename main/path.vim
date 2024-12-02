@@ -14,6 +14,8 @@ let paths_arr = [
             \ ]
 call hl#util#ExpandPathFromEnv(paths_arr)
 
+let s:vim_bin_path = expand('$HOME/.vim/bin')
+let $PATH=s:vim_bin_path.':'.$PATH
 " let s:llvm_path = expand('$HOMEBREW_PREFIX/opt/llvm/bin')
 " if isdirectory(s:llvm_path)
 "     let $PATH=s:llvm_path.':'.$PATH

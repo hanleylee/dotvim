@@ -104,21 +104,12 @@ function! hl#util#SearchMatchCount()
 endfunction
 
 function! hl#util#AutoIM(event)
-    let is_abc = system('is_abc') != ''
-
-    " let need_switch_im = 0
     if a:event == 'leave'
-        if !is_abc
-            let b:pre_insert_im = system('xkbswitch -g')
-            silent call system('xkbswitch -se ABC')
-        end
+        let b:pre_insert_im = system('macism')
+        call system('macism com.apple.keylayout.ABC &')
     else " a:event == 'enter'
         if exists('b:pre_insert_im')
-            silent call system('xkbswitch -s ' . b:pre_insert_im)
+            call system('macism im.rime.inputmethod.Squirrel.Hans &')
         endif
     end
-
-    " if need_switch_im 
-    "     silent !simulate_ctrl_space
-    " end
 endfunction

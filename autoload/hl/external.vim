@@ -182,3 +182,34 @@ function! hl#external#Redir(cmd)
     setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
     call setline(1, split(output, "\n"))
 endfunction
+
+function! hl#external#RunJobCaptureResult(command, target_variable)
+    " 处理标准输出, 赋值给目标变量
+    function! s:CaptureStdOutput(job_id, data, target_variable)
+        let l:result = a:data
+        execute 'let ' . a:target_variable . ' = l:result'
+        " echom "Captured output for " . a:target_variable . ": " . l:result
+    endfunction
+
+    " 处理错误输出
+    function! s:CaptureErrOutput(job_id, data)
+        let l:result = a:data
+        echom "Error: " . l:result
+    endfunction
+
+    " 处理任务退出
+    function! s:HandleJobExit(job_id, exit_code)
+        if a:exit_code != 0
+            echom "HLJob " . a:job_id . " exited with code: " . a:exit_code
+        endif
+    endfunction
+    call job_start(a:command, {
+                \ 'out_cb': {job_id, data -> s:CaptureStdOutput(job_id, data, a:target_variable)},
+                \ 'err_cb': {job_id, data -> s:CaptureErrOutput(job_id, data)},
+                \ 'exit_cb': {job_id, exit_code -> s:HandleJobExit(job_id, exit_code)},
+                \ })
+endfunction
+
+function! hl#external#RunJob(command)
+    call job_start(a:command)
+endfunction

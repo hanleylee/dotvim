@@ -44,10 +44,12 @@ function! hl#format#cn() range
     let regex_list = add(regex_list, '/」/** /g')
 
     " 汉字在前, 英文/数字在后, 中间添加空格
-    let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
+    " let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
+    let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+\/\\]\)/\1 \2/g')
 
     " 英文/数字在前, 汉字在后, 中间添加空格
-    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fff\u3040-\u30FF]\)/\1 \2/g')
+    " let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fff\u3040-\u30FF]\)/\1 \2/g')
+    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\?\$\%\^\-\+\\]\)\([\u4e00-\u9fff\u3040-\u30FF]\)/\1 \2/g')
 
     for pattern in regex_list
         execute a:firstline . "," . a:lastline . " substitute " . pattern

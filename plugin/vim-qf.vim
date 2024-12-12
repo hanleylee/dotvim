@@ -7,7 +7,7 @@ if !hl#plug_loaded('vim-qf')
     finish
 endif
 
-let g:qf_mapping_ack_style = 1
+" let g:qf_mapping_ack_style = 0
 let g:qf_window_bottom = 1
 let g:qf_auto_open_quickfix = 1
 let g:qf_auto_open_loclist = 1

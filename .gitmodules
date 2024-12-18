@@ -35,3 +35,6 @@
 [submodule "hanleylee/hlvimlib"]
 	path = hanleylee/hlvimlib
 	url = git@github.com:hanleylee/hlvimlib.git
+[submodule "hanleylee/vim-rst"]
+	path = hanleylee/vim-rst
+	url = git@github.com:hanleylee/vim-rst.git

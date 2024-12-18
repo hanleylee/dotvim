@@ -131,7 +131,8 @@ if s:vim_weight >= 1
     Plug 'hanleylee/vim-gitignore', {'dir': '$HANLEY_VIMS/vim-gitignore'}
     Plug 'hanleylee/vim-taskpaper', {'dir': '$HANLEY_VIMS/vim-taskpaper'}
     Plug 'hanleylee/vim-markdown', {'dir': '$HANLEY_VIMS/vim-markdown'}
-    Plug 'habamax/vim-rst'
+    Plug 'hanleylee/vim-rst', {'dir': '$HANLEY_VIMS/vim-rst'}
+    " Plug 'habamax/vim-rst'
     " Plug 'Stormherz/tablify'
     " Plug 'mrsipan/vim-rst'
     " Plug 'gu-fan/riv.vim'

@@ -9,7 +9,8 @@ let b:table_mode_header_fillchar='='
 
 setlocal synmaxcol=0  " Text after this column number is not highlighted
 setlocal textwidth=0
-setlocal conceallevel=2
+" setlocal conceallevel=2
+setlocal conceallevel=0
 setlocal concealcursor=""
 setlocal formatoptions+=o2mbB1
 
@@ -36,10 +37,10 @@ func! s:section_delimiter_adjust() abort
         let nline = getline(line('.') + 1)
         let pline = getline(line('.') - 1)
         if pline =~ '^\s*$' && nline =~ section_delim
-            call setline(line('.') + 1, repeat(nline[0], strchars(cline)))
+            call setline(line('.') + 1, repeat(nline[0], strwidth(cline)))
         elseif pline =~ section_delim && nline =~ section_delim && pline[0] == nline[0]
-            call setline(line('.') + 1, repeat(nline[0], strchars(cline)))
-            call setline(line('.') - 1, repeat(pline[0], strchars(cline)))
+            call setline(line('.') + 1, repeat(nline[0], strwidth(cline)))
+            call setline(line('.') - 1, repeat(pline[0], strwidth(cline)))
         endif
     endif
 endfunc

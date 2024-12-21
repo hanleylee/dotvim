@@ -96,8 +96,8 @@ nnoremap <Leader>bp :call hl#operate#block_paste('tail')<CR>
 nnoremap <Leader>bP :call hl#operate#block_paste('head')<CR>
 nnoremap <Leader>W :w !sudo tee % > /dev/null<CR>
 
-nnoremap <silent><Leader>af  :call hl#format#document('n')<CR>
-vnoremap <silent><Leader>af  :call hl#format#document('v')<CR>
+nnoremap <silent><Leader>af :GeneralFormat<CR>
+vnoremap <silent><Leader>af :GeneralFormat<CR>
 
 " moving text(use unimpaired instead this)
 " vnoremap J :m '>+1<CR>gv=gv
@@ -261,12 +261,13 @@ endif
 
 " vim-quickui {{{
 if hl#plug_loaded('vim-quickui')
-    nnoremap <silent><Leader>qp          :call quickui#tools#preview_tag('')<cr>
+    nnoremap <silent><Leader>pf          :call hl#quickui#preview_dir_file(expand('<cfile>'))<cr>
     nnoremap <silent><Leader>qm          :call hl#quickui#quick_menu()<cr>
     nnoremap <silent><Leader>qd          :call hl#quickui#show_dict(expand("<cword>"))<cr>
+    nnoremap <silent><Leader>pt          :call quickui#tools#preview_tag('')<cr>
     vnoremap <silent><Leader>qd          :<C-u>call hl#quickui#show_dict(hl#text#visual_selection(visualmode()))<cr>
-    nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
-    vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection(visualmode()))<cr>
+    " nnoremap <silent><Leader>qt          :call hl#quickui#show_translate(expand("<cword>"))<cr>
+    " vnoremap <silent><Leader>qt          :<C-u>call hl#quickui#show_translate(hl#text#visual_selection(visualmode()))<cr>
     nnoremap <silent><Leader>K           :call hl#quickui#show_context(expand("<cword>"))<CR>
     vnoremap <silent><Leader>K           :<C-u>call hl#quickui#show_context(hl#text#visual_selection(visualmode()))<CR>
 endif

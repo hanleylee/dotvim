@@ -3,8 +3,14 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-setlocal commentstring=//\ %s
-setlocal foldmethod=syntax
-" nmap <silent><buffer> <S-Tab> zA
+" setlocal commentstring=//\ %s
+" setlocal foldmethod=syntax
 
-command! -range=% -nargs=0 -buffer RemoveComment let b:view = winsaveview() | silent! <line1>,<line2> call hl#json#RemoveComment() | call winrestview(b:view)
+runtime! ftplugin/json.vim
+let b:autoformat_autoindent = 1
+let b:autoformat_retab = 1
+let b:autoformat_remove_trailing_spaces = 1
+
+" gg=G
+" :retab
+" :RemoveTrailingSpaces

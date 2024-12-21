@@ -16,16 +16,18 @@
 " <cfile>: filepath under the cursor
 " <afile>: file open in the buffer when executing autocommands
 " <sfile>: filename of sourced file when used with command ':source'
+"
+" don't add 'silent' so that make it easier to debug, use 'silent' in keymap layer!
 
 " For File Manipulate {{{
-command! MVXC silent call hl#external#MVXC()
+command! MVXC call hl#external#MVXC()
 " Finder {{{
-command! MVFD silent call hl#external#interact_finder('edit')
-command! CDFD silent call hl#external#interact_finder('cd')
-command! OFD  silent call hl#external#interact_finder('open')
+command! MVFD call hl#external#interact_finder('edit')
+command! CDFD call hl#external#interact_finder('cd')
+command! OFD  call hl#external#interact_finder('open')
 " }}}
 " command! CDIT silent call hl#external#CDIT()
-command! -nargs=0 OpenInBrowser silent call hl#external#OpenInBrowser()
+command! -nargs=0 OpenInBrowser call hl#external#OpenInBrowser()
 command! ChezmoiApply !chezmoi apply --source-path "%"
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
 command! CopyToTempTab call hl#copy_to_temp_tab()
@@ -43,24 +45,24 @@ cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delvie
 
 " Format {{{
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#format#cn()
-command! FormatObjectMapper silent! call hl#format#objectmapper()
+command! -range=% -nargs=0 GeneralFormat let b:view = winsaveview() | <line1>,<line2> call hl#format#general() | call winrestview(b:view)
+command! FormatObjectMapper call hl#format#objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
-command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(b:view)
-command! -range=% -nargs=0 RmTrailingSpace let b:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(b:view)
-command! -range=% -nargs=0 RmEmptyLine let b:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(b:view)
-command! MergeMD silent! call hl#markdown#merge_md()
+command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | <line1>,<line2> call hl#format#cn() | call winrestview(b:view)
+command! -range=% -nargs=0 RmTrailingSpace let b:view = winsaveview() | <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(b:view)
+command! -range=% -nargs=0 RmEmptyLine let b:view = winsaveview() | <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(b:view)
+command! MergeMD call hl#markdown#merge_md()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
-command! UnescapeJSON silent! call hl#operate#UnescapeJSON()
-command! EscapeJSON silent! call hl#operate#EscapeJSON()
+command! UnescapeJSON call hl#operate#UnescapeJSON()
+command! EscapeJSON call hl#operate#EscapeJSON()
 " }}}
 
 " Command {{{
 "`:Redir` followed by either shell or vim command
-command! -nargs=+ -complete=command Redir silent call hl#external#Redir(<q-args>)
+command! -nargs=+ -complete=command Redir call hl#external#Redir(<q-args>)
 " 某个 pattern 出现的次数
 command! -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
-command! CenterFull call hl#ui#center_full()
 command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
 " }}}
 
@@ -69,8 +71,8 @@ if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
 endif
 
 if hl#plug_loaded('coc.nvim')
-    command! -nargs=0 Format :call CocAction('format') " Add `:Format` command to format current buffer.
-    command! -nargs=? Fold :call CocAction('fold', <f-args>) " Add `:Fold` command to fold current buffer.
+    command! -nargs=0 CocFormat :call CocAction('format') " Add `:Format` command to format current buffer.
+    command! -nargs=? CocFold :call CocAction('fold', <f-args>) " Add `:Fold` command to fold current buffer.
     command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport') " Add `:OR` command for organize imports of the current buffer.
 endif
 

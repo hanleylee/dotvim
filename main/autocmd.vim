@@ -101,14 +101,6 @@ if hl#plug_loaded('vim-quickui')
     augroup QuickUIPreview
         autocmd!
         au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
-        " au FileType qf noremap <silent><buffer> U :call quickui#preview#scroll(-20)<cr>
-        " au FileType qf noremap <silent><buffer> D :call quickui#preview#scroll(20)<cr>
-        " au FileType qf noremap <silent><buffer> K :call quickui#preview#scroll(-1)<cr>
-        " au FileType qf noremap <silent><buffer> J :call quickui#preview#scroll(1)<cr>
-        " au FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
-        " au FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
-        " au FileType qf noremap <silent><buffer>  U :PreviewScroll -1<cr>
-        " au FileType qf noremap <silent><buffer>  D :PreviewScroll +1<cr>
     augroup END
 endif
 
@@ -123,9 +115,9 @@ if hl#plug_loaded('coc.nvim')
         " autocmd CursorMoved * silent call s:ThrottleFnTrailing.call('highlight')
         " autocmd CursorMoved * silent call s:ThrottleFnLeading.call('highlight')
         autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-        " autocmd CursorHold * silent call CocActionAsync('highlight')
-        " autocmd CursorHold * silent call hl#coc#highlight_current_cursor()
-        autocmd CursorMoved * silent call hl#coc#highlight_current_cursor()
+        " use CursorHold instead of CursorMoved to imporve performance when press jk without stopping
+        " autocmd CursorMoved * silent call hl#coc#highlight_current_cursor()
+        autocmd CursorHold * silent call hl#coc#highlight_current_cursor()
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
         autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
         autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#coc#disable_for_type()

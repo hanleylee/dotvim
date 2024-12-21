@@ -78,6 +78,20 @@ func! hl#quickui#show_translate(word)
     call quickui#textbox#command(command, opts)
 endfunction
 
+function! hl#quickui#preview_dir_file(file)
+    let file_path = hl#fs#resolveFilePath(a:file)
+
+    if isdirectory(l:file_path)
+        let command = 'ls -lhia'
+        let opts= {"title": command . ' -> ' . file_path}
+        " call quickui#textbox#open(textlist, opts)
+        call quickui#textbox#command(command, opts)
+    else
+        call quickui#preview#open(l:file_path, {})
+    endif
+endfunction
+
+
 func! hl#quickui#show_context(content)
     let content = [
                 \ ["Get D&ocumentation\t\\K", 'call hl#ui#show_documentation()'],

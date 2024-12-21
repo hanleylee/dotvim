@@ -3,17 +3,13 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" format document
-function! hl#format#document(mode) range
-    if a:mode == 'n'
-        let range = '%'
-    elseif a:mode == 'v'
-        let range = a:firstline . ',' . a:lastline
-    endif
+" general format
+function! hl#format#general() range
+    let range = a:firstline . ',' . a:lastline
     if &filetype ==? 'markdown'
         execute range . "FormatMarkdown"
-    elseif &filetype ==? 'vim'
-        call hl#format#reindent_document()
+    elseif &filetype ==? 'vim' || &filetype ==? 'jsonc' || &filetype ==? 'json5'
+        call hl#format#reindent_document(a:firstline, a:lastline)
     elseif &filetype ==? 'csv'
         execute range . "ArrangeColumn!"
     else
@@ -21,9 +17,10 @@ function! hl#format#document(mode) range
     endif
 endfunction
 
-function! hl#format#reindent_document()
+function! hl#format#reindent_document(startline, endline)
     let v = winsaveview()
-    keepjumps normal! gg=G
+    execute a:startline . ',' . a:endline . 'normal! =='
+    " keepjumps normal! gg=G
     call winrestview(v)
 endfunction
 

@@ -67,7 +67,6 @@ if s:vim_weight >= 1
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
     Plug 'lambdalisue/fern-git-status.vim'
-    Plug 'LumaKernel/fern-mapping-fzf.vim'
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " 模糊搜索
     Plug 'junegunn/fzf.vim'                             " 模糊搜索
@@ -80,16 +79,13 @@ if s:vim_weight >= 1
     if has('conceal')
         Plug 'Yggdroot/indentLine'           " 显示缩进线
     endif
-    Plug 'andymass/vim-matchup'          " 高亮括号
+    Plug 'andymass/vim-matchup'          " 高亮括号, use 'vi%' can visual select content inside paird symbols
     Plug 'hanleylee/vim-togglecursor', {'dir': '$HANLEY_VIMS/vim-togglecursor'}
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'     " useful keymaps
-    Plug 'tpope/vim-fugitive'       " git operation
-    Plug 'tpope/vim-rhubarb'        " browse code on github, GBrowse
     " Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'rhysd/conflict-marker.vim'
-    Plug 'skywind3000/vim-preview'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
     Plug 'hanleylee/hlvimlib', {'dir': '$HANLEY_VIMS/hlvimlib'}
     Plug 'hanleylee/vim-alternate', {'dir': '$HANLEY_VIMS/vim-alternate'}
@@ -105,8 +101,6 @@ if s:vim_weight >= 1
     Plug 'vim-python/python-syntax' " python
     Plug 'dart-lang/dart-vim-plugin' " dart
     Plug 'mityu/vim-applescript'    " applescript
-    " Plug 'nathangrigg/vim-beancount'
-    Plug 'neoclide/jsonc.vim' " jsonc
     Plug 'chrisbra/csv.vim'   " csv
     Plug 'fladson/vim-kitty'  " kitty
     Plug 'aklt/plantuml-syntax' " plantuml
@@ -148,7 +142,6 @@ if s:vim_weight >= 2
     if !g:is_in_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
         Plug 'jiangmiao/auto-pairs'                         " 匹配括号
     endif
-    " Plug 'tpope/vim-commentary'                         " comment code quickly, gcc
     Plug 'tpope/vim-repeat'                             " repeat last operation
     Plug 'tpope/vim-surround'                           " operate surrounding characters
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
@@ -170,14 +163,8 @@ if s:vim_weight >= 2
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
     Plug 'hanleylee/vim-blockmove'  , {'dir': '$HANLEY_VIMS/vim-blockmove'}
-    " Plug 'matze/vim-move'
-    " Plug 'atweiden/vim-dragvisuals'
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
-    " Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
-    " Plug 'rlue/vim-barbaric'
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
-    Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
-    Plug 'mg979/vim-visual-multi'                       " 多选
     Plug 'bootleq/vim-cycle'                            " yes => no => yes, January => February => March, trUe => faLse, ' => '', <em>important</em> => <strong>important</strong>
 
     " ============= Appearance ============
@@ -224,6 +211,8 @@ if s:vim_weight >= 3
     Plug 'chrisbra/Colorizer' " highlight color for css / html filetype
     Plug 'markonm/traces.vim' " pattern preview for 'substitute', 'global', 'vglobal', 'sort'
     Plug 'alker0/chezmoi.vim' " chezmoi syntax and keymap
+    Plug 'tpope/vim-fugitive' " git operation
+    Plug 'tpope/vim-rhubarb'  " browse code on github, GBrowse
 
     " ============== Run ==============
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
@@ -340,4 +329,15 @@ call plug#end()
 " Plug 'AndrewRadev/inline_edit.vim'              " 可以在 markdown 内编写代码片段
 " Plug 'Chandlercjy/vim-markdown-edit-code-block'              " 可以在 markdown 内编写代码片段
 " Plug 'girishji/vimsuggest'
+" Plug 'skywind3000/vim-preview'
+" Plug 'LumaKernel/fern-mapping-fzf.vim'
+" Plug 'nathangrigg/vim-beancount'
+" Plug 'neoclide/jsonc.vim' " jsonc
+" Plug 'tpope/vim-commentary'                         " comment code quickly, gcc
+" Plug 'matze/vim-move'
+" Plug 'atweiden/vim-dragvisuals'
+" Plug 'lyokha/vim-xkbswitch', {'as': 'xkbswitch'}    " 返回到 normal 模式时快速切换为英文输入法
+" Plug 'rlue/vim-barbaric'
+" Plug 'dyng/ctrlsf.vim'                              " 批量搜索替换
+" Plug 'mg979/vim-visual-multi'                       " 多选
 "}}}

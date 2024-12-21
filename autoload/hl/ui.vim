@@ -19,11 +19,11 @@ function! hl#ui#preview_scroll(direction)
         let scroll_direction = 1
     endif
     " if a:direction ==# 'u'
-        if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
-            call coc#float#scroll(scroll_direction, abs(scroll_lines))
-        elseif hl#plug_loaded('vim-quickui')
-            call quickui#preview#scroll(scroll_lines)
-        endif
+    if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
+        call coc#float#scroll(scroll_direction, abs(scroll_lines))
+    elseif hl#plug_loaded('vim-quickui')
+        call quickui#preview#scroll(scroll_lines)
+    endif
     " elseif a:direction ==# 'd'
     "     if hl#plug_loaded('coc.nvim') && coc#float#has_scroll() 
     "         call coc#float#scroll(1, scroll_lines)
@@ -53,14 +53,14 @@ function! hl#ui#previous_win_scroll(direction)
         let cmd = "normal! \<c-u>"
     elseif a:direction == 'd'
         let cmd = "normal! \<c-d>"
-    " elseif a:direction == 2
-    "     let cmd = "normal! " . winheight('.') . "\<c-y>"
-    " elseif a:direction == 3
-    "     let cmd = "normal! " . winheight('.') . "\<c-e>"
-    " elseif a:direction == 8
-    "     let cmd = "normal! k"
-    " elseif a:direction == 9
-    "     let cmd = "normal! j"
+        " elseif a:direction == 2
+        "     let cmd = "normal! " . winheight('.') . "\<c-y>"
+        " elseif a:direction == 3
+        "     let cmd = "normal! " . winheight('.') . "\<c-e>"
+        " elseif a:direction == 8
+        "     let cmd = "normal! k"
+        " elseif a:direction == 9
+        "     let cmd = "normal! j"
     endif
     call win_execute(pre_win_id, cmd)
 endfunction
@@ -80,32 +80,13 @@ endfunction
 
 " 切换显示行号/相对行号/不显示
 function hl#ui#toggle_number()
-  if &nu && &rnu
-    set nonu nornu
-  elseif &nu && !&rnu
-    set rnu
-  else
-    set nu
-  endif
-endfunction
-
-" 将当前窗口置于屏幕中间(全屏时用)
-function hl#ui#center_full()
-  on
-  vs
-  ene
-  setl nocul
-  setl nonu
-  40winc |
-  winc l
-  vs
-  winc l
-  ene
-  setl nocul
-  setl nonu
-  40winc |
-  winc h
-  redr!
+    if &nu && &rnu
+        set nonu nornu
+    elseif &nu && !&rnu
+        set rnu
+    else
+        set nu
+    endif
 endfunction
 
 " close all window, specially for vim {{{
@@ -118,30 +99,30 @@ function! hl#ui#close_all() abort
 endfunction
 
 function hl#ui#close_win(winnr)
-  let winnum = bufwinnr(a:winnr)
-  if winnum == -1
-    return 0
-  endif
-  " Goto the workspace window, close it and then come back to the
-  " original window
-  let curbufnr = bufnr('%')
-  exe winnum . 'wincmd w'
-  close
-  " Need to jump back to the original window only if we are not
-  " already in that window
-  let winnum = bufwinnr(curbufnr)
-  if winnr() != winnum
+    let winnum = bufwinnr(a:winnr)
+    if winnum == -1
+        return 0
+    endif
+    " Goto the workspace window, close it and then come back to the
+    " original window
+    let curbufnr = bufnr('%')
     exe winnum . 'wincmd w'
-  endif
-  return 1
+    close
+    " Need to jump back to the original window only if we are not
+    " already in that window
+    let winnum = bufwinnr(curbufnr)
+    if winnr() != winnum
+        exe winnum . 'wincmd w'
+    endif
+    return 1
 endfunction
 
 " 删除所有未显示且无修改的缓冲区以减少内存占用
 function hl#ui#clean_bufs()
-  for bufNr in filter(range(1, bufnr('$')),
-        \ 'buflisted(v:val) && !bufloaded(v:val)')
-    execute bufNr . 'bdelete'
-  endfor
+    for bufNr in filter(range(1, bufnr('$')),
+                \ 'buflisted(v:val) && !bufloaded(v:val)')
+        execute bufNr . 'bdelete'
+    endfor
 endfunction
 
 function! hl#ui#UpdateGuiFontSize(type)

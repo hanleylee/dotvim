@@ -20,37 +20,36 @@
 " don't add 'silent' so that make it easier to debug, use 'silent' in keymap layer!
 
 " For File Manipulate {{{
-command! MVXC call hl#external#MVXC()
+command! MVXC silent call hl#external#MVXC()
 " Finder {{{
-command! MVFD call hl#external#interact_finder('edit')
-command! CDFD call hl#external#interact_finder('cd')
-command! OFD  call hl#external#interact_finder('open')
+command! MVFD silent call hl#external#interact_finder('edit')
+command! CDFD silent call hl#external#interact_finder('cd')
+command! OFD  silent call hl#external#interact_finder('open')
 " }}}
 " command! CDIT silent call hl#external#CDIT()
-command! -nargs=0 OpenInBrowser call hl#external#OpenInBrowser()
+command! OpenInBrowser call hl#external#OpenInBrowser()
 command! ChezmoiApply !chezmoi apply --source-path "%"
 command! ChezmoiSwap call hl#chezmoi#swap_between_target_and_source()
 command! CopyToTempTab call hl#copy_to_temp_tab()
 command! EditTemp :tab drop ~/.cache/tmp.md<CR>
-nmap <leader>ctt :CopyToTempTab<CR>
 command! -bang LoadTemplate call hl#LoadTemplate("<bang>")
 command! -nargs=1 -complete=file NewTemplate call hl#NewTemplate(<q-args>)
-command! Delete if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+command! DeleteCurrentFile if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+command! MatchCount call hl#util#SearchMatchCount()
 " # Command Delview (and it's abbreviation 'delview')
 command! DelView call hl#util#DeleteView()
-command! MatchCount call hl#util#SearchMatchCount()
 " Lower-case user commands: http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delview')<CR>
 "}}}
 
 " Format {{{
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#format#cn()
-command! -range=% -nargs=0 GeneralFormat let b:view = winsaveview() | <line1>,<line2> call hl#format#general() | call winrestview(b:view)
+command! -range=% GeneralFormat <line1>,<line2> call hl#format#general()
 command! FormatObjectMapper call hl#format#objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
-command! -range=% -nargs=0 FormatCN let b:view = winsaveview() | <line1>,<line2> call hl#format#cn() | call winrestview(b:view)
-command! -range=% -nargs=0 RmTrailingSpace let b:view = winsaveview() | <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(b:view)
-command! -range=% -nargs=0 RmEmptyLine let b:view = winsaveview() | <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(b:view)
+command! -range=% FormatCN <line1>,<line2> call hl#format#cn()
+command! -range=% RmTrailingSpace <line1>,<line2> call hl#operate#remove_trailing_space()
+command! -range=% RmEmptyLine <line1>,<line2> call hl#operate#remove_empty_line()
 command! MergeMD call hl#markdown#merge_md()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
@@ -67,13 +66,13 @@ command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
 " }}}
 
 if hl#plug_loaded('asynctasks.vim') && hl#plug_loaded('fzf.vim')
-    command! -nargs=0 AsyncTaskFzf call hl#asynctasks#fzf_task()
+    command! AsyncTaskFzf call hl#asynctasks#fzf_task()
 endif
 
 if hl#plug_loaded('coc.nvim')
-    command! -nargs=0 CocFormat :call CocAction('format') " Add `:Format` command to format current buffer.
+    command! CocFormat :call CocAction('format') " Add `:Format` command to format current buffer.
+    command! OR :call CocAction('runCommand', 'editor.action.organizeImport') " Add `:OR` command for organize imports of the current buffer.
     command! -nargs=? CocFold :call CocAction('fold', <f-args>) " Add `:Fold` command to fold current buffer.
-    command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport') " Add `:OR` command for organize imports of the current buffer.
 endif
 
 if hl#plug_loaded('fzf.vim')

@@ -163,6 +163,8 @@ vnoremap ;rv c<C-O>:set revins<CR><C-R>"<Esc>:set norevins<CR>
 " vnoremap ak 0o$
 " onoremap ak :normal vak<cr>
 
+nnoremap <leader>ctt :CopyToTempTab<CR>
+
 if hl#plug_loaded('fern.vim')
     nnoremap <silent> <F1> :Fern . -drawer -reveal=% -toggle -width=50<cr>
     nnoremap <silent> -    :Fern . -reveal=% -wait<cr>

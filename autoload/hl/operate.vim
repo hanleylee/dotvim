@@ -100,11 +100,15 @@ endfunction
 
 " 移除行尾空格
 function! hl#operate#remove_trailing_space() range
+    let l:view = winsaveview()
     execute 'keeppatterns:' . a:firstline . "," . a:lastline . 's/\s\+$//e'
+    call winrestview(l:view)
 endfun
 
 function! hl#operate#remove_empty_line() range 
+    let l:view = winsaveview()
     execute a:firstline . ',' . a:lastline . 'g/^\s*$/d'
+    call winrestview(l:view)
 endfunction
 
 " emebeded string with left_string and right_string(use 'normal!')

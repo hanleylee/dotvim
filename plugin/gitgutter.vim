@@ -10,7 +10,7 @@ endif
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_signs = 1
-let g:gitgutter_max_signs = 500 " 最大数量
+let g:gitgutter_max_signs = 500 " 最大显示 diff 数量, 超过这个值就不显示任何 diff 了
 let g:gitgutter_async = 1 "默认使用异步, 但是实际效果与同步差别几乎没有
 let g:gitgutter_log = 0
 " let g:gitgutter_highlight_lines = 1 "高亮修改的行

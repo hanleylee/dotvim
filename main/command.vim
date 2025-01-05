@@ -44,12 +44,12 @@ cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delvie
 
 " Format {{{
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#format#cn()
-command! -range=% GeneralFormat <line1>,<line2> call hl#format#general()
+command! -range=% GeneralFormat let s:view = winsaveview() | silent! <line1>,<line2> call hl#format#general() | call winrestview(s:view)
 command! FormatObjectMapper call hl#format#objectmapper()
 command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
-command! -range=% FormatCN <line1>,<line2> call hl#format#cn()
-command! -range=% RmTrailingSpace <line1>,<line2> call hl#operate#remove_trailing_space()
-command! -range=% RmEmptyLine <line1>,<line2> call hl#operate#remove_empty_line()
+command! -range=% FormatCN let s:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(s:view)
+command! -range=% RmTrailingSpace let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(s:view)
+command! -range=% RmEmptyLine let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(s:view)
 command! MergeMD call hl#markdown#merge_md()
 " 删除拖尾的空白
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
@@ -61,7 +61,7 @@ command! EscapeJSON call hl#operate#EscapeJSON()
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir call hl#external#Redir(<q-args>)
 " 某个 pattern 出现的次数
-command! -range=% -nargs=1 Count <line1>,<line2>s/<args>//gn|nohls
+command! -range=% -nargs=1 Count let s:view = winsaveview() | <line1>,<line2>s/<args>//gn|nohls | call winrestview(s:view)
 command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
 " }}}
 

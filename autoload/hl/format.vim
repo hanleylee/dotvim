@@ -5,7 +5,6 @@
 
 " general format
 function! hl#format#general() range
-    let l:view = winsaveview()
     let range = a:firstline . ',' . a:lastline
     if &filetype ==? 'markdown'
         execute range . "FormatMarkdown"
@@ -16,18 +15,14 @@ function! hl#format#general() range
     else
         execute range . "Autoformat"
     endif
-    call winrestview(l:view)
 endfunction
 
 function! hl#format#reindent_document(startline, endline)
-    let l:view = winsaveview()
     execute a:startline . ',' . a:endline . 'normal! =='
     " keepjumps normal! gg=G
-    call winrestview(l:view)
 endfunction
 
 function! hl#format#cn() range
-    let l:view = winsaveview()
     let regex_list = []
     let regex_list = add(regex_list, '/，/, /g')
     let regex_list = add(regex_list, '/。/. /g')
@@ -54,7 +49,6 @@ function! hl#format#cn() range
     for pattern in regex_list
         execute a:firstline . "," . a:lastline . " substitute " . pattern
     endfor
-    call winrestview(l:view)
 endfunction
 
 "{{{

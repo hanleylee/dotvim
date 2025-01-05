@@ -9,4 +9,4 @@ if (total_line < 100000)
 endif
 " nmap <silent><buffer> <S-Tab> zA
 
-command! -range=% -nargs=0 -buffer RemoveComment let b:view = winsaveview() | silent! <line1>,<line2> call hl#json#RemoveComment() | call winrestview(b:view)
+command! -range=% -nargs=0 -buffer RemoveComment let s:view = winsaveview() | silent! <line1>,<line2> call hl#json#RemoveComment() | call winrestview(s:view)

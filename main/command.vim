@@ -34,7 +34,9 @@ command! CopyToTempTab call hl#copy_to_temp_tab()
 command! EditTemp :tab drop ~/.cache/tmp.md<CR>
 command! -bang LoadTemplate call hl#LoadTemplate("<bang>")
 command! -nargs=1 -complete=file NewTemplate call hl#NewTemplate(<q-args>)
-command! DeleteCurrentFile if delete(expand('%')) | echohl WarningMsg | echo "删除当前文件失败" | echohl None | endif
+command! DeleteCurrentFile if delete(expand('%')) | echohl WarningMsg | echo "Fail to delete current file" | echohl None | endif
+" 某个 pattern 出现的次数
+command! -range=% -nargs=? Count let s:view = winsaveview() | <line1>,<line2>s/<f-args>//gn|nohls | call winrestview(s:view)
 command! MatchCount call hl#util#SearchMatchCount()
 " # Command Delview (and it's abbreviation 'delview')
 command! DelView call hl#util#DeleteView()
@@ -60,8 +62,6 @@ command! EscapeJSON call hl#operate#EscapeJSON()
 " Command {{{
 "`:Redir` followed by either shell or vim command
 command! -nargs=+ -complete=command Redir call hl#external#Redir(<q-args>)
-" 某个 pattern 出现的次数
-command! -range=% -nargs=1 Count let s:view = winsaveview() | <line1>,<line2>s/<args>//gn|nohls | call winrestview(s:view)
 command! -nargs=+ -complete=shellcmd Superman call hl#Superman(<f-args>)
 " }}}
 

@@ -235,7 +235,9 @@ set textwidth=150
 set maxmempattern=5000
 set viewoptions=folds,cursor,curdir
 set colorcolumn=+1
-set jumpoptions=stack
+if has('patch-9.0.1921')
+    set jumpoptions=stack
+endif
 
 if has('arabic')
     set noarabicshape

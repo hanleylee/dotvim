@@ -206,6 +206,7 @@ if s:vim_weight >= 3
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'   " tool for script expert
     Plug 'tpope/vim-characterize' " enhance ga
+    " Plug 'kkew3/jieba.vim', { 'tag': 'v1.0.4', 'do': './build.sh' }
     " Plug 'puremourning/vimspector' " for debug
     Plug 'liuchengxu/vista.vim' " display symbols in sidebar on the right
     Plug 'chrisbra/Colorizer' " highlight color for css / html filetype

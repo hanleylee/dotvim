@@ -95,3 +95,25 @@ onoremap <buffer> <silent> ac :<C-U>call hl#markdown_codeblock#TextObj('a')<CR>
 
 nnoremap <buffer> <silent> <leader>ec :call hl#markdown_codeblock#EditBlock('n')<CR>
 vnoremap <buffer> <silent> <leader>ec :call hl#markdown_codeblock#EditBlock('v')<CR>
+
+
+if hl#plug_loaded('jieba.vim')
+    nnoremap <silent><buffer> <LocalLeader>jpw <Plug>(Jieba_preview_w)
+    nnoremap <silent><buffer> <LocalLeader>jpW <Plug>(Jieba_preview_W)
+    nnoremap <silent><buffer> <LocalLeader>jpb <Plug>(Jieba_preview_b)
+    nnoremap <silent><buffer> <LocalLeader>jpB <Plug>(Jieba_preview_B)
+    nnoremap <silent><buffer> <LocalLeader>jpe <Plug>(Jieba_preview_e)
+    nnoremap <silent><buffer> <LocalLeader>jpE <Plug>(Jieba_preview_E)
+    nnoremap <silent><buffer> <LocalLeader>jpge <Plug>(Jieba_preview_ge)
+    nnoremap <silent><buffer> <LocalLeader>jpgE <Plug>(Jieba_preview_gE)
+    nnoremap <silent><buffer> <LocalLeader>jpc <Plug>(Jieba_preview_cancel)
+
+    nnoremap <silent><buffer> w <Plug>(Jieba_w)
+    nnoremap <silent><buffer> W <Plug>(Jieba_W)
+    nnoremap <silent><buffer> b <Plug>(Jieba_b)
+    nnoremap <silent><buffer> B <Plug>(Jieba_B)
+    nnoremap <silent><buffer> e <Plug>(Jieba_e)
+    nnoremap <silent><buffer> E <Plug>(Jieba_E)
+    nnoremap <silent><buffer> ge <Plug>(Jieba_ge)
+    nnoremap <silent><buffer> gE <Plug>(Jieba_gE)
+endif

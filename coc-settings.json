@@ -1702,6 +1702,11 @@
             "trace.server": "verbose",
             "ignoredRootPaths": ["~", "~/.zsh/.zsh_history"]
         },
+        "tabby-agent": {
+            "command": "npx",
+            "args": ["tabby-agent", "--lsp", "--stdio"],
+            "filetypes": ["*"]
+        },
         // "cmake": {
         //     "command": "cmake-language-server",
         //     "filetypes": ["cmake"],

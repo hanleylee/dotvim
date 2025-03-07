@@ -1707,6 +1707,38 @@
             "args": ["tabby-agent", "--lsp", "--stdio"],
             "filetypes": ["*"]
         },
+        // "lsp-ai": {
+        //     "command": "lsp-ai",
+        //     "args": [],
+        //     "filetypes": ["python", "javascript", "typescript", "lua"], // 支持的文件类型
+        //     "rootPatterns": ["package.json", "pyproject.toml", ".git"],
+        //     "initializationOptions": {
+        //         "memory": {
+        //             "file_store": {}
+        //         },
+        //         "models": {
+        //             "model1": {
+        //                 "type": "ollama",
+        //                 "model": "qwen2.5-coder:1.5b"
+        //             }
+        //         },
+        //         "completion": {
+        //             "model": "model1",
+        //             "parameters": {
+        //                 "max_context": 2048,
+        //                 "options": {
+        //                     "num_predict": 32
+        //                 },
+        //                 "max_tokens": 128,
+        //                 "fim": {
+        //                     "start": "<|fim_prefix|>",
+        //                     "middle": "<|fim_middle|>",
+        //                     "end": "<|fim_suffix|>"
+        //                 }
+        //             }
+        //         }
+        //     }
+        // },
         // "cmake": {
         //     "command": "cmake-language-server",
         //     "filetypes": ["cmake"],

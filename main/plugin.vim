@@ -176,7 +176,7 @@ if s:vim_weight >= 2
     Plug 'hanleylee/vim-stconvert', {'dir': '$HANLEY_VIMS/vim-stconvert'}
     Plug 'hanleylee/vim-cocoapods', {'dir': '$HANLEY_VIMS/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
-    Plug 'romainl/vim-qf'
+    " Plug 'romainl/vim-qf' " vim discourages plugins from altering window layouts in autocommands or even timers.
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
     " Plug 'editorconfig/editorconfig-vim'
     " packadd! editorconfig

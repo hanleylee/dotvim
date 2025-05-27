@@ -302,6 +302,7 @@ endif
 set synmaxcol=1000  " Text after this column number is not highlighted
 set nostartofline
 " set linespace=16 " 设置行间距
+set showtabline=1 " 自动显示窗口上头的 tabline, 只有一个tab时不显示tabline
 " set showtabline=2 " 始终显示窗口上头的 tabline
 "}}}
 

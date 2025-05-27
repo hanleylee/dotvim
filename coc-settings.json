@@ -1763,18 +1763,6 @@
                 /* "markdown" */
             ]
         },
-        "sql": {
-            "command": "sql-language-server",
-            "args": [
-                "up",
-                "--method",
-                "stdio"
-            ],
-            "filetypes": [
-                "sql",
-                "mysql"
-            ]
-        },
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": [

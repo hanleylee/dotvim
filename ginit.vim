@@ -25,7 +25,7 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     " set guifontwide=Microsoft\ YaHei:h14          " 设置 GUI 下中文字体及大小
     set guifontwide=LXGW\ WenKai\ Mono:h15          " 设置 GUI 下中文字体及大小
     set guicursor+=a:blinkon0                     " 设置光标不闪动
-    set guioptions-=e                             " 有多个 tab(文件) 时使用系统原生的 tab 样式
+    " set guioptions-=e                             " When 'e' is missing a non-GUI tab pages line may be used.
     set guioptions-=T                             " MacVim: hide toolbar.
     set guioptions-=r                             " MacVim: hide right scrollbar.
     set guioptions-=R                             " MacVim: hide right scrollbar.

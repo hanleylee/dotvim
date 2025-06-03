@@ -47,6 +47,8 @@ function! hl#async_file_run()
         silent update | execute 'CocCommand flutter.run --no-sound-null-safety'
     elseif &filetype ==? 'vim'
         silent update | source %
+    elseif executable(full_pathname)
+        silent update | execute 'AsyncRun ' . full_pathname
     elseif index(['html', 'xhtml', 'markdown', 'plantuml'], &filetype) != -1
         silent update | execute 'AsyncTask file-run-outside'
     else

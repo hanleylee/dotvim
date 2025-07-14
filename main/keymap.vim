@@ -324,6 +324,8 @@ if hl#plug_loaded('fzf.vim')
     " with all files(include ignored files and hidden files)
     nnoremap <Leader>fAA :AgAll<CR>
 
+    nnoremap <Leader>fr :Rg<CR>
+
     nnoremap <Leader>fh  :History:<CR>
     nnoremap <Leader>fl  :Lines<CR>
     nnoremap <Leader>fb  :BCommits<CR>

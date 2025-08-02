@@ -30,6 +30,10 @@ let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'
             \ ]
 
+let g:project_config_load_whitelist = [
+            \ expand('$HL_REPO/database'),
+            \ ]
+
 if has('nvim')
     lua vim.g["system_name"] = vim.loop.os_uname().sysname
 else

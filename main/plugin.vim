@@ -145,11 +145,9 @@ if s:vim_weight >= 2
     Plug 'tpope/vim-repeat'                             " repeat last operation
     Plug 'tpope/vim-surround'                           " operate surrounding characters
     Plug 'tpope/vim-eunuch'                             " Delete Move Rename Chmoe Mkdir SudoEdit SudoWrite
-    Plug 'tpope/vim-dadbod'                             " interactive database operation
     Plug 'tpope/vim-speeddating'                        " use <C-A> / <C-X> quicky increase / decrease date
     Plug 'tpope/vim-sexp-mappings-for-regular-people'   " support 'dsf', 'cse(', 'cse)', 'cseb', 'cse[', 'cse]', 'cse{', 'cse}', '<M-h>', '<M-l>', '>f', '<f', '>e', '<e', '>)', '<)', '>(', '<(', '<I', '>I'
     " Plug 'machakann/vim-sandwich'
-    Plug 'kristijanhusak/vim-dadbod-ui'
     Plug 'tommcdo/vim-exchange'                         " 快速交换两个单词, cxia, cxx, X, cxc
     Plug 'kana/vim-textobj-user'                        " base text object plugin for below
     Plug 'kana/vim-textobj-indent'                      " *ai, *ii
@@ -162,7 +160,7 @@ if s:vim_weight >= 2
     " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
-    Plug 'hanleylee/vim-blockmove'  , {'dir': '$HANLEY_VIMS/vim-blockmove'}
+    Plug 'hanleylee/vim-blockmove', {'dir': '$HANLEY_VIMS/vim-blockmove'}
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'bootleq/vim-cycle'                            " yes => no => yes, January => February => March, trUe => faLse, ' => '', <em>important</em> => <strong>important</strong>
@@ -216,6 +214,9 @@ if s:vim_weight >= 3
     Plug 'tpope/vim-rhubarb'  " browse code on github, GBrowse
 
     " ============== Run ==============
+    Plug 'tpope/vim-dadbod'                             " interactive database operation
+    Plug 'kristijanhusak/vim-dadbod-ui', {'on': ['DBUI', 'DBUIToggle']} " Simple UI fro dadbod
+    Plug 'kristijanhusak/vim-dadbod-completion', {'on': ['DBUI', 'DBUIToggle']}
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行
     Plug 'skywind3000/asynctasks.vim'
     Plug 'sillybun/vim-repl'

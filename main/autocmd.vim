@@ -97,6 +97,11 @@ if g:enable_auto_im
     augroup end
 endif
 
+augroup SourceProjectConfig
+    autocmd!
+    autocmd BufNew,BufEnter,BufAdd,BufCreate * :call hl#util#SafelySourceProjectConfig()
+augroup end
+
 if hl#plug_loaded('vim-quickui')
     augroup QuickUIPreview
         autocmd!

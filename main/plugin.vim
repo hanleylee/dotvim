@@ -94,7 +94,7 @@ if s:vim_weight >= 1
         Plug 'voldikss/vim-floaterm'
     endif
 
-    "============== Language ==============
+    "============== Language & Filetype ==============
     Plug 'octol/vim-cpp-enhanced-highlight' " cpp
     Plug 'vim-ruby/vim-ruby'        " ruby
     Plug 'keith/swift.vim'          " swift
@@ -122,6 +122,7 @@ if s:vim_weight >= 1
     Plug 'martinda/Jenkinsfile-vim-syntax' " for Jenkinsfile
     Plug 'thecodesmith/vim-groovy'      " for groovy
     " Plug 'peterhoeg/vim-qml'
+    Plug 'MTDL9/vim-log-highlighting'
     Plug 'hanleylee/vim-gitignore', {'dir': '$HANLEY_VIMS/vim-gitignore'}
     Plug 'hanleylee/vim-taskpaper', {'dir': '$HANLEY_VIMS/vim-taskpaper'}
     Plug 'hanleylee/vim-markdown', {'dir': '$HANLEY_VIMS/vim-markdown'}

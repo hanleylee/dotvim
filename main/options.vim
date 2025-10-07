@@ -33,7 +33,7 @@ set modelines=5
 set history=10000 " 历史命令最大记录数
 set confirm " Ask for confirmation when handling unsaved or read-only files
 set autowrite " Auto-write the file based on some condition
-set autoread
+set autoread " 只在某些事件发生时检测文件是否被修改而触发 autoread, 比如重新获得焦点、运行过外部命令等。如果 Vim 是终端版, 它有可能检测不到焦点事件
 set backup " backup 当前文件
 set writebackup " 在保存时自动写入 backup
 set undofile

@@ -1557,7 +1557,7 @@
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.procMacro.server": null,
     "rust-analyzer.files.watcher": "client",
-    "rust-analyzer.files.excludeDirs": [
+    "rust-analyzer.files.exclude": [
         ".cache",
         "test"
     ],
@@ -1675,10 +1675,7 @@
     "rust-analyzer.cargo.features": [],
     "rust-analyzer.cargo.autoreload": true,
     "rust-analyzer.cargo.noDefaultFeatures": false,
-    "rust-analyzer.cargo.cfgs": {
-        "debug_assertions": null,
-        "miri": null
-    },
+    "rust-analyzer.cargo.cfgs": [],
     "rust-analyzer.cargo.sysroot": "discover",
     "rust-analyzer.cargo.extraEnv": {},
     "rust-analyzer.cargo.extraArgs": [],
@@ -1692,7 +1689,6 @@
     "rust-analyzer.hover.documentation.enable": true,
     "rust-analyzer.hover.documentation.keywords.enable": true,
     "rust-analyzer.semanticHighlighting.strings.enable": true,
-    "rust-analyzer.typing.autoClosingAngleBrackets.enable": false,
 
     "languageserver": {
         "bash": {

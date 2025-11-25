@@ -31,6 +31,7 @@ let g:skipview_files = [
             \ ]
 
 let g:project_config_load_whitelist = [
+            \ expand('$HKMS'),
             \ expand('$HL_REPO/database'),
             \ ]
 

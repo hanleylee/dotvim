@@ -196,6 +196,7 @@ if s:vim_weight >= 3
     " Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     " Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'mhinz/vim-lookup'                             " Jump to the definition of variables or functions in VimL code.
+    Plug 'github/copilot.vim'
 
     " ============== Function ==============
     Plug 'hanleylee/vim-renamer', {'dir': '$HANLEY_VIMS/vim-renamer'}
@@ -205,7 +206,7 @@ if s:vim_weight >= 3
     Plug 'skywind3000/vim-quickui'
     Plug 'tpope/vim-scriptease'   " tool for script expert
     Plug 'tpope/vim-characterize' " enhance ga
-    " Plug 'kkew3/jieba.vim', { 'tag': 'v1.0.4', 'do': './build.sh' }
+    " Plug 'kkew3/jieba.vim', { 'tag': 'v1.0.5', 'do': './build.sh' }
     " Plug 'puremourning/vimspector' " for debug
     Plug 'liuchengxu/vista.vim' " display symbols in sidebar on the right
     Plug 'chrisbra/Colorizer' " highlight color for css / html filetype

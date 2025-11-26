@@ -30,9 +30,10 @@ let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'
             \ ]
 
-let g:project_config_load_whitelist = [
+let g:copilot_projects = [
             \ expand('$HKMS'),
             \ expand('$HL_REPO/database'),
+            \ expand('$HL_REPO/english'),
             \ ]
 
 if has('nvim')

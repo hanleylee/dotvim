@@ -57,10 +57,10 @@ let g:coc_global_extensions = [
             \ 'coc-vimlsp',
             \ 'coc-word',
             \ 'coc-yaml',
-            \ 'coc-yank',
             \ 'coc-ci',
             \ '@yaegassy/coc-marksman',
             \ ]
+            " \ 'coc-yank',
 
 let g:coc_disable_file_types = [
             \'log',

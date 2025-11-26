@@ -40,8 +40,6 @@ func s:load_debug_plug(name, load_local, ...)
     Plug a:name, args
 endfunction
 
-call plug#begin('$HOME/.vim/plugged')
-
 if g:is_in_gui
     let s:vim_weight = 999 " give gui most powerful
 else
@@ -52,6 +50,8 @@ endif
 if s:vim_weight >= 0
 endif
 " }}}
+
+call plug#begin('$HOME/.vim/plugged')
 
 " MARK: level v1, only for fast browse {{{
 if s:vim_weight == 1
@@ -81,6 +81,9 @@ if s:vim_weight >= 1
     endif
     Plug 'andymass/vim-matchup'          " 高亮括号, use 'vi%' can visual select content inside paird symbols
     Plug 'hanleylee/vim-togglecursor', {'dir': '$HANLEY_VIMS/vim-togglecursor'}
+    if has('patch-9.1.1228')
+        packadd! hlyank
+    endif
 
     " ============== Function ==============
     Plug 'tpope/vim-unimpaired'     " useful keymaps
@@ -139,6 +142,9 @@ endif
 " MARK: level v2, edit {{{
 if s:vim_weight >= 2
     " ============= Edit ===========
+    if has('patch-9.1.0375')
+        packadd! comment
+    endif
     Plug 'kshenoy/vim-signature'                        " marks 管理插件
     if !g:is_in_kitty " xterm-kitty 下此插件有异常, 应该是 vim 的原因
         Plug 'jiangmiao/auto-pairs'                         " 匹配括号
@@ -244,7 +250,6 @@ endif
 call plug#end()
 
 "============== UNUSED ================ {{{
-" Plug 'machakann/vim-highlightedyank' " 使 yank 的文档半透明高亮
 " Plug 'machakann/vim-Verdin'     " vim 语法补全
 " Plug 'dense-analysis/ale'                           " 提示语法错误
 " Plug 'Shougo/echodoc.vim'

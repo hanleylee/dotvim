@@ -5,11 +5,19 @@
 
 " 是否加载了 plug -> bool{{{
 function! hl#plug_loaded(name)
-    if !exists('g:plugs')
-        return 0
-    else
-        return has_key(g:plugs, a:name)
+    if exists('g:plugs') && has_key(g:plugs, a:name)
+        " plugin added by Vim-Plug
+        return v:true
     endif
+
+    " plugin added by packadd
+    let plugin_path = expand("$VIMRUNTIME/pack/dist/opt/" . a:name)
+    let rtp_list = split(&runtimepath, ',')
+    if index(rtp_list, plugin_path) != -1
+        return v:true
+    endif
+
+    return v:false
 endfunction
 "}}}
 

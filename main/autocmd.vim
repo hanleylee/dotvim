@@ -99,7 +99,7 @@ endif
 
 augroup SourceProjectConfig
     autocmd!
-    autocmd BufNew,BufEnter,BufAdd,BufCreate * :call hl#util#SafelySourceProjectConfig()
+    autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#util#SafelySourceProjectConfig()
 augroup end
 
 if hl#plug_loaded('vim-quickui')
@@ -180,6 +180,22 @@ if hl#plug_loaded('fzf.vim')
     augroup end
 endif
 
+if hl#plug_loaded('copilot.vim')
+    function! s:SetLocalCopilotWorkspaceFolder()
+        let file_path = expand('%:p')
+        for project in g:copilot_projects
+            if file_path =~ project
+                let b:copilot_workspace_folders = [project]
+                break
+            endif
+        endfor
+    endfunction
+
+    augroup LocalCopilotWorkspaceFolder
+        autocmd!
+        autocmd BufRead,BufNewFile * call s:SetLocalCopilotWorkspaceFolder()
+    augroup end
+endif
 " 保存时自动格式化指定文件类型代码
 " au BufWrite * :Autoformat
 " autocmd BufWrite *.sql,*.c,*.py,*.java,*.js :Autoformat "设置发生保存事件时执行格式化

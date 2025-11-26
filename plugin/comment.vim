@@ -3,8 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if !hl#plug_loaded('vim-highlightedyank')
+if !hl#plug_loaded('comment')
     finish
 endif
 
-let g:highlightedyank_highlight_duration = 1000 " 500 毫秒后高亮消失, -1 为不消失
+let g:comment_mappings = v:false

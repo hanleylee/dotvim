@@ -118,18 +118,18 @@ endfunction
 let s:loaded_config_path_dic = {}
 function! hl#util#SafelySourceProjectConfig()
     let cwd = getcwd('.')
-    let project_vimrc_file = findfile(".vimrc", cwd)
-    if !empty(project_vimrc_file)
-        let abs_path = fnamemodify(project_vimrc_file, ":p")
-        if !has_key(s:loaded_config_path_dic, abs_path)
-            for dir in g:project_config_load_whitelist
-                if cwd =~ dir
-                    execute "source " . abs_path
-                    echom "Config file: " . abs_path . "' is sourced!'"
-                    let s:loaded_config_path_dic[abs_path] = 1
-                    return
-                endif
-            endfor
+    let vimrc_file = findfile(".vimrc", cwd)
+    if !empty(vimrc_file)
+        let vimrc_path = fnamemodify(vimrc_file, ":p")
+        if !has_key(s:loaded_config_path_dic, vimrc_path)
+            " for dir in g:project_config_load_whitelist
+            " if cwd =~ dir
+            execute "source " . vimrc_path
+            echom "Config file: " . vimrc_path . "' is sourced!'"
+            let s:loaded_config_path_dic[vimrc_path] = 1
+            return
+            " endif
+            " endfor
         endif
     endif
 endfunction

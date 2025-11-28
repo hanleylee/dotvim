@@ -87,6 +87,12 @@ function! hl#util#DeleteView()
     echo "Deleted: " . path
 endfunction
 
+function! hl#util#ConvertUnixUtf8()
+    set fileformat=unix
+    set fileencoding=utf-8
+    w
+endfunction
+
 function! hl#util#SearchMatchCount()
     " 获取当前搜索模式
     let l:pattern = @/

@@ -53,7 +53,7 @@ command! -range=% FormatCN let s:view = winsaveview() | silent! <line1>,<line2> 
 command! -range=% RmTrailingSpace let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(s:view)
 command! -range=% RmEmptyLine let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(s:view)
 command! MergeMD call hl#markdown#merge_md()
-" 删除拖尾的空白
+command! ConvertUnixUtf8 call hl#util#ConvertUnixUtf8()
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``
 command! UnescapeJSON call hl#operate#UnescapeJSON()
 command! EscapeJSON call hl#operate#EscapeJSON()

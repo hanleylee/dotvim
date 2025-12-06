@@ -222,7 +222,7 @@ if s:vim_weight >= 3
     Plug 'tpope/vim-rhubarb'  " browse code on github, GBrowse
 
     " ============== Run ==============
-    Plug 'tpope/vim-dadbod'                             " interactive database operation
+    Plug 'tpope/vim-dadbod'                             " interactive database sql operation
     Plug 'kristijanhusak/vim-dadbod-ui', {'on': ['DBUI', 'DBUIToggle']} " Simple UI fro dadbod
     Plug 'kristijanhusak/vim-dadbod-completion', {'on': ['DBUI', 'DBUIToggle']}
     Plug 'skywind3000/asyncrun.vim'                 " 异步执行

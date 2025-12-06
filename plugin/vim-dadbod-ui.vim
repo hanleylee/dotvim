@@ -8,7 +8,8 @@ if !hl#plug_loaded('vim-dadbod-ui')
 endif
 
 let g:db_ui_save_location = expand('$HL_REPO/database/db_ui_queries')
-let g:dbs = [            
+let g:db_ui_execute_on_save = 0
+let g:dbs = [
             \ {'name': 'MongoDB', 'url': 'mongodb://127.0.0.1:27017'},
             \ {'name': 'MySQL', 'url': 'mysql://root@localhost:3306'},
             \ ]

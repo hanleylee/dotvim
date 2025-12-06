@@ -481,20 +481,6 @@ if hl#plug_loaded('coc.nvim')
 endif
 "}}}
 
-" vim-dadbod{{{
-if hl#plug_loaded('vim-dadbod')
-    xnoremap <expr> <Plug>(DBExe)     db#op_exec()
-    nnoremap <expr> <Plug>(DBExe)     db#op_exec()
-    nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
-
-    xmap <leader>sq  <Plug>(DBExe)
-    nmap <leader>sq  <Plug>(DBExe)
-    omap <leader>sq  <Plug>(DBExe)
-    nmap <leader>sql <Plug>(DBExeLine)
-endif
-"}}}
-
-
 if hl#plug_loaded('vim-dadbod-ui')
     nnoremap <silent> <leader>qt :DBUIToggle<CR>
     nnoremap <silent> <leader>qf :DBUIFindBuffer<CR>

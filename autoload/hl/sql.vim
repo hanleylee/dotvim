@@ -8,8 +8,7 @@ function! hl#sql#query_text_obj() abort
     " and then from there forward for the next SQL keyword (I'm sure the list there might be refined, this worked for me though).
     " It switches to visual mode and searches for the next ; character.
     call search(";", "cWz")
-    call search("\\(;\\|\\%^\\)", "bsWz")
-    " call search("\\c^\\(SELECT\\|WITH\\|INSERT\\|UPDATE\\|DELETE\\|CREATE\\)", "cWz")
+    call search("\\(;\\|\\%^\\)", "bsW")
     call search("^.", "cWz")
     execute "normal! vg`'"
 endfunction

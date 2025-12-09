@@ -99,7 +99,7 @@ endif
 
 augroup SourceProjectConfig
     autocmd!
-    autocmd BufNew,BufEnter,BufAdd,BufCreate * call hl#util#SafelySourceProjectConfig()
+    autocmd BufReadPost * call hl#util#SafelySourceProjectConfig()
 augroup end
 
 if hl#plug_loaded('vim-quickui')

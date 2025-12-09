@@ -15,6 +15,10 @@ if hl#plug_loaded('vim-dadbod-ui')
     " nmap <buffer> <Leader>qe  <Plug>(DBUI_EditBindParameters)
 endif
 
+if g:is_in_macvim_gui && hl#plug_loaded('vim-dadbod-ui')
+    nmap <buffer> <D-Return>  :call hl#sql#execute_current_query()<CR>
+    vmap <buffer> <D-Return>  <Plug>(DBUI_ExecuteQuery)
+endif
 " if hl#plug_loaded('vim-dadbod')
 "     nmap <expr> <C-Q> db#op_exec()
 "     xmap <expr> <C-Q> db#op_exec()

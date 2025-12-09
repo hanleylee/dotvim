@@ -42,4 +42,4 @@ let g:db_ui_disable_mappings = 0
 let g:db_ui_disable_mappings_sql = 0   " Disable mappings in SQL buffers
 " let g:db_ui_disable_mappings_javascript = 1   " Disable mappings in Javascript buffers (for Mongodb)
 let g:db_ui_force_echo_notifications=1
-let g:db_ui_disable_progress_bar = 0
+let g:db_ui_disable_progress_bar = 1

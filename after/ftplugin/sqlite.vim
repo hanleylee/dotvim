@@ -3,8 +3,8 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-if exists("b:did_ftplugin")
-  finish
-endif
+" if exists("b:did_ftplugin")
+"   finish
+" endif
 
 runtime! ftplugin/sql.vim

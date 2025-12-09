@@ -122,16 +122,23 @@ function! hl#util#AutoIM(event)
 endfunction
 
 let s:loaded_config_path_dic = {}
+let s:checked_buffer_dict = {}
 function! hl#util#SafelySourceProjectConfig()
-    let cwd = getcwd('.')
-    let vimrc_file = findfile(".vimrc", cwd)
-    if !empty(vimrc_file)
-        let vimrc_path = fnamemodify(vimrc_file, ":p")
+    let cur_dir = expand("%:p:h")
+    if has_key(s:checked_buffer_dict, cur_dir)
+        return
+    endif
+
+    let s:checked_buffer_dict[cur_dir] = 1
+
+    let vimrc_file = findfile(".vimrc", cur_dir . ';')
+    let vimrc_path = fnamemodify(vimrc_file, ":p")
+    if filereadable(vimrc_path)
         if !has_key(s:loaded_config_path_dic, vimrc_path)
             " for dir in g:project_config_load_whitelist
             " if cwd =~ dir
             execute "source " . vimrc_path
-            echom "Config file: " . vimrc_path . "' is sourced!'"
+            redraw! | echom "Config file: '" . vimrc_path . "' is sourced!"
             let s:loaded_config_path_dic[vimrc_path] = 1
             return
             " endif

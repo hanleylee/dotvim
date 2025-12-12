@@ -32,7 +32,7 @@ setlocal formatoptions+=o2mbB1
 " 1   Don't break a line after a one-letter word.  It's broken before it instead (if possible).
 
 " undo break points
-inoremap <buffer> , ,<C-g>u
+" inoremap <buffer> , ,<C-g>u
 inoremap <buffer> . .<C-g>u
 inoremap <buffer> : :<C-g>u
 inoremap <buffer> ; ;<C-g>u

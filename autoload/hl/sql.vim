@@ -4,11 +4,12 @@
 " License:  MIT License
 
 function! hl#sql#query_text_obj() abort
-    " It searches backward for the last ; character or the beginning of the file
-    " and then from there forward for the next SQL keyword (I'm sure the list there might be refined, this worked for me though).
     " It switches to visual mode and searches for the next ; character.
-    call search(";", "cWz")
+    " searches forward for the next ; character or the ending of the file
+    call search("\\(;\\|\\%$\\)", "cWz")
+    " and then search backward for the previous ; character or the beginning of the file
     call search("\\(;\\|\\%^\\)", "bsW")
+    " Finally, it moves one character forward to position the cursor correctly.
     call search("^.", "cWz")
     execute "normal! vg`'"
 endfunction

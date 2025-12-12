@@ -1,0 +1,1 @@
+setlocal bufhidden=delete

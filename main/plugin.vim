@@ -202,7 +202,9 @@ if s:vim_weight >= 3
     " Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     " Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
     Plug 'mhinz/vim-lookup'                             " Jump to the definition of variables or functions in VimL code.
-    Plug 'github/copilot.vim'
+    " Plug 'github/copilot.vim'
+    Plug 'Exafunction/windsurf.vim'
+    " Plug 'gergap/vim-ollama'
 
     " ============== Function ==============
     Plug 'hanleylee/vim-renamer', {'dir': '$HANLEY_VIMS/vim-renamer'}

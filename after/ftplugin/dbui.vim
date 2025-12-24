@@ -3,7 +3,4 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-setlocal bufhidden=delete
-setlocal colorcolumn=
-setlocal nowrap
 nnoremap <buffer> <F2>  :DBUIToggle<CR>

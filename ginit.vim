@@ -20,10 +20,10 @@ if g:is_in_macvim_gui " 位于 macvim 的 gui 模式下
     "   endif
     " endif
     set encoding=utf-8                            " MacVim: use UTF-8 everywhere.
-    set guifont=FiraCode\ Nerd\ Font\ Mono:h15          " 设置 GUI 下字体及大小
+    set guifont=FiraCode\ Nerd\ Font\ Mono:h16          " 设置 GUI 下字体及大小
     " set guifont=Iosevka\ Nerd\ Font:h16         " 设置 GUI 下字体及大小
     " set guifontwide=Microsoft\ YaHei:h14          " 设置 GUI 下中文字体及大小
-    set guifontwide=LXGW\ WenKai\ Mono:h15          " 设置 GUI 下中文字体及大小
+    set guifontwide=LXGW\ WenKai\ Mono:h16          " 设置 GUI 下中文字体及大小
     set guicursor+=a:blinkon0                     " 设置光标不闪动
     " set guioptions-=e                             " When 'e' is missing a non-GUI tab pages line may be used.
     set guioptions-=T                             " MacVim: hide toolbar.

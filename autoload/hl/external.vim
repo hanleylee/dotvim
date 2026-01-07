@@ -153,7 +153,8 @@ endfunction
 " Get output of a command
 function! hl#external#GetOutput(cmd)
     if a:cmd =~ '^!'
-        let output = system(matchstr(a:cmd, '^!\zs.*'))
+        let output_list = systemlist(matchstr(a:cmd, '^!\zs.*'))
+        let output = join(output_list, "\n")
     else
         redir => output
         silent execute a:cmd
@@ -171,7 +172,8 @@ function! hl#external#Redir(cmd)
         endif
     endfor
     if a:cmd =~ '^!'
-        let output = system(matchstr(a:cmd, '^!\zs.*'))
+        let output_list = systemlist(matchstr(a:cmd, '^!\zs.*'))
+        let output = join(output_list, "\n")
     else
         redir => output
         execute a:cmd

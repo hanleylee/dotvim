@@ -52,6 +52,7 @@ command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
 command! -range=% FormatCN let s:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(s:view)
 command! -range=% RmTrailingSpace let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(s:view)
 command! -range=% RmEmptyLine let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_empty_line() | call winrestview(s:view)
+command! -range=% MergeEmptyLine let s:view = winsaveview() | <line1>,<line2>s/\n\{3,}/\r\r/ | call winrestview(s:view)
 command! MergeMD call hl#markdown#merge_md()
 command! ConvertUnixUtf8 call hl#util#ConvertUnixUtf8()
 " command -range=% -bar TWS <line1>,<line2>s/\s\+$//|nohls|normal ``

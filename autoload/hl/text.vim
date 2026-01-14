@@ -71,13 +71,40 @@ endfunction
 " url encode
 function! hl#text#url_encode(str) abort
     " iconv trick to convert utf-8 bytes to 8bits indiviual char.
-    return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
+    " return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
+    let result = ""
+    for i in range(len(a:str))
+        let char = a:str[i]
+        if char =~# '[A-Za-z0-9_.~-]'
+            let result .= char
+        else
+            let result .= printf("%%%02X", char2nr(char))
+        endif
+    endfor
+    return result
 endfunction
 
 " url decode
 function! hl#text#url_decode(str) abort
-    let str = substitute(substitute(substitute(a:str,'%0[Aa]\n$','%0A',''),'%0[Aa]','\n','g'),'+',' ','g')
-    return iconv(substitute(str,'%\(\x\x\)','\=nr2char("0x".submatch(1))','g'), 'utf-8', 'latin1')
+    " let str = substitute(substitute(substitute(a:str,'%0[Aa]\n$','%0A',''),'%0[Aa]','\n','g'),'+',' ','g')
+    " return iconv(substitute(str,'%\(\x\x\)','\=nr2char("0x".submatch(1))','g'), 'utf-8', 'latin1')
+    let result = ""
+    let i = 0
+    while i < len(a:str)
+        let char = a:str[i]
+        if char ==# '%' && i + 2 < len(a:str)
+            let hex = a:str[i+1] . a:str[i+2]
+            let result .= nr2char(str2nr(hex, 16))
+            let i += 3
+        elseif char ==# '+'
+            let result .= ' '
+            let i += 1
+        else
+            let result .= char
+            let i += 1
+        endif
+    endwhile
+    return result
 endfunction
 
 function! hl#text#string_encode(str) abort

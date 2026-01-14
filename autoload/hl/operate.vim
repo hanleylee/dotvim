@@ -155,20 +155,6 @@ function! hl#operate#extract_with_string(left_str, right_str)
 endfunction
 
 " 对 JSON 数据进行转义
-func! hl#operate#UnescapeJSON()
-    setf json
-    " MARK: method 1: use sed
-    " sed -e 's/\\\"/\"/g' -e 's/^.//g' -e 's/.$//g'
-    " MARK: method 2: use vim regex
-    " %s/\\"/"/g
-    " %s/^.//g
-    " %s/.$//g
-    " Autoformat
-    " MARK: method 3: use jq
-    %!jq '. | fromjson' --indent 4
-endfunc
-
-" 对 JSON 数据进行去除转义
 func! hl#operate#EscapeJSON()
     " MARK: method 1: use vim regrex
     " %s/"/\\"/g
@@ -185,6 +171,20 @@ func! hl#operate#EscapeJSON()
     " MARK: method 2: use jq(4)
     %!jq '. | tojson'
 
+endfunc
+
+" 对 JSON 数据进行去除转义
+func! hl#operate#UnescapeJSON()
+    setf json
+    " MARK: method 1: use sed
+    " sed -e 's/\\\"/\"/g' -e 's/^.//g' -e 's/.$//g'
+    " MARK: method 2: use vim regex
+    " %s/\\"/"/g
+    " %s/^.//g
+    " %s/.$//g
+    " Autoformat
+    " MARK: method 3: use jq
+    %!jq '. | fromjson' --indent 4
 endfunc
 
 

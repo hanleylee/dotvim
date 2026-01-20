@@ -53,10 +53,13 @@ endif
 
 call plug#begin('$HOME/.vim/plugged')
 
+if g:is_in_gitcommit
+    Plug 'skywind3000/vim-gpt-commit'
+endif
+
 " MARK: level v1, only for fast browse {{{
 if s:vim_weight == 1
     Plug 'skywind3000/vim-auto-popmenu'
-    " Plug 'skywind3000/vim-gpt-commit'
 endif
 
 if s:vim_weight >= 1

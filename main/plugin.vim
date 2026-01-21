@@ -54,7 +54,7 @@ endif
 call plug#begin('$HOME/.vim/plugged')
 
 if g:is_in_gitcommit
-    Plug 'skywind3000/vim-gpt-commit'
+    Plug 'hanleylee/vim-gpt-commit'
 endif
 
 " MARK: level v1, only for fast browse {{{

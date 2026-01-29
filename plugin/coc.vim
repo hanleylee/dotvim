@@ -49,7 +49,6 @@ let g:coc_global_extensions = [
             \ 'coc-rust-analyzer',
             \ 'coc-snippets',
             \ 'coc-solargraph',
-            \ 'coc-sourcekit',
             \ 'coc-syntax',
             \ 'coc-tag',
             \ 'coc-tsserver',
@@ -61,6 +60,7 @@ let g:coc_global_extensions = [
             \ '@yaegassy/coc-marksman',
             \ ]
             " \ 'coc-yank',
+            " \ 'coc-sourcekit',
 
 let g:coc_disable_file_types = [
             \'log',

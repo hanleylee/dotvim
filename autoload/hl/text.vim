@@ -135,17 +135,3 @@ function! hl#text#xml_encode(str) abort
     let str = substitute(str,"'",'\&apos;','g')
     return str
 endfunction
-
-" replace surge rule {{{
-function! s:ReplaceSurgeRule(key,val)
-    let substitutedContent = substitute(a:val, ' =.*$', '', '')
-    return substitutedContent
-endfunction
-
-function! hl#text#format_surge_rule() range
-    let content = getline(a:firstline, a:lastline)
-
-    let mapedLines = map(content, function('s:ReplaceSurgeRule'))
-    let @0 = join(mapedLines, ',')
-endfunction
-"}}}

@@ -47,7 +47,7 @@ cabbrev delview <C-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'DelView' : 'delvie
 " Format {{{
 command! -range=% GeneralFormat let s:view = winsaveview() | <line1>,<line2> call hl#format#general() | call winrestview(s:view)
 command! FormatObjectMapper call hl#format#objectmapper()
-command! -range FormatSurgeRule '<,'> call hl#text#format_surge_rule()
+command! -range=% FormatAssSubtitleFont let s:view = winsaveview() | silent! <line1>,<line2> call hl#format#ass_subtitle_font() | call winrestview(s:view)
 " command! -range=% -nargs=0 FormatCN silent! <line1>,<line2> call hl#format#cn()
 command! -range=% FormatCN let s:view = winsaveview() | silent! <line1>,<line2> call hl#format#cn() | call winrestview(s:view)
 command! -range=% RmTrailingSpace let s:view = winsaveview() | silent! <line1>,<line2> call hl#operate#remove_trailing_space() | call winrestview(s:view)

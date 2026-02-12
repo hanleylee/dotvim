@@ -39,12 +39,10 @@ function! hl#format#cn() range
     let regex_list = add(regex_list, '/」/** /g')
 
     " 汉字在前, 英文/数字在后, 中间添加空格
-    " let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\]\)/\1 \2/g')
-    let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3040-\u30FF]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+\/\\]\)/\1 \2/g')
+    let regex_list = add(regex_list, '/\([\u4e00-\u9fff\u3400-\u4dbf]\)\([a-zA-Z0-9@&=\[\$\%\^\-\+\/\\]\)/\1 \2/g')
 
     " 英文/数字在前, 汉字在后, 中间添加空格
-    " let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\?\$\%\^\-\+\)\/\\]\)\([\u4e00-\u9fff\u3040-\u30FF]\)/\1 \2/g')
-    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\?\$\%\^\-\+\\]\)\([\u4e00-\u9fff\u3040-\u30FF]\)/\1 \2/g')
+    let regex_list = add(regex_list, '/\([a-zA-Z0-9!&;=\]\,\.\?\$\%\^\-\+\\]\)\([\u4e00-\u9fff\u3400-\u4dbf]\)/\1 \2/g')
 
     for pattern in regex_list
         execute a:firstline . "," . a:lastline . " substitute " . pattern
@@ -58,3 +56,14 @@ function! hl#format#objectmapper()
     %s /^.* \(.*\):.*/    \1 <- map["\1"]/ge
 endfunction
 "}}}
+
+function! hl#format#ass_subtitle_font() range
+    let regex_list = []
+    let regex_list = add(regex_list, '/\\fn\zs[\u4e00-\u9fff].\{-}\ze\\/Microsoft YaHei/g')
+    let regex_list = add(regex_list, '/^Style:\s\?.\{-},\zs[\u4e00-\u9fff\u3400-\u4dbf].\{-}\ze,/Microsoft YaHei/g')
+
+
+    for pattern in regex_list
+        execute a:firstline . "," . a:lastline . " substitute " . pattern
+    endfor
+endfunction

@@ -16,19 +16,15 @@ augroup Enter
     au VimEnter * if g:is_in_gui | cd $HKMS | endif
 augroup END
 "}}}
-augroup BufEnter1
-    autocmd!
-    if hl#plug_loaded('nerdtree')
-        " Exit Vim if NERDTree is the only window remaining in the only tab.
-        autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-        " Close the tab if NERDTree is the only window remaining in it.
-        autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-    endif
-augroup END
 
 augroup ReadPost1
     autocmd!
     au BufWinEnter * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
+augroup END
+
+augroup HLLargeFileDiskOpts
+    autocmd!
+    autocmd BufReadPost,BufEnter,BufNewFile * call hl#fs#disable_backup_swap_undo_for_large_file()
 augroup END
 
 augroup JSHighlight

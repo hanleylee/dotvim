@@ -85,3 +85,32 @@ function! hl#fs#resolveFilePath(relative_path)
     " 6. If not found, return the unresolved path with an error
     return ''
 endfunction
+
+" 判断当前缓冲区是否视为「大文件」（行数、当前行宽或磁盘占用超过阈值）。
+function! hl#fs#isLargeFile() abort
+    let max_line = get(g:, 'large_file_line', 50000)
+    let max_column = get(g:, 'large_file_column', 100000)
+    let max_size = get(g:, 'large_file_size', 5 * 1024 * 1024)
+
+    let total_line = line('$')
+    let total_column = col('$')
+    let file_size = getfsize(expand('%'))
+
+    if total_line > max_line
+        return 1
+    endif
+    if total_column > max_column
+        return 1
+    endif
+    if file_size == -2 || file_size > max_size
+        return 1
+    endif
+    return 0
+endfunction
+
+" 按 isLargeFile() 调整当前缓冲区：大文件关闭 backup / swap / 持久化 undo，否则恢复为全局默认。
+function! hl#fs#disable_backup_swap_undo_for_large_file() abort
+    if hl#fs#isLargeFile()
+        setlocal nobackup nowritebackup noswapfile noundofile
+    endif
+endfunction

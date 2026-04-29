@@ -26,6 +26,11 @@ let g:is_hanley = match(hostname(), 'hanley') != -1
 let g:is_in_gitcommit = exists('$GIT_EDITOR') || exists('$GIT_PREFIX')
 let g:enable_auto_im = g:is_mac
 
+" hl#fs#isLargeFile 等：超过则视为大文件（行数、当前行宽、文件字节数）
+let g:large_file_line = 50000
+let g:large_file_column = 100000
+let g:large_file_size = 5 * 1024 * 1024 " byte，5 MB
+
 let g:skipview_files = [
             \ '[EXAMPLE PLUGIN BUFFER]'
             \ ]

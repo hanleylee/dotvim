@@ -108,9 +108,31 @@ function! hl#fs#isLargeFile() abort
     return 0
 endfunction
 
-" 按 isLargeFile() 调整当前缓冲区：大文件关闭 backup / swap / 持久化 undo，否则恢复为全局默认。
-function! hl#fs#disable_backup_swap_undo_for_large_file() abort
-    if hl#fs#isLargeFile()
-        setlocal nobackup nowritebackup noswapfile noundofile
+" 刷新当前缓冲区大文件状态缓存。
+function! hl#fs#refresh_large_file_flag() abort
+    let b:hl_is_large_file = hl#fs#isLargeFile()
+    return b:hl_is_large_file
+endfunction
+
+" 读取当前缓冲区大文件状态缓存，不存在时自动计算。
+function! hl#fs#is_large_file_cached() abort
+    if !exists('b:hl_is_large_file')
+        return hl#fs#refresh_large_file_flag()
     endif
+    return b:hl_is_large_file
+endfunction
+
+" 按大文件状态调整当前缓冲区：大文件关闭 backup / swap / 持久化 undo，否则恢复为全局默认。
+function! hl#fs#disable_backup_swap_undo_for_large_file() abort
+    if hl#fs#is_large_file_cached()
+        setlocal nobackup nowritebackup noswapfile noundofile
+    else
+        setlocal backup< writebackup< swapfile< undofile<
+    endif
+endfunction
+
+" 统一应用大文件策略（刷新缓存并应用 buffer 级选项）。
+function! hl#fs#apply_large_file_policy() abort
+    call hl#fs#refresh_large_file_flag()
+    call hl#fs#disable_backup_swap_undo_for_large_file()
 endfunction

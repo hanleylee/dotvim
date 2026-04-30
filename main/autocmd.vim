@@ -22,9 +22,15 @@ augroup ReadPost1
     au BufWinEnter * if line("'\"") > 1 && line("'\"") <= line("$") | exec "normal! g`\"" | endif "自动跳转到上次退出的位置
 augroup END
 
+" 统一应用大文件策略（刷新缓存并应用 buffer 级选项）。
+function! s:ApplyLargeFilePolicy() abort
+    call hl#fs#refresh_large_file_flag()
+    call hl#fs#disable_backup_swap_undo_for_large_file()
+endfunction
+
 augroup HLLargeFileDiskOpts
     autocmd!
-    autocmd BufReadPost,BufEnter,BufNewFile * call hl#fs#disable_backup_swap_undo_for_large_file()
+    autocmd BufReadPost,BufEnter,BufNewFile * call s:ApplyLargeFilePolicy()
 augroup END
 
 augroup JSHighlight
@@ -145,13 +151,7 @@ endif
 
 if hl#plug_loaded('vim-gitgutter')
     function! DisableGitgutterForLargeFile()
-        let total_line = line('$')
-        let total_column = col('$')
-        let file_size = getfsize(expand('%'))
-
-        if (total_line > g:gitgutter_max_acceptable_line)
-                    \ || (total_column > g:gitgutter_max_acceptable_column)
-                    \ || (file_size> g:gitgutter_max_acceptable_size || file_size == -2)
+        if hl#fs#is_large_file_cached()
             execute 'GitGutterBufferDisable'
         endif
     endfunction

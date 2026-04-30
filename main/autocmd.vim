@@ -13,7 +13,7 @@ augroup END
 " Enter{{{
 augroup Enter
     autocmd!
-    au VimEnter * if g:is_in_gui | cd $HKMS | endif
+    au VimEnter * if g:is_in_gui && isdirectory(expand('$HKMS')) | execute 'cd ' . fnameescape(expand('$HKMS')) | endif
 augroup END
 "}}}
 

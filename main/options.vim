@@ -70,7 +70,12 @@ set noswapfile " for personal use, I don't want use swap file
 " - install Python 3.10 via homebrew,
 " - or point pythonthreedll to a valid path.
 " set pythonthreedll=/opt/homebrew/Frameworks/Python.framework/Versions/3.11/lib/libpython3.11.dylib
-let &pythonthreedll = trim(system("pyenv which python"))
+if executable('pyenv')
+    let s:py_exec = trim(system("pyenv which python"))
+    if v:shell_error == 0 && filereadable(s:py_exec)
+        let &pythonthreedll = s:py_exec
+    endif
+endif
 " 如果仅是下载并解压程序包(而不是进行安装), 那么同时需要设置 pythonthreehome 选项
 " set pythonthreehome=/opt/homebrew/Frameworks/Python.framework/Versions/Current
 set mouse+=a " mouse enable for all modes

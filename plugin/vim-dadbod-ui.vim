@@ -7,7 +7,12 @@ if !hl#plug_loaded('vim-dadbod-ui')
     finish
 endif
 
-let g:db_ui_save_location = expand('$HL_REPO/database/db_ui_queries')
+let s:db_ui_save_location = expand('$HL_REPO/database/db_ui_queries')
+if !isdirectory(s:db_ui_save_location)
+    let s:db_ui_save_location = expand('$HOME/.cache/vim/db_ui_queries')
+endif
+call GuardExistDirectory(s:db_ui_save_location)
+let g:db_ui_save_location = s:db_ui_save_location
 let g:db_ui_execute_on_save = 0
 let g:dbs = [
             \ {'name': 'MongoDB', 'url': 'mongodb://127.0.0.1:27017'},

@@ -3,9 +3,9 @@
 " GitHub: https://github.com/hanleylee
 " License:  MIT License
 
-" let $VIM_CONFIG=expand('$HOME/.vim')
+let $VIM_CONFIG = resolve(expand('<sfile>:p:h:h'))
 let $HKMS=expand('$HOME/repo/hkms')
-let $HANLEY_VIMS=expand('$HOME/.vim/hanleylee')
+let $HANLEY_VIM_LIBS=expand('$VIM_CONFIG/hanleylee')
 let g:snips_author = 'Hanley Lee'
 let g:hl_rootmarkers = split($ROOTMARKERS_STR, ' ')
 

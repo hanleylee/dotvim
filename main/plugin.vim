@@ -83,7 +83,7 @@ if s:vim_weight >= 1
         Plug 'Yggdroot/indentLine'           " 显示缩进线
     endif
     Plug 'andymass/vim-matchup'          " 高亮括号, use 'vi%' can visual select content inside paird symbols
-    Plug 'hanleylee/vim-togglecursor', {'dir': '$HANLEY_VIMS/vim-togglecursor'}
+    Plug 'hanleylee/vim-togglecursor', {'dir': '$HANLEY_VIM_LIBS/vim-togglecursor'}
     if has('patch-9.1.1228')
         packadd! hlyank
     endif
@@ -93,8 +93,8 @@ if s:vim_weight >= 1
     " Plug 'tpope/vim-projectionist'  " 在头文件与本文件之间跳转
     Plug 'rhysd/conflict-marker.vim'
     Plug 'ojroques/vim-oscyank', {'branch': 'main'}
-    Plug 'hanleylee/hlvimlib', {'dir': '$HANLEY_VIMS/hlvimlib'}
-    Plug 'hanleylee/vim-alternate', {'dir': '$HANLEY_VIMS/vim-alternate'}
+    Plug 'hanleylee/hlvimlib', {'dir': '$HANLEY_VIM_LIBS/hlvimlib'}
+    Plug 'hanleylee/vim-alternate', {'dir': '$HANLEY_VIM_LIBS/vim-alternate'}
     Plug 'skywind3000/vim-dict'
     if has('terminal')
         Plug 'voldikss/vim-floaterm'
@@ -129,10 +129,10 @@ if s:vim_weight >= 1
     Plug 'thecodesmith/vim-groovy'      " for groovy
     " Plug 'peterhoeg/vim-qml'
     Plug 'MTDL9/vim-log-highlighting'
-    Plug 'hanleylee/vim-gitignore', {'dir': '$HANLEY_VIMS/vim-gitignore'}
-    Plug 'hanleylee/vim-taskpaper', {'dir': '$HANLEY_VIMS/vim-taskpaper'}
-    Plug 'hanleylee/vim-markdown', {'dir': '$HANLEY_VIMS/vim-markdown'}
-    Plug 'hanleylee/vim-rst', {'dir': '$HANLEY_VIMS/vim-rst'}
+    Plug 'hanleylee/vim-gitignore', {'dir': '$HANLEY_VIM_LIBS/vim-gitignore'}
+    Plug 'hanleylee/vim-taskpaper', {'dir': '$HANLEY_VIM_LIBS/vim-taskpaper'}
+    Plug 'hanleylee/vim-markdown', {'dir': '$HANLEY_VIM_LIBS/vim-markdown'}
+    Plug 'hanleylee/vim-rst', {'dir': '$HANLEY_VIM_LIBS/vim-rst'}
     " Plug 'habamax/vim-rst'
     " Plug 'Stormherz/tablify'
     " Plug 'mrsipan/vim-rst'
@@ -170,7 +170,7 @@ if s:vim_weight >= 2
     " 'https://hanleylee.com'
     " see cheat sheet: https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     Plug 'wellle/targets.vim'
-    Plug 'hanleylee/vim-blockmove', {'dir': '$HANLEY_VIMS/vim-blockmove'}
+    Plug 'hanleylee/vim-blockmove', {'dir': '$HANLEY_VIM_LIBS/vim-blockmove'}
     Plug 'godlygeek/tabular'                            " 文本对齐, 使用 :Tabularize /= 可以等号对齐多行
     Plug 'dhruvasagar/vim-table-mode'                   " 自动表格, 使用`\tm` 就进入了表格模式, 会进行自动对齐
     Plug 'bootleq/vim-cycle'                            " yes => no => yes, January => February => March, trUe => faLse, ' => '', <em>important</em> => <strong>important</strong>
@@ -181,8 +181,8 @@ if s:vim_weight >= 2
     " ============== Function ==============
     Plug 'simnalamburt/vim-mundo'                   " show operation history for undo
     Plug 'Chiel92/vim-autoformat'                   " 自动格式化文档
-    Plug 'hanleylee/vim-stconvert', {'dir': '$HANLEY_VIMS/vim-stconvert'}
-    Plug 'hanleylee/vim-cocoapods', {'dir': '$HANLEY_VIMS/vim-cocoapods'}
+    Plug 'hanleylee/vim-stconvert', {'dir': '$HANLEY_VIM_LIBS/vim-stconvert'}
+    Plug 'hanleylee/vim-cocoapods', {'dir': '$HANLEY_VIM_LIBS/vim-cocoapods'}
     Plug 'mattn/emmet-vim'
     " Plug 'romainl/vim-qf' " vim discourages plugins from altering window layouts in autocommands or even timers.
     Plug 'easymotion/vim-easymotion'                    " 空格任意跳转
@@ -200,7 +200,7 @@ if s:vim_weight >= 3
     " Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'cc48178cb7a827b40b50b804fe1d3c4671ad1126'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'commit': '2ad659d8b1a3d7bef7dca7d33c6ab9363a729100', 'do': 'yarn install --frozen-lockfile'}
     " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-    Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install', 'dir': '$HANLEY_VIMS/coc-gitcomp'}
+    Plug 'hanleylee/coc-gitcomp', {'do': 'yarn install', 'dir': '$HANLEY_VIM_LIBS/coc-gitcomp'}
     " Plug 'github/copilot.vim'
     " Plug 'ludovicchabant/vim-gutentags'                 " 根据 ctags 或 gtags 生成 tags 进行使用, 自动管理
     " Plug 'skywind3000/gutentags_plus'                   " 提供 cs 相关快捷键及多项目切换自动断开数据库功能
@@ -210,8 +210,8 @@ if s:vim_weight >= 3
     " Plug 'gergap/vim-ollama'
 
     " ============== Function ==============
-    Plug 'hanleylee/vim-renamer', {'dir': '$HANLEY_VIMS/vim-renamer'}
-    Plug 'hanleylee/vim-asciiart', {'dir': '$HANLEY_VIMS/vim-asciiart'}
+    Plug 'hanleylee/vim-renamer', {'dir': '$HANLEY_VIM_LIBS/vim-renamer'}
+    Plug 'hanleylee/vim-asciiart', {'dir': '$HANLEY_VIM_LIBS/vim-asciiart'}
     " Plug 'vim-scripts/DrawIt', {'for': 'asciiart'} " for debug
     " Plug 'gyim/vim-boxdraw' 
     Plug 'skywind3000/vim-quickui'

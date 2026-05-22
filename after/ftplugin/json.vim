@@ -4,8 +4,10 @@
 " License:  MIT License
 
 let total_line = line('$')
-if (total_line < 100000)
+if (total_line < 10000)
     setlocal foldmethod=syntax
+else
+    setlocal foldmethod=manual
 endif
 " nmap <silent><buffer> <S-Tab> zA
 

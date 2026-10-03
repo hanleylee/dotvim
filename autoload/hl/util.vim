@@ -113,8 +113,12 @@ function! hl#util#AutoIM(event)
     if a:event == 'leave'
         call hl#external#RunJobCaptureResult(['macism'], 'b:pre_insert_im')
         call hl#external#RunJob(['macism', 'com.apple.keylayout.ABC'])
+        " call system('macism com.apple.keylayout.ABC')
+            " execute '!macism com.apple.keylayout.ABC'
     else " a:event == 'enter'
         if exists('b:pre_insert_im')
+
+            " execute '!macism ' . b:pre_insert_im
             call hl#external#RunJob(['macism', b:pre_insert_im])
             " call system('macism ' . b:pre_insert_im)
         endif
